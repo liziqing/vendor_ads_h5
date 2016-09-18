@@ -1,0 +1,12 @@
+node_modules
+node_modules/*
+*.project
+.idea/*
+.idea/.name
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/super_mammy_h5.iml
+.idea/vcs.xml
+.idea/workspace.xml
+.idea/libraries/super_mammy_h5_node_modules.xml
