@@ -46,7 +46,7 @@ html,body{
                 }
 
                 .cloud_1{
-                    position: fixed;
+                    position: absolute;
                     top: -2rem;
                     left: 0;
                     width: 100%;
@@ -54,7 +54,7 @@ html,body{
                 }
 
                 .cloud_2{
-                    position: fixed;
+                    position: absolute;
                     top: -2rem;
                     left: 0;
                     width: 100%;
@@ -62,7 +62,7 @@ html,body{
                 }
 
                 .loading-text{
-                    position: fixed;
+                    position: absolute;
                     top: 5rem;
                     left: 0;
                     width: 100%;
@@ -371,6 +371,95 @@ html,body{
                         background: url("../img/category/category_3_background.png") center center no-repeat;
                         background-size: 100% 100%;
                         text-align: center;
+                    }
+
+                }
+
+            }
+
+            #video{
+
+                .video-background{
+                    width: 100%;
+                    height: 100%;
+                    background: url("../img/loading/loading_background.png") center center no-repeat;
+                    background-size: 100% 100%;
+                    text-align: center;
+                    -webkit-filter: blur(3px);
+                    -moz-filter: blur(3px);
+                    -ms-filter: blur(3px);
+                    filter: blur(3px);
+
+                    .cloud_1{
+                        position: absolute;
+                        top: -2rem;
+                        left: 0;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    .cloud_2{
+                        position: absolute;
+                        top: -2rem;
+                        left: 0;
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+
+                .video-container{
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 20;
+
+                    .video-container-overlay{
+                        width: 100%;
+                        height: 100%;
+                        background-color: #000;
+                        opacity: 0.6;
+                    }
+
+                    .close_btn{
+                        display: inline-block;
+                        width: 2.7rem;
+                        height: 2rem;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        background: url("../img/video/close_btn.png") center center no-repeat;
+                        background-size: 1.1rem 1.1rem;
+                        
+                    }
+
+                    .logo{
+                        width: 100%;
+                        height: 2.2rem;
+                        background: url("../img/video/video_logo.png") center center no-repeat;
+                        background-size: auto 100%;
+                        position: absolute;
+                        top: 2.7rem;
+                        left: 0;
+                    }
+
+                    .video-text{
+                        width: 100%;
+                        height: 1.7rem;
+                        background: url("../img/video/video_text.png") center center no-repeat;
+                        background-size: auto 100%;
+                        position: absolute;
+                        bottom: 4.5rem;
+                        left: 0;
+                    }
+
+                    #WxMomentVideo{
+                        position: absolute;
+                        width: 100%;
+                        height: 7rem;
+                        top: 6rem;
+                        left: 0;
                     }
 
                 }

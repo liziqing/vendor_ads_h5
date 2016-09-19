@@ -12,6 +12,7 @@ define(function (require) {
     var template = require('template');
     var $ = require('jquery');
     var swiper = require('swiper');
+    var WxMoment = require('WxMoment');
 
     $(function () {
 
@@ -20,6 +21,32 @@ define(function (require) {
             effect: 'fade',
             noSwiping: true,
             noSwipingClass: 'no-swiping'
+        });
+
+        var video = new WxMoment.Video({
+            //请联系接口人确认视频清晰度已调至高清版本
+            //如果要定制“播放按钮”的样式，请使用 CSS 覆盖 .tvp_overlay_play 和 .tvp_button_play 即可
+
+            vid: "w0329uymzeq", //视频 vid 取自视频地址：http://v.qq.com/page/a/t/t/a0016gys8ct.html
+            pic: "https://wximg.qq.com/tmt/_demo/wxmoment/img/video-thumb.jpg", //设置视频默认缩略图
+            oninited: function oninited() {
+                //播放器在视频载入完毕触发
+            },
+            onplaying: function onplaying() {
+                //播放器真正开始播放视频第一帧画面时
+            },
+            onpause: function onpause() {
+                //播放器触发暂停时，目前只针对HTML5播放器有效
+            },
+            onresume: function onresume() {
+                //暂停后继续播放时触发
+            },
+            onallended: function onallended() {
+                //播放器播放完毕时
+            },
+            onfullscreen: function onfullscreen(isfull) {
+                //onfullscreen(isfull) 播放器触发全屏/非全屏时，参数isfull表示当前是否是全屏
+            }
         });
 
         /***
@@ -33,7 +60,7 @@ define(function (require) {
             $('.loaded-in').fadeIn();
 
             //开发
-            mySwiper.slideTo(2);
+            // mySwiper.slideTo(4);
         });
 
         $("#loading .loading-text").on('click', function () {
@@ -47,9 +74,13 @@ define(function (require) {
             mySwiper.slideTo(2);
         });
 
-        $("#main .film-btn").on('click', function () {});
+        $("#main .film-btn").on('click', function () {
+            mySwiper.slideTo(4);
+        });
 
-        $("#main .talk-btn").on('click', function () {});
+        $("#main .talk-btn").on('click', function () {
+            mySwiper.slideTo(5);
+        });
 
         /***
          * menu

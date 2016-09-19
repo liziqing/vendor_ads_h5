@@ -1,5 +1,4 @@
 require.config({
-    baseUrl: '../js',
     paths: {
         'jquery': "../vendor/jquery/jquery-3.1.0",
         'template': "../vendor/arttemplate/template",
@@ -7,16 +6,13 @@ require.config({
         'base/env': "../vendor/base/env",
         'base/util': "../vendor/base/util",
         'base/wx': "../vendor/base/wx",
-        'swiper': "../vendor/swiper/swiper.jquery.min",
+        'swiper': "../vendor/swiper/swiper.min",
+        'WxMoment': "http://wximg.qq.com/wxp/libs/wxmoment/0.0.4/wxmoment.min",
     },
     shim: {
         'jquery': {
             exports: '$'
         },
-        'swiper': {
-            deps: ['jquery'],
-            exports: 'swiper'
-        }
     }
 
 });

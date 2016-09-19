@@ -49,7 +49,7 @@ body #screen .swiper-wrapper #loading .logo {
 }
 html #screen .swiper-wrapper #loading .cloud_1,
 body #screen .swiper-wrapper #loading .cloud_1 {
-  position: fixed;
+  position: absolute;
   top: -2rem;
   left: 0;
   width: 100%;
@@ -57,7 +57,7 @@ body #screen .swiper-wrapper #loading .cloud_1 {
 }
 html #screen .swiper-wrapper #loading .cloud_2,
 body #screen .swiper-wrapper #loading .cloud_2 {
-  position: fixed;
+  position: absolute;
   top: -2rem;
   left: 0;
   width: 100%;
@@ -65,7 +65,7 @@ body #screen .swiper-wrapper #loading .cloud_2 {
 }
 html #screen .swiper-wrapper #loading .loading-text,
 body #screen .swiper-wrapper #loading .loading-text {
-  position: fixed;
+  position: absolute;
   top: 5rem;
   left: 0;
   width: 100%;
@@ -367,4 +367,87 @@ body #screen .swiper-wrapper #category .category-container .category-page-3 {
   background: url("../img/category/category_3_background.png") center center no-repeat;
   background-size: 100% 100%;
   text-align: center;
+}
+html #screen .swiper-wrapper #video .video-background,
+body #screen .swiper-wrapper #video .video-background {
+  width: 100%;
+  height: 100%;
+  background: url("../img/loading/loading_background.png") center center no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+}
+html #screen .swiper-wrapper #video .video-background .cloud_1,
+body #screen .swiper-wrapper #video .video-background .cloud_1 {
+  position: absolute;
+  top: -2rem;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+html #screen .swiper-wrapper #video .video-background .cloud_2,
+body #screen .swiper-wrapper #video .video-background .cloud_2 {
+  position: absolute;
+  top: -2rem;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+html #screen .swiper-wrapper #video .video-container,
+body #screen .swiper-wrapper #video .video-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
+}
+html #screen .swiper-wrapper #video .video-container .video-container-overlay,
+body #screen .swiper-wrapper #video .video-container .video-container-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.6;
+}
+html #screen .swiper-wrapper #video .video-container .close_btn,
+body #screen .swiper-wrapper #video .video-container .close_btn {
+  display: inline-block;
+  width: 2.7rem;
+  height: 2rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url("../img/video/close_btn.png") center center no-repeat;
+  background-size: 1.1rem 1.1rem;
+}
+html #screen .swiper-wrapper #video .video-container .logo,
+body #screen .swiper-wrapper #video .video-container .logo {
+  width: 100%;
+  height: 2.2rem;
+  background: url("../img/video/video_logo.png") center center no-repeat;
+  background-size: auto 100%;
+  position: absolute;
+  top: 2.7rem;
+  left: 0;
+}
+html #screen .swiper-wrapper #video .video-container .video-text,
+body #screen .swiper-wrapper #video .video-container .video-text {
+  width: 100%;
+  height: 1.7rem;
+  background: url("../img/video/video_text.png") center center no-repeat;
+  background-size: auto 100%;
+  position: absolute;
+  bottom: 4.5rem;
+  left: 0;
+}
+html #screen .swiper-wrapper #video .video-container #WxMomentVideo,
+body #screen .swiper-wrapper #video .video-container #WxMomentVideo {
+  position: absolute;
+  width: 100%;
+  height: 7rem;
+  top: 6rem;
+  left: 0;
 }

@@ -94,8 +94,20 @@
                 </div>
             </div>
         </section>
-
-        <section class="swiper-slide no-swiping" id="video">video</section>
+        <!--  video  -->
+        <section class="swiper-slide no-swiping" id="video">
+            <div class="video-background">
+                <img class="cloud_1" src="./img/loading/cloud_1.png" />
+                <img class="cloud_2" src="./img/loading/cloud_2.png" />
+            </div>
+            <div class="video-container">
+                <div class="video-container-overlay"></div>
+                <i class="close_btn"></i>
+                <div class="logo"></div>
+                <div class="video-text"></div>
+                <div id="WxMomentVideo"></div>
+            </div>
+        </section>
         <section class="swiper-slide no-swiping" id="emoticon">emoticon</section>
 
 
@@ -104,11 +116,13 @@
 
 
 <!-- js -->
+
 <script src="../vendor/require/require.js" ></script>
 <script>
     require(['./js/main.js'], function (main) {
         require(['../pt_emoticon/js/pt_emoticon']);
     });
 </script>
+
 </body>
 </html>
