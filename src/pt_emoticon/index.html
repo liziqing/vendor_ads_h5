@@ -14,6 +14,7 @@
     <!-- style -->
     <link rel="stylesheet" href="../vendor/nomalize/nomalize.css" />
     <link rel="stylesheet" href="../vendor/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="../vendor/animate/animate.css" />
     <link rel="stylesheet" href="./css/pt_emoticon.css" />
 </head>
 <body>
@@ -39,18 +40,86 @@
                 </div>
             </div>
         </section>
+        <!--  menu  -->
+        <section class="swiper-slide no-swiping" id="menu">
+            <div class="menu-container">
+                <div class="logo-container">
+                    <img class="logo" src="./img/menu/menu_logo.png" />
+                </div>
+                <div class="category-container">
+                    <div class="category-item">
+                        <img class="category-img" src="./img/menu/category_1.png" />
+                    </div>
+                    <div class="category-item">
+                        <img class="category-img" src="./img/menu/category_2.png" />
+                    </div>
+                    <div class="category-item">
+                        <img class="category-img" src="./img/menu/category_3.png" />
+                    </div>
+                </div>
+                <footer class="btn-container">
+                    <i class="back-btn"></i>
+                </footer>
+            </div>
+        </section>
+        <!--  category  -->
+        <section class="swiper-slide no-swiping" id="category">
+            <div class="category-container">
+                <div class="category-page category-page-3">
+                    <header class="menu-container">
+                        <ul>
+                            <li class="jiezhi"></li>
+                            <li class="erhuan"></li>
+                            <li class="diaozhui"></li>
+                            <li class="shoulian"></li>
+                        </ul>
+                    </header>
+                    <div class="swiper-container" id="category-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./img/category/category_3_shoulian_1.png" /></div>
+                            <div class="swiper-slide"><img src="./img/category/category_3_shoulian_1.png" /></div>
+                            <div class="swiper-slide"><img src="./img/category/category_3_shoulian_1.png" /></div>
+                            <div class="swiper-slide"><img src="./img/category/category_3_shoulian_1.png" /></div>
+                        </div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                    <footer class="btn-container">
+                        <i class="share-btn"></i>
+                        <i class="back-btn"></i>
+                    </footer>
+                    <div class="share-overlay">
 
-        <section class="swiper-slide no-swiping" id="video">video</section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  video  -->
+        <section class="swiper-slide no-swiping" id="video">
+            <div class="video-background">
+                <img class="cloud_1" src="./img/loading/cloud_1.png" />
+                <img class="cloud_2" src="./img/loading/cloud_2.png" />
+            </div>
+            <div class="video-container">
+                <div class="video-container-overlay"></div>
+                <i class="close_btn"></i>
+                <div class="logo"></div>
+                <div class="video-text"></div>
+                <div id="WxMomentVideo"></div>
+            </div>
+        </section>
         <section class="swiper-slide no-swiping" id="emoticon">emoticon</section>
-        <section class="swiper-slide no-swiping" id="menu">menu</section>
-        <section class="swiper-slide no-swiping" id="item">item</section>
+
+
     </div>
 </div>
 
 
 <!-- js -->
-<script src="../vendor/jquery/jquery-3.1.0.min.js"></script>
+
+<script src="//wximg.qq.com/wxp/libs/wxmoment/0.0.4/wxmoment.min.js"></script>
 <script src="../vendor/swiper/swiper.jquery.min.js"></script>
 <script src="./js/pt_emoticon.js"></script>
+
 </body>
 </html>
