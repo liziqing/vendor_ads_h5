@@ -1,6 +1,6 @@
 require.config({
     paths: {
-        'jquery': "../vendor/jquery/jquery-3.1.0",
+        'jquery': "../vendor/jquery/jquery-3.1.0.min",
         'template': "../vendor/arttemplate/template",
         'wx': "http://res.wx.qq.com/open/js/jweixin-1.0.0",
         'base/env': "../vendor/base/env",
