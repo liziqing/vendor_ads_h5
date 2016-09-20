@@ -2,15 +2,6 @@
 * Created by martin on 16/9/8.
 */
 
-// const wx = require('wx');
-// const env = require('base/env');
-// const util = require('base/util');
-// const baseWx = require('base/wx');
-// const template = require('template');
-// const $ = require('jquery');
-// const swiper = require('swiper');
-// const WxMoment = require('WxMoment');
-
 $(function () {
 
     //初始化容器
@@ -20,8 +11,7 @@ $(function () {
         noSwipingClass: 'no-swiping',
     });
 
-
-    var video = new WxMoment.Video({
+    let video = new WxMoment.Video({
         //请联系接口人确认视频清晰度已调至高清版本
         //如果要定制“播放按钮”的样式，请使用 CSS 覆盖 .tvp_overlay_play 和 .tvp_button_play 即可
 
@@ -166,6 +156,16 @@ $(function () {
                 isShareFading = false;
             }, 750);
         }
+    });
+
+
+
+    /***
+     * video
+     * */
+    $("#video .close_btn").on('click', () => {
+        video.getPlayer().pause();
+        mySwiper.slideTo(1);
     });
 
 });

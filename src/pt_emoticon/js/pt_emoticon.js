@@ -4,15 +4,6 @@
 * Created by martin on 16/9/8.
 */
 
-// const wx = require('wx');
-// const env = require('base/env');
-// const util = require('base/util');
-// const baseWx = require('base/wx');
-// const template = require('template');
-// const $ = require('jquery');
-// const swiper = require('swiper');
-// const WxMoment = require('WxMoment');
-
 $(function () {
 
     //初始化容器
@@ -155,5 +146,13 @@ $(function () {
                 isShareFading = false;
             }, 750);
         }
+    });
+
+    /***
+     * video
+     * */
+    $("#video .close_btn").on('click', function () {
+        video.getPlayer().pause();
+        mySwiper.slideTo(1);
     });
 });
