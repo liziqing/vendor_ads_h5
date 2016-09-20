@@ -22,6 +22,8 @@ $(function(){
 
     var srWidth = screen.width;
     $('#WxMomentVideo').width(srWidth).height(srWidth*(9/16));
+    //$('.video-mask').css({'left':'0','top':srWidth*(9/16)})
+    $('.video-mask').show();
 
 
     $item.click(function(ev){
@@ -69,7 +71,7 @@ $(function(){
 
 
     var video = new WxMoment.Video({
-        vid: "p0021ehy1js",
+        vid: "a0016gys8ct",
         pic: "img/wechatfeeds/cover.png",
         oninited: function () {
             //console.log(0)
