@@ -5,7 +5,7 @@
 $(function(){
 
     var timer = null;
-    var $item = $('.swiper-slide .item');
+    var $item = $('.item');
     var $actPic = $('.act-pic');
 
     var itemWidth = $item.width() - 1;
@@ -25,15 +25,23 @@ $(function(){
 
 
     $item.click(function(ev){
+        console.info($(this))
+        console.info($(this).attr('data-count'))
         if($(this).attr('data-count') == '0'){
-            $(this).attr('data-count','1').siblings().attr('data-count','0').parent().siblings().find('.item').attr('data-count','0');
+
             var _thisLeft = $(this).offset().left;
             var _thisTop = $(this).offset().top;
             $actPic.show().width(itemWidth).height(itemWidth).css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px','line-height':itemWidth + 'px'}).attr('data-display','block').find('img').attr('src','img/wechatfeeds/' + $(this).attr('data-index') + '.gif').css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
+            $(this).attr('data-count','1');
         }else if($(this).attr('data-count') == '1'){
+
+            console.info("in 1")
             $actPic.hide();
             $(this).attr('data-count','0');
+
         }
+        $(this).siblings().attr('data-count','0');
+        $(this).parent().siblings().find('.item').attr('data-count','0')
         ev.stopPropagation();
     });
 
@@ -54,8 +62,7 @@ $(function(){
         prevButton: '.swiper-button-prev',
         direction:'vertical',
         spaceBetween: 1,
-        onTouchStart: function(swiper,even){
-            $item.attr('data-count','0');
+        onTouchMove: function(swiper){
             $('.act-pic').hide();
         }
     });
