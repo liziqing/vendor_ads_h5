@@ -5,11 +5,11 @@
 $(function(){
 
     var timer = null;
-    var $item = $('.item');
+    var $item = $('.swiper-slide .item');
+    var $actPic = $('.act-pic');
 
     var itemWidth = $item.width() - 1;
     $item.css('line-height',$item.height()/2 + 'px');
-    $('.act-pic').width(itemWidth).height(itemWidth).css({'line-height':itemWidth + 'px'});
 
     $('.close-video').click(function(ev){
         video.getPlayer().pause();
@@ -20,12 +20,20 @@ $(function(){
         },200)
     });
 
+    var srWidth = screen.width;
+    $('#WxMomentVideo').width(srWidth).height(srWidth*(9/16));
+
 
     $item.click(function(ev){
-        var _thisLeft = $(this).offset().left;
-        var _thisTop = $(this).offset().top;
-        $('.act-pic').show().css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px'}).addClass('artMove').find('img').attr('src','img/wechatfeeds/' + $(this).attr('data-index') + '.gif').css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
-
+        if($(this).attr('data-count') == '0'){
+            $(this).attr('data-count','1').siblings().attr('data-count','0').parent().siblings().find('.item').attr('data-count','0');
+            var _thisLeft = $(this).offset().left;
+            var _thisTop = $(this).offset().top;
+            $actPic.show().width(itemWidth).height(itemWidth).css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px','line-height':itemWidth + 'px'}).attr('data-display','block').find('img').attr('src','img/wechatfeeds/' + $(this).attr('data-index') + '.gif').css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
+        }else if($(this).attr('data-count') == '1'){
+            $actPic.hide();
+            $(this).attr('data-count','0');
+        }
         ev.stopPropagation();
     });
 
@@ -38,11 +46,6 @@ $(function(){
     });
 
 
-
-
-
-
-
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination-v',
         paginationClickable: true,
@@ -52,6 +55,7 @@ $(function(){
         direction:'vertical',
         spaceBetween: 1,
         onTouchStart: function(swiper,even){
+            $item.attr('data-count','0');
             $('.act-pic').hide();
         }
     });
@@ -88,8 +92,17 @@ $(function(){
     });
 
 
-
-
+    //
+    //ptShareConfig.init(function (data) {
+    //    wx.config({
+    //        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    //        appId: '', // 必填，公众号的唯一标识
+    //        timestamp: data.timestamp, // 必填，生成签名的时间戳
+    //        nonceStr: data.noncestr, // 必填，生成签名的随机串
+    //        signature: data.signature, // 必填，签名，见附录1
+    //        jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    //    });
+    //});
 
 
 });

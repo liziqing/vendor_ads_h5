@@ -92,7 +92,7 @@ gulp.task('pt_emoticon_uglify', function(){
 });
 
 gulp.task('wechatfeeds_uglify', function () {
-    return gulp.src(['./js/wechat.js','../vendor/swiper/swiper.jquery.min.js'])
+    return gulp.src(['./js/wechat.js','../vendor/swiper/swiper.jquery.min.js','../vendor/base/wxJsSdkConfig.js'])
         .pipe(uglify())
         .pipe(gulp.dest('../../dist/pt_emoticon/js'));
 });
