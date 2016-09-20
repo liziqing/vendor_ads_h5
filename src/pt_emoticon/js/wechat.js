@@ -12,17 +12,20 @@ $(function(){
     $item.css('line-height',$item.height()/2 + 'px');
 
     $('.close-video').click(function(ev){
+        $('.expression').addClass('show');
+
         video.getPlayer().pause();
         $('.video-page').addClass('hide');
         clearTimeout(timer);
         timer = setTimeout(function(){
             $('.video-page').hide();
         },200)
+
     });
 
     var srWidth = screen.width;
-    $('#WxMomentVideo').width(srWidth).height(srWidth*(9/16));
-    //$('.video-mask').css({'left':'0','top':srWidth*(9/16)})
+    $('#WxMomentVideo').width(srWidth).height(srWidth*(9/16)).show();
+    $('.video-mask').css({'left':'0','top':srWidth*(9/16)})
     $('.video-mask').show();
 
 
@@ -77,11 +80,12 @@ $(function(){
             //console.log(0)
             //播放器在视频载入完毕触发
 
-            $('.expression').addClass('show');
+
         },
         onplaying: function () {
             //console.log(1);
             //播放器真正开始播放视频第一帧画面时
+            $('.expression').addClass('show');
             $('.video-mask img').addClass('hide');
             $('.video-mask').addClass('hide');
 

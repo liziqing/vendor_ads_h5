@@ -13,6 +13,10 @@ html{
     font-size:20px;
 }
 
+/*body{*/
+    /*background-color:rgb(87,87,87);*/
+/*}*/
+
 .clearfix:after{
     content:'';
     display:block;
@@ -40,6 +44,7 @@ html{
 }
 
 #WxMomentVideo{
+    display: none;
     position: relative;
     -webkit-transition: 0.2s;
     -moz-transition: 0.2s;
@@ -50,7 +55,7 @@ html{
 
 .video-mask{
     display: none;
-    /*position: absolute;*/
+    position: absolute;
     width:100%;
     height:100%;
     background-color:rgb(87,87,87);
@@ -68,14 +73,11 @@ html{
 }
 
 .close-video{
-    position: absolute;
-    bottom:9vh;
-    left:50%;
-    margin-left:-40px;
     width:80px;
     height:30px;
+    margin:0 auto;
     line-height:30px;
-    margin-top:1rem;
+    margin-top:2rem;
     color:#ccc;
     font-size:0.6rem;
     text-align:center;
