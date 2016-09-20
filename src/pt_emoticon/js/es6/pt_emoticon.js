@@ -12,11 +12,9 @@ $(function () {
     });
 
     let video = new WxMoment.Video({
-        //请联系接口人确认视频清晰度已调至高清版本
-        //如果要定制“播放按钮”的样式，请使用 CSS 覆盖 .tvp_overlay_play 和 .tvp_button_play 即可
-
-        vid: "w0329uymzeq", //视频 vid 取自视频地址：http://v.qq.com/page/a/t/t/a0016gys8ct.html
+        vid: "p0021ehy1js",
         pic: "https://wximg.qq.com/tmt/_demo/wxmoment/img/video-thumb.jpg", //设置视频默认缩略图
+        isHtml5ControlAlwaysShow: true,
         oninited: function () {
             //播放器在视频载入完毕触发
         },
@@ -46,9 +44,6 @@ $(function () {
 
     //loading结束 首屏文字动画
     Pace.on('done', () => {
-        // $('.loaded-out').fadeOut();
-        // $('.loaded-in').fadeIn();
-
         $('.loaded-out').addClass('fadeOutOri animated-500');
         $(".loaded-in").css({'display':'inline-block','opacity': '0'});
         $('.loaded-in').addClass('fadeInOri animated-500');
@@ -167,6 +162,96 @@ $(function () {
         video.getPlayer().pause();
         mySwiper.slideTo(1);
     });
+
+
+
+
+
+    /***
+     * shareAction
+     * */
+    // let ptShareConfig = {
+    //     init: function (callback) {
+    //         this.getAccessToken(callback);
+    //     },
+    //     getAccessToken: function (callback) {
+    //         let _this = this;
+    //         $.ajax({
+    //             url: "http://ptcartoon.preciousplatinum.com.cn/CheckAll.ashx",
+    //             type: "get",
+    //             data: {
+    //                 actiontype: 'AT',
+    //             },
+    //             dataType: "jsonp",
+    //             jsonpCallback: 'atCallback',
+    //             success : (data) => {
+    //                 _this.getJsapiTicket(data.result, callback);
+    //             },
+    //             error: () => {
+    //                 alert('请求失败');
+    //             }
+    //         });
+    //     },
+    //     getJsapiTicket: function (PTAT, callback) {
+    //         let _this = this;
+    //         $.ajax({
+    //             url: "http://ptcartoon.preciousplatinum.com.cn/CheckAll.ashx",
+    //             type: "get",
+    //             data: {
+    //                 actiontype: 'JT',
+    //                 PTAT: PTAT,
+    //             },
+    //             dataType: "jsonp",
+    //             jsonpCallback: 'jsTicketCallback',
+    //             success : (data) => {
+    //                 //Jsapi_Ticket 有效期7200秒
+    //                 _this.calculateSignature(data.result, callback);
+    //             },
+    //             error: () => {
+    //                 alert('请求失败');
+    //             }
+    //         });
+    //     },
+    //     getRandomString: function (len) {
+    //     len = len || 32;
+    //         let $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
+    //         let maxPos = $chars.length;
+    //         let pwd = '';
+    //         for (let i = 0; i < len; i++) {
+    //             pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+    //         }
+    //         return pwd;
+    //     },
+    //     getTimeStamp: function () {
+    //         let tempTimeStamp = parseInt(new Date().getTime()/1000);
+    //         return tempTimeStamp;
+    //     },
+    //     calculateSignature: function (jsapi_ticket, callback) {
+    //         let JsapiTicket = jsapi_ticket;
+    //         let noncestr = this.getRandomString(16);
+    //         let timestamp = this.getTimeStamp();
+    //         let thisUrl = window.location.href.split("#")[0];
+    //         let resultStr = 'jsapi_ticket=' + JsapiTicket + '&noncestr=' + noncestr + '&timestamp=' + timestamp + '&url=' +thisUrl;
+    //         let signature = hex_sha1(resultStr);
+    //         let configData = {
+    //             timestamp: timestamp,
+    //             noncestr: noncestr,
+    //             signature: signature,
+    //         }
+    //         callback(configData);
+    //     },
+    // }
+    //
+    // ptShareConfig.init(function(data){
+    //     wx.config({
+    //         debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    //         appId: '', // 必填，公众号的唯一标识
+    //         timestamp: data.timestamp, // 必填，生成签名的时间戳
+    //         nonceStr: data.noncestr, // 必填，生成签名的随机串
+    //         signature: data.signature,// 必填，签名，见附录1
+    //         jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    //     });
+    // });
 
 });
 
