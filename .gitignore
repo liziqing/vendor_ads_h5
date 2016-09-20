@@ -10,3 +10,5 @@ node_modules/*
 .idea/vcs.xml
 .idea/workspace.xml
 .idea/libraries/super_mammy_h5_node_modules.xml
+src/*/node_modules
+src/*/node_modules/*

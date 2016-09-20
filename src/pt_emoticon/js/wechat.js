@@ -61,16 +61,17 @@ $(function(){
         vid: "i00184ka7lw",
         pic: "img/wechatfeeds/cover.png",
         oninited: function () {
-            console.log(0)
+            //console.log(0)
             //播放器在视频载入完毕触发
 
             $('.expression').addClass('show');
         },
         onplaying: function () {
-            console.log(1);
+            //console.log(1);
             //播放器真正开始播放视频第一帧画面时
             $('.video-mask img').addClass('hide');
             $('.video-mask').addClass('hide');
+
         },
         onpause: function () {
             //播放器触发暂停时，目前只针对HTML5播放器有效
@@ -87,7 +88,7 @@ $(function(){
     });
 
 
-    video.getPlayer().enterFullScreen();
+
 
 
 

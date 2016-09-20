@@ -17,6 +17,7 @@ var rev = require('gulp-rev');
 var plumber = require('gulp-plumber');
 var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
+var usemin = require('gulp-usemin');
 
 /**  pt_emoticon  **/
 
@@ -39,7 +40,7 @@ gulp.task('pt_emoticon_htmlmin', function() {
         .pipe(gulp.dest('../../dist/pt_emoticon/'));
 });
 gulp.task('wechatfeeds_htmlmin', function() {
-    return gulp.src('./wechat.html')
+    return gulp.src('../../dist/pt_emoticon/wechat.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('../../dist/pt_emoticon/'));
 });
@@ -76,8 +77,7 @@ gulp.task('pt_emoticon_cssmin', function(){
         .pipe(gulp.dest('../../dist/pt_emoticon/css'));
 });
 gulp.task('wechatfeeds_cssmin', function(){
-    return gulp.src(['../vendor/swiper/swiper.css','./css/wechat.css', ])
-        .pipe(concat('wechat.css'))
+    return gulp.src(['../../dist/pt_emoticon/css/wechat_all.min.css'])
         .pipe(cssmin())
         .pipe(gulp.dest('../../dist/pt_emoticon/css'));
 });
@@ -92,7 +92,7 @@ gulp.task('pt_emoticon_uglify', function(){
 });
 
 gulp.task('wechatfeeds_uglify', function () {
-    return gulp.src('./js/wechat.js')
+    return gulp.src(['./js/wechat.js','../vendor/swiper/swiper.jquery.min.js'])
         .pipe(uglify())
         .pipe(gulp.dest('../../dist/pt_emoticon/js'));
 });
@@ -110,6 +110,15 @@ gulp.task('pt_emoticon_babel', function(){
 
 /*-----------------------------------------------*/
 
+gulp.task('wechatfeeds_usemin', function () {
+    return gulp.src('./wechat.html')
+        .pipe(usemin({
+            js: [uglify()],
+
+            // in this case css will be only concatenated (like css: ['concat']).
+        }))
+        .pipe(gulp.dest('../../dist/pt_emoticon/'));
+});
 
 gulp.task('pt_emoticon_watch', gulp.series('pt_emoticon_babel', function() {
     gulp.watch('../src/pt_emoticon/js/es6/pt_emoticon.js', gulp.series('pt_emoticon_babel'));
@@ -124,7 +133,9 @@ gulp.task('pt_emoticon_build',
 );
 gulp.task('wechatfeeds_build',
     gulp.series('wechatfeeds_clean',
-        gulp.parallel('wechatfeeds_htmlmin', 'wechatfeeds_imgmin', 'wechatfeeds_cssmin', 'wechatfeeds_uglify')
+        gulp.parallel('wechatfeeds_imgmin', 'wechatfeeds_usemin'),
+        'wechatfeeds_cssmin',
+        'wechatfeeds_htmlmin'
     )
 );
 
