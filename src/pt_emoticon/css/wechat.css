@@ -169,6 +169,8 @@ html{
     text-align: center;
     border-right:1px solid rgb(229,229,229);
     border-bottom:1px solid rgb(229,229,229);
+    background-position:center center;
+    background-size:95% 95%;
 }
 .pic-item .item img{
     max-width:95%;
