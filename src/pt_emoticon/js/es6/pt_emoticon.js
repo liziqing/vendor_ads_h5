@@ -35,7 +35,7 @@ $(function () {
 
     let video = new WxMoment.Video({
         vid: "p0021ehy1js",
-        pic: "img/wechatfeeds/cover.png", //设置视频默认缩略图
+        pic: "./img/video/video_img.jpg", //设置视频默认缩略图
         isHtml5ControlAlwaysShow: true,
         oninited: function () {
             //播放器在视频载入完毕触发
@@ -82,13 +82,13 @@ $(function () {
             $("#loading .loading-overlay").on('tap', () => {
                 mySwiper.slideTo(1);
             });
-            
+
         }, 600);
 
         //开发
         // mySwiper.slideTo(5);
     });
-    
+
 
 
 
@@ -106,7 +106,7 @@ $(function () {
 
     $("#main .talk-btn").on('tap', () => {
         mySwiper.slideTo(5);
-        
+
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
     });
 
@@ -231,13 +231,13 @@ $(function () {
             return false;
         }
     }
-    
+
     if(!isWeiXin()){
         $('#emoticon .wx-download').hide();
         $('#emoticon .other-download').show();
     }
-    
-    
+
+
     let timer = null;
     let $item = $('#emoticon .item');
 
@@ -289,7 +289,7 @@ $(function () {
             }, 750);
         }
     });
-    
+
     $("#emoticon .wx_emoticon_download").on('tap', () => {
         //微信表情包下载
     });
