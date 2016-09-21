@@ -37,7 +37,7 @@ $(function () {
 
     var video = new WxMoment.Video({
         vid: "p0021ehy1js",
-        pic: "img/wechatfeeds/cover.png", //设置视频默认缩略图
+        pic: "./img/video/video_img.jpg", //设置视频默认缩略图
         isHtml5ControlAlwaysShow: true,
         oninited: function oninited() {
             //播放器在视频载入完毕触发

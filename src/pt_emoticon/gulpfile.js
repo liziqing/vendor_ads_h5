@@ -94,12 +94,12 @@ gulp.task('wechatfeeds_uglify', function () {
 /*-----------------------babel------------------------*/
 
 gulp.task('pt_emoticon_babel', function(){
-    return gulp.src('../src/pt_emoticon/js/es6/pt_emoticon.js')
+    return gulp.src('./js/es6/pt_emoticon.js')
         .pipe(plumber())
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(gulp.dest('../src/pt_emoticon/js'));
+        .pipe(gulp.dest('./js'));
 });
 
 /*-----------------------usemin------------------------*/
@@ -128,7 +128,7 @@ gulp.task('wechatfeeds_usemin', function () {
 
 /*-----------------------watch------------------------*/
 gulp.task('pt_emoticon_watch', gulp.series('pt_emoticon_babel', function() {
-    gulp.watch('../src/pt_emoticon/js/es6/pt_emoticon.js', gulp.series('pt_emoticon_babel'));
+    gulp.watch('./js/es6/pt_emoticon.js', gulp.series('pt_emoticon_babel'));
 }));
 
 /*-----------------------build------------------------*/
