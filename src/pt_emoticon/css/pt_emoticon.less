@@ -739,8 +739,11 @@ html,body{
                     }
 
                     .content-part{
+                        position: absolute;
+                        top: 37%;
+                        left: 5%;
                         width:90%;
-                        height:35vh;
+                        height:35%;
                         margin:0 auto;
                         border:1px solid rgb(229,229,229);
                     }
@@ -778,7 +781,7 @@ html,body{
                         left: 0;
                         bottom: 0;
                         width: 100%;
-                        height: 20vh;
+                        height: 20%;
                     }
 
                     .download-btns{
@@ -787,7 +790,13 @@ html,body{
                         text-align:center;
                     }
 
-                    .download-btns img{
+                    .download-btns.wx-download img{
+                        height: 1.8rem;
+                    }
+                    .download-btns.other-download{
+                        display: none;
+                    }
+                    .download-btns.other-download img{
                         height: 1.8rem;
                     }
 
