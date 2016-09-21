@@ -12,9 +12,7 @@ $(function(){
 
     var itemWidth = $item.width() - 1;
     $item.css('line-height',$item.height()/2 + 'px');
-    $actPic
-        .width(itemWidth)
-        .height(itemWidth);
+    $actPic.width(itemWidth).height(itemWidth);
 
     $('.close-video').click(function(ev){
         $('.expression').addClass('show');
@@ -38,6 +36,9 @@ $(function(){
 
             var _thisLeft = $(this).offset().left;
             var _thisTop = $(this).offset().top;
+
+            $actPic.hide();
+            $actPic.find('img').attr('src','');
 
             $actPic.find('img').attr('src','img/wechatfeeds/' + $(this).attr('data-index') + '.gif')
                 .css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
@@ -81,7 +82,7 @@ $(function(){
 
 
     var video = new WxMoment.Video({
-        vid: "a0016gys8ct",
+        vid: "p0021ehy1js",
         pic: "img/wechatfeeds/cover.png",
         oninited: function () {
             //console.log(0)
