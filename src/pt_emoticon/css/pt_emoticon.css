@@ -366,7 +366,7 @@ html #screen .swiper-wrapper #category .category-container .category-page .swipe
 body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i {
   display: inline-block;
   height: 100%;
-  width: 65%;
+  width: 50%;
   margin: 0 auto;
   text-align: center;
   background-color: #6e727b;
