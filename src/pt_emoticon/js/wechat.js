@@ -10,6 +10,9 @@ $(function(){
 
     var itemWidth = $item.width() - 1;
     $item.css('line-height',$item.height()/2 + 'px');
+    $actPic
+        .width(itemWidth)
+        .height(itemWidth);
 
     $('.close-video').click(function(ev){
         $('.expression').addClass('show');
@@ -33,10 +36,17 @@ $(function(){
 
             var _thisLeft = $(this).offset().left;
             var _thisTop = $(this).offset().top;
-            $actPic.show().width(itemWidth).height(itemWidth).css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px','line-height':itemWidth + 'px'}).attr('data-display','block').find('img').attr('src','img/wechatfeeds/' + $(this).attr('data-index') + '.gif').css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
+
+            $actPic.find('img').attr('src','img/wechatfeeds/' + $(this).attr('data-index') + '.gif')
+                .css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
+
+            $actPic.css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px','line-height':itemWidth + 'px'})
+                .show();
+
             $(this).attr('data-count','1');
         }else if($(this).attr('data-count') == '1'){
             $actPic.hide();
+            $actPic.find('img').attr('src','');
             $(this).attr('data-count','0');
 
         }
