@@ -123,7 +123,7 @@ $(function () {
     $("#menu .category-item").on('tap', function () {
 
         let thisIndex = $(this).index();
-        categorySwiper(thisIndex);
+        createCategorySwiper(thisIndex);
 
         setTimeout(() => {
             mySwiper.slideTo(3);
@@ -136,6 +136,8 @@ $(function () {
     /***
      * category
      * */
+    var categorySwiper;
+
     let categoryInit = () => {
         let isCategoryShareFading = false;
 
@@ -165,10 +167,22 @@ $(function () {
                 }, 750);
             }
         });
+
+        $("#category .menu-container li").on('tap', function () {
+            if(!$(this).hasClass('active')){
+                var tempData = $(this).attr('data-menu');
+
+                $("#category .menu-container li").removeClass('active');
+                $(this).addClass('active');
+
+                var tempIndex = $("#category .swiper-slide[data-signal=" + tempData + "]").index();
+                categorySwiper.slideTo(tempIndex);
+            }
+        });
     }
 
 
-    var categorySwiper = (thisIndex) => {
+    var createCategorySwiper = (thisIndex) => {
         //选择相应模板渲染
 
         switch (thisIndex) {
@@ -187,7 +201,7 @@ $(function () {
         categoryInit();
 
         //categorySwiper
-        let categorySwiper = new Swiper('#category-swiper', {
+        categorySwiper = new Swiper('#category-swiper', {
             prevButton:'.swiper-button-prev',
             nextButton:'.swiper-button-next',
             onSlideChangeStart: function () {
@@ -316,32 +330,35 @@ $(function () {
             jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
         });
 
-        wx.onMenuShareTimeline({
-            title: '结婚五周年，是什么让他们一直娜么快乐？',// 分享标题
-            link: window.location.href, // 分享链接
-            imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg', // 分享图标
-            success: function () {
-                // 用户确认分享后执行的回调函数
-            },
-            cancel: function () {
-                // 用户取消分享后执行的回调函数
-            }
+        wx.ready(function () {
+            wx.onMenuShareTimeline({
+                title: '结婚五周年，是什么让他们一直娜么快乐？',// 分享标题
+                link: window.location.href, // 分享链接
+                imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg', // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareAppMessage({
+                title: '结婚五周年，是什么让他们一直娜么快乐？', // 分享标题
+                link: window.location.href, // 分享链接
+                desc: '结婚五周年，是什么让他们一直娜么快乐？',
+                imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg',
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
         });
 
-        wx.onMenuShareAppMessage({
-            title: '结婚五周年，是什么让他们一直娜么快乐？', // 分享标题
-            link: window.location.href, // 分享链接
-            desc: '结婚五周年，是什么让他们一直娜么快乐？',
-            imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg',
-            type: '', // 分享类型,music、video或link，不填默认为link
-            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-            success: function () {
-                // 用户确认分享后执行的回调函数
-            },
-            cancel: function () {
-                // 用户取消分享后执行的回调函数
-            }
-        });
     });
 
 });
