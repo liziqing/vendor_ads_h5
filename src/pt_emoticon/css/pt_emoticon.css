@@ -801,8 +801,16 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .download-btns {
   height: 2.6rem;
   text-align: center;
 }
-html #screen .swiper-wrapper #emoticon .emoticon-container .download-btns img,
-body #screen .swiper-wrapper #emoticon .emoticon-container .download-btns img {
+html #screen .swiper-wrapper #emoticon .emoticon-container .download-btns.wx-download img,
+body #screen .swiper-wrapper #emoticon .emoticon-container .download-btns.wx-download img {
+  height: 1.8rem;
+}
+html #screen .swiper-wrapper #emoticon .emoticon-container .download-btns.other-download,
+body #screen .swiper-wrapper #emoticon .emoticon-container .download-btns.other-download {
+  display: none;
+}
+html #screen .swiper-wrapper #emoticon .emoticon-container .download-btns.other-download img,
+body #screen .swiper-wrapper #emoticon .emoticon-container .download-btns.other-download img {
   height: 1.8rem;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .btn-group,
