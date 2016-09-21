@@ -75,7 +75,7 @@ html{
 .close-video{
     position: fixed;
     left:50%;
-    top:73vh;
+    top:74vh;
     width:80px;
     height:30px;
     margin:0 auto;
@@ -97,13 +97,19 @@ html{
     /*left:0;*/
     display:inline-block;
     width:60%;
-    margin-top:8%;
-    -webkit-transition: 1.5s;
-    -moz-transition: 1.5s;
-    -o-transition: 1.5s;
-    transition: 1.5s;
-    opacity:1;
+    /*-webkit-transition: 1.5s;*/
+    /*-moz-transition: 1.5s;*/
+    /*-o-transition: 1.5s;*/
+    /*transition: 1.5s;*/
+    /*opacity:1;*/
+
 }
+
+.pics{
+    width:100%;
+    display: none;
+}
+
 .video-mask img.hide{
     opacity:0;
 }
@@ -123,7 +129,7 @@ html{
     background-repeat:no-repeat;
     background-size:100% auto;
     overflow: hidden;
-    opacity:0;
+    opacity: 0;
 }
 
 .expression.show{

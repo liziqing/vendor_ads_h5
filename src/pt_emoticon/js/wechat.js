@@ -4,33 +4,86 @@
 
 $(function(){
 
+
     new WxMoment.OrientationTip();
 
-    var timer = null;
     var $item = $('.item');
+
+
+    $.each($('.pics'),function(i,value){
+        setTimeout(function(){
+            jQuery(value).fadeIn();
+        },1300*i);
+    });
+    setTimeout(function(){
+        $('.expression').addClass('show');
+        jQuery('.logo-first').fadeOut();
+        jQuery('.video-mask').addClass('hide');
+
+        jQuery('.pics').fadeOut();
+
+    },8500);
+
+    var timer = null;
+
     var $actPic = $('.act-pic');
 
     var itemWidth = $item.width() - 1;
     $item.css('line-height',$item.height()/2 + 'px');
     $actPic.width(itemWidth).height(itemWidth);
 
-    clearTimeout(timer);
-    timer = setTimeout(function(){
-        $('.expression').addClass('show');
-        $('.video-mask img').addClass('hide');
-        $('.video-mask').addClass('hide');
-    },5000);
+    //var $myHammer = document.getElementById('myHammer');
+    $.each($item,function(i,value){
+        var mc = new Hammer(value);
+        mc.on('press',function(ev){
+            var _this = ev.target;
+            //if($(_this).attr('data-count') == '0'){
+
+                $(document).unbind('tap');
+
+                var _thisLeft = $(_this).offset().left;
+                var _thisTop = $(_this).offset().top;
+
+                $actPic.hide();
+                $actPic.find('img').attr('src','');
+
+                $actPic.find('img').attr('src','img/wechatfeeds/' + $(_this).attr('data-index') + '.gif')
+                    .css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
+
+                $actPic.css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px','line-height':itemWidth + 'px'})
+                    .show();
+
+                //$(_this).attr('data-count','1');
+
+
+                //setTimeout(function(){
+                //
+                //    $(document).on('tap', function(){
+                //        alert(111)
+                //        $('.act-pic').hide();
+                //    })
+                //},5000);
+
+            //}else if($(_this).attr('data-count') == '1'){
+            //    $actPic.hide();
+            //    $actPic.find('img').attr('src','');
+            //    $(_this).attr('data-count','0');
+            //
+            //}
+            //$(_this).siblings().attr('data-count','0');
+            //$(_this).parent().siblings().find('.item').attr('data-count','0')
+        });
+    })
+    //mc.on('press',function(){
+    //    $('#myHammer').css('background','blue')
+    //})
 
     $('.close-video').click(function(ev){
 
-        $('.expression').addClass('show');
+        jQuery('.expression').addClass('show');
 
         video.getPlayer().pause();
-        $('.video-page').addClass('hide');
-        clearTimeout(timer);
-        timer = setTimeout(function(){
-            $('.video-page').hide();
-        },200)
+        jQuery('.video-page').fadeOut();
 
     });
 
@@ -39,36 +92,12 @@ $(function(){
     $('.video-mask').css({'left':'0','top':srWidth*(9/16) - 1}).show();
 
 
-    $item.click(function(ev){
-        if($(this).attr('data-count') == '0'){
+    var mc = new Hammer(document);
+    mc.on('tap', function(){
 
-            var _thisLeft = $(this).offset().left;
-            var _thisTop = $(this).offset().top;
-
-            $actPic.hide();
-            $actPic.find('img').attr('src','');
-
-            $actPic.find('img').attr('src','img/wechatfeeds/' + $(this).attr('data-index') + '.gif')
-                .css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
-
-            $actPic.css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px','line-height':itemWidth + 'px'})
-                .show();
-
-            $(this).attr('data-count','1');
-        }else if($(this).attr('data-count') == '1'){
-            $actPic.hide();
-            $actPic.find('img').attr('src','');
-            $(this).attr('data-count','0');
-
-        }
-        $(this).siblings().attr('data-count','0');
-        $(this).parent().siblings().find('.item').attr('data-count','0')
-        ev.stopPropagation();
-    });
-
-    $(document).click(function(){
         $('.act-pic').hide();
     });
+
 
     $('.jn-download').click(function(){
         window.location.href = './index.html'
@@ -83,14 +112,18 @@ $(function(){
         prevButton: '.swiper-button-prev',
         direction:'vertical',
         spaceBetween: 1,
-        onTouchMove: function(swiper){
+        onSlideChangeStart: function () {
             $('.act-pic').hide();
         }
+        //onTouchMove: function(swiper){
+        //    $('.act-pic').hide();
+        //}
     });
 
 
     var video = new WxMoment.Video({
-        vid: "a0016gys8ct",
+        //vid: "a0016gys8ct",
+        vid: "p0021ehy1js",
         pic: "img/wechatfeeds/cover.jpg",
         oninited: function () {
             //console.log(0)
