@@ -4,6 +4,8 @@
 
 $(function(){
 
+    new WxMoment.OrientationTip();
+
     var timer = null;
     var $item = $('.item');
     var $actPic = $('.act-pic');
@@ -28,7 +30,7 @@ $(function(){
 
     var srWidth = screen.width;
     $('#WxMomentVideo').width(srWidth).height(srWidth*(9/16)).show();
-    $('.video-mask').css({'left':'0','top':srWidth*(9/16)}).show();
+    $('.video-mask').css({'left':'0','top':srWidth*(9/16) - 1}).show();
 
 
     $item.click(function(ev){
@@ -108,6 +110,7 @@ $(function(){
             //onfullscreen(isfull) 播放器触发全屏/非全屏时，参数isfull表示当前是否是全屏
         }
     });
+
 
 
 

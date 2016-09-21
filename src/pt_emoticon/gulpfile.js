@@ -92,7 +92,7 @@ gulp.task('pt_emoticon_uglify', function(){
 });
 
 gulp.task('wechatfeeds_uglify', function () {
-    return gulp.src(['./js/wechat.js','../vendor/swiper/swiper.jquery.min.js','../vendor/base/wxJsSdkConfig.js', '../vendor/sha1/sha1.min.js', '../vendor/base/wx_js.js'])
+    return gulp.src(['../vendor/wxmoment/wxmoment.min.js','../vendor/swiper/swiper.jquery.min.js','../vendor/base/wxJsSdkConfig.js', '../vendor/sha1/sha1.min.js', '../vendor/base/wx_js.js','./js/wechat.js'])
         .pipe(uglify())
         .pipe(gulp.dest('../../dist/pt_emoticon/js'));
 });
