@@ -751,8 +751,11 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .words-pic {
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .content-part,
 body #screen .swiper-wrapper #emoticon .emoticon-container .content-part {
+  position: absolute;
+  top: 37%;
+  left: 5%;
   width: 90%;
-  height: 35vh;
+  height: 35%;
   margin: 0 auto;
   border: 1px solid #e5e5e5;
 }
@@ -793,7 +796,7 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .bottom-part {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 20vh;
+  height: 20%;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .download-btns,
 body #screen .swiper-wrapper #emoticon .emoticon-container .download-btns {
