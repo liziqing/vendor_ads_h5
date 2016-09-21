@@ -9,6 +9,9 @@ $(function () {
     //初始化容器
     var mySwiper = new Swiper('#screen', {
         effect: 'fade',
+        fade: {
+            crossFade: true
+        },
         noSwiping: true,
         noSwipingClass: 'no-swiping'
     });
@@ -64,14 +67,16 @@ $(function () {
         $('.loaded-in').addClass('fadeInOri animated-500');
         setTimeout(function () {
             $('.loaded-out').removeClass('fromRight animated-90000 animated-60000');
-        }, 700);
+
+            $("#emoticon .swiper-slide-active.item, #emoticon .swiper-slide-next").css('pointer-events', 'none');
+
+            $("#loading .loading-overlay").on('click', function () {
+                mySwiper.slideTo(1);
+            });
+        }, 600);
 
         //开发
-        // mySwiper.slideTo(5);
-    });
-
-    $("#loading .loading-text").on('click', function () {
-        mySwiper.slideTo(1);
+        mySwiper.slideTo(5);
     });
 
     /***
@@ -87,6 +92,8 @@ $(function () {
 
     $("#main .talk-btn").on('click', function () {
         mySwiper.slideTo(5);
+
+        $("#emoticon .swiper-slide-active.item, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
     });
 
     /***
@@ -97,19 +104,9 @@ $(function () {
     });
 
     $("#menu .category-item").on('click', function () {
-        var thisIndex = $(this).index();
 
-        switch (thisIndex) {
-            case 0:
-                categorySwiper2();
-                break;
-            case 1:
-                categorySwiper2();
-                break;
-            case 2:
-                categorySwiper2();
-                break;
-        }
+        var thisIndex = $(this).index();
+        categorySwiper(thisIndex);
 
         mySwiper.slideTo(3);
     });
@@ -117,46 +114,69 @@ $(function () {
     /***
      * category
      * */
-    var categorySwiper2 = function categorySwiper2() {
+    var categoryInit = function categoryInit() {
+        var isCategoryShareFading = false;
+
+        $("#category .back-btn").on('click', function () {
+            mySwiper.slideTo(2);
+        });
+
+        $("#category .share-btn").on('click', function () {
+            if (!isCategoryShareFading) {
+                $("#category .share-overlay").css({ 'opacity': '0', 'display': 'block' });
+                $("#category .share-overlay").addClass("fadeInOri animated-500");
+                setTimeout(function () {
+                    $("#category .share-overlay").css({ 'opacity': '1', 'display': 'block' });
+                    $("#category .share-overlay").removeClass("fadeInOri animated-500");
+                    isCategoryShareFading = true;
+                }, 750);
+            }
+        });
+
+        $("#category .share-overlay").on('click', function () {
+            if (isCategoryShareFading) {
+                $("#category .share-overlay").addClass("fadeOutOri animated-500");
+                setTimeout(function () {
+                    $("#category .share-overlay").css({ 'display': 'none', 'opacity': '1' });
+                    $("#category .share-overlay").removeClass("fadeOutOri animated-500");
+                    isCategoryShareFading = false;
+                }, 750);
+            }
+        });
+    };
+
+    var categorySwiper = function categorySwiper(thisIndex) {
         //选择相应模板渲染
 
+        switch (thisIndex) {
+            case 0:
+                var categoryHtml = template('category-page-1', {});
+                break;
+            case 1:
+                var categoryHtml = template('category-page-2', {});
+                break;
+            case 2:
+                var categoryHtml = template('category-page-3', {});
+                break;
+        }
+        document.getElementById('category-container').innerHTML = categoryHtml;
+
+        categoryInit();
 
         //categorySwiper
         var categorySwiper = new Swiper('#category-swiper', {
             prevButton: '.swiper-button-prev',
-            nextButton: '.swiper-button-next'
-
+            nextButton: '.swiper-button-next',
+            onSlideChangeStart: function onSlideChangeStart() {
+                var tempActiveMenu = $("#category .swiper-slide-active").attr("data-menu");
+                var tempMenu = $("#category .menu-container li.active").attr("data-menu");
+                if (tempActiveMenu != tempMenu) {
+                    $("#category .menu-container li.active").removeClass("active");
+                    $("#category .menu-container li[data-menu=" + tempActiveMenu + "]").addClass("active");
+                }
+            }
         });
     };
-
-    var isCategoryShareFading = false;
-
-    $("#category .back-btn").on('click', function () {
-        mySwiper.slideTo(2);
-    });
-
-    $("#category .share-btn").on('click', function () {
-        if (!isCategoryShareFading) {
-            $("#category .share-overlay").css({ 'opacity': '0', 'display': 'block' });
-            $("#category .share-overlay").addClass("fadeInOri animated-500");
-            setTimeout(function () {
-                $("#category .share-overlay").css({ 'opacity': '1', 'display': 'block' });
-                $("#category .share-overlay").removeClass("fadeInOri animated-500");
-                isCategoryShareFading = true;
-            }, 750);
-        }
-    });
-
-    $("#category .share-overlay").on('click', function () {
-        if (isCategoryShareFading) {
-            $("#category .share-overlay").addClass("fadeOutOri animated-500");
-            setTimeout(function () {
-                $("#category .share-overlay").css({ 'display': 'none', 'opacity': '1' });
-                $("#category .share-overlay").removeClass("fadeOutOri animated-500");
-                isCategoryShareFading = false;
-            }, 750);
-        }
-    });
 
     /***
      * video
@@ -199,6 +219,7 @@ $(function () {
 
     $('#emoticon .back-btn').on('click', function () {
         mySwiper.slideTo(1);
+        $('.act-pic').hide();
     });
 
     var isEmoticonShareFading = false;
