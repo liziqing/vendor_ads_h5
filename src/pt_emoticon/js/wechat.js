@@ -91,7 +91,7 @@ $(function(){
 
     var video = new WxMoment.Video({
         vid: "a0016gys8ct",
-        pic: "img/wechatfeeds/cover.png",
+        pic: "img/wechatfeeds/cover.jpg",
         oninited: function () {
             //console.log(0)
             //播放器在视频载入完毕触发
