@@ -73,9 +73,13 @@ html{
 }
 
 .close-video{
+    position: fixed;
+    left:50%;
+    top:73vh;
     width:80px;
     height:30px;
     margin:0 auto;
+    margin-left:-40px;
     line-height:30px;
     margin-top:2rem;
     color:#ccc;
@@ -92,7 +96,7 @@ html{
     /*top:35vh;*/
     /*left:0;*/
     display:inline-block;
-    width:65%;
+    width:60%;
     margin-top:8%;
     -webkit-transition: 1.5s;
     -moz-transition: 1.5s;

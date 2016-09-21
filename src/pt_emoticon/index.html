@@ -27,6 +27,7 @@
             <img class="cloud_1 loaded-out fromRight animated-90000" src="./img/loading/cloud_1.png" />
             <img class="cloud_2 loaded-out fromRight animated-60000" src="./img/loading/cloud_2.png" />
             <img class="loading-text loaded-in" src="./img/loading/text.png" />
+            <div class="loading-overlay"></div>
         </section>
         <!--  main  -->
         <section class="swiper-slide no-swiping" id="main">
@@ -64,32 +65,14 @@
         </section>
         <!--  category  -->
         <section class="swiper-slide no-swiping" id="category">
-            <div class="category-container">
-                <div class="category-page category-page-3">
-                    <header class="menu-container">
-                        <ul>
-                            <li class="jiezhi"></li>
-                            <li class="erhuan"></li>
-                            <li class="diaozhui"></li>
-                            <li class="shoulian"></li>
-                        </ul>
-                    </header>
-                    <div class="swiper-container" id="category-swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="./img/category/category_3_shoulian_1.png" /></div>
-                            <div class="swiper-slide"><img src="./img/category/category_3_shoulian_1.png" /></div>
-                            <div class="swiper-slide"><img src="./img/category/category_3_shoulian_1.png" /></div>
-                            <div class="swiper-slide"><img src="./img/category/category_3_shoulian_1.png" /></div>
-                        </div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-button-next"></div>
-                    </div>
-                    <footer class="btn-container">
-                        <i class="share-btn"></i>
-                        <i class="back-btn"></i>
-                    </footer>
-                    <div class="share-overlay"></div>
-                </div>
+            <div class="category-preload">
+                <img src="./img/category/jiezhi_active.png" />
+                <img src="./img/category/erhuan_active.png" />
+                <img src="./img/category/shoulian_active.png" />
+                <img src="./img/category/diaozhui_active.png" />
+            </div>
+            <div class="category-container" id="category-container">
+
             </div>
         </section>
         <!--  video  -->
@@ -117,30 +100,35 @@
                             <div data-index="1" class="item"><img src="./img/wechatfeeds/1.png"></div>
                             <div data-index="2" class="item"><img src="./img/wechatfeeds/2.png"></div>
                             <div data-index="3" class="item"><img src="./img/wechatfeeds/3.png"></div>
+                            <div class="clearfix"></div>
                         </div>
 
                         <div class="swiper-slide">
                             <div data-index="4" class="item"><img src="./img/wechatfeeds/4.png"></div>
                             <div data-index="5" class="item"><img src="./img/wechatfeeds/5.png"></div>
                             <div data-index="6" class="item"><img src="./img/wechatfeeds/6.png"></div>
+                            <div class="clearfix"></div>
                         </div>
 
                         <div class="swiper-slide">
                             <div data-index="7" class="item"><img src="./img/wechatfeeds/7.png"></div>
                             <div data-index="8" class="item"><img src="./img/wechatfeeds/8.png"></div>
                             <div data-index="9" class="item"><img src="./img/wechatfeeds/9.png"></div>
+                            <div class="clearfix"></div>
                         </div>
 
                         <div class="swiper-slide">
                             <div data-index="10" class="item"><img src="./img/wechatfeeds/10.png"></div>
                             <div data-index="11" class="item"><img src="./img/wechatfeeds/11.png"></div>
                             <div data-index="12" class="item"><img src="./img/wechatfeeds/12.png"></div>
+                            <div class="clearfix"></div>
                         </div>
 
                         <div class="swiper-slide">
                             <div data-index="13" class="item"><img src="./img/wechatfeeds/13.png"></div>
                             <div data-index="14" class="item"><img src="./img/wechatfeeds/14.png"></div>
                             <div data-index="15" class="item"><img src="./img/wechatfeeds/15.png"></div>
+                            <div class="clearfix"></div>
                         </div>
                     </div>
                 </div>
@@ -162,10 +150,119 @@
 </div>
 
 
+<!-- category-page-1 -->
+<script type="text/html" id="category-page-1">
+    <div class="category-page category-page-1">
+        <header class="menu-container">
+            <ul>
+                <li data-menu="jiezhi" class="jiezhi active"></li>
+                <li data-menu="erhuan" class="erhuan"></li>
+                <li data-menu="diaozhui" class="diaozhui"></li>
+            </ul>
+        </header>
+        <div class="swiper-container" id="category-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-menu="jiezhi"><i class="category_1_jiezhi_1"></i></div>
+                <div class="swiper-slide" data-menu="jiezhi"><i class="category_1_jiezhi_2"></i></div>
+                <div class="swiper-slide" data-menu="jiezhi"><i class="category_1_jiezhi_3"></i></div>
+                <div class="swiper-slide" data-menu="jiezhi"><i class="category_1_jiezhi_4"></i></div>
+                <div class="swiper-slide" data-menu="jiezhi"><i class="category_1_jiezhi_5"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_1_erhuan_1"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_1_erhuan_2"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_1_erhuan_3"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_1_diaozhui_1"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_1_diaozhui_2"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_1_diaozhui_3"></i></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <footer class="btn-container">
+            <i class="share-btn"></i>
+            <i class="back-btn"></i>
+        </footer>
+        <div class="share-overlay"></div>
+    </div>
+</script>
+<!-- category-page-2 -->
+<script type="text/html" id="category-page-2">
+    <div class="category-page category-page-2">
+        <header class="menu-container">
+            <ul>
+                <li data-menu="jiezhi" class="jiezhi active"></li>
+                <li data-menu="erhuan" class="erhuan"></li>
+                <li data-menu="diaozhui" class="diaozhui"></li>
+                <li data-menu="shoulian" class="shoulian"></li>
+            </ul>
+        </header>
+        <div class="swiper-container" id="category-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-menu="jiezhi"><i class="category_2_jiezhi_1"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_2_erhuan_1"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_2_erhuan_2"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_2_erhuan_3"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_2_erhuan_4"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_2_erhuan_5"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_2_erhuan_6"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_2_erhuan_7"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_2_diaozhui_1"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_2_diaozhui_2"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_2_diaozhui_3"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_2_diaozhui_4"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_2_diaozhui_5"></i></div>
+                <div class="swiper-slide"  data-menu="shoulian"><i class="category_2_shoulian_1"></i></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <footer class="btn-container">
+            <i class="share-btn"></i>
+            <i class="back-btn"></i>
+        </footer>
+        <div class="share-overlay"></div>
+    </div>
+</script>
+<!-- category-page-3 -->
+<script type="text/html" id="category-page-3">
+    <div class="category-page category-page-3">
+        <header class="menu-container">
+            <ul>
+                <li data-menu="jiezhi" class="jiezhi active"></li>
+                <li data-menu="erhuan" class="erhuan"></li>
+                <li data-menu="diaozhui" class="diaozhui"></li>
+                <li data-menu="shoulian" class="shoulian"></li>
+            </ul>
+        </header>
+        <div class="swiper-container" id="category-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-menu="jiezhi"><i class="category_3_jiezhi_1"></i></div>
+                <div class="swiper-slide" data-menu="jiezhi"><i class="category_3_jiezhi_2"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_3_erhuan_1"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_3_erhuan_2"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_3_erhuan_3"></i></div>
+                <div class="swiper-slide" data-menu="erhuan"><i class="category_3_erhuan_4"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_3_diaozhui_1"></i></div>
+                <div class="swiper-slide" data-menu="diaozhui"><i class="category_3_diaozhui_2"></i></div>
+                <div class="swiper-slide"  data-menu="diaozhui"><i class="category_3_diaozhui_3"></i></div>
+                <div class="swiper-slide"  data-menu="diaozhui"><i class="category_3_diaozhui_4"></i></div>
+                <div class="swiper-slide"  data-menu="shoulian"><i class="category_3_shoulian_1"></i></div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <footer class="btn-container">
+            <i class="share-btn"></i>
+            <i class="back-btn"></i>
+        </footer>
+        <div class="share-overlay"></div>
+    </div>
+</script>
+
 <!-- js -->
 <script src="//wximg.qq.com/wxp/libs/wxmoment/0.0.4/wxmoment.min.js"></script>
 <script src="../vendor/swiper/swiper.jquery.min.js"></script>
 <script src="../vendor/sha1/sha1.min.js"></script>
+<script src="../vendor/arttemplate/template.js"></script>
 <script src="./js/pt_emoticon.js"></script>
 
 <script id="getAt"></script>

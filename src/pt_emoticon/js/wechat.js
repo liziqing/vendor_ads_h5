@@ -14,7 +14,15 @@ $(function(){
     $item.css('line-height',$item.height()/2 + 'px');
     $actPic.width(itemWidth).height(itemWidth);
 
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+        $('.expression').addClass('show');
+        $('.video-mask img').addClass('hide');
+        $('.video-mask').addClass('hide');
+    },5000);
+
     $('.close-video').click(function(ev){
+
         $('.expression').addClass('show');
 
         video.getPlayer().pause();
@@ -82,7 +90,7 @@ $(function(){
 
 
     var video = new WxMoment.Video({
-        vid: "p0021ehy1js",
+        vid: "a0016gys8ct",
         pic: "img/wechatfeeds/cover.png",
         oninited: function () {
             //console.log(0)
@@ -93,9 +101,6 @@ $(function(){
         onplaying: function () {
             //console.log(1);
             //播放器真正开始播放视频第一帧画面时
-            $('.expression').addClass('show');
-            $('.video-mask img').addClass('hide');
-            $('.video-mask').addClass('hide');
 
         },
         onpause: function () {

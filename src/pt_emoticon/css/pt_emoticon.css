@@ -14,6 +14,10 @@ body {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+html .clearfix,
+body .clearfix {
+  clear: both;
+}
 html #screen,
 body #screen {
   width: 100%;
@@ -37,6 +41,15 @@ body #screen .swiper-wrapper #loading {
   background: url("../img/loading/loading_background.png") center center no-repeat;
   background-size: 100% 100%;
   text-align: center;
+}
+html #screen .swiper-wrapper #loading .loading-overlay,
+body #screen .swiper-wrapper #loading .loading-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 html #screen .swiper-wrapper #loading .logo,
 body #screen .swiper-wrapper #loading .logo {
@@ -232,6 +245,10 @@ body #screen .swiper-wrapper #menu .menu-container .btn-container .back-btn {
   background: url("../img/menu/back_btn.png") center center no-repeat;
   background-size: 100% auto;
 }
+html #screen .swiper-wrapper #category .category-preload,
+body #screen .swiper-wrapper #category .category-preload {
+  display: none;
+}
 html #screen .swiper-wrapper #category .category-container,
 body #screen .swiper-wrapper #category .category-container {
   width: 100%;
@@ -343,11 +360,196 @@ body #screen .swiper-wrapper #category .category-container .category-page .swipe
   width: 100%;
   height: 100%;
   background-color: transparent;
+  text-align: center;
 }
-html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide img,
-body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide img {
-  max-height: 100%;
-  max-width: 100%;
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i {
+  display: inline-block;
+  height: 100%;
+  width: 65%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #6e727b;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_jiezhi_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_jiezhi_1 {
+  background: url("../img/category/category_3/category_3_jiezhi_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_jiezhi_2,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_jiezhi_2 {
+  background: url("../img/category/category_3/category_3_jiezhi_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_erhuan_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_erhuan_1 {
+  background: url("../img/category/category_3/category_3_erhuan_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_erhuan_2,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_erhuan_2 {
+  background: url("../img/category/category_3/category_3_erhuan_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_erhuan_3,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_erhuan_3 {
+  background: url("../img/category/category_3/category_3_erhuan_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_erhuan_4,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_erhuan_4 {
+  background: url("../img/category/category_3/category_3_erhuan_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_diaozhui_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_diaozhui_1 {
+  background: url("../img/category/category_3/category_3_diaozhui_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_diaozhui_2,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_diaozhui_2 {
+  background: url("../img/category/category_3/category_3_diaozhui_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_diaozhui_3,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_diaozhui_3 {
+  background: url("../img/category/category_3/category_3_diaozhui_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_diaozhui_4,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_diaozhui_4 {
+  background: url("../img/category/category_3/category_3_diaozhui_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_shoulian_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_3_shoulian_1 {
+  background: url("../img/category/category_3/category_3_shoulian_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_1 {
+  background: url("../img/category/category_1/category_1_jiezhi_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_2,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_2 {
+  background: url("../img/category/category_1/category_1_jiezhi_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_3,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_3 {
+  background: url("../img/category/category_1/category_1_jiezhi_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_4,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_4 {
+  background: url("../img/category/category_1/category_1_jiezhi_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_5,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_jiezhi_5 {
+  background: url("../img/category/category_1/category_1_jiezhi_5.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_erhuan_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_erhuan_1 {
+  background: url("../img/category/category_1/category_1_erhuan_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_erhuan_2,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_erhuan_2 {
+  background: url("../img/category/category_1/category_1_erhuan_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_erhuan_3,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_erhuan_3 {
+  background: url("../img/category/category_1/category_1_erhuan_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_diaozhui_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_diaozhui_1 {
+  background: url("../img/category/category_1/category_1_diaozhui_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_diaozhui_2,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_diaozhui_2 {
+  background: url("../img/category/category_1/category_1_diaozhui_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_diaozhui_3,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_1_diaozhui_3 {
+  background: url("../img/category/category_1/category_1_diaozhui_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_jiezhi_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_jiezhi_1 {
+  background: url("../img/category/category_2/category_2_jiezhi_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_1 {
+  background: url("../img/category/category_2/category_2_erhuan_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_2,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_2 {
+  background: url("../img/category/category_2/category_2_erhuan_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_3,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_3 {
+  background: url("../img/category/category_2/category_2_erhuan_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_4,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_4 {
+  background: url("../img/category/category_2/category_2_erhuan_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_5,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_5 {
+  background: url("../img/category/category_2/category_2_erhuan_5.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_6,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_6 {
+  background: url("../img/category/category_2/category_2_erhuan_6.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_7,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_erhuan_7 {
+  background: url("../img/category/category_2/category_2_erhuan_7.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_1 {
+  background: url("../img/category/category_2/category_2_diaozhui_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_2,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_2 {
+  background: url("../img/category/category_2/category_2_diaozhui_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_3,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_3 {
+  background: url("../img/category/category_2/category_2_diaozhui_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_4,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_4 {
+  background: url("../img/category/category_2/category_2_diaozhui_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_5,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_diaozhui_5 {
+  background: url("../img/category/category_2/category_2_diaozhui_5.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_shoulian_1,
+body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-wrapper .swiper-slide i.category_2_shoulian_1 {
+  background: url("../img/category/category_2/category_2_shoulian_1.png") center center no-repeat;
+  background-size: contain;
 }
 html #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-button-prev,
 body #screen .swiper-wrapper #category .category-container .category-page .swiper-container .swiper-button-prev {
@@ -412,9 +614,35 @@ body #screen .swiper-wrapper #category .category-container .category-page .share
   background-size: 100% 100%;
   display: none;
 }
+html #screen .swiper-wrapper #category .category-container .category-page-1,
+body #screen .swiper-wrapper #category .category-container .category-page-1 {
+  background: url("../img/category/category_1/category_1_background.png") center center no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+}
+html #screen .swiper-wrapper #category .category-container .category-page-1 .menu-container ul,
+body #screen .swiper-wrapper #category .category-container .category-page-1 .menu-container ul {
+  width: 52.5%;
+  padding: 0 23.75%;
+}
+html #screen .swiper-wrapper #category .category-container .category-page-1 .menu-container ul li,
+body #screen .swiper-wrapper #category .category-container .category-page-1 .menu-container ul li {
+  width: 30%;
+  margin-right: 5%;
+}
+html #screen .swiper-wrapper #category .category-container .category-page-1 .menu-container ul li:last-child,
+body #screen .swiper-wrapper #category .category-container .category-page-1 .menu-container ul li:last-child {
+  margin-right: 0;
+}
+html #screen .swiper-wrapper #category .category-container .category-page-2,
+body #screen .swiper-wrapper #category .category-container .category-page-2 {
+  background: url("../img/category/category_2/category_2_background.png") center center no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+}
 html #screen .swiper-wrapper #category .category-container .category-page-3,
 body #screen .swiper-wrapper #category .category-container .category-page-3 {
-  background: url("../img/category/category_3_background.png") center center no-repeat;
+  background: url("../img/category/category_3/category_3_background.png") center center no-repeat;
   background-size: 100% 100%;
   text-align: center;
 }
@@ -545,13 +773,13 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item {
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item img,
 body #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item img {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 95%;
+  max-height: 95%;
   vertical-align: middle;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide.swiper-slide-next,
 body #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide.swiper-slide-next {
-  pointer-events: auto;
+  pointer-events: none;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide .item:nth-child(3),
 body #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide .item:nth-child(3),
@@ -612,7 +840,6 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .swiper-button-next {
   top: 79% !important;
   left: 50% !important;
   margin-left: -14px;
-  z-index: 9;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .swiper-button-prev,
 body #screen .swiper-wrapper #emoticon .emoticon-container .swiper-button-prev {
@@ -624,16 +851,15 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .swiper-button-prev {
   top: 35% !important;
   left: 50% !important;
   margin-left: -14px;
-  z-index: 9;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .act-pic,
 body #screen .swiper-wrapper #emoticon .emoticon-container .act-pic {
   display: none;
   position: absolute;
-  z-index: 12;
   border: 1px solid #ccc;
   background-color: #fff;
   text-align: center;
+  z-index: 11;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .artMove,
 body #screen .swiper-wrapper #emoticon .emoticon-container .artMove {
