@@ -77,9 +77,9 @@ $(function () {
         setTimeout(function () {
             $('.loaded-out').removeClass('fromRight animated-90000 animated-60000');
 
-            $("#emoticon .swiper-slide-active.item, #emoticon .swiper-slide-next").css('pointer-events', 'none');
+            $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
 
-            $("#loading .loading-overlay").on('click', function () {
+            $("#loading .loading-overlay").on('tap', function () {
                 mySwiper.slideTo(1);
             });
         }, 600);
@@ -91,33 +91,35 @@ $(function () {
     /***
      * main
      * */
-    $("#main .same-btn").on('click', function () {
+    $("#main .same-btn").on('tap', function () {
         mySwiper.slideTo(2);
     });
 
-    $("#main .film-btn").on('click', function () {
+    $("#main .film-btn").on('tap', function () {
         mySwiper.slideTo(4);
     });
 
-    $("#main .talk-btn").on('click', function () {
+    $("#main .talk-btn").on('tap', function () {
         mySwiper.slideTo(5);
 
-        $("#emoticon .swiper-slide-active.item, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
+        $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
     });
 
     /***
      * menu
      * */
-    $("#menu .back-btn").on('click', function () {
+    $("#menu .back-btn").on('tap', function () {
         mySwiper.slideTo(1);
     });
 
-    $("#menu .category-item").on('click', function () {
+    $("#menu .category-item").on('tap', function () {
 
         var thisIndex = $(this).index();
         categorySwiper(thisIndex);
 
-        mySwiper.slideTo(3);
+        setTimeout(function () {
+            mySwiper.slideTo(3);
+        }, 300);
     });
 
     /***
@@ -126,11 +128,11 @@ $(function () {
     var categoryInit = function categoryInit() {
         var isCategoryShareFading = false;
 
-        $("#category .back-btn").on('click', function () {
+        $("#category .back-btn").on('tap', function () {
             mySwiper.slideTo(2);
         });
 
-        $("#category .share-btn").on('click', function () {
+        $("#category .share-btn").on('tap', function () {
             if (!isCategoryShareFading) {
                 $("#category .share-overlay").css({ 'opacity': '0', 'display': 'block' });
                 $("#category .share-overlay").addClass("fadeInOri animated-500");
@@ -142,7 +144,7 @@ $(function () {
             }
         });
 
-        $("#category .share-overlay").on('click', function () {
+        $("#category .share-overlay").on('tap', function () {
             if (isCategoryShareFading) {
                 $("#category .share-overlay").addClass("fadeOutOri animated-500");
                 setTimeout(function () {
@@ -190,7 +192,7 @@ $(function () {
     /***
      * video
      * */
-    $("#video .close_btn").on('click', function () {
+    $("#video .close_btn").on('tap', function () {
         video.getPlayer().pause();
         mySwiper.slideTo(1);
     });
@@ -220,15 +222,6 @@ $(function () {
     $item.css('line-height', $item.height() / 2 + 'px');
     $('.act-pic').width(itemWidth).height(itemWidth).css({ 'line-height': itemWidth + 'px' });
 
-    $('.close-video').click(function (ev) {
-        video.getPlayer().pause();
-        $('.video-page').addClass('hide');
-        clearTimeout(timer);
-        timer = setTimeout(function () {
-            $('.video-page').hide();
-        }, 200);
-    });
-
     $item.click(function (ev) {
         var _thisLeft = $(this).offset().left;
         var _thisTop = $(this).offset().top;
@@ -237,18 +230,19 @@ $(function () {
         ev.stopPropagation();
     });
 
-    $('#emoticon').click(function () {
+    $('#emoticon').on('click', function () {
         $('.act-pic').hide();
     });
 
-    $('#emoticon .back-btn').on('click', function () {
+    $('#emoticon .back-btn').on('tap', function () {
         mySwiper.slideTo(1);
         $('.act-pic').hide();
+        $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
     });
 
     var isEmoticonShareFading = false;
 
-    $("#emoticon .share-btn").on('click', function () {
+    $("#emoticon .share-btn").on('tap', function () {
         if (!isEmoticonShareFading) {
             $("#emoticon .share-overlay").css({ 'opacity': '0', 'display': 'block' });
             $("#emoticon .share-overlay").addClass("fadeInOri animated-500");
@@ -260,7 +254,7 @@ $(function () {
         }
     });
 
-    $("#emoticon .share-overlay").on('click', function () {
+    $("#emoticon .share-overlay").on('tap', function () {
         if (isEmoticonShareFading) {
             $("#emoticon .share-overlay").addClass("fadeOutOri animated-500");
             setTimeout(function () {
@@ -271,11 +265,11 @@ $(function () {
         }
     });
 
-    $("#emoticon .wx_emoticon_download").on('click', function () {
+    $("#emoticon .wx_emoticon_download").on('tap', function () {
         //微信表情包下载
     });
 
-    $("#emoticon .qq_emoticon_download").on('click', function () {
+    $("#emoticon .qq_emoticon_download").on('tap', function () {
         //qq表情包下载
     });
 

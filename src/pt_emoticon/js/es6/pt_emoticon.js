@@ -77,9 +77,9 @@ $(function () {
         setTimeout(() => {
             $('.loaded-out').removeClass('fromRight animated-90000 animated-60000');
 
-            $("#emoticon .swiper-slide-active.item, #emoticon .swiper-slide-next").css('pointer-events', 'none');
+            $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
             
-            $("#loading .loading-overlay").on('click', () => {
+            $("#loading .loading-overlay").on('tap', () => {
                 mySwiper.slideTo(1);
             });
             
@@ -96,18 +96,18 @@ $(function () {
     /***
      * main
      * */
-    $("#main .same-btn").on('click', () => {
+    $("#main .same-btn").on('tap', () => {
         mySwiper.slideTo(2);
     });
 
-    $("#main .film-btn").on('click', () => {
+    $("#main .film-btn").on('tap', () => {
         mySwiper.slideTo(4);
     });
 
-    $("#main .talk-btn").on('click', () => {
+    $("#main .talk-btn").on('tap', () => {
         mySwiper.slideTo(5);
         
-        $("#emoticon .swiper-slide-active.item, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
+        $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
     });
 
 
@@ -116,16 +116,18 @@ $(function () {
     /***
      * menu
      * */
-    $("#menu .back-btn").on('click', () => {
+    $("#menu .back-btn").on('tap', () => {
         mySwiper.slideTo(1);
     });
 
-    $("#menu .category-item").on('click', function () {
+    $("#menu .category-item").on('tap', function () {
 
         let thisIndex = $(this).index();
         categorySwiper(thisIndex);
 
-        mySwiper.slideTo(3);
+        setTimeout(() => {
+            mySwiper.slideTo(3);
+        }, 300)
     });
 
 
@@ -137,11 +139,11 @@ $(function () {
     let categoryInit = () => {
         let isCategoryShareFading = false;
 
-        $("#category .back-btn").on('click', () => {
+        $("#category .back-btn").on('tap', () => {
             mySwiper.slideTo(2);
         });
 
-        $("#category .share-btn").on('click', () => {
+        $("#category .share-btn").on('tap', () => {
             if(!isCategoryShareFading){
                 $("#category .share-overlay").css({'opacity': '0','display':'block'});
                 $("#category .share-overlay").addClass("fadeInOri animated-500");
@@ -153,7 +155,7 @@ $(function () {
             }
         });
 
-        $("#category .share-overlay").on('click', () => {
+        $("#category .share-overlay").on('tap', () => {
             if(isCategoryShareFading){
                 $("#category .share-overlay").addClass("fadeOutOri animated-500");
                 setTimeout(() => {
@@ -208,7 +210,7 @@ $(function () {
     /***
      * video
      * */
-    $("#video .close_btn").on('click', () => {
+    $("#video .close_btn").on('tap', () => {
         video.getPlayer().pause();
         mySwiper.slideTo(1);
     });
@@ -243,16 +245,6 @@ $(function () {
     $item.css('line-height',$item.height()/2 + 'px');
     $('.act-pic').width(itemWidth).height(itemWidth).css({'line-height':itemWidth + 'px'});
 
-    $('.close-video').click(function(ev){
-        video.getPlayer().pause();
-        $('.video-page').addClass('hide');
-        clearTimeout(timer);
-        timer = setTimeout(function(){
-            $('.video-page').hide();
-        },200)
-    });
-
-
     $item.click(function(ev){
         var _thisLeft = $(this).offset().left;
         var _thisTop = $(this).offset().top;
@@ -261,20 +253,21 @@ $(function () {
         ev.stopPropagation();
     });
 
-    $('#emoticon').click(function(){
+    $('#emoticon').on('click', function(){
         $('.act-pic').hide();
     });
 
-    $('#emoticon .back-btn').on('click', () => {
+    $('#emoticon .back-btn').on('tap', () => {
         mySwiper.slideTo(1);
         $('.act-pic').hide();
+        $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
     });
 
 
 
     let isEmoticonShareFading = false;
 
-    $("#emoticon .share-btn").on('click', () => {
+    $("#emoticon .share-btn").on('tap', () => {
         if(!isEmoticonShareFading){
             $("#emoticon .share-overlay").css({'opacity': '0','display':'block'});
             $("#emoticon .share-overlay").addClass("fadeInOri animated-500");
@@ -286,7 +279,7 @@ $(function () {
         }
     });
 
-    $("#emoticon .share-overlay").on('click', () => {
+    $("#emoticon .share-overlay").on('tap', () => {
         if(isEmoticonShareFading){
             $("#emoticon .share-overlay").addClass("fadeOutOri animated-500");
             setTimeout(() => {
@@ -297,11 +290,11 @@ $(function () {
         }
     });
     
-    $("#emoticon .wx_emoticon_download").on('click', () => {
+    $("#emoticon .wx_emoticon_download").on('tap', () => {
         //微信表情包下载
     });
 
-    $("#emoticon .qq_emoticon_download").on('click', () => {
+    $("#emoticon .qq_emoticon_download").on('tap', () => {
         //qq表情包下载
     });
 
