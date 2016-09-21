@@ -1,1 +1,0 @@
-# vendor_ads_h5

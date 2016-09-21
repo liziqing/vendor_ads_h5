@@ -773,8 +773,8 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item {
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item img,
 body #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item img {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 95%;
+  max-height: 95%;
   vertical-align: middle;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide.swiper-slide-next,
