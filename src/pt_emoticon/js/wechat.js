@@ -25,13 +25,10 @@ $(function(){
 
     var srWidth = screen.width;
     $('#WxMomentVideo').width(srWidth).height(srWidth*(9/16)).show();
-    $('.video-mask').css({'left':'0','top':srWidth*(9/16)})
-    $('.video-mask').show();
+    $('.video-mask').css({'left':'0','top':srWidth*(9/16)}).show();
 
 
     $item.click(function(ev){
-        console.info($(this))
-        console.info($(this).attr('data-count'))
         if($(this).attr('data-count') == '0'){
 
             var _thisLeft = $(this).offset().left;
@@ -39,8 +36,6 @@ $(function(){
             $actPic.show().width(itemWidth).height(itemWidth).css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px','line-height':itemWidth + 'px'}).attr('data-display','block').find('img').attr('src','img/wechatfeeds/' + $(this).attr('data-index') + '.gif').css({'max-width':0.8*itemWidth + 'px','max-height':0.8*itemWidth + 'px','vertical-align':'middle'});
             $(this).attr('data-count','1');
         }else if($(this).attr('data-count') == '1'){
-
-            console.info("in 1")
             $actPic.hide();
             $(this).attr('data-count','0');
 
