@@ -119,9 +119,9 @@ $(function(){
         });
 
         wx.onMenuShareTimeline({
-            title: '测试标题',// 分享标题
+            title: '结婚五周年，是什么让他们一直娜么快乐？',// 分享标题
             link: window.location.href, // 分享链接
-            imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/1.png', // 分享图标
+            imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg', // 分享图标
             success: function () {
                 // 用户确认分享后执行的回调函数
             },
@@ -131,10 +131,10 @@ $(function(){
         });
 
         wx.onMenuShareAppMessage({
-            title: '测试分享好友标题', // 分享标题
+            title: '结婚五周年，是什么让他们一直娜么快乐？', // 分享标题
             link: window.location.href, // 分享链接
-            desc: '测试分享好友描述',
-            imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/1.png',
+            desc: '结婚五周年，是什么让他们一直娜么快乐？',
+            imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg',
             type: '', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
             success: function () {
