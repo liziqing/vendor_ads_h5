@@ -111,7 +111,7 @@ $(function () {
 //        mySwiper.slideTo(5);
 //        $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
 //        $("#music_btn").removeClass("rotate");
-        document.querySelector('#music').pause();
+//        document.querySelector('#music').pause();
     });
 
 
