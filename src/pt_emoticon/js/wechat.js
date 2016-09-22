@@ -32,12 +32,10 @@ $(function(){
     $item.css('line-height',$item.height()/2 + 'px');
     $actPic.width(itemWidth).height(itemWidth);
 
-    //var $myHammer = document.getElementById('myHammer');
     $.each($item,function(i,value){
         var mc = new Hammer(value);
         mc.on('press',function(ev){
             var _this = ev.target;
-            //if($(_this).attr('data-count') == '0'){
 
                 $(document).unbind('tap');
 
@@ -53,30 +51,9 @@ $(function(){
                 $actPic.css({'left':_thisLeft - 1,'top':_thisTop - itemWidth - 8 + 'px','line-height':itemWidth + 'px'})
                     .show();
 
-                //$(_this).attr('data-count','1');
-
-
-                //setTimeout(function(){
-                //
-                //    $(document).on('tap', function(){
-                //        alert(111)
-                //        $('.act-pic').hide();
-                //    })
-                //},5000);
-
-            //}else if($(_this).attr('data-count') == '1'){
-            //    $actPic.hide();
-            //    $actPic.find('img').attr('src','');
-            //    $(_this).attr('data-count','0');
-            //
-            //}
-            //$(_this).siblings().attr('data-count','0');
-            //$(_this).parent().siblings().find('.item').attr('data-count','0')
         });
     })
-    //mc.on('press',function(){
-    //    $('#myHammer').css('background','blue')
-    //})
+
 
     $('.close-video').click(function(ev){
 

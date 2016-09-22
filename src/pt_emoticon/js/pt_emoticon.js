@@ -49,10 +49,8 @@ $(function () {
         prevButton: '.swiper-button-prev',
         direction: 'vertical',
         spaceBetween: 1,
-        onTouchStart: function onTouchStart(swiper, even) {
-            $('#emoticon .act-pic').hide();
-        },
         onSlideChangeStart: function onSlideChangeStart() {
+            $('.act-pic').hide();
             $("#emoticon .swiper-slide-next").css('pointer-events', 'auto');
         }
     });
@@ -107,7 +105,10 @@ $(function () {
         }, 600);
 
         //开发
-        // mySwiper.slideTo(5);
+        //        mySwiper.slideTo(5);
+        //        $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
+        //        $("#music_btn").removeClass("rotate");
+        document.querySelector('#music').pause();
     });
 
     /***
@@ -263,23 +264,33 @@ $(function () {
         $('#emoticon .other-download').show();
     }
 
+    var $item = $('#emoticon-swiper .item');
     var timer = null;
-    var $item = $('#emoticon .item');
-
+    var $actPic = $('.act-pic');
     var itemWidth = $item.width() - 1;
     $item.css('line-height', $item.height() / 2 + 'px');
-    $('.act-pic').width(itemWidth).height(itemWidth).css({ 'line-height': itemWidth + 'px' });
+    $actPic.width(itemWidth).height(itemWidth);
 
-    $item.click(function (ev) {
-        var _thisLeft = $(this).offset().left;
-        var _thisTop = $(this).offset().top;
-        $('.act-pic').show().css({ 'left': _thisLeft - 1, 'top': _thisTop - itemWidth - 8 + 'px' }).addClass('artMove').find('img').attr('src', 'img/wechatfeeds/' + $(this).attr('data-index') + '.gif').css({ 'max-width': 0.8 * itemWidth + 'px', 'max-height': 0.8 * itemWidth + 'px', 'vertical-align': 'middle' });
+    $.each($item, function (i, value) {
+        var mc = new Hammer(value);
+        mc.on('press', function (ev) {
+            var _this = ev.target;
 
-        ev.stopPropagation();
+            var _thisLeft = $(_this).offset().left;
+            var _thisTop = $(_this).offset().top;
+
+            $actPic.hide();
+            $actPic.find('img').attr('src', '');
+
+            $actPic.find('img').attr('src', 'img/wechatfeeds/' + $(_this).attr('data-index') + '.gif').css({ 'max-width': 0.8 * itemWidth + 'px', 'max-height': 0.8 * itemWidth + 'px', 'vertical-align': 'middle' });
+
+            $actPic.css({ 'left': _thisLeft - 1, 'top': _thisTop - itemWidth - 8 + 'px', 'line-height': itemWidth + 'px' }).show();
+        });
     });
 
-    $('#emoticon').on('click', function () {
-        $('.act-pic').hide();
+    var dc = new Hammer(document.getElementById('emoticon'));
+    dc.on('tap', function () {
+        $('#emoticon .act-pic').hide();
     });
 
     $('#emoticon .back-btn').on('click', function () {
