@@ -79,7 +79,7 @@ $(function () {
 
             $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
 
-            $("#loading .loading-overlay").on('tap', function () {
+            $("#loading .loading-overlay").on('click', function () {
                 mySwiper.slideTo(1);
             });
         }, 600);
@@ -91,15 +91,15 @@ $(function () {
     /***
      * main
      * */
-    $("#main .same-btn").on('tap', function () {
+    $("#main .same-btn").on('click', function () {
         mySwiper.slideTo(2);
     });
 
-    $("#main .film-btn").on('tap', function () {
+    $("#main .film-btn").on('click', function () {
         mySwiper.slideTo(4);
     });
 
-    $("#main .talk-btn").on('tap', function () {
+    $("#main .talk-btn").on('click', function () {
         mySwiper.slideTo(5);
 
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
@@ -108,11 +108,11 @@ $(function () {
     /***
      * menu
      * */
-    $("#menu .back-btn").on('tap', function () {
+    $("#menu .back-btn").on('click', function () {
         mySwiper.slideTo(1);
     });
 
-    $("#menu .category-item").on('tap', function () {
+    $("#menu .category-item").on('click', function () {
 
         var thisIndex = $(this).index();
         createCategorySwiper(thisIndex);
@@ -130,11 +130,11 @@ $(function () {
     var categoryInit = function categoryInit() {
         var isCategoryShareFading = false;
 
-        $("#category .back-btn").on('tap', function () {
+        $("#category .back-btn").on('click', function () {
             mySwiper.slideTo(2);
         });
 
-        $("#category .share-btn").on('tap', function () {
+        $("#category .share-btn").on('click', function () {
             if (!isCategoryShareFading) {
                 $("#category .share-overlay").css({ 'opacity': '0', 'display': 'block' });
                 $("#category .share-overlay").addClass("fadeInOri animated-500");
@@ -146,7 +146,7 @@ $(function () {
             }
         });
 
-        $("#category .share-overlay").on('tap', function () {
+        $("#category .share-overlay").on('click', function () {
             if (isCategoryShareFading) {
                 $("#category .share-overlay").addClass("fadeOutOri animated-500");
                 setTimeout(function () {
@@ -157,7 +157,7 @@ $(function () {
             }
         });
 
-        $("#category .menu-container li").on('tap', function () {
+        $("#category .menu-container li").on('click', function () {
             if (!$(this).hasClass('active')) {
                 var tempData = $(this).attr('data-menu');
 
@@ -206,7 +206,7 @@ $(function () {
     /***
      * video
      * */
-    $("#video .close_btn").on('tap', function () {
+    $("#video .close_btn").on('click', function () {
         video.getPlayer().pause();
         mySwiper.slideTo(1);
     });
@@ -248,7 +248,7 @@ $(function () {
         $('.act-pic').hide();
     });
 
-    $('#emoticon .back-btn').on('tap', function () {
+    $('#emoticon .back-btn').on('click', function () {
         mySwiper.slideTo(1);
         $('.act-pic').hide();
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
@@ -256,7 +256,7 @@ $(function () {
 
     var isEmoticonShareFading = false;
 
-    $("#emoticon .share-btn").on('tap', function () {
+    $("#emoticon .share-btn").on('click', function () {
         if (!isEmoticonShareFading) {
             $("#emoticon .share-overlay").css({ 'opacity': '0', 'display': 'block' });
             $("#emoticon .share-overlay").addClass("fadeInOri animated-500");
@@ -268,7 +268,7 @@ $(function () {
         }
     });
 
-    $("#emoticon .share-overlay").on('tap', function () {
+    $("#emoticon .share-overlay").on('click', function () {
         if (isEmoticonShareFading) {
             $("#emoticon .share-overlay").addClass("fadeOutOri animated-500");
             setTimeout(function () {
@@ -279,11 +279,11 @@ $(function () {
         }
     });
 
-    $("#emoticon .wx_emoticon_download").on('tap', function () {
+    $("#emoticon .wx_emoticon_download").on('click', function () {
         //微信表情包下载
     });
 
-    $("#emoticon .qq_emoticon_download").on('tap', function () {
+    $("#emoticon .qq_emoticon_download").on('click', function () {
         //qq表情包下载
     });
 
