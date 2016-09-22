@@ -102,6 +102,11 @@ $(function () {
 
     $("#main .film-btn").on('click', () => {
         mySwiper.slideTo(4);
+
+        if(!audioDom.paused){
+            $("#music_btn").removeClass("rotate")
+            audioDom.pause();
+        }
     });
 
     $("#main .talk-btn").on('click', () => {
@@ -313,7 +318,29 @@ $(function () {
     });
 
     
-    
+
+
+
+
+    /***
+     * music
+     * */
+     var audioDom = document.querySelector('#music');
+     var audioSwitch = function (audioBtn) {
+        if(audioDom.paused){
+            audioDom.play();
+            $(audioBtn).addClass("rotate");
+        }else{
+            audioDom.pause();
+            $(audioBtn).removeClass("rotate");
+        }
+     }
+
+     $("#music_btn").on('click', function () {
+         audioSwitch(this);
+     });
+
+
     
     
     
