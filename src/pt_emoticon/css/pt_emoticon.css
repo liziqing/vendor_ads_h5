@@ -584,19 +584,14 @@ html #screen .swiper-wrapper #category .category-container .category-page .btn-c
 body #screen .swiper-wrapper #category .category-container .category-page .btn-container i {
   float: left;
   display: inline-block;
-  width: 50%;
+  width: 100%;
   height: 100%;
   background-color: #3d4145;
-}
-html #screen .swiper-wrapper #category .category-container .category-page .btn-container .share-btn,
-body #screen .swiper-wrapper #category .category-container .category-page .btn-container .share-btn {
-  background: url("../img/category/share_btn.png") center center no-repeat;
-  background-size: 45% auto;
 }
 html #screen .swiper-wrapper #category .category-container .category-page .btn-container .back-btn,
 body #screen .swiper-wrapper #category .category-container .category-page .btn-container .back-btn {
   background: url("../img/category/back_btn.png") center center no-repeat;
-  background-size: 50% auto;
+  background-size: auto 32.5%;
 }
 html #screen .swiper-wrapper #category .category-container .category-page .btn-container:after,
 body #screen .swiper-wrapper #category .category-container .category-page .btn-container:after {
@@ -773,16 +768,14 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item {
   text-align: center;
   border-right: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
+  background-position: center center;
+  background-size: 95% 95%;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item img,
 body #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item img {
   max-width: 95%;
   max-height: 95%;
   vertical-align: middle;
-}
-html #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide.swiper-slide-next,
-body #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide.swiper-slide-next {
-  pointer-events: none;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide .item:nth-child(3),
 body #screen .swiper-wrapper #emoticon .emoticon-container .swiper-slide .item:nth-child(3),
@@ -819,27 +812,22 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .download-btns.other-
 html #screen .swiper-wrapper #emoticon .emoticon-container .btn-group,
 body #screen .swiper-wrapper #emoticon .emoticon-container .btn-group {
   position: absolute;
-  height: 3.5rem;
+  height: 60%;
   width: 100%;
   bottom: 0;
   left: 0;
+  text-align: center;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .btn-group i,
 body #screen .swiper-wrapper #emoticon .emoticon-container .btn-group i {
   display: inline-block;
-  float: left;
-  width: 49.9%;
+  width: 50%;
   height: 100%;
-}
-html #screen .swiper-wrapper #emoticon .emoticon-container .btn-group .share-btn,
-body #screen .swiper-wrapper #emoticon .emoticon-container .btn-group .share-btn {
-  background: url("../img/emoticon/share_btn.png") center center no-repeat;
-  background-size: 45% auto;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .btn-group .back-btn,
 body #screen .swiper-wrapper #emoticon .emoticon-container .btn-group .back-btn {
   background: url("../img/emoticon/back_btn.png") center center no-repeat;
-  background-size: 53% auto;
+  background-size: 50%;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .swiper-button-next,
 body #screen .swiper-wrapper #emoticon .emoticon-container .swiper-button-next {
