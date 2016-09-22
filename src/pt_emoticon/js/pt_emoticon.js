@@ -365,7 +365,7 @@ $(function () {
 
         wx.ready(function () {
             wx.onMenuShareTimeline({
-                title: '结婚五周年，是什么让他们一直娜么快乐？', // 分享标题
+                title: '铂金见证永不褪色的承诺', // 分享标题
                 link: window.location.href, // 分享链接
                 imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg', // 分享图标
                 success: function success() {
@@ -377,9 +377,9 @@ $(function () {
             });
 
             wx.onMenuShareAppMessage({
-                title: '结婚五周年，是什么让他们一直娜么快乐？', // 分享标题
+                title: '铂金见证永不褪色的承诺', // 分享标题
                 link: window.location.href, // 分享链接
-                desc: '结婚五周年，是什么让他们一直娜么快乐？',
+                desc: '铂金见证永不褪色的承诺',
                 imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg',
                 type: '', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -399,15 +399,15 @@ $(function () {
     if (window.KgMobileCall && KgMobileCall.isInClient()) {
 
         var client_share = {
-            "shareName": '结婚五周年，是什么让他们一直娜么快乐？',
+            "shareName": '铂金见证永不褪色的承诺',
             "hash": "",
             "listID": "",
             "type": 3,
             "shareData": {
                 "linkUrl": encodeURIComponent(window.location.href),
                 "picUrl": 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
-                "content": '结婚五周年，是什么让他们一直娜么快乐？',
-                "title": '结婚五周年，是什么让他们一直娜么快乐？'
+                "content": '铂金见证永不褪色的承诺',
+                "title": '铂金见证永不褪色的承诺'
             },
             "suid": "",
             "slid": "",
