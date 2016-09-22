@@ -10,11 +10,14 @@ $(function(){
     var $item = $('.item');
 
 
-    $.each($('.pics'),function(i,value){
+    setTimeout(function(){
+    $.each($('.pics-display-none'),function(i,value){
         setTimeout(function(){
             jQuery(value).fadeIn();
-        },1300*i);
+        },1500*i);
     });
+    }, 2500);
+
     setTimeout(function(){
         $('.expression').addClass('show');
         jQuery('.logo-first').fadeOut();

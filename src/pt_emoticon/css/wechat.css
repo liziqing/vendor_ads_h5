@@ -109,6 +109,9 @@ html{
 
 .pics{
     width:100%;
+}
+
+.pics-display-none {
     display: none;
 }
 
