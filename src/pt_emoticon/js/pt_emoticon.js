@@ -97,6 +97,11 @@ $(function () {
 
     $("#main .film-btn").on('click', function () {
         mySwiper.slideTo(4);
+
+        if (!audioDom.paused) {
+            $("#music_btn").removeClass("rotate");
+            audioDom.pause();
+        }
     });
 
     $("#main .talk-btn").on('click', function () {
@@ -285,6 +290,24 @@ $(function () {
 
     $("#emoticon .qq_emoticon_download").on('click', function () {
         //qq表情包下载
+    });
+
+    /***
+     * music
+     * */
+    var audioDom = document.querySelector('#music');
+    var audioSwitch = function audioSwitch(audioBtn) {
+        if (audioDom.paused) {
+            audioDom.play();
+            $(audioBtn).addClass("rotate");
+        } else {
+            audioDom.pause();
+            $(audioBtn).removeClass("rotate");
+        }
+    };
+
+    $("#music_btn").on('click', function () {
+        audioSwitch(this);
     });
 
     /***
