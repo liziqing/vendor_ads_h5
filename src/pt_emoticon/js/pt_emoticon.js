@@ -102,6 +102,12 @@ $(function () {
 
             $("#loading .loading-overlay").on('click', function () {
                 mySwiper.slideTo(4);
+
+                if (!audioDom.paused) {
+                    $("#music_btn").removeClass("rotate");
+                    $("#music_btn").hide();
+                    audioDom.pause();
+                }
             });
         }, 600);
 
