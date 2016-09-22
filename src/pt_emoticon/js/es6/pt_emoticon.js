@@ -102,7 +102,7 @@ $(function () {
             $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
             
             $("#loading .loading-overlay").on('click', () => {
-                mySwiper.slideTo(1);
+                mySwiper.slideTo(4);
             });
 
         }, 600);
@@ -434,6 +434,45 @@ $(function () {
         });
 
     });
+
+
+
+
+
+
+
+
+
+    /***
+     * KGshareAction
+     * */
+    if(window.KgMobileCall && KgMobileCall.isInClient()){
+
+        var client_share = {
+            "shareName" : '结婚五周年，是什么让他们一直娜么快乐？',
+            "hash" : "",
+            "listID" : "",
+            "type" : 3,
+            "shareData" : {
+                "linkUrl" : encodeURIComponent(window.location.href),
+                "picUrl" : 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
+                "content": '结婚五周年，是什么让他们一直娜么快乐？',
+                "title" : '结婚五周年，是什么让他们一直娜么快乐？'
+            },
+            "suid" : "",
+            "slid" : "",
+            "imgUrl" : 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
+            "filename" : "",
+            "duration": 0
+        };
+        LogStat({
+            "p1":"活动运营",
+            "p2" :"2015酷狗白皮书",
+            "name": "分享_"+globalParam.ch,
+            "type":1
+        });
+        KgMobileCall.share(client_share);
+    }
 
 });
 
