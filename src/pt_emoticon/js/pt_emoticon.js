@@ -100,6 +100,7 @@ $(function () {
 
         if (!audioDom.paused) {
             $("#music_btn").removeClass("rotate");
+            $("#music_btn").hide();
             audioDom.pause();
         }
     });
@@ -214,6 +215,8 @@ $(function () {
     $("#video .close_btn").on('click', function () {
         video.getPlayer().pause();
         mySwiper.slideTo(1);
+
+        $("#music_btn").show();
     });
 
     /***
