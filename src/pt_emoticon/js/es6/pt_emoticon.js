@@ -135,9 +135,9 @@ $(function () {
     $("#main .film-btn").on('click', () => {
         mySwiper.slideTo(4);
 
+        $("#music_btn").removeClass("rotate");
+        $("#music_btn").hide();
         if(!audioDom.paused){
-            $("#music_btn").removeClass("rotate");
-            $("#music_btn").hide();
             audioDom.pause();
         }
     });
