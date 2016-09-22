@@ -133,7 +133,7 @@ gulp.task('pt_emoticon_copy_music', function () {
 });
 
 gulp.task('pt_emoticon_copy_pc', function () {
-    return gulp.src('./pc/*')
+    return gulp.src('./pc/**')
         .pipe(copy('../../dist/pt_emoticon/'))
 });
 
