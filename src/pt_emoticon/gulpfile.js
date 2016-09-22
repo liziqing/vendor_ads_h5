@@ -18,6 +18,7 @@ var plumber = require('gulp-plumber');
 var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var usemin = require('gulp-usemin');
+var copy = require('gulp-copy')
 
 
 /*-----------------------clean------------------------*/
@@ -124,6 +125,12 @@ gulp.task('wechatfeeds_usemin', function () {
         .pipe(gulp.dest('../../dist/pt_emoticon/'));
 });
 
+/*-----------------------copy other source------------------------*/
+
+gulp.task('pt_emoticon_copy', function () {
+    return gulp.src('./music/*')
+        .pipe(copy('../../dist/pt_emoticon/'))
+});
 
 
 /*-----------------------watch------------------------*/
@@ -152,7 +159,7 @@ gulp.task('wechatfeeds_build',
 
 gulp.task('pt_build',
     gulp.series('pt_emoticon_clean',
-        gulp.parallel('pt_emoticon_imgmin', 'pt_emoticon_usemin', 'wechatfeeds_usemin'),
+        gulp.parallel('pt_emoticon_copy', 'pt_emoticon_imgmin', 'pt_emoticon_usemin', 'wechatfeeds_usemin'),
         'wechatfeeds_cssmin',
         'wechatfeeds_htmlmin',
         'pt_emoticon_cssmin',
