@@ -430,12 +430,7 @@ $(function () {
             "filename": "",
             "duration": 0
         };
-        LogStat({
-            "p1": "活动运营",
-            "p2": "2015酷狗白皮书",
-            "name": "分享_" + globalParam.ch,
-            "type": 1
-        });
+
         KgMobileCall.share(client_share);
     }
 });
