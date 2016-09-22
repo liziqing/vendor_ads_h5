@@ -208,6 +208,10 @@ $(function () {
 
         //categorySwiper
         categorySwiper = new Swiper('#category-swiper', {
+                effect: 'fade',
+                fade: {
+                    crossFade: true,
+                },
             prevButton:'.swiper-button-prev',
             nextButton:'.swiper-button-next',
             onSlideChangeStart: function () {
