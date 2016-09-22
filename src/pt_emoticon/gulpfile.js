@@ -127,10 +127,19 @@ gulp.task('wechatfeeds_usemin', function () {
 
 /*-----------------------copy other source------------------------*/
 
-gulp.task('pt_emoticon_copy', function () {
+gulp.task('pt_emoticon_copy_music', function () {
     return gulp.src('./music/*')
         .pipe(copy('../../dist/pt_emoticon/'))
 });
+
+gulp.task('pt_emoticon_copy_pc', function () {
+    return gulp.src('./pc/*')
+        .pipe(copy('../../dist/pt_emoticon/'))
+});
+
+gulp.task('pt_emoticon_copy',
+    gulp.series('pt_emoticon_copy_pc','pt_emoticon_copy_music')
+);
 
 
 /*-----------------------watch------------------------*/
