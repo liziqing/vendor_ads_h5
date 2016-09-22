@@ -59,6 +59,7 @@ $(function () {
         vid: "p0021ehy1js",
         pic: "./img/video/video_img.jpg", //设置视频默认缩略图
         isHtml5ControlAlwaysShow: true,
+        autoplay: true,
         oninited: function oninited() {
             //播放器在视频载入完毕触发
         },
@@ -353,6 +354,14 @@ $(function () {
     /***
      * shareAction
      * */
+
+    var shareData = {
+        shareTile: '铂金见证永不褪色的承诺',
+        shareUrl: window.location.href,
+        shareImg: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
+        shareDes: '铂金见证永不褪色的承诺'
+    };
+
     ptShareConfig.init(function (data) {
         wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -365,9 +374,9 @@ $(function () {
 
         wx.ready(function () {
             wx.onMenuShareTimeline({
-                title: '铂金见证永不褪色的承诺', // 分享标题
-                link: window.location.href, // 分享链接
-                imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg', // 分享图标
+                title: shareData.shareTile, // 分享标题
+                link: shareData.shareUrl, // 分享链接
+                imgUrl: shareData.shareImg,
                 success: function success() {
                     // 用户确认分享后执行的回调函数
                 },
@@ -377,10 +386,10 @@ $(function () {
             });
 
             wx.onMenuShareAppMessage({
-                title: '铂金见证永不褪色的承诺', // 分享标题
-                link: window.location.href, // 分享链接
-                desc: '铂金见证永不褪色的承诺',
-                imgUrl: 'http://' + window.location.origin + '/img/wechatfeeds/share.jpg',
+                title: shareData.shareTile, // 分享标题
+                link: shareData.shareUrl,
+                desc: shareData.shareDes,
+                imgUrl: shareData.shareImg,
                 type: '', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                 success: function success() {
@@ -399,19 +408,19 @@ $(function () {
     if (window.KgMobileCall && KgMobileCall.isInClient()) {
 
         var client_share = {
-            "shareName": '铂金见证永不褪色的承诺',
+            "shareName": shareData.shareTile,
             "hash": "",
             "listID": "",
             "type": 3,
             "shareData": {
-                "linkUrl": encodeURIComponent(window.location.href),
-                "picUrl": 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
-                "content": '铂金见证永不褪色的承诺',
-                "title": '铂金见证永不褪色的承诺'
+                "linkUrl": encodeURIComponent(shareData.shareUrl),
+                "picUrl": shareData.shareImg,
+                "content": shareData.shareDes,
+                "title": shareData.shareTile
             },
             "suid": "",
             "slid": "",
-            "imgUrl": 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
+            "imgUrl": shareData.shareImg,
             "filename": "",
             "duration": 0
         };
