@@ -29,9 +29,9 @@ $(function () {
 
     if (!isMobile.any()) {
         window.location.href = './pc/index.html';
+    } else {
+        new WxMoment.OrientationTip();
     }
-
-    new WxMoment.OrientationTip();
 
     //初始化容器
     var mySwiper = new Swiper('#screen', {
@@ -114,6 +114,7 @@ $(function () {
             $("#loading .loading-overlay").on('click', function () {
                 _smq.push(['custom', '监测代码', '跳过']);
                 mySwiper.slideTo(4);
+                setShareInfo('是什么让他们一直娜么快乐？');
 
                 if (!audioDom.paused) {
                     $("#music_btn").removeClass("rotate");
@@ -136,11 +137,13 @@ $(function () {
     $("#main .same-btn").on('click', function () {
         _smq.push(['custom', '监测代码', '杰娜铂金同款']);
         mySwiper.slideTo(2);
+        setShareInfo('你想拥有杰娜铂金同款吗？即刻点击！');
     });
 
     $("#main .film-btn").on('click', function () {
         _smq.push(['custom', '监测代码', '杰娜承诺大片']);
         mySwiper.slideTo(4);
+        setShareInfo('是什么让他们一直娜么快乐？');
 
         $("#music_btn").removeClass("rotate");
         $("#music_btn").hide();
@@ -152,6 +155,7 @@ $(function () {
     $("#main .talk-btn").on('click', function () {
         _smq.push(['custom', '监测代码', '杰娜铂金爱语']);
         mySwiper.slideTo(5);
+        setShareInfo('承诺是爱情里最美的表情，杰娜铂金爱语表情包，一般人我不发给TA哦！');
 
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
     });
@@ -162,6 +166,7 @@ $(function () {
     $("#menu .back-btn").on('click', function () {
         _smq.push(['custom', '监测代码', '返回主菜单']);
         mySwiper.slideTo(1);
+        setShareInfo('铂金见证永不褪色的承诺');
     });
 
     $("#menu .category-item").on('click', function () {
@@ -171,6 +176,7 @@ $(function () {
 
         setTimeout(function () {
             mySwiper.slideTo(3);
+            setShareInfo('你想拥有杰娜铂金同款吗？即刻点击！');
         }, 300);
     });
 
@@ -185,6 +191,7 @@ $(function () {
         $("#category .back-btn").on('click', function () {
             _smq.push(['custom', '监测代码', '返回主菜单']);
             mySwiper.slideTo(2);
+            setShareInfo('铂金见证永不褪色的承诺');
         });
 
         $("#category .share-btn").on('click', function () {
@@ -317,6 +324,7 @@ $(function () {
 
         video.getPlayer().pause();
         mySwiper.slideTo(1);
+        setShareInfo('铂金见证永不褪色的承诺');
 
         $("#music_btn").show();
     });
@@ -371,6 +379,7 @@ $(function () {
     $('#emoticon .back-btn').on('click', function () {
         _smq.push(['custom', '监测代码', '返回主菜单']);
         mySwiper.slideTo(1);
+        setShareInfo('铂金见证永不褪色的承诺');
         $('.act-pic').hide();
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
     });
@@ -403,11 +412,13 @@ $(function () {
     $("#emoticon .wx_emoticon_download").on('click', function () {
         //微信表情包下载
         _smq.push(['custom', '监测代码', '微信一键下载']);
+        //        window.location.href = 'http://www.baidu.com';
     });
 
     $("#emoticon .qq_emoticon_download").on('click', function () {
         //qq表情包下载
         _smq.push(['custom', '监测代码', 'QQ一键下载']);
+        //        window.location.href = 'http://www.baidu.com';
     });
 
     /***
@@ -478,6 +489,35 @@ $(function () {
             });
         });
     });
+
+    var setShareInfo = function setShareInfo(title) {
+        wx.onMenuShareTimeline({
+            title: title, // 分享标题
+            link: window.location.href, // 分享链接
+            imgUrl: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
+            success: function success() {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function cancel() {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+
+        wx.onMenuShareAppMessage({
+            title: title, // 分享标题
+            link: window.location.href,
+            desc: title,
+            imgUrl: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function success() {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function cancel() {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    };
 
     /***
      * KGshareAction
