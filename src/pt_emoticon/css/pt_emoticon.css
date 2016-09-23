@@ -916,6 +916,208 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .share-overlay {
   background-size: 100% 100%;
   display: none;
 }
+html #screen .swiper-wrapper #preload,
+body #screen .swiper-wrapper #preload {
+  z-index: -1;
+}
+html #screen .swiper-wrapper #preload i.category_3_jiezhi_1,
+body #screen .swiper-wrapper #preload i.category_3_jiezhi_1 {
+  background: url("../img/category/category_3/category_3_jiezhi_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_jiezhi_2,
+body #screen .swiper-wrapper #preload i.category_3_jiezhi_2 {
+  background: url("../img/category/category_3/category_3_jiezhi_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_erhuan_1,
+body #screen .swiper-wrapper #preload i.category_3_erhuan_1 {
+  background: url("../img/category/category_3/category_3_erhuan_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_erhuan_2,
+body #screen .swiper-wrapper #preload i.category_3_erhuan_2 {
+  background: url("../img/category/category_3/category_3_erhuan_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_erhuan_3,
+body #screen .swiper-wrapper #preload i.category_3_erhuan_3 {
+  background: url("../img/category/category_3/category_3_erhuan_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_erhuan_4,
+body #screen .swiper-wrapper #preload i.category_3_erhuan_4 {
+  background: url("../img/category/category_3/category_3_erhuan_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_diaozhui_1,
+body #screen .swiper-wrapper #preload i.category_3_diaozhui_1 {
+  background: url("../img/category/category_3/category_3_diaozhui_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_diaozhui_2,
+body #screen .swiper-wrapper #preload i.category_3_diaozhui_2 {
+  background: url("../img/category/category_3/category_3_diaozhui_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_diaozhui_3,
+body #screen .swiper-wrapper #preload i.category_3_diaozhui_3 {
+  background: url("../img/category/category_3/category_3_diaozhui_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_diaozhui_4,
+body #screen .swiper-wrapper #preload i.category_3_diaozhui_4 {
+  background: url("../img/category/category_3/category_3_diaozhui_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_3_shoulian_1,
+body #screen .swiper-wrapper #preload i.category_3_shoulian_1 {
+  background: url("../img/category/category_3/category_3_shoulian_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_jiezhi_1,
+body #screen .swiper-wrapper #preload i.category_1_jiezhi_1 {
+  background: url("../img/category/category_1/category_1_jiezhi_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_jiezhi_2,
+body #screen .swiper-wrapper #preload i.category_1_jiezhi_2 {
+  background: url("../img/category/category_1/category_1_jiezhi_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_jiezhi_3,
+body #screen .swiper-wrapper #preload i.category_1_jiezhi_3 {
+  background: url("../img/category/category_1/category_1_jiezhi_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_jiezhi_4,
+body #screen .swiper-wrapper #preload i.category_1_jiezhi_4 {
+  background: url("../img/category/category_1/category_1_jiezhi_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_jiezhi_5,
+body #screen .swiper-wrapper #preload i.category_1_jiezhi_5 {
+  background: url("../img/category/category_1/category_1_jiezhi_5.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_erhuan_1,
+body #screen .swiper-wrapper #preload i.category_1_erhuan_1 {
+  background: url("../img/category/category_1/category_1_erhuan_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_erhuan_2,
+body #screen .swiper-wrapper #preload i.category_1_erhuan_2 {
+  background: url("../img/category/category_1/category_1_erhuan_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_erhuan_3,
+body #screen .swiper-wrapper #preload i.category_1_erhuan_3 {
+  background: url("../img/category/category_1/category_1_erhuan_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_diaozhui_1,
+body #screen .swiper-wrapper #preload i.category_1_diaozhui_1 {
+  background: url("../img/category/category_1/category_1_diaozhui_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_diaozhui_2,
+body #screen .swiper-wrapper #preload i.category_1_diaozhui_2 {
+  background: url("../img/category/category_1/category_1_diaozhui_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_diaozhui_3,
+body #screen .swiper-wrapper #preload i.category_1_diaozhui_3 {
+  background: url("../img/category/category_1/category_1_diaozhui_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_jiezhi_1,
+body #screen .swiper-wrapper #preload i.category_2_jiezhi_1 {
+  background: url("../img/category/category_2/category_2_jiezhi_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_erhuan_1,
+body #screen .swiper-wrapper #preload i.category_2_erhuan_1 {
+  background: url("../img/category/category_2/category_2_erhuan_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_erhuan_2,
+body #screen .swiper-wrapper #preload i.category_2_erhuan_2 {
+  background: url("../img/category/category_2/category_2_erhuan_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_erhuan_3,
+body #screen .swiper-wrapper #preload i.category_2_erhuan_3 {
+  background: url("../img/category/category_2/category_2_erhuan_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_erhuan_4,
+body #screen .swiper-wrapper #preload i.category_2_erhuan_4 {
+  background: url("../img/category/category_2/category_2_erhuan_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_erhuan_5,
+body #screen .swiper-wrapper #preload i.category_2_erhuan_5 {
+  background: url("../img/category/category_2/category_2_erhuan_5.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_erhuan_6,
+body #screen .swiper-wrapper #preload i.category_2_erhuan_6 {
+  background: url("../img/category/category_2/category_2_erhuan_6.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_erhuan_7,
+body #screen .swiper-wrapper #preload i.category_2_erhuan_7 {
+  background: url("../img/category/category_2/category_2_erhuan_7.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_diaozhui_1,
+body #screen .swiper-wrapper #preload i.category_2_diaozhui_1 {
+  background: url("../img/category/category_2/category_2_diaozhui_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_diaozhui_2,
+body #screen .swiper-wrapper #preload i.category_2_diaozhui_2 {
+  background: url("../img/category/category_2/category_2_diaozhui_2.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_diaozhui_3,
+body #screen .swiper-wrapper #preload i.category_2_diaozhui_3 {
+  background: url("../img/category/category_2/category_2_diaozhui_3.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_diaozhui_4,
+body #screen .swiper-wrapper #preload i.category_2_diaozhui_4 {
+  background: url("../img/category/category_2/category_2_diaozhui_4.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_diaozhui_5,
+body #screen .swiper-wrapper #preload i.category_2_diaozhui_5 {
+  background: url("../img/category/category_2/category_2_diaozhui_5.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_2_shoulian_1,
+body #screen .swiper-wrapper #preload i.category_2_shoulian_1 {
+  background: url("../img/category/category_2/category_2_shoulian_1.png") center center no-repeat;
+  background-size: contain;
+}
+html #screen .swiper-wrapper #preload i.category_1_background,
+body #screen .swiper-wrapper #preload i.category_1_background {
+  background: url("../img/category/category_1/category_1_background.png") center center no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+}
+html #screen .swiper-wrapper #preload i.category_2_background,
+body #screen .swiper-wrapper #preload i.category_2_background {
+  background: url("../img/category/category_2/category_2_background.png") center center no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+}
+html #screen .swiper-wrapper #preload i.category_3_background,
+body #screen .swiper-wrapper #preload i.category_3_background {
+  background: url("../img/category/category_3/category_3_background.png") center center no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+}
 html #screen #music_btn,
 body #screen #music_btn {
   display: inline-block;
