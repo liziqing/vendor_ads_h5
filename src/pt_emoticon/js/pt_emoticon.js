@@ -7,31 +7,7 @@
 $(function () {
 
     var firstTime = true;
-
-    //非手机端提示(可能需要替换为跳转pc端页面)
-    var isMobile = {
-        Android: function Android() {
-            return navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1 ? true : false;
-        },
-        BlackBerry: function BlackBerry() {
-            return navigator.userAgent.match(/BlackBerry/i) ? true : false;
-        },
-        iOS: function iOS() {
-            return navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? true : false;
-        },
-        Windows: function Windows() {
-            return navigator.userAgent.match(/IEMobile/i) ? true : false;
-        },
-        any: function any() {
-            return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows();
-        }
-    };
-
-    if (!isMobile.any()) {
-        window.location.href = './pc/index.html';
-    } else {
-        new WxMoment.OrientationTip();
-    }
+    new WxMoment.OrientationTip();
 
     //初始化容器
     var mySwiper = new Swiper('#screen', {
