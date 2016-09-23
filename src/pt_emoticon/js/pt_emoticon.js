@@ -6,6 +6,8 @@
 
 $(function () {
 
+    var firstTime = true;
+
     //非手机端提示(可能需要替换为跳转pc端页面)
     var isMobile = {
         Android: function Android() {
@@ -64,7 +66,11 @@ $(function () {
             //播放器在视频载入完毕触发
         },
         onplaying: function onplaying() {
-            //播放器真正开始播放视频第一帧画面时
+            if (firstTime) {
+                _smq.push(['custom', '监测代码', 'loading后播放视频']);
+            } else {
+                _smq.push(['custom', '监测代码', '主菜单播放视频']);
+            }
         },
         onpause: function onpause() {
             //播放器触发暂停时，目前只针对HTML5播放器有效
@@ -76,7 +82,11 @@ $(function () {
             //播放器播放完毕时
         },
         onfullscreen: function onfullscreen(isfull) {
-            //onfullscreen(isfull) 播放器触发全屏/非全屏时，参数isfull表示当前是否是全屏
+            if (firstTime) {
+                _smq.push(['custom', '监测代码', 'loading全屏播放视频']);
+            } else {
+                _smq.push(['custom', '监测代码', '主菜单全屏播放视频']);
+            }
         }
     });
 
@@ -90,6 +100,7 @@ $(function () {
 
     //loading结束 首屏文字动画
     Pace.on('done', function () {
+        _smq.push(['custom', '监测代码', '自动触发的PV代码']);
         $('.loaded-out').css('opacity', '0');
 
         // $('.loaded-out').addClass('fadeOutOri animated-500');
@@ -101,6 +112,7 @@ $(function () {
             $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
 
             $("#loading .loading-overlay").on('click', function () {
+                _smq.push(['custom', '监测代码', '跳过']);
                 mySwiper.slideTo(4);
 
                 if (!audioDom.paused) {
@@ -122,10 +134,12 @@ $(function () {
      * main
      * */
     $("#main .same-btn").on('click', function () {
+        _smq.push(['custom', '监测代码', '杰娜铂金同款']);
         mySwiper.slideTo(2);
     });
 
     $("#main .film-btn").on('click', function () {
+        _smq.push(['custom', '监测代码', '杰娜承诺大片']);
         mySwiper.slideTo(4);
 
         $("#music_btn").removeClass("rotate");
@@ -136,6 +150,7 @@ $(function () {
     });
 
     $("#main .talk-btn").on('click', function () {
+        _smq.push(['custom', '监测代码', '杰娜铂金爱语']);
         mySwiper.slideTo(5);
 
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
@@ -145,6 +160,7 @@ $(function () {
      * menu
      * */
     $("#menu .back-btn").on('click', function () {
+        _smq.push(['custom', '监测代码', '返回主菜单']);
         mySwiper.slideTo(1);
     });
 
@@ -167,6 +183,7 @@ $(function () {
         var isCategoryShareFading = false;
 
         $("#category .back-btn").on('click', function () {
+            _smq.push(['custom', '监测代码', '返回主菜单']);
             mySwiper.slideTo(2);
         });
 
@@ -204,6 +221,47 @@ $(function () {
                 categorySwiper.slideTo(tempIndex);
             }
         });
+
+        $("#category .category-page-1 .back-btn").on('click', function () {
+            _smq.push(['custom', '监测代码', '钟情一生系列返回主菜单按钮']);
+        });
+        $("#category .category-page-2 .back-btn").on('click', function () {
+            _smq.push(['custom', '监测代码', '爱之心语系列吊坠返回主菜单按钮']);
+        });
+        $("#category .category-page-3 .back-btn").on('click', function () {
+            _smq.push(['custom', '监测代码', '爱的守护系列返回主菜单按钮']);
+        });
+        $("#category .category-page-1 .menu-container li").on('click', function () {
+            if ($(this).hasClass('jiezhi')) {
+                _smq.push(['custom', '监测代码', '钟情一生系列戒指按钮']);
+            } else if ($(this).hasClass('erhuan')) {
+                _smq.push(['custom', '监测代码', '钟情一生系列耳环按钮']);
+            } else if ($(this).hasClass('diaozhui')) {
+                _smq.push(['custom', '监测代码', '钟情一生系列吊坠按钮']);
+            } else if ($(this).hasClass('shoulian')) {}
+        });
+        $("#category .category-page-2 .menu-container li").on('click', function () {
+            if ($(this).hasClass('jiezhi')) {
+                _smq.push(['custom', '监测代码', '爱之心语系列戒指按钮']);
+            } else if ($(this).hasClass('erhuan')) {
+                _smq.push(['custom', '监测代码', '爱之心语系列耳环按钮']);
+            } else if ($(this).hasClass('diaozhui')) {
+                _smq.push(['custom', '监测代码', '爱之心语系列吊坠按钮']);
+            } else if ($(this).hasClass('shoulian')) {
+                _smq.push(['custom', '监测代码', '爱之心语系列吊坠手链按钮']);
+            }
+        });
+        $("#category .category-page-3 .menu-container li").on('click', function () {
+            if ($(this).hasClass('jiezhi')) {
+                _smq.push(['custom', '监测代码', '爱的守护系列戒指按钮']);
+            } else if ($(this).hasClass('erhuan')) {
+                _smq.push(['custom', '监测代码', '爱的守护系列耳环按钮']);
+            } else if ($(this).hasClass('diaozhui')) {
+                _smq.push(['custom', '监测代码', '爱的守护系列吊坠按钮']);
+            } else if ($(this).hasClass('shoulian')) {
+                _smq.push(['custom', '监测代码', '爱的守护系列手链按钮']);
+            }
+        });
     };
 
     var createCategorySwiper = function createCategorySwiper(thisIndex) {
@@ -212,12 +270,15 @@ $(function () {
         switch (thisIndex) {
             case 0:
                 var categoryHtml = template('category-page-1', {});
+                _smq.push(['custom', '监测代码', '钟情一生系列']);
                 break;
             case 1:
                 var categoryHtml = template('category-page-2', {});
+                _smq.push(['custom', '监测代码', '爱之心语系列']);
                 break;
             case 2:
                 var categoryHtml = template('category-page-3', {});
+                _smq.push(['custom', '监测代码', '爱的守护系列']);
                 break;
         }
         document.getElementById('category-container').innerHTML = categoryHtml;
@@ -247,6 +308,13 @@ $(function () {
      * video
      * */
     $("#video .close_btn").on('click', function () {
+        if (firstTime) {
+            _smq.push(['custom', '监测代码', 'loading后关闭视频']);
+            firstTime = false;
+        } else {
+            _smq.push(['custom', '监测代码', '主菜单关闭视频']);
+        }
+
         video.getPlayer().pause();
         mySwiper.slideTo(1);
 
@@ -301,6 +369,7 @@ $(function () {
     });
 
     $('#emoticon .back-btn').on('click', function () {
+        _smq.push(['custom', '监测代码', '返回主菜单']);
         mySwiper.slideTo(1);
         $('.act-pic').hide();
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
@@ -333,10 +402,12 @@ $(function () {
 
     $("#emoticon .wx_emoticon_download").on('click', function () {
         //微信表情包下载
+        _smq.push(['custom', '监测代码', '微信一键下载']);
     });
 
     $("#emoticon .qq_emoticon_download").on('click', function () {
         //qq表情包下载
+        _smq.push(['custom', '监测代码', 'QQ一键下载']);
     });
 
     /***
@@ -430,7 +501,6 @@ $(function () {
             "filename": "",
             "duration": 0
         };
-
         KgMobileCall.share(client_share);
     }
 });

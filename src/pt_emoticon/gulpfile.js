@@ -81,7 +81,7 @@ gulp.task('wechatfeeds_cssmin', function(){
 
 
 gulp.task('pt_emoticon_uglify', function(){
-    return gulp.src(['../vendor/pace/pace.min.js', '../vendor/wxmoment/wxmoment.min.js', '../vendor/base/wx_js.js', '../vendor/base/wxJsSdkConfig.js', '../vendor/swiper/swiper.jquery.min.js', '../vendor/sha1/sha1.min.js', '../vendor/arttemplate/template.js', '../vendor/hammer/hammer.min.js', './js/pt_emoticon.js'])
+    return gulp.src(['../vendor/pace/pace.min.js', '../vendor/wxmoment/wxmoment.min.js', '../vendor/base/wx_js.js', '../vendor/base/wxJsSdkConfig.js', '../vendor/swiper/swiper.jquery.min.js', '../vendor/sha1/sha1.min.js', '../vendor/arttemplate/template.js', '../vendor/hammer/hammer.min.js', '../vendor/PhaseIII/PhaseIII.js', './js/pt_emoticon.js'])
         .pipe(uglify())
         .pipe(gulp.dest('../../dist/pt_emoticon/js'));
 });
