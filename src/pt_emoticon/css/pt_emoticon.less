@@ -88,9 +88,18 @@ html,body{
                     -o-transition: opacity 500ms;
                 }
 
+                .loading-logo{
+                    position: absolute;
+                    top: 2rem;
+                    left: 50%;
+                    width: 2.2rem;
+                    margin-left: -1.1rem;
+                    display: none;
+                }
+
                 .loading-text{
                     position: absolute;
-                    top: 5rem;
+                    top: 7rem;
                     left: 15%;
                     width: 70%;
                     height: auto;
@@ -1102,6 +1111,7 @@ html,body{
             background: url("../img/music.png") center center no-repeat;
             background-size: 100% 100%;
             z-index: 30;
+            display: none;
         }
 
         @-webkit-keyframes rotate {

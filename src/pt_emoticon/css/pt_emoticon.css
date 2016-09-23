@@ -84,10 +84,19 @@ body #screen .swiper-wrapper #loading .loaded-out {
   -webkit-transition: opacity 500ms;
   -o-transition: opacity 500ms;
 }
+html #screen .swiper-wrapper #loading .loading-logo,
+body #screen .swiper-wrapper #loading .loading-logo {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  width: 2.2rem;
+  margin-left: -1.1rem;
+  display: none;
+}
 html #screen .swiper-wrapper #loading .loading-text,
 body #screen .swiper-wrapper #loading .loading-text {
   position: absolute;
-  top: 5rem;
+  top: 7rem;
   left: 15%;
   width: 70%;
   height: auto;
@@ -1129,6 +1138,7 @@ body #screen #music_btn {
   background: url("../img/music.png") center center no-repeat;
   background-size: 100% 100%;
   z-index: 30;
+  display: none;
 }
 @-webkit-keyframes rotate {
   from {
