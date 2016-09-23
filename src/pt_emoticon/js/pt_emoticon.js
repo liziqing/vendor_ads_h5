@@ -37,7 +37,7 @@ $(function () {
         vid: "p0021ehy1js",
         pic: "./img/video/video_img.jpg", //设置视频默认缩略图
         isHtml5ControlAlwaysShow: true,
-        autoplay: true,
+        autoplay: false,
         oninited: function oninited() {
             //播放器在视频载入完毕触发
         },
@@ -82,21 +82,33 @@ $(function () {
         // $('.loaded-out').addClass('fadeOutOri animated-500');
         $('.loaded-in').css({ 'display': 'inline-block', 'opacity': '0' });
         $('.loaded-in').addClass('fadeInOri animated-500');
+
         setTimeout(function () {
             $('.loaded-out').removeClass('fromRight animated-90000 animated-60000');
-
             $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
 
-            $("#loading .loading-overlay").on('click', function () {
-                _smq.push(['custom', '监测代码', '跳过']);
-                mySwiper.slideTo(4);
+            var slideTo = function slideTo() {
+                var index = arguments.length <= 0 || arguments[0] === undefined ? 4 : arguments[0];
+
+                mySwiper.slideTo(index);
                 setShareInfo('是什么让他们一直娜么快乐？');
 
+                video.getPlayer().play();
                 if (!audioDom.paused) {
                     $("#music_btn").removeClass("rotate");
                     $("#music_btn").hide();
                     audioDom.pause();
                 }
+            };
+
+            timer = setTimeout(function () {
+                slideTo();
+            }, 5000);
+
+            $("#loading .loading-overlay").on('click', function () {
+                _smq.push(['custom', '监测代码', '跳过']);
+                slideTo();
+                clearTimeout(timer);
             });
         }, 600);
 
