@@ -431,12 +431,12 @@ $(function () {
      * shareAction
      * */
 
-    var shareData = {
-        shareTile: '铂金见证永不褪色的承诺',
-        shareUrl: window.location.href,
-        shareImg: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
-        shareDes: '铂金见证永不褪色的承诺'
-    };
+    //let shareData = {
+    //    shareTile: '铂金见证永不褪色的承诺',
+    //    shareUrl: window.location.href,
+    //    shareImg: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
+    //    shareDes: '铂金见证永不褪色的承诺',
+    //}
 
     ptShareConfig.init(function (data) {
         wx.config({
@@ -478,9 +478,28 @@ $(function () {
         });
     });
 
-    var setShareInfo = function setShareInfo(title) {
+    var setShareInfo = function setShareInfo(index) {
+        var setShareData = [{
+            feedsTitle: '张杰谢娜铂金同款首饰，让铂金见证永不褪色的承诺！',
+            title: '铂金见证永不褪色的承诺',
+            des: '即刻拥有张杰谢娜同款铂金首饰！'
+        }, {
+            feedsTitle: '张杰谢娜结婚五周年铂金承诺大片唯美上线！',
+            title: '铂金见证永不褪色的承诺',
+            des: '张杰谢娜结婚五周年铂金承诺大片唯美上线！'
+        }, {
+            feedsTitle: '杰娜铂金爱语表情包，一秒捕捉幸福瞬间，一般人我不发给TA哦！',
+            title: '铂金见证永不褪色的承诺',
+            des: '杰娜铂金爱语表情包，一秒捕捉幸福瞬间，一般人我不发给TA哦！'
+        }, {
+            feedsTitle: '结婚5年，是什么让他们一直娜么快乐？',
+            title: '铂金见证永不褪色的承诺',
+            des: '结婚5年，是什么让他们一直娜么快乐？'
+        }];
+        // 0产品  1视频  2表情包  3基本
+
         wx.onMenuShareTimeline({
-            title: title, // 分享标题
+            title: setShareData[index].feedsTitle, // 分享标题
             link: window.location.href, // 分享链接
             imgUrl: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
             success: function success() {
@@ -492,9 +511,9 @@ $(function () {
         });
 
         wx.onMenuShareAppMessage({
-            title: title, // 分享标题
+            title: setShareData[index].title, // 分享标题
             link: window.location.href,
-            desc: title,
+            desc: setShareData[index].des,
             imgUrl: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
             type: '', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
