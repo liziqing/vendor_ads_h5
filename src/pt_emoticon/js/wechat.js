@@ -83,6 +83,10 @@ $(function(){
         window.location.href = './index.html'
     });
 
+    //
+    //$('.wx-download').on('click',function(){
+    //    window.location.href = '';
+    //});
 
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination-v',

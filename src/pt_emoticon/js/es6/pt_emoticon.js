@@ -3,7 +3,7 @@
 */
 
 $(function () {
-
+    let userStop = false;
     let firstTime = true;
     new WxMoment.OrientationTip();
     
@@ -78,6 +78,9 @@ $(function () {
 
     //loading结束 首屏文字动画
     Pace.on('done', () => {
+        $('#music_btn').show();
+        document.getElementById('music').play();
+        $('#music_btn').addClass('rotate');
         _smq.push(['custom','监测代码','自动触发的PV代码']);
         $('.loaded-out').css('opacity', '0');
         
@@ -91,12 +94,13 @@ $(function () {
 
             let slideTo = (index = 4) => {
                 mySwiper.slideTo(index);
-                setShareInfo('是什么让他们一直娜么快乐？');
+                setShareInfo(1);
 
                 video.getPlayer().play();
+
+                $("#music_btn").removeClass("rotate");
+                $("#music_btn").hide();
                 if(!audioDom.paused){
-                    $("#music_btn").removeClass("rotate");
-                    $("#music_btn").hide();
                     audioDom.pause();
                 }
             }
@@ -131,13 +135,13 @@ $(function () {
     $("#main .same-btn").on('click', () => {
         _smq.push(['custom','监测代码','杰娜铂金同款']);
         mySwiper.slideTo(2);
-        setShareInfo('你想拥有杰娜铂金同款吗？即刻点击！');
+        setShareInfo(0);
     });
 
     $("#main .film-btn").on('click', () => {
         _smq.push(['custom','监测代码','杰娜承诺大片']);
         mySwiper.slideTo(4);
-        setShareInfo('是什么让他们一直娜么快乐？');
+        setShareInfo(1);
 
         $("#music_btn").removeClass("rotate");
         $("#music_btn").hide();
@@ -149,7 +153,7 @@ $(function () {
     $("#main .talk-btn").on('click', () => {
         _smq.push(['custom','监测代码','杰娜铂金爱语']);
         mySwiper.slideTo(5);
-        setShareInfo('承诺是爱情里最美的表情，杰娜铂金爱语表情包，一般人我不发给TA哦！');
+        setShareInfo(2);
 
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
     });
@@ -163,7 +167,7 @@ $(function () {
     $("#menu .back-btn").on('click', () => {
         _smq.push(['custom','监测代码','返回主菜单']);
         mySwiper.slideTo(1);
-        setShareInfo('铂金见证永不褪色的承诺');
+        setShareInfo(3);
     });
 
     $("#menu .category-item").on('click', function () {
@@ -173,7 +177,7 @@ $(function () {
 
         setTimeout(() => {
             mySwiper.slideTo(3);
-            setShareInfo('你想拥有杰娜铂金同款吗？即刻点击！');
+            setShareInfo(0);
         }, 300)
     });
 
@@ -191,7 +195,7 @@ $(function () {
         $("#category .back-btn").on('click', () => {
             _smq.push(['custom','监测代码','返回主菜单']);
             mySwiper.slideTo(2);
-            setShareInfo('铂金见证永不褪色的承诺');
+            setShareInfo(3);
         });
 
         $("#category .share-btn").on('click', () => {
@@ -325,6 +329,9 @@ $(function () {
      * video
      * */
     $("#video .close_btn").on('click', () => {
+
+        console.log(userStop);
+
         if(firstTime){
             _smq.push(['custom','监测代码','loading后关闭视频']);
             firstTime = false;
@@ -334,9 +341,19 @@ $(function () {
 
         video.getPlayer().pause();
         mySwiper.slideTo(1);
-        setShareInfo('铂金见证永不褪色的承诺');
+        setShareInfo(3);
 
         $("#music_btn").show();
+
+        if(!userStop){
+            $('#music_btn').show();
+            document.getElementById('music').play();
+            $('#music_btn').addClass('rotate');
+        }else{
+            $('#music_btn').show();
+            document.getElementById('music').pause();
+            $('#music_btn').removeClass('rotate');
+        }
     });
 
 
@@ -397,7 +414,7 @@ $(function () {
     $('#emoticon .back-btn').on('click', () => {
         _smq.push(['custom','监测代码','返回主菜单']);
         mySwiper.slideTo(1);
-        setShareInfo('铂金见证永不褪色的承诺');
+        setShareInfo(3);
         $('.act-pic').hide();
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'none');
     });
@@ -463,6 +480,12 @@ $(function () {
      }
 
      $("#music_btn").on('click', function () {
+
+         if(userStop){
+             userStop = false;
+         }else{
+             userStop = true;
+         }
          audioSwitch(this);
      });
 
@@ -474,12 +497,13 @@ $(function () {
      * shareAction
      * */
 
-    //let shareData = {
-    //    shareTile: '铂金见证永不褪色的承诺',
-    //    shareUrl: window.location.href,
-    //    shareImg: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
-    //    shareDes: '铂金见证永不褪色的承诺',
-    //}
+    let shareData = {
+        shareFeedsTile: '结婚5年，是什么让他们一直娜么快乐？',
+        shareTitle: '铂金见证永不褪色的承诺',
+        shareUrl: window.location.href,
+        shareImg: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
+        shareDes: '结婚5年，是什么让他们一直娜么快乐？',
+    }
 
     ptShareConfig.init(function (data) {
         wx.config({
@@ -493,13 +517,13 @@ $(function () {
 
         wx.ready(function () {
             wx.onMenuShareTimeline({
-                title: shareData.shareTile,// 分享标题
+                title: shareData.shareFeedsTile, // 分享标题
                 link: shareData.shareUrl, // 分享链接
                 imgUrl: shareData.shareImg,
-                success: function () {
+                success: function success() {
                     // 用户确认分享后执行的回调函数
                 },
-                cancel: function () {
+                cancel: function cancel() {
                     // 用户取消分享后执行的回调函数
                 }
             });
@@ -511,40 +535,34 @@ $(function () {
                 imgUrl: shareData.shareImg,
                 type: '', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                success: function () {
+                success: function success() {
                     // 用户确认分享后执行的回调函数
                 },
-                cancel: function () {
+                cancel: function cancel() {
                     // 用户取消分享后执行的回调函数
                 }
             });
         });
-
     });
 
-    var setShareInfo = function (index) {
-        let setShareData = [
-            {
-                feedsTitle: '张杰谢娜铂金同款首饰，让铂金见证永不褪色的承诺！',
-                title: '铂金见证永不褪色的承诺',
-                des: '即刻拥有张杰谢娜同款铂金首饰！',
-            },
-            {
-                feedsTitle: '张杰谢娜结婚五周年铂金承诺大片唯美上线！',
-                title: '铂金见证永不褪色的承诺',
-                des: '张杰谢娜结婚五周年铂金承诺大片唯美上线！',
-            },
-            {
-                feedsTitle: '杰娜铂金爱语表情包，一秒捕捉幸福瞬间，一般人我不发给TA哦！',
-                title: '铂金见证永不褪色的承诺',
-                des: '杰娜铂金爱语表情包，一秒捕捉幸福瞬间，一般人我不发给TA哦！',
-            },
-            {
-                feedsTitle: '结婚5年，是什么让他们一直娜么快乐？',
-                title: '铂金见证永不褪色的承诺',
-                des: '结婚5年，是什么让他们一直娜么快乐？',
-            },
-        ]
+    var setShareInfo = (index) => {
+        var setShareData = [{
+            feedsTitle: '张杰谢娜铂金同款首饰，让铂金见证永不褪色的承诺！',
+            title: '铂金见证永不褪色的承诺',
+            des: '即刻拥有张杰谢娜同款铂金首饰！'
+        }, {
+            feedsTitle: '张杰谢娜结婚五周年铂金承诺大片唯美上线！',
+            title: '铂金见证永不褪色的承诺',
+            des: '张杰谢娜结婚五周年铂金承诺大片唯美上线！'
+        }, {
+            feedsTitle: '杰娜铂金爱语表情包，一秒捕捉幸福瞬间，一般人我不发给TA哦！',
+            title: '铂金见证永不褪色的承诺',
+            des: '杰娜铂金爱语表情包，一秒捕捉幸福瞬间，一般人我不发给TA哦！'
+        }, {
+            feedsTitle: '结婚5年，是什么让他们一直娜么快乐？',
+            title: '铂金见证永不褪色的承诺',
+            des: '结婚5年，是什么让他们一直娜么快乐？'
+        }];
         // 0产品  1视频  2表情包  3基本
 
         wx.onMenuShareTimeline({
@@ -573,8 +591,7 @@ $(function () {
                 // 用户取消分享后执行的回调函数
             }
         });
-    }
-
+    };
 
 
 
