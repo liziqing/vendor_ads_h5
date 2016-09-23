@@ -9,6 +9,31 @@
     <meta content="telephone=no" name="format-detection">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>铂金见证永不褪色的承诺</title>
+
+    <script>
+    var isMobile = {
+        Android: function () {
+            return navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1 ? true : false;
+        },
+        BlackBerry: function () {
+            return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+        },
+        iOS: function () {
+            return navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? true : false;
+        },
+        Windows: function () {
+            return navigator.userAgent.match(/IEMobile/i) ? true : false;
+        },
+        any: function () {
+            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+        }
+    }
+
+    if (!isMobile.any()) {
+        window.location.href = './pc/index.html';
+    }
+    </script>
+
     <!-- build:css css/pt_emoticon.min.css -->
     <link rel="stylesheet" href="../vendor/pace/pace-center-count.css" />
     <link rel="stylesheet" href="../vendor/nomalize/nomalize.css" />
