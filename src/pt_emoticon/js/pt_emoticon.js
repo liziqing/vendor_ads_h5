@@ -417,7 +417,7 @@ $(function () {
     $("#emoticon .wx_emoticon_download").on('click', function () {
         //微信表情包下载
         _smq.push(['custom', '监测代码', '微信一键下载']);
-        //        window.location.href = 'http://www.baidu.com';
+        window.location.href = 'http://w.url.cn/s/ApTbo7O#wechat_redirect';
     });
 
     $("#emoticon .qq_emoticon_download").on('click', function () {
