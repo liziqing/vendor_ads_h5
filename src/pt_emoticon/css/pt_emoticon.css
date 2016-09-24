@@ -112,6 +112,14 @@ body #screen .swiper-wrapper #loading .loading_cloud_2 {
   height: 82%;
   display: none;
 }
+html #screen .swiper-wrapper #loading .loading_cloud_all,
+body #screen .swiper-wrapper #loading .loading_cloud_all {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 100%;
+  height: auto;
+}
 html #screen .swiper-wrapper #loading .loading-text,
 body #screen .swiper-wrapper #loading .loading-text {
   position: absolute;
