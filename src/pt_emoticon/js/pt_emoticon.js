@@ -8,6 +8,7 @@ $(function () {
     var userStop = false;
     var firstTime = true;
     new WxMoment.OrientationTip();
+    var videoFirstShow = true;
 
     //初始化容器
     var mySwiper = new Swiper('#screen', {
@@ -76,9 +77,7 @@ $(function () {
 
     //loading结束 首屏文字动画
     Pace.on('done', function () {
-        $('#music_btn').show();
-        document.getElementById('music').play();
-        $('#music_btn').addClass('rotate');
+
         _smq.push(['custom', '监测代码', '自动触发的PV代码']);
         $('.loaded-out').css('opacity', '0');
 
@@ -98,11 +97,11 @@ $(function () {
 
                 video.getPlayer().play();
 
-                $("#music_btn").removeClass("rotate");
-                $("#music_btn").hide();
-                if (!audioDom.paused) {
-                    audioDom.pause();
-                }
+                // $("#music_btn").removeClass("rotate");
+                // $("#music_btn").hide();
+                // if(!audioDom.paused){
+                //     audioDom.pause();
+                // }
             };
 
             timer = setTimeout(function () {
@@ -308,8 +307,6 @@ $(function () {
      * */
     $("#video .close_btn").on('click', function () {
 
-        console.log(userStop);
-
         if (firstTime) {
             _smq.push(['custom', '监测代码', 'loading后关闭视频']);
             firstTime = false;
@@ -391,39 +388,43 @@ $(function () {
 
     var isEmoticonShareFading = false;
 
-    $("#emoticon .share-btn").on('click', function () {
-        if (!isEmoticonShareFading) {
-            $("#emoticon .share-overlay").css({ 'opacity': '0', 'display': 'block' });
-            $("#emoticon .share-overlay").addClass("fadeInOri animated-500");
-            setTimeout(function () {
-                $("#emoticon .share-overlay").css({ 'opacity': '1', 'display': 'block' });
-                $("#emoticon .share-overlay").removeClass("fadeInOri animated-500");
-                isEmoticonShareFading = true;
-            }, 750);
-        }
-    });
-
-    $("#emoticon .share-overlay").on('click', function () {
-        if (isEmoticonShareFading) {
-            $("#emoticon .share-overlay").addClass("fadeOutOri animated-500");
-            setTimeout(function () {
-                $("#emoticon .share-overlay").css({ 'display': 'none', 'opacity': '1' });
-                $("#emoticon .share-overlay").removeClass("fadeOutOri animated-500");
-                isEmoticonShareFading = false;
-            }, 750);
-        }
-    });
-
     $("#emoticon .wx_emoticon_download").on('click', function () {
         //微信表情包下载
         _smq.push(['custom', '监测代码', '微信一键下载']);
-        window.location.href = 'http://w.url.cn/s/ApTbo7O#wechat_redirect';
+
+        if (isWeiXin()) {
+            window.location.href = 'http://w.url.cn/s/ApTbo7O#wechat_redirect';
+        } else {
+            if (!isEmoticonShareFading) {
+                $("#emoticon .wechat-down-fade").css({ 'opacity': '0', 'display': 'block' });
+                $("#emoticon .wechat-down-fade.download-img").addClass("fadeInOri animated-500");
+                $("#emoticon .wechat-down-fade.download-overlay").addClass("fadeInOri70 animated-500");
+                setTimeout(function () {
+                    $("#emoticon .wechat-down-fade.download-img").css({ 'opacity': '1', 'display': 'block' });
+                    $("#emoticon .wechat-down-fade.download-overlay").css({ 'opacity': '0.7', 'display': 'block' });
+                    $("#emoticon .wechat-down-fade").removeClass("fadeInOri fadeInOri70 animated-500");
+                    isEmoticonShareFading = true;
+                }, 750);
+            }
+        }
     });
 
     $("#emoticon .qq_emoticon_download").on('click', function () {
         //qq表情包下载
         _smq.push(['custom', '监测代码', 'QQ一键下载']);
         //        window.location.href = 'http://www.baidu.com';
+    });
+
+    $("#emoticon .wechat-down-fade").on('click', function () {
+        if (isEmoticonShareFading) {
+            $("#emoticon .wechat-down-fade.download-img").addClass("fadeOutOri animated-500");
+            $("#emoticon .wechat-down-fade.download-overlay").addClass("fadeOutOri70 animated-500");
+            setTimeout(function () {
+                $("#emoticon .wechat-down-fade").css({ 'display': 'none', 'opacity': '1' });
+                $("#emoticon .wechat-down-fade").removeClass("fadeOutOri fadeOutOri70 animated-500");
+                isEmoticonShareFading = false;
+            }, 750);
+        }
     });
 
     /***
