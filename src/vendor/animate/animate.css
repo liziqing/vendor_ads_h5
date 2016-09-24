@@ -1259,6 +1259,31 @@
     animation-name: fadeInOri;
 }
 
+@-webkit-keyframes fadeInOri70 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.7;
+    }
+}
+
+@keyframes fadeInOri70 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.7;
+    }
+}
+
+.fadeInOri70 {
+    -webkit-animation-name: fadeInOri70;
+    animation-name: fadeInOri70;
+}
+
 @-webkit-keyframes fadeInDown {
     from {
         opacity: 0;
@@ -1546,6 +1571,32 @@
 .fadeOutOri {
     -webkit-animation-name: fadeOutOri;
     animation-name: fadeOutOri;
+}
+
+
+@-webkit-keyframes fadeOutOri70 {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutOri70 {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeOutOri70 {
+    -webkit-animation-name: fadeOutOri70;
+    animation-name: fadeOutOri70;
 }
 
 @-webkit-keyframes fadeOutDown {
