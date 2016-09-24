@@ -779,6 +779,7 @@ body #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item {
   border-bottom: 1px solid #e5e5e5;
   background-position: center center;
   background-size: 85% 85%;
+  background-repeat: no-repeat;
 }
 html #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item img,
 body #screen .swiper-wrapper #emoticon .emoticon-container .pic-item .item img {
