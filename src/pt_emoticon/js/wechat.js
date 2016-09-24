@@ -84,9 +84,9 @@ $(function(){
     });
 
     //
-    //$('.wx-download').on('click',function(){
-    //    window.location.href = '';
-    //});
+    $('.wx-download').on('click',function(){
+        window.location.href = 'http://w.url.cn/s/ApTbo7O#wechat_redirect';
+    });
 
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination-v',
