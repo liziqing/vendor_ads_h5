@@ -98,59 +98,91 @@ textarea {
 
 body{
     background:url(../img/body_bg.jpg) no-repeat scroll top center;
+    background-size:95%;
+
+    /*padding:1px;*/
+    width:100%;
+}
+
+.wapper{
     border:5px solid #e1f6ff;
-    padding:5px;
 }
 
 #pageHeader{
-    width:554px;
-    height:55px;
-    background:url(../img/header.png) no-repeat scroll bottom center;
-    margin:0 auto;
+    width:52%;
+    background:url(../img/header.png) no-repeat scroll bottom right;
+    background-size: 38.5%;
+    margin:1% auto;
+}
+#logo{
+    margin-left:4%;
+    width:10%;
+    height:0px;
+    padding-bottom:8%;
+
+    background:url(../img/ptlogo.png) no-repeat scroll;
+    background-size:contain;
 }
 
 .videoWapper{
-    width:554px;
-    height:319px;
+    width:52%;
+    height:0;
+    padding-bottom:29.25%;
     background-color:#e5e5e5;
-    margin:8px auto;
+    margin:0px auto 8px auto;
 }
 
 .event{
-    width:555px;
-    height:187px;
+    width:52%;
+    min-height:187px;
     margin:0 auto;
 }
 
 .event>div{
     display:inline-block;
     vertical-align: bottom;
+
+    height:0;
+    padding-bottom:35.5%;
 }
 
 .emojiBlock{
-    width:187px;
-    height:187px;
-    background:url("../img/emoj_border.png") no-repeat scroll;
+    width:30%;
+    background:url("../img/emoj_border.png") no-repeat scroll top left;
+    background-size:99%;
 }
 
-.emojiBlock>span{
+.emojiWapper, .emojiBtn{
+    width:100%;
+
+}
+
+.emojiBtn img{
+    width:100%;
+}
+
+.emojiWapper>span{
     display: inline-block;
-    width:80px;
-    height:62px;
+    width:47%;
+    padding-bottom:38%;
+    height:0;
     margin:1px 1px;
     text-align: center
 }
+.emojiWapper>span img{
+    width:80%;
+}
 
 .qrcodeWapper{
-    width:165px;
-    height:187px;
-    background:url("../img/qrcode.png") no-repeat scroll;
+    width: 68%;
+    float: right;
+    background: url(../img/qrcodept.jpg) no-repeat scroll top right;
+    background-size: 100%;
 }
 
 .productWapper{
-    width:186px;
-    height:187px;
-    background:url("../img/product.png") no-repeat scroll;
+    background:url("../img/product.png") no-repeat scroll top center;
+    background-size:60%;
 }
 
 
