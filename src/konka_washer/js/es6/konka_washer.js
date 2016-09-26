@@ -7,9 +7,12 @@ $(() => {
         'info': 3,  //点击产品图片后的信息页
         'try_form': 4,  //试用表单
         'pay_success': 5,  //支付成功后的回调页面
-    }
+    };
+    let modalRules;
+    let modalPay;
+    let modalAddress;
 
-    //初始化容器
+    //初始化容器screenSwiper
     let screenSwiper = new Swiper('#screen', {
         effect: 'fade',
         fade: {
@@ -19,9 +22,43 @@ $(() => {
         noSwipingClass: 'no-swiping',
     });
 
+    //初始化infoSwiper
+    let infoSwiper = new Swiper('#info-swiper', {
+        effect: 'fade',
+        fade: {
+            crossFade: true,
+        },
+        nextButton: '#info-swiper .swiper-button-next',
+        prevButton: '#info-swiper .swiper-button-prev',
+    });
+
     //资源载入完成后的回调
     Pace.on('done', () => {
         console.info('pace done');
+
+        modalRules = new jBox('Modal', {
+            width: '100%',
+            content: $('#rules_overlay'),
+            closeButton: false
+        });
+
+        modalPay = new jBox('Modal', {
+            width: '100%',
+            content: $('#pay_overlay'),
+            closeButton: false
+        });
+
+        modalAddress = new jBox('Modal', {
+            width: '100%',
+            content: $('#address_overlay'),
+            closeButton: false
+        });
+    });
+
+
+
+    $("#screen>.swiper-wrapper>.swiper-slide").on('click', () => {
+        screenSwiper.slideNext();
     });
 
 });

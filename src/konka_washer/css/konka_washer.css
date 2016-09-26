@@ -4,6 +4,14 @@ body {
   height: 100%;
   margin: 0 auto;
   font-size: 20px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 html #screen,
 body #screen {
@@ -23,4 +31,36 @@ body #screen .swiper-wrapper .swiper-slide {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background: url("../img/konka_washer_background.jpg") center center no-repeat;
+  background-size: auto 100%;
+}
+html #screen .swiper-wrapper #loading .loading-overlay,
+body #screen .swiper-wrapper #loading .loading-overlay {
+  width: 100%;
+  height: 100%;
+  background: url("../img/loading/loading.gif") center center no-repeat;
+  background-color: transparent;
+  background-size: 60% auto;
+}
+html #screen .swiper-wrapper #info .swiper-container,
+body #screen .swiper-wrapper #info .swiper-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+html #screen .swiper-wrapper #info .swiper-container .swiper-wrapper,
+body #screen .swiper-wrapper #info .swiper-container .swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+html #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .swiper-slide,
+body #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .swiper-slide {
+  width: 100%;
+  height: 100%;
+}
+html .overlay,
+body .overlay {
+  width: 100%;
+  display: none;
+  text-align: center;
 }

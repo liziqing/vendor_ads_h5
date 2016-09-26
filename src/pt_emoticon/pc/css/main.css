@@ -108,8 +108,11 @@ body{
     border:5px solid #e1f6ff;
 }
 
+.width-div{
+    width:47%;
+}
+
 #pageHeader{
-    width:52%;
     background:url(../img/header.png) no-repeat scroll bottom right;
     background-size: 38.5%;
     margin:1% auto;
@@ -125,7 +128,6 @@ body{
 }
 
 .videoWapper{
-    width:52%;
     height:0;
     padding-bottom:29.25%;
     background-color:#e5e5e5;
@@ -133,7 +135,6 @@ body{
 }
 
 .event{
-    width:52%;
     min-height:187px;
     margin:0 auto;
 }
@@ -163,7 +164,7 @@ body{
 
 .emojiWapper>span{
     display: inline-block;
-    width:47%;
+    width:45%;
     padding-bottom:38%;
     height:0;
     margin:1px 1px;

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../vendor/pace/pace-none.css" />
     <link rel="stylesheet" href="../vendor/nomalize/nomalize.css" />
     <link rel="stylesheet" href="../vendor/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="../vendor/jbox/jBox.css" />
     <link rel="stylesheet" href="./css/konka_washer.css" />
     <!-- endbuild -->
 </head>
@@ -22,33 +23,47 @@
 <div class="swiper-container" id="screen">
     <div class="swiper-wrapper">
         <!--  loading  -->
-        <section class="swiper-slide no-swiping" id="loading">slider1</section>
+        <section class="swiper-slide no-swiping" id="loading">
+            <div class="loading-overlay"></div>
+        </section>
         <!--  animation  -->
-        <section class="swiper-slide no-swiping" id="animation">slider2</section>
+        <section class="swiper-slide no-swiping" id="animation">animation</section>
         <!--  main  -->
-        <section class="swiper-slide no-swiping" id="main">slider3</section>
+        <section class="swiper-slide no-swiping" id="main">main</section>
         <!--  info  -->
         <section class="swiper-slide no-swiping" id="info">
             <div class="swiper-container" id="info-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
-                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide">red</div>
+                    <div class="swiper-slide">yellow</div>
+                    <div class="swiper-slide">green</div>
                 </div>
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </section>
         <!--  try_form  -->
-        <section class="swiper-slide no-swiping" id="try_form">slider3</section>
+        <section class="swiper-slide no-swiping" id="try_form">try_form</section>
         <!--  pay_success  -->
-        <section class="swiper-slide no-swiping" id="pay_success">slider3</section>
+        <section class="swiper-slide no-swiping" id="pay_success">pay_success</section>
     </div>
 </div>
+
+<div class="overlay" id="rules_overlay">
+    <div class="img-div">
+        <img src="../pt_emoticon/img/loading/loading_background.png" />
+    </div>
+</div>
+<div class="overlay" id="pay_overlay"></div>
+<div class="overlay" id="address_overlay"></div>
 
 <!-- build:js js/konka_washer.min.js -->
 <script src="../vendor/wxmoment/wxmoment.min.js"></script>
 <script src="../vendor/wxmoment/OrientationTip.js"></script>
+<script src="../vendor/jquery/jquery-3.1.0.min.js"></script>
 <script src="../vendor/pace/pace.min.js"></script>
 <script src="../vendor/swiper/swiper.jquery.min.js"></script>
+<script src="../vendor/jbox/jBox.min.js"></script>
 <script src="./js/konka_washer.js"></script>
 <!-- endbuild -->
 </body>
