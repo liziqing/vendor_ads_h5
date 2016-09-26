@@ -7,7 +7,7 @@
 $(function () {
     var userStop = false;
     var firstTime = true;
-    new WxMoment.OrientationTip();
+    // new WxMoment.OrientationTip();
     var videoFirstShow = true;
 
     //初始化容器
@@ -34,29 +34,25 @@ $(function () {
         }
     });
 
-    var video = new WxMoment.Video({
-        vid: "p0021ehy1js",
-        pic: "./img/video/video_img.jpg", //设置视频默认缩略图
+    var screenWidth = screen.width;
+
+    var video = new tvp.VideoInfo();
+    video.setVid("p0021ehy1js");
+    var player = new tvp.Player();
+    player.create({
+        width: screenWidth,
+        height: screenWidth * (9 / 16),
+        video: video,
         isHtml5ControlAlwaysShow: true,
+        modId: "WxMomentVideo",
         autoplay: false,
-        oninited: function oninited() {
-            //播放器在视频载入完毕触发
-        },
+        isContinuePlay: false,
         onplaying: function onplaying() {
             if (firstTime) {
                 _smq.push(['custom', '监测代码', 'loading后播放视频']);
             } else {
                 _smq.push(['custom', '监测代码', '主菜单播放视频']);
             }
-        },
-        onpause: function onpause() {
-            //播放器触发暂停时，目前只针对HTML5播放器有效
-        },
-        onresume: function onresume() {
-            //暂停后继续播放时触发
-        },
-        onallended: function onallended() {
-            //播放器播放完毕时
         },
         onfullscreen: function onfullscreen(isfull) {
             if (firstTime) {
@@ -66,9 +62,6 @@ $(function () {
             }
         }
     });
-
-    var screenWidth = screen.width;
-    $('#WxMomentVideo').width(screenWidth).height(screenWidth * (9 / 16));
 
     /***
      * loading
@@ -95,7 +88,7 @@ $(function () {
                 mySwiper.slideTo(index);
                 setShareInfo(1);
 
-                video.getPlayer().play();
+                player.play();
 
                 // $("#music_btn").removeClass("rotate");
                 // $("#music_btn").hide();
@@ -314,7 +307,7 @@ $(function () {
             _smq.push(['custom', '监测代码', '主菜单关闭视频']);
         }
 
-        video.getPlayer().pause();
+        player.pause();
         mySwiper.slideTo(1);
         setShareInfo(3);
 
