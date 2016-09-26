@@ -444,7 +444,7 @@ $(function () {
     $("#emoticon .qq_emoticon_download").on('click', () => {
         //qq表情包下载
         _smq.push(['custom','监测代码','QQ一键下载']);
-//        window.location.href = 'http://www.baidu.com';
+       window.location.href = 'http://imgcache.qq.com/club/themes/pc/qrcode/html/index.html?qrcode_url=http%3A%2F%2Fgxh.vip.qq.com%2Fclub%2Fthemes%2Fmobile%2Fbq%2Fhtml%2Fdetail.html%3F_bid%3D102%26id%3D11722%26_wv%3D1793&title=%E8%A1%A8%E6%83%85%E8%AF%A6%E6%83%85';
     });
 
     $("#emoticon .wechat-down-fade").on('click', () => {
