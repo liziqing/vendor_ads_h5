@@ -9,7 +9,7 @@ $(() => {
         'pay_success': 5,  //支付成功后的回调页面
     }
 
-    //初始化容器
+    //初始化容器screenSwiper
     let screenSwiper = new Swiper('#screen', {
         effect: 'fade',
         fade: {
@@ -19,9 +19,22 @@ $(() => {
         noSwipingClass: 'no-swiping',
     });
 
+    //初始化infoSwiper
+    let infoSwiper = new Swiper('#info-swiper', {
+        effect: 'fade',
+        fade: {
+            crossFade: true,
+        },
+    });
+
     //资源载入完成后的回调
     Pace.on('done', () => {
         console.info('pace done');
+    });
+
+
+    $("#screen>.swiper-wrapper>.swiper-slide").on('click', () => {
+        screenSwiper.slideNext();
     });
 
 });

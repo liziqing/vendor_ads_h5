@@ -10,7 +10,7 @@ $(function () {
         'try_form': 4, //试用表单
         'pay_success': 5 };
 
-    //初始化容器
+    //初始化容器screenSwiper
     var screenSwiper = new Swiper('#screen', {
         effect: 'fade',
         fade: {
@@ -20,8 +20,20 @@ $(function () {
         noSwipingClass: 'no-swiping'
     });
 
+    //初始化infoSwiper
+    var infoSwiper = new Swiper('#info-swiper', {
+        effect: 'fade',
+        fade: {
+            crossFade: true
+        }
+    });
+
     //资源载入完成后的回调
     Pace.on('done', function () {
         console.info('pace done');
+    });
+
+    $("#screen>.swiper-wrapper>.swiper-slide").on('click', function () {
+        screenSwiper.slideNext();
     });
 });
