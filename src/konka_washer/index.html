@@ -11,8 +11,9 @@
     <title>KONKA</title>
 
     <!-- build:css css/konka_washer.min.css -->
-    <link rel="stylesheet" href="../vendor/pace/pace-center-count.css" />
+    <link rel="stylesheet" href="../vendor/pace/pace-none.css" />
     <link rel="stylesheet" href="../vendor/nomalize/nomalize.css" />
+    <link rel="stylesheet" href="../vendor/swiper/swiper.min.css" />
     <link rel="stylesheet" href="./css/konka_washer.css" />
     <!-- endbuild -->
 </head>
@@ -21,19 +22,33 @@
 <div class="swiper-container" id="screen">
     <div class="swiper-wrapper">
         <!--  loading  -->
-        <div class="swiper-slide">slider1</div>
+        <section class="swiper-slide no-swiping" id="loading">slider1</section>
         <!--  animation  -->
-        <div class="swiper-slide">slider2</div>
+        <section class="swiper-slide no-swiping" id="animation">slider2</section>
         <!--  main  -->
-        <div class="swiper-slide">slider3</div>
+        <section class="swiper-slide no-swiping" id="main">slider3</section>
         <!--  info  -->
-        <!--  try-form  -->
-        <!--  pay-success  -->
+        <section class="swiper-slide no-swiping" id="info">
+            <div class="swiper-container" id="info-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                </div>
+            </div>
+        </section>
+        <!--  try_form  -->
+        <section class="swiper-slide no-swiping" id="try_form">slider3</section>
+        <!--  pay_success  -->
+        <section class="swiper-slide no-swiping" id="pay_success">slider3</section>
     </div>
 </div>
 
 <!-- build:js js/konka_washer.min.js -->
+<script src="../vendor/wxmoment/wxmoment.min.js"></script>
+<script src="../vendor/wxmoment/OrientationTip.js"></script>
 <script src="../vendor/pace/pace.min.js"></script>
+<script src="../vendor/swiper/swiper.jquery.min.js"></script>
 <script src="./js/konka_washer.js"></script>
 <!-- endbuild -->
 </body>
