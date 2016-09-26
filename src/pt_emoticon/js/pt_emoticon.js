@@ -7,7 +7,7 @@
 $(function () {
     var userStop = false;
     var firstTime = true;
-    // new WxMoment.OrientationTip();
+    new WxMoment.OrientationTip();
     var videoFirstShow = true;
 
     //初始化容器

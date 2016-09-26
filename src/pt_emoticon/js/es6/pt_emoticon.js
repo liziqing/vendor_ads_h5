@@ -5,7 +5,7 @@
 $(function () {
     let userStop = false;
     let firstTime = true;
-    // new WxMoment.OrientationTip();
+    new WxMoment.OrientationTip();
     let videoFirstShow = true;
     
 
