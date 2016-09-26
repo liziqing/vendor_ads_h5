@@ -20,6 +20,7 @@ body #screen {
   margin: 0 auto;
   background-color: #fff;
   overflow: hidden;
+  position: relative;
 }
 html #screen .swiper-wrapper,
 body #screen .swiper-wrapper {
@@ -42,6 +43,31 @@ body #screen .swiper-wrapper #loading .loading-overlay {
   background-color: transparent;
   background-size: 60% auto;
 }
+html #screen .swiper-wrapper #loading .loaded-overlay,
+body #screen .swiper-wrapper #loading .loaded-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("../img/loading/why.gif") center 40% no-repeat;
+  background-size: auto 60%;
+  display: none;
+}
+html #screen .swiper-wrapper #loading .loaded-overlay .loaded-text,
+body #screen .swiper-wrapper #loading .loaded-overlay .loaded-text {
+  width: 66%;
+  position: absolute;
+  top: 38%;
+  left: 17%;
+}
+html #screen .swiper-wrapper #loading .loaded-overlay .loaded-btn,
+body #screen .swiper-wrapper #loading .loaded-overlay .loaded-btn {
+  width: 40%;
+  position: absolute;
+  bottom: 25%;
+  left: 30%;
+}
 html #screen .swiper-wrapper #info .swiper-container,
 body #screen .swiper-wrapper #info .swiper-container {
   width: 100%;
@@ -57,6 +83,81 @@ html #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .swiper-sli
 body #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .swiper-slide {
   width: 100%;
   height: 100%;
+}
+html #screen .swiper-wrapper #try_form,
+body #screen .swiper-wrapper #try_form {
+  width: 100%;
+  height: 100%;
+}
+html #screen .swiper-wrapper #try_form .try_form_container,
+body #screen .swiper-wrapper #try_form .try_form_container {
+  width: 100%;
+  height: 95%;
+  margin-top: 7%;
+  background: url("../img/try/try_form.png") center center no-repeat;
+  background-size: auto 90%;
+}
+html #screen #icon-bar,
+body #screen #icon-bar {
+  width: 90%;
+  height: 1.2rem;
+  padding: 0 5%;
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  z-index: 10;
+}
+html #screen #icon-bar i,
+body #screen #icon-bar i {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+html #screen #icon-bar #logo,
+body #screen #icon-bar #logo {
+  width: 30%;
+  background: url("../img/logo.png") left center no-repeat;
+  background-size: auto 60%;
+  float: left;
+}
+html #screen #icon-bar #rules_btn,
+body #screen #icon-bar #rules_btn {
+  background: url("../img/rules_btn.png") center center no-repeat;
+  background-size: auto 100%;
+  float: right;
+  margin-right: 2.5%;
+  display: none;
+}
+html #screen #icon-bar #music_btn,
+body #screen #icon-bar #music_btn {
+  background: url("../img/music_btn.png") center center no-repeat;
+  background-size: auto 100%;
+  float: right;
+}
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+html #screen #icon-bar .rotate,
+body #screen #icon-bar .rotate {
+  animation: 11.5s linear 0s normal none infinite rotate;
+  -webkit-animation: 11.5s linear 0s normal none infinite rotate;
 }
 html .overlay,
 body .overlay {

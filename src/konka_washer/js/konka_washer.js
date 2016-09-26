@@ -23,6 +23,22 @@ $(function () {
         noSwipingClass: 'no-swiping'
     });
 
+    //初始化music
+    var audioDom = document.querySelector('#music');
+    var audioBtn = $('#music_btn');
+    var audioSwitch = function audioSwitch() {
+        if (audioDom.paused) {
+            audioDom.play();
+            audioBtn.addClass("rotate");
+        } else {
+            audioDom.pause();
+            audioBtn.removeClass("rotate");
+        }
+    };
+    audioBtn.on('tap', function () {
+        audioSwitch();
+    });
+
     //初始化infoSwiper
     var infoSwiper = new Swiper('#info-swiper', {
         effect: 'fade',
@@ -40,7 +56,13 @@ $(function () {
         modalRules = new jBox('Modal', {
             width: '100%',
             content: $('#rules_overlay'),
-            closeButton: false
+            closeButton: false,
+            onOpen: function onOpen() {
+                var _this = this;
+                $('#rules_overlay').on('click', function () {
+                    _this.close();
+                });
+            }
         });
 
         modalPay = new jBox('Modal', {
@@ -52,11 +74,44 @@ $(function () {
         modalAddress = new jBox('Modal', {
             width: '100%',
             content: $('#address_overlay'),
-            closeButton: false
+            closeButton: false,
+            onOpen: function onOpen() {
+                var _this = this;
+                $('#address_overlay').unbind('click').on('click', function () {
+                    _this.close();
+                });
+            }
         });
+
+        //loading页动画效果
+        $('#loading .loading-overlay').fadeOut();
+        $('#loading .loaded-overlay').fadeIn();
     });
 
-    $("#screen>.swiper-wrapper>.swiper-slide").on('click', function () {
-        screenSwiper.slideNext();
+    /***
+     * loading
+     * */
+    $('#loading .loaded-btn').on('click', function () {
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.animation);
     });
+
+    /***
+     * animation
+     * */
+    $('#animation').on('click', function () {
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+        $('#rules_btn').fadeIn();
+        modalRules.open();
+    });
+
+    /***
+     * main
+     * */
+    $('#rules_btn').on('tap', function () {
+        modalRules.open();
+    });
+
+    //开发
+    audioDom.pause();
+    screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
 });
