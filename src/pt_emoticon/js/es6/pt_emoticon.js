@@ -5,7 +5,7 @@
 $(function () {
     let userStop = false;
     let firstTime = true;
-    // new WxMoment.OrientationTip();
+    new WxMoment.OrientationTip();
     let videoFirstShow = true;
     
 
@@ -33,20 +33,14 @@ $(function () {
         }
     });
 
-
-    let screenWidth = screen.width;
-
-    let video = new tvp.VideoInfo();
-    video.setVid("p0021ehy1js");
-    let player =new tvp.Player();
-    player.create({
-        width:screenWidth,
-        height:screenWidth*(9/16),
-        video:video,
+    let video = new WxMoment.Video({
+        vid: "p0021ehy1js",
+        pic: "./img/video/video_img.jpg", //设置视频默认缩略图
         isHtml5ControlAlwaysShow: true,
-        modId:"WxMomentVideo",
         autoplay: false,
-        isContinuePlay: false,
+        oninited: function () {
+            //播放器在视频载入完毕触发
+        },
         onplaying: function () {
             if(firstTime){
                 _smq.push(['custom','监测代码','loading后播放视频']);
@@ -54,6 +48,15 @@ $(function () {
                 _smq.push(['custom','监测代码','主菜单播放视频']);
             }
 
+        },
+        onpause: function () {
+            //播放器触发暂停时，目前只针对HTML5播放器有效
+        },
+        onresume: function () {
+            //暂停后继续播放时触发
+        },
+        onallended: function () {
+            //播放器播放完毕时
         },
         onfullscreen: function (isfull) {
             if(firstTime){
@@ -63,6 +66,9 @@ $(function () {
             }
         }
     });
+
+    let screenWidth = screen.width;
+    $('#WxMomentVideo').width(screenWidth).height(screenWidth*(9/16));
 
 
 
@@ -89,7 +95,7 @@ $(function () {
                 mySwiper.slideTo(index);
                 setShareInfo(1);
 
-                player.play();
+                video.getPlayer().play();
 
                 // $("#music_btn").removeClass("rotate");
                 // $("#music_btn").hide();
@@ -330,7 +336,7 @@ $(function () {
             _smq.push(['custom','监测代码','主菜单关闭视频']);
         }
 
-        player.pause();
+        video.getPlayer().pause();
         mySwiper.slideTo(1);
         setShareInfo(3);
 
