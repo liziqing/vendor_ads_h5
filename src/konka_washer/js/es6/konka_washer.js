@@ -73,6 +73,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                 modalPay.close();
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.pay_success);
 
+                alert(JSON.stringify(data));
                 let chargeId = data.data.id;
                 orderDetail(chargeId);
 
