@@ -109,6 +109,7 @@ define(['base/env', 'base/util', 'base/wechat/wx', 'jquery'],
         }
         param = param || {};
         param.open_id = _openid;
+        param.format = 'jsonp';
         if(_wxIsReady == true && getWeixinVersion() >= 5)
         {
             util.alertx('支付提交中，请耐心等待');
@@ -116,7 +117,7 @@ define(['base/env', 'base/util', 'base/wechat/wx', 'jquery'],
                 url: url,
                 type: "post",
                 data: param,
-                dataType: "json",
+                dataType: "jsonp",
                 success: function(data)
                 {
                     util.closeAlertx();
