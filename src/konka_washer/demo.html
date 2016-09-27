@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>KONKA</title>
+
+    <!-- build:css css/konka_washer.min.css -->
+
+    <!-- endbuild -->
+</head>
+<body>
+
+<div><a onclick="javascript:pay();">点击支付</a></div>
+
+<script>
+    function pay(){
+        alert('pay');
+    }
+
+</script>
+
+<!-- build:js js/konka_washer.min.js -->
+<script src="../vendor/jquery/jquery-3.1.0.min.js"></script>
+<!-- endbuild -->
+
+<script src="js/vendor/require/require.js" ></script>
+<script>
+    require(['js/main.js'], function (main) {
+        require(['demo']);
+    });
+</script>
+
+</body>
+</html>
