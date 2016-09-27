@@ -57,8 +57,25 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
 
 
             //初始化微信支付
-            let pay_success = () => {
+            let orderDetail = (chargeId) => {
+                util.ajax({
+                    url: "http://" + env.domain + "/shop/order/detail",
+                    type: "get",
+                    data: {format: 'jsonp', 'charge_id': chargeId},
+                    dataType: "jsonp",
+                    success: function (data) {
+                        alert(JSON.stringify(data));
+                    }
+                });
+            }
+
+            let pay_success = (data) => {
+                modalPay.close();
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.pay_success);
+
+                let chargeId = data.data.id;
+                orderDetail(chargeId);
+
             }
 
             let pay_fail = () => {
@@ -91,6 +108,29 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                 var url = 'http://' + env.domain + '/shop/order/create';
 
                 wxPay.pay(params, url);
+            }
+
+            //使用函数
+            let createTryApply = (name, age, phone, address, reason) => {
+                var params = {
+                    'format': 'jsonp',
+                    'name': name,
+                    'age': age,
+                    'phone': phone,
+                    'address': address,
+                    'reason': reason
+                };
+
+                util.ajax({
+                    url: "http://" + env.domain + "/shop/try/create",
+                    type: "get",
+                    data: params,
+                    dataType: "jsonp",
+                    success: function (data) {
+
+                        alert(data.code);
+                    }
+                });
             }
 
             //资源载入完成后的回调
