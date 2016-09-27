@@ -98,10 +98,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             //一元购函数（提取表单信息->获取订单id->调用wxpay函数）
             let submitOrder = () => {
                 var params = {
-                    'name': $('#pay_overlay .name').text(),
-                    'age': $('#pay_overlay .age').text(),
-                    'phone': $('#pay_overlay .tel').text(),
-                    'address': $('#pay_overlay .address').text(),
+                    'name': $('#pay_overlay .name').val(),
+                    'age': $('#pay_overlay .age').val(),
+                    'phone': $('#pay_overlay .tel').val(),
+                    'address': $('#pay_overlay .address').val(),
                     'gender': $('#pay_overlay .check-radio-sex.active').hasClass('sex-female')? '女' : '男' ,
                     'baby': $('#pay_overlay .check-radio-baby.active').hasClass('baby-yes')? '有' : '无' ,
                 };
@@ -111,14 +111,14 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             }
 
             //使用函数
-            let createTryApply = (name, age, phone, address, reason) => {
-                var params = {
+            let createTryApply = () => {
+                let params = {
                     'format': 'jsonp',
-                    'name': name,
-                    'age': age,
-                    'phone': phone,
-                    'address': address,
-                    'reason': reason
+                    'name': $('#try_form .name').val(),
+                    'age': $('#try_form .age').val(),
+                    'phone': $('#try_form .tel').val(),
+                    'address': $('#try_form .address').val(),
+                    'reason': $('#try_form .other-reason').val(),
                 };
 
                 util.ajax({
@@ -128,7 +128,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                     dataType: "jsonp",
                     success: function (data) {
 
-                        alert(data.code);
+                        alert(JSON.stringify(data));
                     }
                 });
             }
