@@ -65,18 +65,18 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
 
             }
 
-            // wxPay.config(
-            //     {
-            //         appId: 'wxf19834fcc10552b0',
-            //         editAddr: false,
-            //         queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-            //         success: pay_success,
-            //         fail: pay_fail,
-            //         callback: function(){
-            //             alert('初始化');
-            //         }
-            //     }
-            // );
+            wxPay.config(
+                {
+                    appId: 'wxf19834fcc10552b0',
+                    editAddr: false,
+                    queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+                    success: pay_success,
+                    fail: pay_fail,
+                    callback: function(){
+                        alert('初始化');
+                    }
+                }
+            );
 
             //一元购函数（提取表单信息->获取订单id->调用wxpay函数）
             let submitOrder = () => {
