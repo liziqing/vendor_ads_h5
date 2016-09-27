@@ -1,10 +1,10 @@
 require.config({
     baseUrl: 'js',
     paths: {
-        "jquery": "./vendor/jquery/jquery-3.1.0.min",
+        "jquery": "vendor/jquery/jquery-3.1.0.min",
         'wx': "http://res.wx.qq.com/open/js/jweixin-1.0.0",
-        'swiper': './vendor/swiper/swiper.jquery.min',
-        'jbox': './vendor/jbox/jBox.min'
+        'swiper': 'vendor/swiper/swiper.jquery.min',
+        'jbox': 'vendor/jbox/jBox.min'
     },
     shim: {
         'jquery': {
