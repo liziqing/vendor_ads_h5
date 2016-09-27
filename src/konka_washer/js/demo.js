@@ -33,6 +33,18 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery']
             wxPay.pay(params, url);
         })
 
+        $('#detail').click(function(){
+            orderDetail('ch_L8OWv9anPSe1XnDWvLXn58y1');
+        });
+
+        $('#count').click(function(){
+            orderCount();
+        });
+
+        $('#try').click(function(){
+            createTryApply('test_name', 'test_age', 'test_phone', 'test_address', 'test_reason');
+        });
+
         function success() {
             alert('success');
         }
@@ -49,6 +61,58 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery']
             }
         }
 
+        function orderDetail(chargeId)
+        {
+            util.ajax({
+                url: "http://" + env.domain + "/shop/order/detail",
+                type: "get",
+                data: {format: 'jsonp', 'charge_id': chargeId},
+                dataType: "jsonp",
+                success: function (data) {
+                    console.log(data.data)
+                    alert(data.code);
+                }
+            });
+        }
+
+        function orderCount()
+        {
+            util.ajax({
+                url: "http://" + env.domain + "/shop/order/statistics",
+                type: "get",
+                data: {format: 'jsonp'},
+                dataType: "jsonp",
+                success: function (data) {
+                    console.log(data.data)
+
+                    alert(data.code);
+                }
+            });
+        }
+
+        function createTryApply(name, age, phone, address, reason)
+        {
+            var params = {
+                'format': 'jsonp',
+                'name': name,
+                'age': age,
+                'phone': phone,
+                'address': address,
+                'reason': reason
+            };
+
+            util.ajax({
+                url: "http://" + env.domain + "/shop/try/create",
+                type: "get",
+                data: params,
+                dataType: "jsonp",
+                success: function (data) {
+                    console.log(data.data)
+
+                    alert(data.code);
+                }
+            });
+        }
 
     }
 );
