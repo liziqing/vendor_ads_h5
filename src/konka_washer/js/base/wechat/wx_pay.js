@@ -246,7 +246,7 @@ define(['base/env', 'base/util', 'base/wechat/wx', 'jquery'],
                                 window.location.href = config.success;
                             }
                             else if (typeof config.success == 'function'){
-                                config.success();
+                                config.success(data);
                             }
                         }else{
                             if(++_attempt < _maxAttempt) queryOrder();
