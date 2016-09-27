@@ -9,7 +9,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery']
             {
                 appId: 'wxf19834fcc10552b0',
                 editAddr: false,
-                queryChargeUrl: 'http://' + env.domain + '/shop/order/create',
+                queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
                 success: success,
                 fail: fail,
                 callback: function(){
@@ -18,6 +18,20 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery']
             }
         );
 
+        $('#demo').click(function(){
+
+            var params = {
+                'name': 'abc',
+                'age': '15',
+                'phone': '13795380329',
+                'address': 'asdasd',
+                'gender': '女',
+                'baby': '无'
+            };
+            var url = 'http://' + env.domain + '/shop/order/create';
+
+            wxPay.pay(params, url);
+        })
 
         function success() {
             alert('success');
@@ -34,5 +48,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery']
                 window.location.href = env.baseUrl + "wechat/html/list/orderPay.html?orderNumber="+orderNum;
             }
         }
+
+
     }
 );
