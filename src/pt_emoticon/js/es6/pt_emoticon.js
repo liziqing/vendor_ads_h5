@@ -68,6 +68,11 @@ $(function () {
     });
 
     let screenWidth = screen.width;
+
+    if(navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1){
+        screenWidth = document.body.clientWidth;
+    }
+
     $('#WxMomentVideo').width(screenWidth).height(screenWidth*(9/16));
 
 
@@ -140,6 +145,11 @@ $(function () {
     $("#main .film-btn").on('click', () => {
         _smq.push(['custom','监测代码','杰娜承诺大片']);
         mySwiper.slideTo(4);
+
+        if(navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1){
+            $('#WxMomentVideo').show();
+        }
+
         setShareInfo(1);
 
         $("#music_btn").removeClass("rotate");
@@ -337,6 +347,11 @@ $(function () {
         }
 
         video.getPlayer().pause();
+
+        if(navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1){
+            $('#WxMomentVideo').hide();
+        }
+
         mySwiper.slideTo(1);
         setShareInfo(3);
 

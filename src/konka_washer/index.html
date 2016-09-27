@@ -25,6 +25,10 @@
         <!--  loading  -->
         <section class="swiper-slide no-swiping" id="loading">
             <div class="loading-overlay"></div>
+            <div class="loaded-overlay">
+                <img class="loaded-text" src="./img/loading/loaded_text.png" />
+                <img class="loaded-btn" src="./img/loading/loaded_btn.png" />
+            </div>
         </section>
         <!--  animation  -->
         <section class="swiper-slide no-swiping" id="animation">animation</section>
@@ -43,19 +47,49 @@
             <div class="swiper-button-prev"></div>
         </section>
         <!--  try_form  -->
-        <section class="swiper-slide no-swiping" id="try_form">try_form</section>
+        <section class="swiper-slide no-swiping" id="try_form">
+            <div class="try_form_container">
+
+            </div>
+        </section>
         <!--  pay_success  -->
         <section class="swiper-slide no-swiping" id="pay_success">pay_success</section>
+
+        <!--  preload  -->
+        <section class="swiper-slide no-swiping" id="preload">
+
+        </section>
     </div>
+
+    <!--  bar  -->
+    <div id="icon-bar">
+        <i id="logo"></i>
+        <i id="music_btn" class="rotate"></i>
+        <i id="rules_btn"></i>
+        <audio src="./music/music.mp3" loop="loop" preload="auto" id="music" hidden="hidden" autoplay="autoplay" ></audio>
+    </div>
+
 </div>
 
+
+<!--  rules_overlay  -->
 <div class="overlay" id="rules_overlay">
     <div class="img-div">
-        <img src="../pt_emoticon/img/loading/loading_background.png" />
+        <img src="./img/overlay/rules_overlay.png" />
     </div>
 </div>
-<div class="overlay" id="pay_overlay"></div>
-<div class="overlay" id="address_overlay"></div>
+<!--  pay_overlay  -->
+<div class="overlay" id="pay_overlay">
+    <div class="img-div">
+        <img src="./img/overlay/pay_overlay.png" />
+    </div>
+</div>
+<!--  address_overlay  -->
+<div class="overlay" id="address_overlay">
+    <div class="img-div">
+        <img src="./img/overlay/address_overlay.png" />
+    </div>
+</div>
 
 <!-- build:js js/konka_washer.min.js -->
 <script src="../vendor/wxmoment/wxmoment.min.js"></script>

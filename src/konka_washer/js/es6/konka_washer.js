@@ -22,6 +22,22 @@ $(() => {
         noSwipingClass: 'no-swiping',
     });
 
+    //初始化music
+    let audioDom = document.querySelector('#music');
+    let audioBtn = $('#music_btn');
+    let audioSwitch = () => {
+        if(audioDom.paused){
+            audioDom.play();
+            audioBtn.addClass("rotate");
+        }else{
+            audioDom.pause();
+            audioBtn.removeClass("rotate");
+        }
+    }
+    audioBtn.on('tap', function () {
+        audioSwitch();
+    });
+
     //初始化infoSwiper
     let infoSwiper = new Swiper('#info-swiper', {
         effect: 'fade',
@@ -39,7 +55,13 @@ $(() => {
         modalRules = new jBox('Modal', {
             width: '100%',
             content: $('#rules_overlay'),
-            closeButton: false
+            closeButton: false,
+            onOpen: function () {
+                let _this = this;
+                $('#rules_overlay').on('click', () => {
+                    _this.close();
+                });
+            },
         });
 
         modalPay = new jBox('Modal', {
@@ -51,14 +73,60 @@ $(() => {
         modalAddress = new jBox('Modal', {
             width: '100%',
             content: $('#address_overlay'),
-            closeButton: false
+            closeButton: false,
+            onOpen: function () {
+                let _this = this;
+                $('#address_overlay').unbind('click').on('click', () => {
+                    _this.close();
+                });
+            },
         });
+
+        //loading页动画效果
+        $('#loading .loading-overlay').fadeOut();
+        $('#loading .loaded-overlay').fadeIn();
+
     });
 
 
 
-    $("#screen>.swiper-wrapper>.swiper-slide").on('click', () => {
-        screenSwiper.slideNext();
+    /***
+     * loading
+     * */
+    $('#loading .loaded-btn').on('click', () => {
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.animation);
     });
 
+
+
+
+
+
+
+    /***
+     * animation
+     * */
+    $('#animation').on('click', () => {
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+        $('#rules_btn').fadeIn();
+        modalRules.open();
+    });
+
+
+
+
+
+
+    /***
+     * main
+     * */
+    $('#rules_btn').on('tap', () => {
+        modalRules.open();
+    });
+
+
+
+    //开发
+    audioDom.pause();
+    screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
 });
