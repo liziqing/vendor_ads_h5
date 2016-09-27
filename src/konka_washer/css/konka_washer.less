@@ -72,6 +72,130 @@ html,body{
 
             }
 
+            #main{
+
+                .main-info{
+                    position: relative;
+                    width: 100%;
+                    height: auto;
+
+                    img{
+                        margin-top: -11%;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                }
+
+                .main-percent{
+                    position: relative;
+                    width: 80%;
+                    //height: 2.5rem;
+                    padding: 1.3rem 10% 0.5rem 10%;
+                    text-align: center;
+
+                    .percent-container{
+                        width: 100%;
+                        height: 0.6rem;
+                        background-color: rgb(218,218,218);
+                        border-radius: 0.7rem;
+                        border: 1px solid rgb(99,71,53);
+                        position: relative;
+
+                        .percent-box{
+                            height: 100%;
+                            width: 0%;
+                            border-radius: 0.7rem;
+                            background-color: rgb(255,254,156);
+                            background-size: 1rem 1rem;
+                            background-image: linear-gradient(-45deg, transparent 0em, transparent 0.4em, rgb(251,222,50) 0.4em, rgb(251,222,50) 0.8em, transparent 0.8em, transparent 1.1em, rgb(251,222,50) 1.1em);
+                            -webkit-animation: warning-animation 750ms infinite linear;
+                            -moz-animation: warning-animation 750ms infinite linear;
+                            animation: warning-animation 750ms infinite linear;
+                            -webkit-transition: width 1s;
+                            -moz-transition: width 1s;
+                            -ms-transition: width 1s;
+                            -o-transition: width 1s;
+                            transition: width 1s;
+                        }
+                        @-webkit-keyframes warning-animation {
+                            0% {
+                                background-position: 0 0;
+                            }
+                            100% {
+                                background-position: 1em 0;
+                            }
+                        }
+                        @-moz-keyframes warning-animation {
+                            0% {
+                                background-position: 0 0;
+                            }
+                            100% {
+                                background-position: 1em 0;
+                            }
+                        }
+                        @keyframes warning-animation {
+                            0% {
+                                background-position: 0 0;
+                            }
+                            100% {
+                                background-position: 1em 0;
+                            }
+                        }
+
+                    }
+
+                }
+
+                .main-text{
+                    width: 100%;
+                    height: 3.6rem;
+                    background: url("../img/main/main-text.png") center center no-repeat;
+                    background-size: 85% auto;
+                    position: relative;
+
+                    .main-text-percent{
+                        font-size: 0.6rem;
+                        color: #3d4145;
+                        display: inline-block;
+                        position: absolute;
+                        bottom: 21%;
+                        left: 17%;
+                    }
+
+                    .main-text-time{
+                        font-size: 0.6rem;
+                        color: #3d4145;
+                        display: inline-block;
+                        position: absolute;
+                        bottom: 21%;
+                        right: 20%;
+                    }
+
+                }
+
+
+                i{
+                    display: inline-block;
+                    width: 50%;
+                    height: 1.8rem;
+                    position: absolute;
+                    bottom: 8%;
+                    z-index: 10;
+                }
+                .buy-btn{
+                    left: 0;
+                    background: url("../img/main/buy-btn.png") center center no-repeat;
+                    background-size: auto 100%;
+                }
+                .try-btn{
+                    right: 0;
+                    background: url("../img/main/try-btn.png") center center no-repeat;
+                    background-size: auto 100%;
+                }
+
+            }
+
             #info{
 
                 .swiper-container{
@@ -87,9 +211,52 @@ html,body{
                             width: 100%;
                             height: 100%;
                         }
+                        .info-green{
+                            background: url("../img/info/info-green.png") center 30% no-repeat;
+                            background-size: 90% auto;
+                        }
+                        .info-red{
+                            background: url("../img/info/info-pink.png") center 30% no-repeat;
+                            background-size: 90% auto;
+                        }
+                        .info-yellow{
+                            background: url("../img/info/info-yellow.png") center 30% no-repeat;
+                            background-size: 90% auto;
+                        }
 
                     }
 
+                }
+
+                .swiper-button-next{
+                    width: 1rem;
+                    background: url("../img/info/right-arrow.png") center center no-repeat;
+                    background-size: 100% auto;
+                }
+
+                .swiper-button-prev{
+                    width: 1rem;
+                    background: url("../img/info/left-arrow.png") center center no-repeat;
+                    background-size: 100% auto;
+                }
+
+                i{
+                    display: inline-block;
+                    width: 50%;
+                    height: 1.8rem;
+                    position: absolute;
+                    bottom: 6%;
+                    z-index: 10;
+                }
+                .back-btn{
+                    left: 3%;
+                    background: url("../img/info/back-btn.png") center center no-repeat;
+                    background-size: auto 100%;
+                }
+                .address-btn{
+                    right: 3%;
+                    background: url("../img/info/address-btn.png") center center no-repeat;
+                    background-size: auto 100%;
                 }
 
             }
@@ -104,6 +271,70 @@ html,body{
                     margin-top: 7%;
                     background: url("../img/try/try_form.png") center center no-repeat;
                     background-size: auto 90%;
+                    position: relative;
+
+                    input{
+                        background-color: transparent;
+                        border: 0px;
+                        height: 3%;
+                        line-height: normal;
+                        width: 60%;
+                        font-size: 0.75rem;
+                        position: absolute;
+                        letter-spacing: 1px;
+                        color: rgb(120,98,86);
+                        left: 18%;
+                    }
+                    .name{
+                        top: 15%;
+                    }
+                    .age{
+                        top: 21.3%;
+                    }
+                    .tel{
+                        top: 27.7%;
+                    }
+                    .address{
+                        top: 34%;
+                    }
+
+                    .check-radio{
+                        display: inline-block;
+                        width: 1rem;
+                        height: 1rem;
+                        background: url("../img/dot.png") center center no-repeat;
+                        background-size: auto 100%;
+                        position: absolute;
+                        right: 15%;
+                    }
+                    .check-radio.active{
+                        background: url("../img/dot_active.png") center center no-repeat;
+                        background-size: auto 100%;
+                    }
+                    .reason-1{
+                        top: 47.9%;
+                    }
+                    .reason-2{
+                        top: 52.6%;
+                    }
+                    .reason-3{
+                        top: 57.2%;
+                    }
+
+                    .other-reason{
+                        background-color: transparent;
+                        border: 0px;
+                        height: 16%;
+                        line-height: normal;
+                        width: 57%;
+                        font-size: 0.75rem;
+                        position: absolute;
+                        letter-spacing: 1px;
+                        color: rgb(120,98,86);
+                        left: 18%;
+                        top: 68%;
+                    }
+
                 }
 
             }
@@ -183,6 +414,87 @@ html,body{
         width: 100%;
         display: none;
         text-align: center;
+
+        .img-div{
+            position: relative;
+
+            .pay-overlay-close-btn{
+                display: inline-block;
+                width: 2rem;
+                height: 2rem;
+                position: absolute;
+                top: 0 !important;
+                right: 0 !important;
+            }
+
+            .pay-overlay-submit-btn{
+                display: inline-block;
+                width: 50%;
+                height: 10%;
+                position: absolute;
+                bottom: 8% !important;
+                left: 25% !important;
+            }
+
+        }
+
+    }
+    .overlay#pay_overlay{
+
+        input{
+            background-color: transparent;
+            border: 0px;
+            height: 5%;
+            line-height: normal;
+            width: 70%;
+            font-size: 0.75rem;
+            position: absolute;
+            letter-spacing: 1px;
+            color: rgb(120,98,86);
+            left: 15%;
+        }
+        .name{
+            top: 22.6%;
+        }
+        .age{
+            top: 32.6%;
+        }
+        .tel{
+            top: 42.7%;
+        }
+        .address{
+            top: 52.7%;
+        }
+
+        i.check-radio{
+            display: inline-block;
+            position: absolute;
+            width: 0.9rem;
+            height: 0.9rem;
+            background: url("../img/dot.png") center center no-repeat;
+            background-size: auto 100%;
+        }
+        i.check-radio.active{
+            background: url("../img/dot_active.png") center center no-repeat;
+            background-size: auto 100%;
+        }
+        .sex-female {
+            top: 62.2%;
+            left: 42%;
+        }
+        .sex-male{
+            top: 62.2%;
+            right: 30.8%;
+        }
+        .baby-yes{
+            top: 69.5%;
+            left: 42%;
+        }
+        .baby-no{
+            top: 69.5%;
+            right: 30.8%;
+        }
+
     }
 
 }

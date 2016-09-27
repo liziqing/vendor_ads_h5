@@ -9,9 +9,9 @@ $(function () {
         'info': 3, //点击产品图片后的信息页
         'try_form': 4, //试用表单
         'pay_success': 5 };
-    var modalRules = void 0;
-    var modalPay = void 0;
-    var modalAddress = void 0;
+    var modalRules = void 0; //规则浮层
+    var modalPay = void 0; //支付浮层
+    var modalAddress = void 0; //地址浮层
 
     //初始化容器screenSwiper
     var screenSwiper = new Swiper('#screen', {
@@ -45,9 +45,13 @@ $(function () {
         fade: {
             crossFade: true
         },
-        nextButton: '#info-swiper .swiper-button-next',
-        prevButton: '#info-swiper .swiper-button-prev'
+        loop: true,
+        nextButton: '#info .swiper-button-next',
+        prevButton: '#info .swiper-button-prev'
     });
+
+    //一元购函数（提取表单信息->获取订单id->调用wxpay函数）
+    var submitOrder = function submitOrder() {};
 
     //资源载入完成后的回调
     Pace.on('done', function () {
@@ -68,7 +72,16 @@ $(function () {
         modalPay = new jBox('Modal', {
             width: '100%',
             content: $('#pay_overlay'),
-            closeButton: false
+            closeButton: false,
+            onOpen: function onOpen() {
+                var _this = this;
+                $('#pay_overlay .pay-overlay-close-btn').unbind('click').on('click', function () {
+                    _this.close();
+                });
+                $('#pay_overlay .pay-overlay-submit-btn').unbind('click').on('click', function () {
+                    submitOrder();
+                });
+            }
         });
 
         modalAddress = new jBox('Modal', {
@@ -100,6 +113,7 @@ $(function () {
      * */
     $('#animation').on('click', function () {
         screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+        $('#percent_box').css('width', '70%');
         $('#rules_btn').fadeIn();
         modalRules.open();
     });
@@ -111,7 +125,59 @@ $(function () {
         modalRules.open();
     });
 
+    $('#main .buy-btn').on('click', function () {
+        modalPay.open();
+    });
+
+    $('#main .try-btn').on('click', function () {
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
+    });
+
+    $('#main .main-info').on('click', function () {
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.info);
+    });
+
+    $('#pay_overlay .check-radio').on('tap', function () {
+        if ($(this).hasClass('check-radio-sex')) {
+            if (!$(this).hasClass('active')) {
+                $('.check-radio-sex').removeClass('active');
+                $(this).addClass('active');
+            }
+        } else if ($(this).hasClass('check-radio-baby')) {
+            if (!$(this).hasClass('active')) {
+                $('.check-radio-baby').removeClass('active');
+                $(this).addClass('active');
+            }
+        }
+    });
+
+    /***
+     * info
+     * */
+    $('#info .back-btn').on('click', function () {
+        screenSwiper.slidePrev();
+    });
+
+    $('#info .address-btn').on('click', function () {
+        modalAddress.open();
+    });
+
+    /***
+     * try_form
+     * */
+    $('#try_form .check-radio').on('tap', function () {
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+        } else {
+            $(this).addClass('active');
+        }
+    });
+
     //开发
-    audioDom.pause();
-    screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
+    setTimeout(function () {
+        audioDom.pause();
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+        $('#percent_box').css('width', '70%');
+        modalPay.open();
+    }, 1000);
 });

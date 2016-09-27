@@ -33,23 +33,47 @@
         <!--  animation  -->
         <section class="swiper-slide no-swiping" id="animation">animation</section>
         <!--  main  -->
-        <section class="swiper-slide no-swiping" id="main">main</section>
+        <section class="swiper-slide no-swiping" id="main">
+            <div class="main-info">
+                <img src="./img/main/main-info.png" />
+            </div>
+            <div class="main-percent">
+                <div class="percent-container">
+                    <div class="percent-box" id="percent_box"></div>
+                </div>
+            </div>
+            <div class="main-text">
+                <span class="main-text-percent">35%</span>
+                <span class="main-text-time">3天</span>
+            </div>
+            <i class="buy-btn"></i>
+            <i class="try-btn"></i>
+        </section>
         <!--  info  -->
         <section class="swiper-slide no-swiping" id="info">
             <div class="swiper-container" id="info-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">red</div>
-                    <div class="swiper-slide">yellow</div>
-                    <div class="swiper-slide">green</div>
+                    <div class="swiper-slide info-red"></div>
+                    <div class="swiper-slide info-yellow"></div>
+                    <div class="swiper-slide info-green"></div>
                 </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
+            <i class="back-btn"></i>
+            <i class="address-btn"></i>
         </section>
         <!--  try_form  -->
         <section class="swiper-slide no-swiping" id="try_form">
             <div class="try_form_container">
-
+                <input class="name" placeholder="姓名" />
+                <input class="age" placeholder="年龄" />
+                <input class="tel" placeholder="电话" />
+                <input class="address" placeholder="联系地址" />
+                <i class="reason-1 check-radio active"></i>
+                <i class="reason-2 check-radio"></i>
+                <i class="reason-3 check-radio"></i>
+                <textarea class="other-reason" placeholder="请输入"></textarea>
             </div>
         </section>
         <!--  pay_success  -->
@@ -82,6 +106,16 @@
 <div class="overlay" id="pay_overlay">
     <div class="img-div">
         <img src="./img/overlay/pay_overlay.png" />
+        <i class="pay-overlay-close-btn"></i>
+        <i class="pay-overlay-submit-btn"></i>
+        <input class="name" placeholder="姓名" />
+        <input class="age" placeholder="年龄" />
+        <input class="tel" placeholder="电话" />
+        <input class="address" placeholder="联系地址" />
+        <i class="check-radio check-radio-sex sex-female active"></i>
+        <i class="check-radio check-radio-sex sex-male"></i>
+        <i class="check-radio check-radio-baby baby-yes active"></i>
+        <i class="check-radio check-radio-baby baby-no"></i>
     </div>
 </div>
 <!--  address_overlay  -->

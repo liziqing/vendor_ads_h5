@@ -8,9 +8,9 @@ $(() => {
         'try_form': 4,  //试用表单
         'pay_success': 5,  //支付成功后的回调页面
     };
-    let modalRules;
-    let modalPay;
-    let modalAddress;
+    let modalRules;  //规则浮层
+    let modalPay;   //支付浮层
+    let modalAddress;  //地址浮层
 
     //初始化容器screenSwiper
     let screenSwiper = new Swiper('#screen', {
@@ -44,9 +44,15 @@ $(() => {
         fade: {
             crossFade: true,
         },
-        nextButton: '#info-swiper .swiper-button-next',
-        prevButton: '#info-swiper .swiper-button-prev',
+        loop: true,
+        nextButton: '#info .swiper-button-next',
+        prevButton: '#info .swiper-button-prev',
     });
+
+    //一元购函数（提取表单信息->获取订单id->调用wxpay函数）
+    let submitOrder = () => {
+
+    }
 
     //资源载入完成后的回调
     Pace.on('done', () => {
@@ -67,7 +73,16 @@ $(() => {
         modalPay = new jBox('Modal', {
             width: '100%',
             content: $('#pay_overlay'),
-            closeButton: false
+            closeButton: false,
+            onOpen: function () {
+                let _this = this;
+                $('#pay_overlay .pay-overlay-close-btn').unbind('click').on('click', () => {
+                    _this.close();
+                });
+                $('#pay_overlay .pay-overlay-submit-btn').unbind('click').on('click', () => {
+                    submitOrder();
+                });
+            },
         });
 
         modalAddress = new jBox('Modal', {
@@ -108,9 +123,12 @@ $(() => {
      * */
     $('#animation').on('click', () => {
         screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+        $('#percent_box').css('width','70%');
         $('#rules_btn').fadeIn();
         modalRules.open();
     });
+
+
 
 
 
@@ -124,9 +142,74 @@ $(() => {
         modalRules.open();
     });
 
+    $('#main .buy-btn').on('click', () => {
+        modalPay.open();
+    });
+
+    $('#main .try-btn').on('click', () => {
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
+    });
+
+    $('#main .main-info').on('click', () => {
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.info);
+    });
+
+    $('#pay_overlay .check-radio').on('tap', function () {
+        if($(this).hasClass('check-radio-sex')){
+            if(!$(this).hasClass('active')){
+                $('.check-radio-sex').removeClass('active');
+                $(this).addClass('active');
+            }
+        }else if($(this).hasClass('check-radio-baby')){
+            if(!$(this).hasClass('active')){
+                $('.check-radio-baby').removeClass('active');
+                $(this).addClass('active');
+            }
+        }
+    });
+
+
+
+
+
+
+
+    /***
+     * info
+     * */
+    $('#info .back-btn').on('click', () => {
+        screenSwiper.slidePrev();
+    });
+
+    $('#info .address-btn').on('click', () => {
+        modalAddress.open();
+    });
+
+
+
+
+
+
+    /***
+     * try_form
+     * */
+    $('#try_form .check-radio').on('tap', function () {
+        if($(this).hasClass('active')){
+            $(this).removeClass('active');
+        }else{
+            $(this).addClass('active');
+        }
+    });
+
+
 
 
     //开发
-    audioDom.pause();
-    screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
+    setTimeout(() => {
+        audioDom.pause();
+        screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+        $('#percent_box').css('width','70%');
+        modalPay.open();
+    },1000)
+
 });
