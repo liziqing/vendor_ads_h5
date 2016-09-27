@@ -332,6 +332,15 @@ body #screen .swiper-wrapper #try_form .try_form_container .other-reason {
   left: 18%;
   top: 68%;
 }
+html #screen .swiper-wrapper #try_form .try_form_container .try-form-submit-btn,
+body #screen .swiper-wrapper #try_form .try_form_container .try-form-submit-btn {
+  display: inline-block;
+  width: 30%;
+  height: 8%;
+  position: absolute;
+  bottom: 5%;
+  left: 35%;
+}
 html #screen #icon-bar,
 body #screen #icon-bar {
   width: 90%;

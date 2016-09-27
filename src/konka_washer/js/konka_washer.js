@@ -246,6 +246,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             }
         });
 
+        $('#try_form .try-form-submit-btn').on('click', function () {
+            createTryApply();
+        });
+
         //开发
         // setTimeout(() => {
         //     audioDom.pause();
