@@ -408,6 +408,9 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 createTryApply();
             });
 
+            $('#try_form .try-form-back-btn').on('click', () => {
+                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+            });
 
 
 
