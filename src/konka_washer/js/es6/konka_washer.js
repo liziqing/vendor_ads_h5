@@ -373,15 +373,15 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                                     $('.yiyuan-title').css('top',screenWidth*0.96).show().attr('src','img/animation/title_coin.png');
                                     $('.yiyuan-coin').css('top',screenWidth*1.0175).show().attr('src','img/animation/money.gif?r='+randomNum+'');
                                 },2300);
-                            },4400);
+                            },3400);
                             wrapperTimeout('xiao','sa');
                             columnTimeout3();
                         },500);
-                    },4600);
+                    },3600);
                     wrapperTimeout('bao','hu');
                     columnTimeout2();
                 },500);
-            },4500);
+            },3800);
             wrapperTimeout('fang','xin');
             columnTimeout1();
             $('.more-than').fadeIn();
@@ -407,7 +407,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             $('.column_double2').removeClass('bounceInDown3').addClass('bounceInDown7');
             $('.column_circle1').removeClass('bounceInDown5').addClass('bounceInDown8');
             $('.column_circle2').removeClass('bounceInDown2').addClass('bounceInDown6');
-        },4300);
+        },3600);
     }
     function columnTimeout2(){
         clearTimeout(animation_timer3);
@@ -419,7 +419,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             $('.column_double2').removeClass('bounceInDown7').addClass('bounceInDown9');
             $('.column_circle1').removeClass('bounceInDown8').addClass('bounceInDown10');
             $('.column_circle2').removeClass('bounceInDown6').addClass('bounceInDown9');
-        },4300);
+        },3400);
     }
     function columnTimeout3(){
         clearTimeout(animation_timer3);
@@ -436,7 +436,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             animation_timer3 = setTimeout(() => {
                 $('.column-wrapper').hide();
             },1000);
-        },4500);
+        },3200);
     }
 
     function fadeOutImg(){
