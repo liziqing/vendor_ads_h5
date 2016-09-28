@@ -1,4 +1,4 @@
-require.config({
+requirejs.config({
     baseUrl: 'js',
     paths: {
         "jquery": "vendor/jquery/jquery-3.1.0.min",

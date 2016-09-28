@@ -134,18 +134,18 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
             }
 
-            //wxPay.config(
-            //    {
-            //        appId: 'wxf19834fcc10552b0',
-            //        editAddr: false,
-            //        queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-            //        success: pay_success,
-            //        fail: pay_fail,
-            //        callback: function(){
-            //            // alert('初始化');
-            //        }
-            //    }
-            //);
+            wxPay.config(
+                {
+                    appId: 'wxf19834fcc10552b0',
+                    editAddr: false,
+                    queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+                    success: pay_success,
+                    fail: pay_fail,
+                    callback: function(){
+                        // alert('初始化');
+                    }
+                }
+            );
 
             //一元购函数（提取表单信息->获取订单id->调用wxpay函数）
             let submitOrder = () => {
@@ -191,6 +191,11 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                     }
                 });
             }
+
+            setTimeout(() => {
+                Pace.stop();
+            },10000);
+
 
             //资源载入完成后的回调
             Pace.on('done', () => {
@@ -341,31 +346,32 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         $('.column_circle1').addClass('bounceInDown5');
         $('.column_circle2').addClass('bounceInDown2');
 
+        let randomNum = parseInt(Math.random()*10);
         animation_timer1 = setTimeout(() => {
-            $topImg.show().attr('src','img/animation/danxin.gif');
+            $topImg.show().attr('src','img/animation/danxin.gif?r='+randomNum+'');
             clearTimeout(animation_timer1);
             animation_timer1 = setTimeout(() => {
                 fadeOutImg();
                 clearTimeout(animation_timer1);
                 animation_timer1 = setTimeout(() => {
-                    $topImg.show().attr('src','img/animation/kunrao.gif');
+                    $topImg.show().attr('src','img/animation/kunrao.gif?r='+randomNum+'');
                     clearTimeout(animation_timer1);
                     animation_timer1 = setTimeout(() => {
                         fadeOutImg();
                         clearTimeout(animation_timer1);
                         animation_timer1 = setTimeout(() => {
-                            $topImg.show().attr('src','img/animation/laolei.gif');
+                            $topImg.show().attr('src','img/animation/laolei.gif?r='+randomNum+'');
                             clearTimeout(animation_timer1);
                             animation_timer1 = setTimeout(() => {
                                 fadeOutImg();
                                 $('.more-than').fadeOut();
-                                $('.yiyuan-cover').show().attr('src','img/animation/title_money.gif');
+                                $('.yiyuan-cover').show().attr('src','img/animation/title_money.gif?r='+randomNum+'');
                                 clearTimeout(animation_timer1);
                                 animation_timer1 = setTimeout(() => {
                                     $('.yiyuan-cover').hide();
-                                    $('.yiyuan-top').css('top',screenWidth*0.15).show().attr('src','img/animation/title.gif');
+                                    $('.yiyuan-top').css('top',screenWidth*0.15).show().attr('src','img/animation/title.gif?r='+randomNum+'');
                                     $('.yiyuan-title').css('top',screenWidth*0.96).show().attr('src','img/animation/title_coin.png');
-                                    $('.yiyuan-coin').css('top',screenWidth*1.0175).show().attr('src','img/animation/money.gif');
+                                    $('.yiyuan-coin').css('top',screenWidth*1.0175).show().attr('src','img/animation/money.gif?r='+randomNum+'');
                                 },2300);
                             },4400);
                             wrapperTimeout('xiao','sa');

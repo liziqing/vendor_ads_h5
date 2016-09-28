@@ -8,7 +8,7 @@
     <meta name="x5-orientation" content="portrait">
     <meta content="telephone=no" name="format-detection">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>KONKA</title>
+    <title>康佳国庆活动</title>
 
     <script src="./js/vendor/pace/pace.min.js"></script>
     <link rel="stylesheet" href="./js/vendor/jbox/jBox.css" />
@@ -183,8 +183,8 @@
 </div>
 
 <!-- build:js js/konka_washer.min.js -->
-<!--<script src="../vendor/wxmoment/wxmoment.min.js"></script>-->
-<!--<script src="../vendor/wxmoment/OrientationTip.js"></script>-->
+<script src="./js/vendor/wxmoment/wxmoment.min.js"></script>
+<script src="./js/vendor/wxmoment/OrientationTip.js"></script>
 <!--<script src="../vendor/jquery/jquery-3.1.0.min.js"></script>-->
 <!--<script src="../vendor/swiper/swiper.jquery.min.js"></script>-->
 <!--<script src="../vendor/jbox/jBox.min.js"></script>-->
@@ -193,8 +193,8 @@
 
 <script src="./js/vendor/require/require.js" ></script>
 <script>
-    require(['js/main.js'], function (main) {
-        require(['konka_washer']);
+    requirejs(['js/main.js'], function (main) {
+        requirejs(['konka_washer']);
     });
 </script>
 
