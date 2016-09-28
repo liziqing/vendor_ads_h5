@@ -345,7 +345,18 @@ $(function () {
             $('#music_btn').removeClass('rotate');
         }
     });
+    $("#video .video-button-left").on('click', function () {
+        _smq.push(['custom', '监测代码', '杰娜铂金同款']);
+        mySwiper.slideTo(2);
+        setShareInfo(0);
+    });
+    $("#video .video-button-right").on('click', function () {
+        _smq.push(['custom', '监测代码', '杰娜铂金爱语']);
+        mySwiper.slideTo(5);
+        setShareInfo(2);
 
+        $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
+    });
     /***
      * emoticon
      * */
