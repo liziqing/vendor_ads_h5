@@ -74,6 +74,15 @@ body #screen .swiper-wrapper #main .main-info {
   width: 100%;
   height: auto;
 }
+html #screen .swiper-wrapper #main .main-info .main-info-btn,
+body #screen .swiper-wrapper #main .main-info .main-info-btn {
+  display: inline-block;
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  top: 30%;
+  left: 10%;
+}
 html #screen .swiper-wrapper #main .main-info img,
 body #screen .swiper-wrapper #main .main-info img {
   margin-top: -11%;
@@ -341,6 +350,63 @@ body #screen .swiper-wrapper #try_form .try_form_container .try-form-submit-btn 
   bottom: 5%;
   left: 35%;
 }
+html #screen .swiper-wrapper #pay_success .pay-success-form,
+body #screen .swiper-wrapper #pay_success .pay-success-form {
+  position: relative;
+  top: 6%;
+  left: 10%;
+  width: 80%;
+  height: 60%;
+  background: url("../img/pay/pay-background.png") center center no-repeat;
+  background-size: 100% auto;
+}
+html #screen .swiper-wrapper #pay_success .pay-success-form span,
+body #screen .swiper-wrapper #pay_success .pay-success-form span {
+  display: inline-block;
+  text-align: right;
+  font-size: 0.65rem;
+  color: #3d4145;
+  width: 50%;
+  height: 0.8rem;
+  line-height: normal;
+  position: absolute;
+  right: 0;
+}
+html #screen .swiper-wrapper #pay_success .pay-success-form #create_time,
+body #screen .swiper-wrapper #pay_success .pay-success-form #create_time {
+  top: 52.1%;
+}
+html #screen .swiper-wrapper #pay_success .pay-success-form #charge_name,
+body #screen .swiper-wrapper #pay_success .pay-success-form #charge_name {
+  top: 58.2%;
+}
+html #screen .swiper-wrapper #pay_success .pay-success-form #pay_channel,
+body #screen .swiper-wrapper #pay_success .pay-success-form #pay_channel {
+  top: 64.6%;
+}
+html #screen .swiper-wrapper #pay_success .pay-success-form #owner,
+body #screen .swiper-wrapper #pay_success .pay-success-form #owner {
+  top: 71.3%;
+}
+html #screen .swiper-wrapper #pay_success .pay-success-form #order_no,
+body #screen .swiper-wrapper #pay_success .pay-success-form #order_no {
+  top: 78%;
+}
+html #screen .swiper-wrapper #pay_success .pay-success-form #charge_id,
+body #screen .swiper-wrapper #pay_success .pay-success-form #charge_id {
+  top: 85.1%;
+}
+html #screen .swiper-wrapper #pay_success .complete-btn,
+body #screen .swiper-wrapper #pay_success .complete-btn {
+  display: inline-block;
+  width: 50%;
+  height: 1.8rem;
+  background: url("../img/pay/complete-btn.png") center center no-repeat;
+  background-size: auto 100%;
+  position: absolute;
+  bottom: 20%;
+  left: 25%;
+}
 html #screen #icon-bar,
 body #screen #icon-bar {
   width: 90%;
@@ -493,4 +559,34 @@ html .overlay#pay_overlay .baby-no,
 body .overlay#pay_overlay .baby-no {
   top: 69.5%;
   right: 30.8%;
+}
+html #pay_succcess_overlay,
+body #pay_succcess_overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: none;
+}
+html #pay_succcess_overlay img,
+body #pay_succcess_overlay img {
+  width: 100%;
+  height: 100%;
+}
+html #try_complete_overlay,
+body #try_complete_overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  display: none;
+}
+html #try_complete_overlay img,
+body #try_complete_overlay img {
+  width: 100%;
+  height: 100%;
 }

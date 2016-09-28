@@ -37,6 +37,7 @@
         <!--  main  -->
         <section class="swiper-slide no-swiping" id="main">
             <div class="main-info">
+                <i class="main-info-btn"></i>
                 <img src="./img/main/main-info.png" />
             </div>
             <div class="main-percent">
@@ -45,7 +46,7 @@
                 </div>
             </div>
             <div class="main-text">
-                <span class="main-text-percent">35%</span>
+                <span class="main-text-percent"></span>
                 <span class="main-text-time">3天</span>
             </div>
             <i class="buy-btn"></i>
@@ -80,11 +81,21 @@
             </div>
         </section>
         <!--  pay_success  -->
-        <section class="swiper-slide no-swiping" id="pay_success">pay_success</section>
+        <section class="swiper-slide no-swiping" id="pay_success">
+            <div class="pay-success-form">
+                <span id="create_time">2016-10-01  20:33:33</span>
+                <span id="charge_name">康佳一元纵享时光</span>
+                <span id="pay_channel">微信支付</span>
+                <span id="owner">康佳</span>
+                <span id="order_no">123123123123123</span>
+                <span id="charge_id">123123123123123</span>
+            </div>
+            <i class="complete-btn"></i>
+        </section>
 
         <!--  preload  -->
         <section class="swiper-slide no-swiping" id="preload">
-
+            
         </section>
     </div>
 
@@ -99,7 +110,14 @@
 
 </div>
 
-
+<!--  rules_overlay  -->
+<div id="pay_succcess_overlay">
+    <img src="./img/overlay/pay_success_overlay.png" />
+</div>
+<!--  rules_overlay  -->
+<div id="try_complete_overlay">
+    <img src="./img/overlay/try_complete_overlay.png" />
+</div>
 <!--  rules_overlay  -->
 <div class="overlay" id="rules_overlay">
     <div class="img-div">

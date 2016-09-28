@@ -79,6 +79,15 @@ html,body{
                     width: 100%;
                     height: auto;
 
+                    .main-info-btn{
+                        display: inline-block;
+                        position: absolute;
+                        width: 80%;
+                        height: 70%;
+                        top: 30%;
+                        left: 10%;
+                    }
+
                     img{
                         margin-top: -11%;
                         width: 100%;
@@ -349,6 +358,62 @@ html,body{
 
             }
 
+            #pay_success{
+
+                .pay-success-form{
+                    position: relative;
+                    top: 6%;
+                    left: 10%;
+                    width: 80%;
+                    height: 60%;
+                    background: url("../img/pay/pay-background.png") center center no-repeat;
+                    background-size: 100% auto;
+
+                    span{
+                        display: inline-block;
+                        text-align: right;
+                        font-size: 0.65rem;
+                        color: #3d4145;
+                        width: 50%;
+                        height: 0.8rem;
+                        line-height: normal;
+                        position: absolute;
+                        right: 0;
+                    }
+                    #create_time{
+                        top: 52.1%;
+                    }
+                    #charge_name{
+                        top: 58.2%;
+                    }
+                    #pay_channel{
+                        top: 64.6%;
+                    }
+                    #owner{
+                        top: 71.3%;
+                    }
+                    #order_no{
+                        top: 78%;
+                    }
+                    #charge_id{
+                        top: 85.1%;
+                    }
+
+                }
+
+              .complete-btn{
+                    display: inline-block;
+                    width: 50%;
+                    height: 1.8rem;
+                    background: url("../img/pay/complete-btn.png") center center no-repeat;
+                    background-size: auto 100%;
+                    position: absolute;
+                    bottom: 20%;
+                    left: 25%;
+                }
+
+            }
+
         }
 
         #icon-bar{
@@ -503,6 +568,38 @@ html,body{
         .baby-no{
             top: 69.5%;
             right: 30.8%;
+        }
+
+    }
+
+    #pay_succcess_overlay{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        display: none;
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+
+    #try_complete_overlay{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        display: none;
+
+        img{
+            width: 100%;
+            height: 100%;
         }
 
     }

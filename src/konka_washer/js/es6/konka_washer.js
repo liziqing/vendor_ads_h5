@@ -4,7 +4,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
         $(() => {
 
             //页码标注，用于swiper跳转，引用分页id (可能animation需拆分为可滑动三页，动画时间？ 可直接修改页码)
-            let SCREEN_SWIPER_INDEX = {
+            const SCREEN_SWIPER_INDEX = {
                 'loading': 0, //loading && 引言
                 'animation': 1,  //三个gif动画 && 1元纵享
                 'main': 2,  //活动主页
@@ -12,6 +12,11 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                 'try_form': 4,  //试用表单
                 'pay_success': 5,  //支付成功后的回调页面
             };
+            const TRY_REASON_LIST = [
+                '婴儿衣物，内衣内裤手洗麻烦；',
+                '普通机洗、手洗不能除菌；',
+                '混合洗不健康；'
+            ]
             let modalRules;  //规则浮层
             let modalPay;   //支付浮层
             let modalAddress;  //地址浮层
@@ -39,7 +44,6 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                 }
             }
             $('#music_btn').on('click', function () {
-                console.log(123213)
                 audioSwitch();
             });
 
@@ -55,8 +59,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             });
 
 
-
-            //初始化微信支付
+            //获取订单信息
             let orderDetail = (chargeId) => {
                 util.ajax({
                     url: "http://" + env.domain + "/shop/order/detail",
@@ -64,18 +67,48 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                     data: {format: 'jsonp', 'charge_id': chargeId},
                     dataType: "jsonp",
                     success: function (data) {
-                        alert(JSON.stringify(data));
+                        if(data.code == 0){
+                            $('#pay_success #create_time').text(data.data.create_time);
+                            $('#pay_success #charge_name').text(data.data.charge_name);
+                            $('#pay_success #pay_channel').text(data.data.pay_channel);
+                            $('#pay_success #owner').text(data.data.owner);
+                            $('#pay_success #order_no').text(data.data.order_no);
+                            $('#pay_success #charge_id').text(data.data.charge_id);
+                        }
                     }
                 });
             }
 
+            //获取活动信息
+            let campaignDetail = () => {
+                util.ajax({
+                    url: "http://" + env.domain + "/shop/order/statistics",
+                    type: "get",
+                    data: {format: 'jsonp'},
+                    dataType: "jsonp",
+                    success: function (data) {
+                        let tempCount = data.data.count;
+                        if(tempCount <= 5000){
+                            let tempPercent = parseInt((0.2 + (tempCount/5000)*0.6)*100);
+                            $('#percent_box').css('width', tempPercent + '%');
+                            $('#main .main-text-percent').text(tempPercent + '%');
+                        }
+                    }
+                });
+            }
+
+
+            //初始化微信支付
+
             let pay_success = (data) => {
                 modalPay.close();
-                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.pay_success);
 
-                alert(JSON.stringify(data));
                 let chargeId = data.data.id;
                 orderDetail(chargeId);
+
+                setTimeout(() => {
+                    screenSwiper.slideTo(SCREEN_SWIPER_INDEX.pay_success);
+                },500)
 
             }
 
@@ -83,18 +116,18 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
 
             }
 
-            wxPay.config(
-                {
-                    appId: 'wxf19834fcc10552b0',
-                    editAddr: false,
-                    queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-                    success: pay_success,
-                    fail: pay_fail,
-                    callback: function(){
-                        alert('初始化');
-                    }
-                }
-            );
+            // wxPay.config(
+            //     {
+            //         appId: 'wxf19834fcc10552b0',
+            //         editAddr: false,
+            //         queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+            //         success: pay_success,
+            //         fail: pay_fail,
+            //         callback: function(){
+            //             alert('初始化');
+            //         }
+            //     }
+            // );
 
             //一元购函数（提取表单信息->获取订单id->调用wxpay函数）
             let submitOrder = () => {
@@ -113,13 +146,19 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
 
             //使用函数
             let createTryApply = () => {
+                let tryReason = '';
+                $('#try_form .check-radio').each(function (i, value) {
+                    if($(this).hasClass('active')){
+                        tryReason = tryReason + TRY_REASON_LIST[i];
+                    }
+                });
                 let params = {
                     'format': 'jsonp',
                     'name': $('#try_form .name').val(),
                     'age': $('#try_form .age').val(),
                     'phone': $('#try_form .tel').val(),
                     'address': $('#try_form .address').val(),
-                    'reason': $('#try_form .other-reason').val(),
+                    'reason': tryReason + $('#try_form .other-reason').val(),
                 };
 
                 util.ajax({
@@ -128,8 +167,9 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                     data: params,
                     dataType: "jsonp",
                     success: function (data) {
-
-                        alert(JSON.stringify(data));
+                        if(data.code == 0){
+                            $('#try_complete_overlay').fadeIn();
+                        }
                     }
                 });
             }
@@ -184,6 +224,26 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             /***
              * loading
              * */
@@ -192,21 +252,55 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             /***
              * animation
              * */
             $('#animation').on('click', () => {
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
-                $('#percent_box').css('width', '70%');
                 $('#rules_btn').fadeIn();
                 modalRules.open();
             });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             /***
              * main
              * */
-            $('#rules_btn').on('tap', () => {
+            campaignDetail();
+
+            $('#rules_btn').on('click', () => {
                 modalRules.open();
             });
 
@@ -218,11 +312,11 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
             });
 
-            $('#main .main-info').on('click', () => {
+            $('#main .main-info-btn').on('click', () => {
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.info);
             });
 
-            $('#pay_overlay .check-radio').on('tap', function () {
+            $('#pay_overlay .check-radio').on('click', function () {
                 if ($(this).hasClass('check-radio-sex')) {
                     if (!$(this).hasClass('active')) {
                         $('.check-radio-sex').removeClass('active');
@@ -237,6 +331,23 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             /***
              * info
              * */
@@ -249,10 +360,25 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             /***
              * try_form
              * */
-            $('#try_form .check-radio').on('tap', function () {
+            $('#try_form .check-radio').on('click', function () {
                 if ($(this).hasClass('active')) {
                     $(this).removeClass('active');
                 } else {
@@ -265,12 +391,49 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             });
 
 
+
+
+
+
+
+
+
+
+
+
+
+            /***
+             * pay_success
+             * */
+            $('#pay_success .complete-btn').on('click', () => {
+                $('#pay_succcess_overlay').fadeIn();
+            });
+
+
+
+
+
+
+
+
+            /***
+             * overlay
+             * */
+            $('#pay_succcess_overlay').on('click', function () {
+                $(this).fadeOut();
+            });
+
+            $('#try_complete_overlay').on('click', function () {
+                $(this).fadeOut();
+            });
+
+
+
+
             //开发
             // setTimeout(() => {
             //     audioDom.pause();
-            //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
-            //     $('#percent_box').css('width', '70%');
-            //     modalPay.open();
+            //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.pay_success);
             // }, 1000)
 
         });
