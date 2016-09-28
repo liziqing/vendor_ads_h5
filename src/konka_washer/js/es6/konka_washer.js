@@ -148,6 +148,9 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 };
                 var url = 'http://' + env.domain + '/shop/order/create';
 
+                alert(JSON.stringify(params));
+                alert(url);
+
                 wxPay.pay(params, url);
             }
 
