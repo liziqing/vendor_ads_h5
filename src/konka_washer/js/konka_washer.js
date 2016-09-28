@@ -328,7 +328,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
          * share
          * */
         var shareData = {
-            shareFeedsTile: '国庆特惠！一元钱即有机会赢取免费康佳Kmini洗衣机！快来碰碰你的好运气！',
+            shareFeedsTitle: '国庆特惠！一元钱即有机会赢取免费康佳Kmini洗衣机！快来碰碰你的好运气！',
             shareTitle: '爱无止净、钜惠国庆，长假无忧、纵享时光',
             shareUrl: window.location.href,
             shareImg: 'http://kangjiaguoqing.qnmami.com/img/share.jpeg',
@@ -337,7 +337,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
         baseWx.initWxJs('wxf19834fcc10552b0', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
             wx.onMenuShareTimeline({
-                title: shareData.shareFeedsTile, // 分享标题
+                title: shareData.shareFeedsTitle, // 分享标题
                 link: shareData.shareUrl, // 分享链接
                 imgUrl: shareData.shareImg,
                 success: function success() {
@@ -349,7 +349,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             });
 
             wx.onMenuShareAppMessage({
-                title: shareData.shareTile, // 分享标题
+                title: shareData.shareTitle, // 分享标题
                 link: shareData.shareUrl,
                 desc: shareData.shareDes,
                 imgUrl: shareData.shareImg,
