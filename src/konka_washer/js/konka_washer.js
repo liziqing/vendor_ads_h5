@@ -125,18 +125,16 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
         var pay_fail = function pay_fail() {};
 
-        //wxPay.config(
-        //    {
-        //        appId: 'wxf19834fcc10552b0',
-        //        editAddr: false,
-        //        queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-        //        success: pay_success,
-        //        fail: pay_fail,
-        //        callback: function(){
-        //            // alert('初始化');
-        //        }
-        //    }
-        //);
+        wxPay.config({
+            appId: 'wxf19834fcc10552b0',
+            editAddr: false,
+            queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+            success: pay_success,
+            fail: pay_fail,
+            callback: function callback() {
+                // alert('初始化');
+            }
+        });
 
         //一元购函数（提取表单信息->获取订单id->调用wxpay函数）
         var submitOrder = function submitOrder() {
@@ -182,6 +180,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 }
             });
         };
+
+        setTimeout(function () {
+            Pace.stop();
+        }, 10000);
 
         //资源载入完成后的回调
         Pace.on('done', function () {

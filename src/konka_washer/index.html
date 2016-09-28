@@ -183,8 +183,8 @@
 </div>
 
 <!-- build:js js/konka_washer.min.js -->
-<!--<script src="../vendor/wxmoment/wxmoment.min.js"></script>-->
-<!--<script src="../vendor/wxmoment/OrientationTip.js"></script>-->
+<script src="./js/vendor/wxmoment/wxmoment.min.js"></script>
+<script src="./js/vendor/wxmoment/OrientationTip.js"></script>
 <!--<script src="../vendor/jquery/jquery-3.1.0.min.js"></script>-->
 <!--<script src="../vendor/swiper/swiper.jquery.min.js"></script>-->
 <!--<script src="../vendor/jbox/jBox.min.js"></script>-->
@@ -193,8 +193,8 @@
 
 <script src="./js/vendor/require/require.js" ></script>
 <script>
-    require(['js/main.js'], function (main) {
-        require(['konka_washer']);
+    requirejs(['js/main.js'], function (main) {
+        requirejs(['konka_washer']);
     });
 </script>
 
