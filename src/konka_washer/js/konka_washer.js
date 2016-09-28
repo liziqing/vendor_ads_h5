@@ -307,10 +307,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                                     clearTimeout(animation_timer1);
                                     animation_timer1 = setTimeout(function () {
                                         $('.yiyuan-cover').hide();
-                                        $('.yiyuan-top').css('top', screenWidth * 0.15).show().attr('src', 'img/animation/title.gif?r=' + randomNum + '');
+                                        $('.yiyuan-top').css('top', screenWidth * 0.15).show().attr('src', 'img/animation/title.gif');
                                         $('.yiyuan-title').css('top', screenWidth * 0.96).show().attr('src', 'img/animation/title_coin.png');
-                                        $('.yiyuan-coin').css('top', screenWidth * 1.0175).show().attr('src', 'img/animation/money.gif?r=' + randomNum + '');
-                                    }, 2300);
+                                        $('.yiyuan-coin').css('top', screenWidth * 1.0175).show().attr('src', 'img/animation/money.gif');
+                                    }, 2500);
                                 }, 3400);
                                 wrapperTimeout('xiao', 'sa');
                                 columnTimeout3();
@@ -323,7 +323,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 wrapperTimeout('fang', 'xin');
                 columnTimeout1();
                 $('.more-than').fadeIn();
-            }, 1000);
+            }, 100);
         }
 
         function wrapperTimeout(f, s) {
