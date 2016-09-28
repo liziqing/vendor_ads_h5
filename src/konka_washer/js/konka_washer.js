@@ -132,7 +132,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             success: pay_success,
             fail: pay_fail,
             callback: function callback() {
-                alert('初始化');
+                // alert('初始化');
             }
         });
 
@@ -322,6 +322,46 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
 
         $('#try_complete_overlay').on('click', function () {
             $(this).fadeOut();
+        });
+
+        /***
+         * share
+         * */
+        var shareData = {
+            shareFeedsTile: '国庆特惠！一元钱即有机会赢取免费康佳Kmini洗衣机！快来碰碰你的好运气！',
+            shareTitle: '爱无止净、钜惠国庆，长假无忧、纵享时光',
+            shareUrl: window.location.href,
+            shareImg: 'http://kangjiaguoqing.qnmami.com/img/share.jpeg',
+            shareDes: '一元钱可以做什么？”康佳国庆特惠一元惊喜好礼等你来拿！'
+        };
+
+        wx.initWxJs('wxf19834fcc10552b0', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+            wx.onMenuShareTimeline({
+                title: shareData.shareFeedsTile, // 分享标题
+                link: shareData.shareUrl, // 分享链接
+                imgUrl: shareData.shareImg,
+                success: function success() {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function cancel() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareAppMessage({
+                title: shareData.shareTile, // 分享标题
+                link: shareData.shareUrl,
+                desc: shareData.shareDes,
+                imgUrl: shareData.shareImg,
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function success() {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function cancel() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
         });
 
         //开发
