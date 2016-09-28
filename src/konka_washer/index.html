@@ -43,6 +43,7 @@
             <div class="main-percent">
                 <div class="percent-container">
                     <div class="percent-box" id="percent_box"></div>
+                    <div class="percent-pop" id="percent_pop"></div>
                 </div>
             </div>
             <div class="main-text">
@@ -83,12 +84,12 @@
         <!--  pay_success  -->
         <section class="swiper-slide no-swiping" id="pay_success">
             <div class="pay-success-form">
-                <span id="create_time">2016-10-01  20:33:33</span>
+                <span id="create_time">2016-10-01  23:33:33</span>
                 <span id="charge_name">康佳一元纵享时光</span>
                 <span id="pay_channel">微信支付</span>
                 <span id="owner">康佳</span>
-                <span id="order_no">123123123123123</span>
-                <span id="charge_id">123123123123123</span>
+                <span id="order_no"></span>
+                <span id="charge_id"></span>
             </div>
             <i class="complete-btn"></i>
         </section>
@@ -99,7 +100,7 @@
         </section>
     </div>
 
-    <!--  bar  -->
+    <!--  icon-bar  -->
     <div id="icon-bar">
         <i id="logo"></i>
         <i id="music_btn" class="rotate"></i>
@@ -110,11 +111,11 @@
 
 </div>
 
-<!--  rules_overlay  -->
+<!--  pay_succcess_overlay  -->
 <div id="pay_succcess_overlay">
     <img src="./img/overlay/pay_success_overlay.png" />
 </div>
-<!--  rules_overlay  -->
+<!--  try_complete_overlay  -->
 <div id="try_complete_overlay">
     <img src="./img/overlay/try_complete_overlay.png" />
 </div>
@@ -155,6 +156,7 @@
 <!--<script src="../vendor/jbox/jBox.min.js"></script>-->
 <!--<script src="./js/konka_washer.js"></script>-->
 <!-- endbuild -->
+
 <script src="./js/vendor/require/require.js" ></script>
 <script>
     require(['js/main.js'], function (main) {

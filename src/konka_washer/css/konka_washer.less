@@ -152,6 +152,24 @@ html,body{
                             }
                         }
 
+                        .percent-pop{
+                            display: inline-block;
+                            width: 1.6rem;
+                            height: 1.6rem;
+                            background: url("../img/main/percent-pop.png") center center no-repeat;
+                            background-size: 100% auto;
+                            position: absolute;
+                            top: 0;
+                            left: 20%;
+                            margin-top: -1.6rem;
+                            margin-left: -0.8rem;
+
+                            font-size: 0.5rem;
+                            color: #3d4145;
+                            line-height: 1.4rem;
+                            text-align: center;
+                        }
+
                     }
 
                 }
@@ -374,11 +392,13 @@ html,body{
                         text-align: right;
                         font-size: 0.65rem;
                         color: #3d4145;
-                        width: 50%;
+                        width: 70%;
                         height: 0.8rem;
                         line-height: normal;
                         position: absolute;
                         right: 0;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
                     }
                     #create_time{
                         top: 52.1%;
