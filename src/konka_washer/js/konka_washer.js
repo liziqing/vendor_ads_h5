@@ -125,16 +125,18 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
         var pay_fail = function pay_fail() {};
 
-        wxPay.config({
-            appId: 'wxf19834fcc10552b0',
-            editAddr: false,
-            queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-            success: pay_success,
-            fail: pay_fail,
-            callback: function callback() {
-                // alert('初始化');
-            }
-        });
+        //wxPay.config(
+        //    {
+        //        appId: 'wxf19834fcc10552b0',
+        //        editAddr: false,
+        //        queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+        //        success: pay_success,
+        //        fail: pay_fail,
+        //        callback: function(){
+        //            // alert('初始化');
+        //        }
+        //    }
+        //);
 
         //一元购函数（提取表单信息->获取订单id->调用wxpay函数）
         var submitOrder = function submitOrder() {
@@ -240,6 +242,149 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
          * animation
          * */
         $('#animation').on('click', function () {
+            screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+
+            setTimeout(function () {
+                $('#rules_btn').fadeIn();
+                modalRules.open();
+                $('#animation').empty();
+            }, 300);
+        });
+
+        /***
+         * loading
+         * */
+        $('#loading .loaded-btn').on('click', function () {
+            screenSwiper.slideTo(SCREEN_SWIPER_INDEX.animation);
+            animationPage();
+        });
+
+        /***
+         * animation
+         * */
+        var animation_timer1 = null;
+        var animation_timer2 = null;
+        var animation_timer3 = null;
+        var $topImg = $('.top-img-wrapper img');
+        var $firstWords = $('.first-words');
+        var $secondWords = $('.second-words');
+        var $animationStar = $('.animation-star');
+        var $animationDes = $('.animation-des');
+        var $wordsWrapper = $('.words-wrapper');
+        var screenWidth = $(window).width();
+
+        function animationPage() {
+            $('.column_left').addClass('bounceInDown1');
+            $('.column_right').addClass('bounceInDown3');
+            $('.column_fine').addClass('bounceInDown4');
+            $('.column_double1').addClass('bounceInDown3');
+            $('.column_double2').addClass('bounceInDown3');
+            $('.column_circle1').addClass('bounceInDown5');
+            $('.column_circle2').addClass('bounceInDown2');
+
+            animation_timer1 = setTimeout(function () {
+                $topImg.show().attr('src', 'img/animation/danxin.gif');
+                clearTimeout(animation_timer1);
+                animation_timer1 = setTimeout(function () {
+                    fadeOutImg();
+                    clearTimeout(animation_timer1);
+                    animation_timer1 = setTimeout(function () {
+                        $topImg.show().attr('src', 'img/animation/kunrao.gif');
+                        clearTimeout(animation_timer1);
+                        animation_timer1 = setTimeout(function () {
+                            fadeOutImg();
+                            clearTimeout(animation_timer1);
+                            animation_timer1 = setTimeout(function () {
+                                $topImg.show().attr('src', 'img/animation/laolei.gif');
+                                clearTimeout(animation_timer1);
+                                animation_timer1 = setTimeout(function () {
+                                    fadeOutImg();
+                                    $('.more-than').fadeOut();
+                                    $('.yiyuan-cover').show().attr('src', 'img/animation/title_money.gif');
+                                    clearTimeout(animation_timer1);
+                                    animation_timer1 = setTimeout(function () {
+                                        $('.yiyuan-cover').hide();
+                                        $('.yiyuan-top').css('top', screenWidth * 0.15).show().attr('src', 'img/animation/title.gif');
+                                        $('.yiyuan-title').css('top', screenWidth * 0.96).show().attr('src', 'img/animation/title_coin.png');
+                                        $('.yiyuan-coin').css('top', screenWidth * 1.0175).show().attr('src', 'img/animation/money.gif');
+                                    }, 2300);
+                                }, 4400);
+                                wrapperTimeout('xiao', 'sa');
+                                columnTimeout3();
+                            }, 500);
+                        }, 4600);
+                        wrapperTimeout('bao', 'hu');
+                        columnTimeout2();
+                    }, 500);
+                }, 4500);
+                wrapperTimeout('fang', 'xin');
+                columnTimeout1();
+                $('.more-than').fadeIn();
+            }, 1000);
+        }
+
+        function wrapperTimeout(f, s) {
+            clearTimeout(animation_timer2);
+            animation_timer2 = setTimeout(function () {
+                $firstWords.fadeIn().attr('src', 'img/animation/word_' + f + '.png');
+                $secondWords.delay('400').fadeIn().attr('src', 'img/animation/word_' + s + '.png');
+                $animationStar.delay('1500').fadeIn().attr('src', 'img/animation/star_' + f + s + '.gif');
+                $animationDes.delay('1500').fadeIn().attr('src', 'img/animation/title_' + f + s + '.png');
+            }, 700);
+        }
+        function columnTimeout1() {
+            clearTimeout(animation_timer3);
+            animation_timer3 = setTimeout(function () {
+                $('.column_left').removeClass('bounceInDown1').addClass('bounceInDown6');
+                $('.column_right').removeClass('bounceInDown3').addClass('bounceInDown7');
+                $('.column_fine').removeClass('bounceInDown4').addClass('bounceInDown7');
+                $('.column_double1').removeClass('bounceInDown3').addClass('bounceInDown7');
+                $('.column_double2').removeClass('bounceInDown3').addClass('bounceInDown7');
+                $('.column_circle1').removeClass('bounceInDown5').addClass('bounceInDown8');
+                $('.column_circle2').removeClass('bounceInDown2').addClass('bounceInDown6');
+            }, 4300);
+        }
+        function columnTimeout2() {
+            clearTimeout(animation_timer3);
+            animation_timer3 = setTimeout(function () {
+                $('.column_left').removeClass('bounceInDown6').addClass('bounceInDown9');
+                $('.column_right').removeClass('bounceInDown7').addClass('bounceInDown9');
+                $('.column_fine').removeClass('bounceInDown7').addClass('bounceInDown9');
+                $('.column_double1').removeClass('bounceInDown7').addClass('bounceInDown9');
+                $('.column_double2').removeClass('bounceInDown7').addClass('bounceInDown9');
+                $('.column_circle1').removeClass('bounceInDown8').addClass('bounceInDown10');
+                $('.column_circle2').removeClass('bounceInDown6').addClass('bounceInDown9');
+            }, 4300);
+        }
+        function columnTimeout3() {
+            clearTimeout(animation_timer3);
+            animation_timer3 = setTimeout(function () {
+                $('.column_left').removeClass('bounceInDown9').addClass('bounceInDown11');
+                $('.column_right').removeClass('bounceInDown9').addClass('bounceInDown12');
+                $('.column_fine').removeClass('bounceInDown9').addClass('bounceInDown13');
+                $('.column_double1').removeClass('bounceInDown9').addClass('bounceInDown12');
+                $('.column_double2').removeClass('bounceInDown9').addClass('bounceInDown12');
+                $('.column_circle1').removeClass('bounceInDown10').addClass('bounceInDown14');
+                $('.column_circle2').removeClass('bounceInDown9').addClass('bounceInDown11');
+
+                clearTimeout(animation_timer3);
+                animation_timer3 = setTimeout(function () {
+                    $('.column-wrapper').hide();
+                }, 1000);
+            }, 4500);
+        }
+
+        function fadeOutImg() {
+            $topImg.fadeOut();
+            $firstWords.fadeOut();
+            $secondWords.fadeOut();
+            $animationStar.fadeOut();
+            $animationDes.fadeOut();
+        }
+
+        $('.column-wrapper').show();
+
+        $('#animation .yiyuan-coin').on('click', function () {
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
             $('#rules_btn').fadeIn();
             modalRules.open();

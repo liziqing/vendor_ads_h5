@@ -1,0 +1,15 @@
+{
+  "name": "h5_product_lib",
+  "version": "1.0.0",
+  "description": "h5_product_lib",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.16.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "martin.ni:martin.ni@yiyatech.com",
+  "license": "ISC"
+}
