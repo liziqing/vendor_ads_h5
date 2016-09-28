@@ -299,7 +299,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                                         $('.yiyuan-top').css('top', screenWidth * 0.15).show().attr('src', 'img/animation/title.gif');
                                         $('.yiyuan-title').css('top', screenWidth * 0.96).show().attr('src', 'img/animation/title_coin.png');
                                         $('.yiyuan-coin').css('top', screenWidth * 1.0175).show().attr('src', 'img/animation/money.gif');
-                                    }, 3000);
+                                    }, 4000);
                                 }, 3400);
                                 wrapperTimeout('xiao', 'sa');
                                 columnTimeout3();
