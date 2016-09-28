@@ -92,6 +92,24 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
                             let tempPercent = parseInt((0.2 + (tempCount/5000)*0.6)*100);
                             $('#percent_box').css('width', tempPercent + '%');
                             $('#main .main-text-percent').text(tempPercent + '%');
+                            $('#main #percent_pop').text(tempPercent + '%');
+
+                            let myDate = new Date();
+                            let tempDay = myDate.getDate();
+                            let tempMonth = myDate.getMonth() + 1;
+                            let tempResult = '';
+                            if(tempMonth < 10){
+                                let restDay = 30 - tempDay + 1;
+                                tempResult = restDay + 7 + '天';
+                            }else{
+                                let restDay = 8 - tempDay;
+                                if(restDay > 0){
+                                    tempResult = restDay + '天';
+                                }else{
+                                    tempResult = '已结束';
+                                }
+                            }
+                            $('#main .main-text-time').text(tempResult);
                         }
                     }
                 });
@@ -431,10 +449,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
 
 
             //开发
-            // setTimeout(() => {
-            //     audioDom.pause();
-            //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.pay_success);
-            // }, 1000)
+            setTimeout(() => {
+                audioDom.pause();
+                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+            }, 1000)
 
         });
 
