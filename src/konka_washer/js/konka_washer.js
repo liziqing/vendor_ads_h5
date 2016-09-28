@@ -1,6 +1,6 @@
 'use strict';
 
-define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper', 'jbox'], function (wx, env, wxPay, util, $, swiper, jbox) {
+define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', 'jquery', 'swiper', 'jbox'], function (wx, env, wxPay, baseWx, util, $, swiper, jbox) {
 
     $(function () {
 
@@ -335,7 +335,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/util', 'jquery', 'swiper',
             shareDes: '一元钱可以做什么？”康佳国庆特惠一元惊喜好礼等你来拿！'
         };
 
-        wx.initWxJs('wxf19834fcc10552b0', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+        baseWx.initWxJs('wxf19834fcc10552b0', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
             wx.onMenuShareTimeline({
                 title: shareData.shareFeedsTile, // 分享标题
                 link: shareData.shareUrl, // 分享链接
