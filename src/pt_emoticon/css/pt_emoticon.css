@@ -742,15 +742,25 @@ body #screen .swiper-wrapper #video .video-container .logo {
   top: 2.7rem;
   left: 0;
 }
-html #screen .swiper-wrapper #video .video-container .video-text,
-body #screen .swiper-wrapper #video .video-container .video-text {
-  width: 100%;
+html #screen .swiper-wrapper #video .video-container .video-button-left,
+body #screen .swiper-wrapper #video .video-container .video-button-left {
+  width: 50%;
   height: 1.7rem;
-  background: url("../img/video/video_text.png") center center no-repeat;
+  background: url("../img/video/video_button_left.png") center center no-repeat;
   background-size: auto 100%;
   position: absolute;
-  bottom: 4.5rem;
+  bottom:5.5rem;
   left: 0;
+}
+html #screen .swiper-wrapper #video .video-container .video-button-right,
+body #screen .swiper-wrapper #video .video-container .video-button-right {
+    width: 50%;
+    height: 1.7rem;
+    background: url("../img/video/video_button_right.png") center center no-repeat;
+    background-size: auto 100%;
+    position: absolute;
+    bottom: 5.5rem;
+    right: 0;
 }
 html #screen .swiper-wrapper #video .video-container #WxMomentVideo,
 body #screen .swiper-wrapper #video .video-container #WxMomentVideo {

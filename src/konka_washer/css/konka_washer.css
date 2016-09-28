@@ -303,7 +303,7 @@ body #screen .swiper-wrapper #try_form .try_form_container input {
 }
 html #screen .swiper-wrapper #try_form .try_form_container .name,
 body #screen .swiper-wrapper #try_form .try_form_container .name {
-  top: 15%;
+  top: 14.9%;
 }
 html #screen .swiper-wrapper #try_form .try_form_container .age,
 body #screen .swiper-wrapper #try_form .try_form_container .age {
@@ -311,11 +311,11 @@ body #screen .swiper-wrapper #try_form .try_form_container .age {
 }
 html #screen .swiper-wrapper #try_form .try_form_container .tel,
 body #screen .swiper-wrapper #try_form .try_form_container .tel {
-  top: 27.7%;
+  top: 27.6%;
 }
 html #screen .swiper-wrapper #try_form .try_form_container .address,
 body #screen .swiper-wrapper #try_form .try_form_container .address {
-  top: 34%;
+  top: 33.9%;
 }
 html #screen .swiper-wrapper #try_form .try_form_container .check-radio,
 body #screen .swiper-wrapper #try_form .try_form_container .check-radio {
@@ -334,15 +334,15 @@ body #screen .swiper-wrapper #try_form .try_form_container .check-radio.active {
 }
 html #screen .swiper-wrapper #try_form .try_form_container .reason-1,
 body #screen .swiper-wrapper #try_form .try_form_container .reason-1 {
-  top: 47.9%;
+  top: 47.7%;
 }
 html #screen .swiper-wrapper #try_form .try_form_container .reason-2,
 body #screen .swiper-wrapper #try_form .try_form_container .reason-2 {
-  top: 52.6%;
+  top: 52.4%;
 }
 html #screen .swiper-wrapper #try_form .try_form_container .reason-3,
 body #screen .swiper-wrapper #try_form .try_form_container .reason-3 {
-  top: 57.2%;
+  top: 57%;
 }
 html #screen .swiper-wrapper #try_form .try_form_container .other-reason,
 body #screen .swiper-wrapper #try_form .try_form_container .other-reason {
@@ -364,8 +364,21 @@ body #screen .swiper-wrapper #try_form .try_form_container .try-form-submit-btn 
   width: 30%;
   height: 8%;
   position: absolute;
-  bottom: 5%;
-  left: 35%;
+  bottom: 3%;
+  right: 15%;
+  background: url("../img/try/submit-btn.png") center center no-repeat;
+  background-size: 100% auto;
+}
+html #screen .swiper-wrapper #try_form .try_form_container .try-form-back-btn,
+body #screen .swiper-wrapper #try_form .try_form_container .try-form-back-btn {
+  display: inline-block;
+  width: 30%;
+  height: 8%;
+  position: absolute;
+  bottom: 3%;
+  left: 15%;
+  background: url("../img/info/back-btn.png") center center no-repeat;
+  background-size: 100% auto;
 }
 html #screen .swiper-wrapper #pay_success .pay-success-form,
 body #screen .swiper-wrapper #pay_success .pay-success-form {
