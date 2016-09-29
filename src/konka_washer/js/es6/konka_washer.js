@@ -8,12 +8,18 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             $('#preload').append('<img src="img/animation/title.gif?r='+randomNum+'" />'+
                 '<img src="img/animation/title_coin.png?r='+randomNum+'" />'+
                 '<img src="img/animation/money.gif?r='+randomNum+'" />'+
-                '<img src="img/animation/danxin_icon.gif?r='+randomNum+'" />'+
-                '<img src="img/animation/danxin_bubble.gif?r='+randomNum+'" />'+
-                '<img src="img/animation/kunrao_icon.gif?r='+randomNum+'" />'+
-                '<img src="img/animation/kunrao_bubble.gif?r='+randomNum+'" />'+
-                '<img src="img/animation/laolei_icon.gif?r='+randomNum+'" />'+
-                '<img src="img/animation/laolei_bubble.gif?r='+randomNum+'" />');
+                '<img src="img/animation/title.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/danxin.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/kunrao.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/laolei.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/title_money.gif?r='+randomNum+'" />'+
+                //'<img src="img/animation/danxin_icon.gif?r='+randomNum+'" />'+
+                //'<img src="img/animation/danxin_bubble.gif?r='+randomNum+'" />'+
+                //'<img src="img/animation/kunrao_icon.gif?r='+randomNum+'" />'+
+                //'<img src="img/animation/kunrao_bubble.gif?r='+randomNum+'" />'+
+                //'<img src="img/animation/laolei_icon.gif?r='+randomNum+'" />'+
+                //'<img src="img/animation/laolei_bubble.gif?r='+randomNum+'" />' +
+                '');
 
             //页码标注，用于swiper跳转，引用分页id (可能animation需拆分为可滑动三页，动画时间？ 可直接修改页码)
             const SCREEN_SWIPER_INDEX = {
@@ -398,15 +404,6 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             animationClick();
         },9000);
 
-        animation_timer3 = setTimeout (() => {
-            animationClick();
-        },18000);
-
-        let animation_timer4 = setTimeout (() => {
-            animationClick();
-        },27000);
-
-
 
         function animationPage1(){
             columnMove1();
@@ -462,6 +459,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 setTimeout(() => {
                     animationPage2();
                 },500);
+
+                animation_timer3 = setTimeout (() => {
+                    animationClick();
+                },9000);
             }else if(clickAble && $columLeft.hasClass('bounceInDown6')){
                 clickAble = false;
                 fadeOutImg();
@@ -469,6 +470,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 setTimeout(() => {
                     animationPage3();
                 },500);
+
+                let animation_timer4 = setTimeout (() => {
+                    animationClick();
+                },9000);
             }else if(clickAble && $columLeft.hasClass('bounceInDown9')){
                 clickAble = false;
                 fadeOutImg();
@@ -477,6 +482,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 setTimeout(() => {
                     animationPage4();
                 },1200);
+
             }
         }
 
