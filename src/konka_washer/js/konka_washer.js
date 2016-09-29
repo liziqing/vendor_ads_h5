@@ -208,6 +208,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                         _this.close();
                     });
                     $('#pay_overlay .pay-overlay-submit-btn').unbind('click').on('click', function () {
+                        _hmt.push(['_trackEvent', '参与', '点击', '立即支付']);
                         submitOrder();
                     });
                 }
@@ -234,6 +235,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
          * loading
          * */
         $('#loading .loaded-btn').on('click', function () {
+            _hmt.push(['_trackEvent', '引言', '点击', '为什么']);
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.animation);
         });
 
@@ -464,6 +466,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         $('.column-wrapper').show();
 
         $('#animation .yiyuan-coin').on('click', function () {
+            _hmt.push(['_trackEvent', 'GIF', '点击', '一元gif']);
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
             $('#rules_btn').fadeIn();
             modalRules.open();
@@ -479,10 +482,12 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         });
 
         $('#main .buy-btn').on('click', function () {
+            _hmt.push(['_trackEvent', '参与', '点击', '参与一元购']);
             modalPay.open();
         });
 
         $('#main .try-btn').on('click', function () {
+            _hmt.push(['_trackEvent', '参与', '点击', '申请免费试用']);
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
         });
 
@@ -508,10 +513,12 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
          * info
          * */
         $('#info .back-btn').on('click', function () {
+            _hmt.push(['_trackEvent', '产品', '点击', '返回']);
             screenSwiper.slidePrev();
         });
 
         $('#info .address-btn').on('click', function () {
+            _hmt.push(['_trackEvent', '产品', '点击', '购买地址']);
             modalAddress.open();
         });
 
@@ -527,10 +534,12 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         });
 
         $('#try_form .try-form-submit-btn').on('click', function () {
+            _hmt.push(['_trackEvent', '参与', '点击', '提交申请']);
             createTryApply();
         });
 
         $('#try_form .try-form-back-btn').on('click', function () {
+            _hmt.push(['_trackEvent', '产品', '点击', '返回']);
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
         });
 
@@ -538,6 +547,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
          * pay_success
          * */
         $('#pay_success .complete-btn').on('click', function () {
+            _hmt.push(['_trackEvent', '参与', '点击', '付款完成']);
             $('#pay_succcess_overlay').fadeIn();
         });
 
