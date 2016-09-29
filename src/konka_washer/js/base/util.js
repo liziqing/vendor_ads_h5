@@ -38,6 +38,9 @@ define(['base/env', 'jquery', 'base/util'], function(env, $, util){
 
         setTimeout(function () {
             $('.i_dialog').fadeOut();
+            setTimeout(function () {
+                util.closeAlerty();
+            },1000)
         },2000);
     }
 

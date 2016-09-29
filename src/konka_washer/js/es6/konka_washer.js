@@ -74,6 +74,8 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                             $('#pay_success #owner').text(data.data.owner);
                             $('#pay_success #order_no').text(data.data.order_no);
                             $('#pay_success #charge_id').text(data.data.charge_id);
+                        }else{
+                            util.alerty(data.message);
                         }
                     }
                 });
@@ -176,6 +178,8 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                     success: function (data) {
                         if(data.code == 0){
                             $('#try_complete_overlay').fadeIn();
+                        }else{
+                            util.alerty(data.message);
                         }
                     }
                 });
@@ -183,7 +187,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
             setTimeout(() => {
                 Pace.stop();
-            },10000);
+            },8000);
 
 
             //资源载入完成后的回调
@@ -465,7 +469,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
             });
 
-            $('#main .main-info-btn').on('click', () => {
+            $('#main .main-info-btn,.main-clickme-btn').on('click', () => {
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.info);
             });
 
@@ -576,11 +580,11 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
              * overlay
              * */
             $('#pay_succcess_overlay').on('click', function () {
-                $(this).fadeOut();
+                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
             });
 
             $('#try_complete_overlay').on('click', function () {
-                $(this).fadeOut();
+                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
             });
 
 
@@ -629,18 +633,18 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             });
 
 
-            // wxPay.config(
-            //     {
-            //         appId: 'wxf19834fcc10552b0',
-            //         editAddr: false,
-            //         queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-            //         success: pay_success,
-            //         fail: pay_fail,
-            //         callback: function(){
-            //             // alert('初始化');
-            //         }
-            //     }
-            // );
+            wxPay.config(
+                {
+                    appId: 'wxf19834fcc10552b0',
+                    editAddr: false,
+                    queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+                    success: pay_success,
+                    fail: pay_fail,
+                    callback: function(){
+                        // alert('初始化');
+                    }
+                }
+            );
 
 
 
@@ -648,7 +652,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             // setTimeout(() => {
             //     audioDom.pause();
             //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
-            // }, 1000)
+            // }, 100)
 
         });
 
