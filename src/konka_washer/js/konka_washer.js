@@ -288,6 +288,8 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         var clickAble = false;
         var $columLeft = $('.column_left');
 
+        var animationPageTime = 8000;
+
         function animationPage() {
 
             //animation_timer1 = setTimeout(() => {
@@ -333,7 +335,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             animationPage1();
             animation_timer2 = setTimeout(function () {
                 animationClick();
-            }, 9000);
+            }, animationPageTime);
 
             function animationPage1() {
                 columnMove1();
@@ -390,7 +392,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
                     animation_timer3 = setTimeout(function () {
                         animationClick();
-                    }, 9000);
+                    }, animationPageTime);
                 } else if (clickAble && $columLeft.hasClass('bounceInDown6')) {
                     clickAble = false;
                     fadeOutImg();
@@ -401,7 +403,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
                     var animation_timer4 = setTimeout(function () {
                         animationClick();
-                    }, 9000);
+                    }, animationPageTime);
                 } else if (clickAble && $columLeft.hasClass('bounceInDown9')) {
                     clickAble = false;
                     fadeOutImg();
@@ -568,11 +570,13 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                     resized = true;
                     window.setTimeout(function () {
                         $('#try_form').css('margin-top', '-' + screenHeight / 2 + 'px');
+                        $('#icon-bar').css('margin-top', '-' + screenHeight / 2 + 'px');
                     }, 0);
                 } else {
                     resized = false;
                     window.setTimeout(function () {
                         $('#try_form').css('margin-top', 0);
+                        $('#icon-bar').css('margin-top', 0);
                     }, 0);
                 }
             });
@@ -650,10 +654,11 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             }
         });
 
-        // // 开发
+        // 开发
         // setTimeout(() => {
         //     audioDom.pause();
         //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
         // }, 800)
+        // $('#pay_succcess_overlay').fadeIn();
     });
 });
