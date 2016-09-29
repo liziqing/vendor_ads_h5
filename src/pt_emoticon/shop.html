@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>铂金承诺 永不褪色</title>
+
+    <!-- build:css css/shop.min.css -->
+    <link rel="stylesheet" type="text/css" href="css/shop.css" />
+    <!-- endbuild -->
+</head>
+<body>
+<section>
+    <img src="img/shop/bg.jpg" />
+    <select id="pro"></select>
+    <select id="city"></select>
+    <span id="searchbtn"></span>
+    <div class="nullResult">
+        <img src="img/shop/point.jpg" />
+    </div>
+    <section id="result" style="display: block">
+        <script type="text/html" id="shopTemplate">
+            <ul>
+                <li>零售商信息</li>
+                {{each data as value i}}
+                <li>
+                    <span>{{value.store}}</span>
+                    <span>地址：{{value.address}}</span>
+                    <span>电话：{{value.tel}}</span>
+                </li>
+                {{/each}}
+                <li>
+                    *零售商排名不分先后
+                </li>
+            </ul>
+        </script>
+    </section>
+</section>
+<!-- build:js js/shop.min.js -->
+<script type="text/javascript" src="../vendor/jquery/jquery-3.1.0.js"></script>
+<script type="text/javascript" src="../vendor/arttemplate/template.js"></script>
+<script type="text/javascript" src="../vendor/cityselect/cityselect.js"></script>
+<script type="text/javascript" src="../vendor/nicescroll/jquery.nicescroll.js"></script>
+<script type="text/javascript" src="../vendor/fastclick/fastclick.js"></script>
+<script type="text/javascript" src="../vendor/base/wx_js.js"></script>
+<script type="text/javascript" src="../vendor/sha1/sha1.min.js"></script>
+<script type="text/javascript" src="../vendor/base/wxJsSdkConfig.js"></script>
+<script type="text/javascript" src="js/shop.js"></script>
+<!-- endbuild -->
+
+</body>
+</html>

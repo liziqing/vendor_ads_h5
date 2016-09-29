@@ -40,6 +40,11 @@ gulp.task('wechatfeeds_htmlmin', function() {
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('../../dist/pt_emoticon/'));
 });
+gulp.task('shop_htmlmin', function() {
+    return gulp.src('../../dist/pt_emoticon/shop.html')
+        .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest('../../dist/pt_emoticon/'));
+});
 
 /*-----------------------imgmin------------------------*/
 
@@ -63,7 +68,16 @@ gulp.task('wechatfeeds_imgmin', function() {
         }))
         .pipe(gulp.dest('../../dist/pt_emoticon/img/wechatfeeds/'));
 });
-
+gulp.task('shop_imgmin', function() {
+    return gulp.src('./img/shop/*.{jpg,jpeg,png,ico,gif}')
+        .pipe(imgmin({
+            optimizationLevel: 3,
+            progressive: false,
+            interlaced: false,
+            multipass: false
+        }))
+        .pipe(gulp.dest('../../dist/pt_emoticon/img/shop/'));
+});
 /*-----------------------cssmin------------------------*/
 
 gulp.task('pt_emoticon_cssmin', function(){
@@ -73,6 +87,11 @@ gulp.task('pt_emoticon_cssmin', function(){
 });
 gulp.task('wechatfeeds_cssmin', function(){
     return gulp.src(['../../dist/pt_emoticon/css/wechat_all.min.css'])
+        .pipe(cssmin())
+        .pipe(gulp.dest('../../dist/pt_emoticon/css'));
+});
+gulp.task('shop_cssmin', function(){
+    return gulp.src(['../../dist/pt_emoticon/css/shop.min.css'])
         .pipe(cssmin())
         .pipe(gulp.dest('../../dist/pt_emoticon/css'));
 });
@@ -91,7 +110,11 @@ gulp.task('wechatfeeds_uglify', function () {
         .pipe(uglify())
         .pipe(gulp.dest('../../dist/pt_emoticon/js'));
 });
-
+gulp.task('shop_uglify', function () {
+    return gulp.src(['../vendor/jquery/jquery-3.1.0.js', '../vendor/arttemplate/template.js', '../vendor/cityselect/cityselect.js', '../vendor/nicescroll/jquery.nicescroll.js', '../vendor/fastclick/fastclick.js', '../vendor/base/wx_js.js', '../vendor/sha1/sha1.min.js', '../vendor/base/wxJsSdkConfig.js', './js/shop.js'])
+        .pipe(uglify())
+        .pipe(gulp.dest('../../dist/pt_emoticon/js'));
+});
 /*-----------------------babel------------------------*/
 
 gulp.task('pt_emoticon_babel', function(){
@@ -124,7 +147,15 @@ gulp.task('wechatfeeds_usemin', function () {
         }))
         .pipe(gulp.dest('../../dist/pt_emoticon/'));
 });
+gulp.task('shop_usemin', function () {
+    return gulp.src('./shop.html')
+        .pipe(usemin({
+            js: [uglify()]
 
+            // in this case css will be only concatenated (like css: ['concat']).
+        }))
+        .pipe(gulp.dest('../../dist/pt_emoticon/'));
+});
 /*-----------------------copy other source------------------------*/
 
 gulp.task('pt_emoticon_copy_music', function () {
@@ -137,8 +168,13 @@ gulp.task('pt_emoticon_copy_pc', function () {
         .pipe(copy('../../dist/pt_emoticon/'))
 });
 
+gulp.task('pt_emoticon_copy_json', function () {
+    return gulp.src('./json/**')
+        .pipe(copy('../../dist/pt_emoticon/'))
+});
+
 gulp.task('pt_emoticon_copy',
-    gulp.series('pt_emoticon_copy_pc','pt_emoticon_copy_music')
+    gulp.series('pt_emoticon_copy_pc','pt_emoticon_copy_music','pt_emoticon_copy_json')
 );
 
 
@@ -165,14 +201,23 @@ gulp.task('wechatfeeds_build',
         'wechatfeeds_htmlmin'
     )
 );
+gulp.task('shop_build',
+    gulp.series('pt_emoticon_clean',
+        gulp.parallel('shop_imgmin', 'shop_usemin'),
+        'shop_cssmin',
+        'shop_htmlmin'
+    )
+);
 
 gulp.task('pt_build',
     gulp.series('pt_emoticon_clean',
-        gulp.parallel('pt_emoticon_copy', 'pt_emoticon_imgmin', 'pt_emoticon_usemin', 'wechatfeeds_usemin'),
+        gulp.parallel('pt_emoticon_copy', 'pt_emoticon_imgmin', 'pt_emoticon_usemin', 'wechatfeeds_usemin','shop_usemin'),
         'wechatfeeds_cssmin',
         'wechatfeeds_htmlmin',
         'pt_emoticon_cssmin',
-        'pt_emoticon_htmlmin'
+        'pt_emoticon_htmlmin',
+        'shop_cssmin',
+        'shop_htmlmin'
     )
 );
 

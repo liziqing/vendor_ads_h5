@@ -335,6 +335,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
     let animation_timer2 = null;
     let animation_timer3 = null;
     let $topImg = $('.top-img-wrapper img');
+    let $gifWord1 = $('.gifword1');
+    let $gifWord2 = $('.gifword2');
+    let $animationIcon = $('.animation-icon');
+    //let $animationIcon = $('.animation-icon');
     let $animation = $('#animation');
     let $firstWords = $('.first-words');
     let $secondWords = $('.second-words');
@@ -392,15 +396,15 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         animationPage1();
         animation_timer2 = setTimeout (() => {
             animationClick();
-        },6000);
+        },9000);
 
         animation_timer3 = setTimeout (() => {
             animationClick();
-        },12000);
+        },18000);
 
         let animation_timer4 = setTimeout (() => {
             animationClick();
-        },18000);
+        },27000);
 
 
 
@@ -742,19 +746,19 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 });
             });
 
-
-            wxPay.config(
-                {
-                    appId: 'wxf19834fcc10552b0',
-                    editAddr: false,
-                    queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-                    success: pay_success,
-                    fail: pay_fail,
-                    callback: function(){
-                        // alert('初始化');
-                    }
-                }
-            );
+            //
+            //wxPay.config(
+            //    {
+            //        appId: 'wxf19834fcc10552b0',
+            //        editAddr: false,
+            //        queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+            //        success: pay_success,
+            //        fail: pay_fail,
+            //        callback: function(){
+            //            // alert('初始化');
+            //        }
+            //    }
+            //);
 
 
 
