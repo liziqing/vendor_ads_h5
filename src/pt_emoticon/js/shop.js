@@ -70,11 +70,11 @@ $(function () {
 
 
     var shareData = {
-        shareFeedsTile: '结婚5年，是什么让他们一直娜么快乐？',
+        shareFeedsTile: '张杰谢娜铂金同款首饰，让铂金见证永不褪色的承诺！',
         shareTitle: '铂金见证永不褪色的承诺',
-        shareUrl: window.location.href,
+        shareUrl: 'http://pt-jn.preciousplatinum.com.cn/index.html',
         shareImg: 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg',
-        shareDes: '结婚5年，是什么让他们一直娜么快乐？'
+        shareDes: '即刻拥有张杰谢娜同款铂金首饰！'
     };
 
     ptShareConfig.init(function (data) {
