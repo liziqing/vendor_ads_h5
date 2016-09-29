@@ -554,6 +554,9 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
         });
 
+        $('#try_form').css('width', document.body.clientWidth);
+        $('#try_form').css('height', document.body.clientHeight);
+
         /***
          * pay_success
          * */
@@ -626,10 +629,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             }
         });
 
-        开发;
+        // 开发
         setTimeout(function () {
             audioDom.pause();
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
-        }, 100);
+        }, 800);
     });
 });
