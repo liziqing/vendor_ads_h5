@@ -74,6 +74,8 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                             $('#pay_success #owner').text(data.data.owner);
                             $('#pay_success #order_no').text(data.data.order_no);
                             $('#pay_success #charge_id').text(data.data.charge_id);
+                        }else{
+                            util.alerty(data.message);
                         }
                     }
                 });
@@ -176,6 +178,8 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                     success: function (data) {
                         if(data.code == 0){
                             $('#try_complete_overlay').fadeIn();
+                        }else{
+                            util.alerty(data.message);
                         }
                     }
                 });
@@ -183,7 +187,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
             setTimeout(() => {
                 Pace.stop();
-            },10000);
+            },8000);
 
 
             //资源载入完成后的回调
@@ -281,19 +285,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
 
 
-            /***
-             * animation
-             * */
-            $('#animation').on('click', () => {
-                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
 
-                setTimeout(() => {
-                    $('#rules_btn').fadeIn();
-                    modalRules.open();
-                    $('#animation').empty();
-                },300);
-
-            });
 
 
 
@@ -314,67 +306,165 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
     /***
      * animation
      * */
+    //
+    //$('#animation').on('click', () => {
+    //    screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+    //
+    //    setTimeout(() => {
+    //        $('#rules_btn').fadeIn();
+    //        modalRules.open();
+    //        $('#animation').empty();
+    //    },300);
+    //
+    //});
     let animation_timer1 = null;
     let animation_timer2 = null;
     let animation_timer3 = null;
     let $topImg = $('.top-img-wrapper img');
+    let $animation = $('#animation');
     let $firstWords = $('.first-words');
     let $secondWords = $('.second-words');
     let $animationStar = $('.animation-star');
     let $animationDes = $('.animation-des');
     let $wordsWrapper = $('.words-wrapper');
     let screenWidth = $(window).width();
+    let breakTime = 0;
+    let clickAble = false;
+    let $columLeft = $('.column_left');
 
 
     function animationPage(){
-        $('.column_left').addClass('bounceInDown1');
-        $('.column_right').addClass('bounceInDown3');
-        $('.column_fine').addClass('bounceInDown4');
-        $('.column_double1').addClass('bounceInDown3');
-        $('.column_double2').addClass('bounceInDown3');
-        $('.column_circle1').addClass('bounceInDown5');
-        $('.column_circle2').addClass('bounceInDown2');
 
         let randomNum = parseInt(Math.random()*10);
-        animation_timer1 = setTimeout(() => {
+        //animation_timer1 = setTimeout(() => {
+        //    $topImg.show().attr('src','img/animation/danxin.gif?r='+randomNum+'');
+        //
+        //    clearTimeout(animation_timer1);
+        //    animation_timer1 = setTimeout(() => {
+        //        fadeOutImg();
+        //        clearTimeout(animation_timer1);
+        //        animation_timer1 = setTimeout(() => {
+        //            $topImg.show().attr('src','img/animation/kunrao.gif?r='+randomNum+'');
+        //            clearTimeout(animation_timer1);
+        //            animation_timer1 = setTimeout(() => {
+        //                fadeOutImg();
+        //                clearTimeout(animation_timer1);
+        //                animation_timer1 = setTimeout(() => {
+        //                    $topImg.show().attr('src','img/animation/laolei.gif?r='+randomNum+'');
+        //                    clearTimeout(animation_timer1);
+        //                    animation_timer1 = setTimeout(() => {
+        //                        fadeOutImg();
+        //                        $('.more-than').fadeOut();
+        //                        $('.yiyuan-cover').show().attr('src','img/animation/title_money.gif?r='+randomNum+'');
+        //                        clearTimeout(animation_timer1);
+        //                        animation_timer1 = setTimeout(() => {
+        //                            $('.yiyuan-cover').hide();
+        //                            $('.yiyuan-top').css('top',screenWidth*0.15).show().attr('src','img/animation/title.gif');
+        //                            $('.yiyuan-title').css('top',screenWidth*0.96).show().attr('src','img/animation/title_coin.png');
+        //                            $('.yiyuan-coin').css('top',screenWidth*1.0175).show().attr('src','img/animation/money.gif');
+        //                        },10000);
+        //                    },8400);
+        //                    wrapperTimeout('xiao','sa');
+        //                    columnTimeout3();
+        //                },500);
+        //            },8600);
+        //            wrapperTimeout('bao','hu');
+        //            columnTimeout2();
+        //        },500);
+        //    },8800);
+        //    wrapperTimeout('fang','xin');
+        //    columnTimeout1();
+        //    $('.more-than').fadeIn();
+        //},100);
+        animationPage1();
+        animation_timer2 = setTimeout (() => {
+            animationClick();
+        },6000);
+
+        animation_timer3 = setTimeout (() => {
+            animationClick();
+        },12000);
+
+        let animation_timer4 = setTimeout (() => {
+            animationClick();
+        },18000);
+
+
+
+        function animationPage1(){
+            columnMove1();
             $topImg.show().attr('src','img/animation/danxin.gif?r='+randomNum+'');
+            wrapperTimeout('fang','xin');
+            $('.more-than').fadeIn();
+            setTimeout(() => {
+                clickAble = true;
+            },3000)
+        }
+
+        function animationPage2(){
+            $topImg.show().attr('src','img/animation/kunrao.gif?r='+randomNum+'');
+            wrapperTimeout('bao','hu');
+            setTimeout(() => {
+                clickAble = true;
+            },3000)
+        }
+
+        function animationPage3(){
+            $topImg.show().attr('src','img/animation/laolei.gif?r='+randomNum+'');
+            wrapperTimeout('xiao','sa');
+            setTimeout(() => {
+                clickAble = true;
+            },3000)
+        }
+
+        function animationPage4(){
+            fadeOutImg();
+            columnMove4();
+            $('.yiyuan-cover').show().attr('src','img/animation/title_money.gif?r='+randomNum+'');
             clearTimeout(animation_timer1);
             animation_timer1 = setTimeout(() => {
+                $('.yiyuan-cover').hide();
+                $('.yiyuan-top').css('top',screenWidth*0.15).show().attr('src','img/animation/title.gif');
+                $('.yiyuan-title').css('top',screenWidth*0.96).show().attr('src','img/animation/title_coin.png');
+                $('.yiyuan-coin').css('top',screenWidth*1.0175).show().attr('src','img/animation/money.gif');
+            },5000);
+        }
+
+        $animation.on('click',function(){
+
+            animationClick();
+
+        });
+
+
+        function animationClick(){
+            if(clickAble && $columLeft.hasClass('bounceInDown1')){
+                clickAble = false;
                 fadeOutImg();
-                clearTimeout(animation_timer1);
-                animation_timer1 = setTimeout(() => {
-                    $topImg.show().attr('src','img/animation/kunrao.gif?r='+randomNum+'');
-                    clearTimeout(animation_timer1);
-                    animation_timer1 = setTimeout(() => {
-                        fadeOutImg();
-                        clearTimeout(animation_timer1);
-                        animation_timer1 = setTimeout(() => {
-                            $topImg.show().attr('src','img/animation/laolei.gif?r='+randomNum+'');
-                            clearTimeout(animation_timer1);
-                            animation_timer1 = setTimeout(() => {
-                                fadeOutImg();
-                                $('.more-than').fadeOut();
-                                $('.yiyuan-cover').show().attr('src','img/animation/title_money.gif?r='+randomNum+'');
-                                clearTimeout(animation_timer1);
-                                animation_timer1 = setTimeout(() => {
-                                    $('.yiyuan-cover').hide();
-                                    $('.yiyuan-top').css('top',screenWidth*0.15).show().attr('src','img/animation/title.gif');
-                                    $('.yiyuan-title').css('top',screenWidth*0.96).show().attr('src','img/animation/title_coin.png');
-                                    $('.yiyuan-coin').css('top',screenWidth*1.0175).show().attr('src','img/animation/money.gif');
-                                },5000);
-                            },3400);
-                            wrapperTimeout('xiao','sa');
-                            columnTimeout3();
-                        },500);
-                    },3600);
-                    wrapperTimeout('bao','hu');
-                    columnTimeout2();
+                columnMove2();
+                setTimeout(() => {
+                    animationPage2();
                 },500);
-            },3800);
-            wrapperTimeout('fang','xin');
-            columnTimeout1();
-            $('.more-than').fadeIn();
-        },100);
+            }else if(clickAble && $columLeft.hasClass('bounceInDown6')){
+                clickAble = false;
+                fadeOutImg();
+                columnMove3();
+                setTimeout(() => {
+                    animationPage3();
+                },500);
+            }else if(clickAble && $columLeft.hasClass('bounceInDown9')){
+                clickAble = false;
+                fadeOutImg();
+                columnMove4();
+
+                setTimeout(() => {
+                    animationPage4();
+                },1200);
+            }
+        }
+
+
+
     }
 
     function wrapperTimeout(f,s){
@@ -386,46 +476,49 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             $animationDes.delay('1500').fadeIn().attr('src','img/animation/title_'+f+s+'.png');
         },700);
     }
-    function columnTimeout1(){
-        clearTimeout(animation_timer3);
-        animation_timer3 = setTimeout(() => {
-            $('.column_left').removeClass('bounceInDown1').addClass('bounceInDown6');
-            $('.column_right').removeClass('bounceInDown3').addClass('bounceInDown7');
-            $('.column_fine').removeClass('bounceInDown4').addClass('bounceInDown7');
-            $('.column_double1').removeClass('bounceInDown3').addClass('bounceInDown7');
-            $('.column_double2').removeClass('bounceInDown3').addClass('bounceInDown7');
-            $('.column_circle1').removeClass('bounceInDown5').addClass('bounceInDown8');
-            $('.column_circle2').removeClass('bounceInDown2').addClass('bounceInDown6');
-        },3600);
-    }
-    function columnTimeout2(){
-        clearTimeout(animation_timer3);
-        animation_timer3 = setTimeout(() => {
-            $('.column_left').removeClass('bounceInDown6').addClass('bounceInDown9');
-            $('.column_right').removeClass('bounceInDown7').addClass('bounceInDown9');
-            $('.column_fine').removeClass('bounceInDown7').addClass('bounceInDown9');
-            $('.column_double1').removeClass('bounceInDown7').addClass('bounceInDown9');
-            $('.column_double2').removeClass('bounceInDown7').addClass('bounceInDown9');
-            $('.column_circle1').removeClass('bounceInDown8').addClass('bounceInDown10');
-            $('.column_circle2').removeClass('bounceInDown6').addClass('bounceInDown9');
-        },3400);
-    }
-    function columnTimeout3(){
-        clearTimeout(animation_timer3);
-        animation_timer3 = setTimeout(() => {
-            $('.column_left').removeClass('bounceInDown9').addClass('bounceInDown11');
-            $('.column_right').removeClass('bounceInDown9').addClass('bounceInDown12');
-            $('.column_fine').removeClass('bounceInDown9').addClass('bounceInDown13');
-            $('.column_double1').removeClass('bounceInDown9').addClass('bounceInDown12');
-            $('.column_double2').removeClass('bounceInDown9').addClass('bounceInDown12');
-            $('.column_circle1').removeClass('bounceInDown10').addClass('bounceInDown14');
-            $('.column_circle2').removeClass('bounceInDown9').addClass('bounceInDown11');
 
-            clearTimeout(animation_timer3);
-            animation_timer3 = setTimeout(() => {
-                $('.column-wrapper').hide();
-            },1000);
-        },3200);
+
+    function columnMove1(){
+        $('.column_left').addClass('bounceInDown1');
+        $('.column_right').addClass('bounceInDown3');
+        $('.column_fine').addClass('bounceInDown4');
+        $('.column_double1').addClass('bounceInDown3');
+        $('.column_double2').addClass('bounceInDown3');
+        $('.column_circle1').addClass('bounceInDown5');
+        $('.column_circle2').addClass('bounceInDown2');
+    }
+    function columnMove2(){
+        $('.column_left').removeClass('bounceInDown1').addClass('bounceInDown6');
+        $('.column_right').removeClass('bounceInDown3').addClass('bounceInDown7');
+        $('.column_fine').removeClass('bounceInDown4').addClass('bounceInDown7');
+        $('.column_double1').removeClass('bounceInDown3').addClass('bounceInDown7');
+        $('.column_double2').removeClass('bounceInDown3').addClass('bounceInDown7');
+        $('.column_circle1').removeClass('bounceInDown5').addClass('bounceInDown8');
+        $('.column_circle2').removeClass('bounceInDown2').addClass('bounceInDown6');
+    }
+    function columnMove3(){
+        $('.column_left').removeClass('bounceInDown6').addClass('bounceInDown9');
+        $('.column_right').removeClass('bounceInDown7').addClass('bounceInDown9');
+        $('.column_fine').removeClass('bounceInDown7').addClass('bounceInDown9');
+        $('.column_double1').removeClass('bounceInDown7').addClass('bounceInDown9');
+        $('.column_double2').removeClass('bounceInDown7').addClass('bounceInDown9');
+        $('.column_circle1').removeClass('bounceInDown8').addClass('bounceInDown10');
+        $('.column_circle2').removeClass('bounceInDown6').addClass('bounceInDown9');
+    }
+    function columnMove4(){
+        $('.column_left').removeClass('bounceInDown9').addClass('bounceInDown11');
+        $('.column_right').removeClass('bounceInDown9').addClass('bounceInDown12');
+        $('.column_fine').removeClass('bounceInDown9').addClass('bounceInDown13');
+        $('.column_double1').removeClass('bounceInDown9').addClass('bounceInDown12');
+        $('.column_double2').removeClass('bounceInDown9').addClass('bounceInDown12');
+        $('.column_circle1').removeClass('bounceInDown10').addClass('bounceInDown14');
+        $('.column_circle2').removeClass('bounceInDown9').addClass('bounceInDown11');
+
+        clearTimeout(animation_timer3);
+        animation_timer3 = setTimeout(() => {
+            $('.column-wrapper').hide();
+            $('.more-than').fadeOut();
+        },1000);
     }
 
     function fadeOutImg(){
@@ -465,7 +558,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
             });
 
-            $('#main .main-info-btn').on('click', () => {
+            $('#main .main-info-btn,.main-clickme-btn').on('click', () => {
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.info);
             });
 
@@ -576,11 +669,11 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
              * overlay
              * */
             $('#pay_succcess_overlay').on('click', function () {
-                $(this).fadeOut();
+                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
             });
 
             $('#try_complete_overlay').on('click', function () {
-                $(this).fadeOut();
+                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
             });
 
 
@@ -629,18 +722,19 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             });
 
 
-            // wxPay.config(
-            //     {
-            //         appId: 'wxf19834fcc10552b0',
-            //         editAddr: false,
-            //         queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-            //         success: pay_success,
-            //         fail: pay_fail,
-            //         callback: function(){
-            //             // alert('初始化');
-            //         }
-            //     }
-            // );
+            wxPay.config(
+                {
+                    appId: 'wxf19834fcc10552b0',
+                    editAddr: false,
+                    queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+                    success: pay_success,
+                    fail: pay_fail,
+                    callback: function(){
+                        // alert('初始化');
+                    }
+                }
+            );
+
 
 
 
@@ -648,7 +742,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             // setTimeout(() => {
             //     audioDom.pause();
             //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
-            // }, 1000)
+            // }, 100)
 
         });
 
