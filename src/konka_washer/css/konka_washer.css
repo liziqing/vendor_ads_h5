@@ -1156,6 +1156,11 @@ body #screen .swiper-wrapper #try_form .try_form_container {
   height: 95%;
   margin-top: 7%;
   position: relative;
+  -webkit-transition: margin-top 0.5s;
+  -moz-transition: margin-top 0.5s;
+  -ms-transition: margin-top 0.5s;
+  -o-transition: margin-top 0.5s;
+  transition: margin-top 0.5s;
 }
 html #screen .swiper-wrapper #try_form .try_form_container .try_form_background,
 body #screen .swiper-wrapper #try_form .try_form_container .try_form_background {
