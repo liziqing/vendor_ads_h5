@@ -774,27 +774,27 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             });
 
 
-            // wxPay.config(
-            //    {
-            //        appId: 'wxf19834fcc10552b0',
-            //        editAddr: false,
-            //        queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-            //        success: pay_success,
-            //        fail: pay_fail,
-            //        callback: function(){
-            //            // alert('初始化');
-            //        }
-            //    }
-            // );
+            wxPay.config(
+               {
+                   appId: 'wxf19834fcc10552b0',
+                   editAddr: false,
+                   queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+                   success: pay_success,
+                   fail: pay_fail,
+                   callback: function(){
+                       // alert('初始化');
+                   }
+               }
+            );
 
 
 
 
-            // 开发
-            setTimeout(() => {
-                audioDom.pause();
-                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
-            }, 800)
+            // // 开发
+            // setTimeout(() => {
+            //     audioDom.pause();
+            //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
+            // }, 800)
 
         });
 
