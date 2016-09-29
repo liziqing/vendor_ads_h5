@@ -4,6 +4,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
     $(function () {
 
+        setTimeout(function () {
+            Pace.stop();
+        }, 5000);
+
         var randomNum = parseInt(Math.random() * 10);
 
         $('#preload').append('<img src="img/animation/title.gif?r=' + randomNum + '" />' + '<img src="img/animation/title_coin.png?r=' + randomNum + '" />' + '<img src="img/animation/money.gif?r=' + randomNum + '" />' + '<img src="img/animation/title.gif?r=' + randomNum + '" />' + '<img src="img/animation/danxin.gif?r=' + randomNum + '" />' + '<img src="img/animation/kunrao.gif?r=' + randomNum + '" />' + '<img src="img/animation/laolei.gif?r=' + randomNum + '" />' + '<img src="img/animation/title_money.gif?r=' + randomNum + '" />' +
@@ -184,10 +188,6 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 }
             });
         };
-
-        setTimeout(function () {
-            Pace.stop();
-        }, 8000);
 
         //资源载入完成后的回调
         Pace.on('done', function () {
