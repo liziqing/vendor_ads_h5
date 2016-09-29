@@ -3,6 +3,18 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
         $(() => {
 
+            var randomNum = parseInt(Math.random()*10);
+
+            $('#preload').append('<img src="img/animation/title.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/title_coin.png?r='+randomNum+'" />'+
+                '<img src="img/animation/money.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/danxin_icon.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/danxin_bubble.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/kunrao_icon.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/kunrao_bubble.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/laolei_icon.gif?r='+randomNum+'" />'+
+                '<img src="img/animation/laolei_bubble.gif?r='+randomNum+'" />');
+
             //页码标注，用于swiper跳转，引用分页id (可能animation需拆分为可滑动三页，动画时间？ 可直接修改页码)
             const SCREEN_SWIPER_INDEX = {
                 'loading': 0, //loading && 引言
@@ -335,7 +347,6 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
     function animationPage(){
 
-        let randomNum = parseInt(Math.random()*10);
         //animation_timer1 = setTimeout(() => {
         //    $topImg.show().attr('src','img/animation/danxin.gif?r='+randomNum+'');
         //
@@ -515,9 +526,9 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         $('.column_circle2').removeClass('bounceInDown9').addClass('bounceInDown11');
 
         clearTimeout(animation_timer3);
+        $('.more-than').fadeOut();
         animation_timer3 = setTimeout(() => {
             $('.column-wrapper').hide();
-            $('.more-than').fadeOut();
         },1000);
     }
 
