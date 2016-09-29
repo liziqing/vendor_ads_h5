@@ -345,18 +345,45 @@ $(function () {
             $('#music_btn').removeClass('rotate');
         }
     });
+
     $("#video .video-button-left").on('click', function () {
         _smq.push(['custom', '监测代码', '杰娜铂金同款']);
         mySwiper.slideTo(2);
         setShareInfo(0);
+        video.getPlayer().pause();
+        $("#music_btn").show();
+
+        if (!userStop) {
+            $('#music_btn').show();
+            document.getElementById('music').play();
+            $('#music_btn').addClass('rotate');
+        } else {
+            $('#music_btn').show();
+            document.getElementById('music').pause();
+            $('#music_btn').removeClass('rotate');
+        }
     });
+
     $("#video .video-button-right").on('click', function () {
         _smq.push(['custom', '监测代码', '杰娜铂金爱语']);
         mySwiper.slideTo(5);
         setShareInfo(2);
+        video.getPlayer().pause();
+        $("#music_btn").show();
+
+        if (!userStop) {
+            $('#music_btn').show();
+            document.getElementById('music').play();
+            $('#music_btn').addClass('rotate');
+        } else {
+            $('#music_btn').show();
+            document.getElementById('music').pause();
+            $('#music_btn').removeClass('rotate');
+        }
 
         $("#emoticon .swiper-slide-active, #emoticon .swiper-slide-next").css('pointer-events', 'auto');
     });
+
     /***
      * emoticon
      * */
