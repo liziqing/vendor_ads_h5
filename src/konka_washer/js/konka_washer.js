@@ -283,6 +283,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         var $animationDes = $('.animation-des');
         var $wordsWrapper = $('.words-wrapper');
         var screenWidth = $(window).width();
+        var screenHeight = $(window).height();
         var breakTime = 0;
         var clickAble = false;
         var $columLeft = $('.column_left');
@@ -557,6 +558,26 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         $('#try_form').css('width', document.body.clientWidth);
         $('#try_form').css('height', document.body.clientHeight);
 
+        var resized = false;
+        if (navigator.userAgent.toLowerCase().indexOf('and') > -1) {
+
+            $('#try_form input,textarea').css('left', '20%');
+
+            window.addEventListener("resize", function () {
+                if (!resized) {
+                    resized = true;
+                    window.setTimeout(function () {
+                        $('#try_form').css('margin-top', '-' + screenHeight / 2 + 'px');
+                    }, 0);
+                } else {
+                    resized = false;
+                    window.setTimeout(function () {
+                        $('#try_form').css('margin-top', 0);
+                    }, 0);
+                }
+            });
+        }
+
         /***
          * pay_success
          * */
@@ -629,7 +650,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             }
         });
 
-        // 开发
+        // // 开发
         // setTimeout(() => {
         //     audioDom.pause();
         //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);

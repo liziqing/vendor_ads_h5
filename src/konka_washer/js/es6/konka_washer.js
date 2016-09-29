@@ -352,6 +352,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
     let $animationDes = $('.animation-des');
     let $wordsWrapper = $('.words-wrapper');
     let screenWidth = $(window).width();
+    let screenHeight = $(window).height();
     let breakTime = 0;
     let clickAble = false;
     let $columLeft = $('.column_left');
@@ -674,8 +675,25 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             $('#try_form').css('height', document.body.clientHeight);
 
 
+            let resized = false;
+            if(navigator.userAgent.toLowerCase().indexOf('and') > -1){
 
+                $('#try_form input,textarea').css('left', '20%');
 
+                window.addEventListener("resize", function(){
+                    if(!resized){
+                        resized = true;
+                        window.setTimeout(function(){
+                            $('#try_form').css('margin-top', '-' + screenHeight/2 + 'px');
+                        },0);
+                    }else{
+                        resized = false;
+                        window.setTimeout(function(){
+                            $('#try_form').css('margin-top', 0);
+                        },0);
+                    }
+                });
+            }
 
 
 
@@ -772,7 +790,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
 
 
-            // 开发
+            // // 开发
             // setTimeout(() => {
             //     audioDom.pause();
             //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
