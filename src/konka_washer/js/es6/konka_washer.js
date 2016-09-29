@@ -3,9 +3,6 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
         $(() => {
 
-            setTimeout(() => {
-                Pace.stop();
-            },5000);
 
             var randomNum = parseInt(Math.random()*10);
 
@@ -207,13 +204,9 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 });
             }
 
+            let loaded = false;
 
-
-
-            //资源载入完成后的回调
-            Pace.on('done', () => {
-                console.info('pace done');
-
+            let loadedFunction = () => {
                 modalRules = new jBox('Modal', {
                     width: '100%',
                     content: $('#rules_overlay'),
@@ -257,6 +250,27 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 //loading页动画效果
                 $('#loading .loading-overlay').fadeOut();
                 $('#loading .loaded-overlay').fadeIn();
+            }
+
+            setTimeout(() => {
+                if(!loaded){
+
+                    loaded = true;
+
+                    Pace.stop();
+
+                    loadedFunction();
+                }
+            },5000);
+
+
+            //资源载入完成后的回调
+            Pace.on('done', () => {
+                if(!loaded){
+                    console.info('pace done');
+
+                    loadedFunction();
+                }
 
             });
 

@@ -4,10 +4,6 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
     $(function () {
 
-        setTimeout(function () {
-            Pace.stop();
-        }, 5000);
-
         var randomNum = parseInt(Math.random() * 10);
 
         $('#preload').append('<img src="img/animation/title.gif?r=' + randomNum + '" />' + '<img src="img/animation/title_coin.png?r=' + randomNum + '" />' + '<img src="img/animation/money.gif?r=' + randomNum + '" />' + '<img src="img/animation/title.gif?r=' + randomNum + '" />' + '<img src="img/animation/danxin.gif?r=' + randomNum + '" />' + '<img src="img/animation/kunrao.gif?r=' + randomNum + '" />' + '<img src="img/animation/laolei.gif?r=' + randomNum + '" />' + '<img src="img/animation/title_money.gif?r=' + randomNum + '" />' +
@@ -189,10 +185,9 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             });
         };
 
-        //资源载入完成后的回调
-        Pace.on('done', function () {
-            console.info('pace done');
+        var loaded = false;
 
+        var loadedFunction = function loadedFunction() {
             modalRules = new jBox('Modal', {
                 width: '100%',
                 content: $('#rules_overlay'),
@@ -236,6 +231,26 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             //loading页动画效果
             $('#loading .loading-overlay').fadeOut();
             $('#loading .loaded-overlay').fadeIn();
+        };
+
+        setTimeout(function () {
+            if (!loaded) {
+
+                loaded = true;
+
+                Pace.stop();
+
+                loadedFunction();
+            }
+        }, 5000);
+
+        //资源载入完成后的回调
+        Pace.on('done', function () {
+            if (!loaded) {
+                console.info('pace done');
+
+                loadedFunction();
+            }
         });
 
         /***
