@@ -6,7 +6,14 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
 
         var randomNum = parseInt(Math.random() * 10);
 
-        $('#preload').append('<img src="img/animation/title.gif?r=' + randomNum + '" />' + '<img src="img/animation/title_coin.png?r=' + randomNum + '" />' + '<img src="img/animation/money.gif?r=' + randomNum + '" />' + '<img src="img/animation/danxin_icon.gif?r=' + randomNum + '" />' + '<img src="img/animation/danxin_bubble.gif?r=' + randomNum + '" />' + '<img src="img/animation/kunrao_icon.gif?r=' + randomNum + '" />' + '<img src="img/animation/kunrao_bubble.gif?r=' + randomNum + '" />' + '<img src="img/animation/laolei_icon.gif?r=' + randomNum + '" />' + '<img src="img/animation/laolei_bubble.gif?r=' + randomNum + '" />');
+        $('#preload').append('<img src="img/animation/title.gif?r=' + randomNum + '" />' + '<img src="img/animation/title_coin.png?r=' + randomNum + '" />' + '<img src="img/animation/money.gif?r=' + randomNum + '" />' + '<img src="img/animation/title.gif?r=' + randomNum + '" />' + '<img src="img/animation/danxin.gif?r=' + randomNum + '" />' + '<img src="img/animation/kunrao.gif?r=' + randomNum + '" />' + '<img src="img/animation/laolei.gif?r=' + randomNum + '" />' + '<img src="img/animation/title_money.gif?r=' + randomNum + '" />' +
+        //'<img src="img/animation/danxin_icon.gif?r='+randomNum+'" />'+
+        //'<img src="img/animation/danxin_bubble.gif?r='+randomNum+'" />'+
+        //'<img src="img/animation/kunrao_icon.gif?r='+randomNum+'" />'+
+        //'<img src="img/animation/kunrao_bubble.gif?r='+randomNum+'" />'+
+        //'<img src="img/animation/laolei_icon.gif?r='+randomNum+'" />'+
+        //'<img src="img/animation/laolei_bubble.gif?r='+randomNum+'" />' +
+        '');
 
         //页码标注，用于swiper跳转，引用分页id (可能animation需拆分为可滑动三页，动画时间？ 可直接修改页码)
         var SCREEN_SWIPER_INDEX = {
@@ -327,14 +334,6 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 animationClick();
             }, 9000);
 
-            animation_timer3 = setTimeout(function () {
-                animationClick();
-            }, 18000);
-
-            var animation_timer4 = setTimeout(function () {
-                animationClick();
-            }, 27000);
-
             function animationPage1() {
                 columnMove1();
                 $topImg.show().attr('src', 'img/animation/danxin.gif?r=' + randomNum + '');
@@ -387,6 +386,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                     setTimeout(function () {
                         animationPage2();
                     }, 500);
+
+                    animation_timer3 = setTimeout(function () {
+                        animationClick();
+                    }, 9000);
                 } else if (clickAble && $columLeft.hasClass('bounceInDown6')) {
                     clickAble = false;
                     fadeOutImg();
@@ -394,6 +397,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                     setTimeout(function () {
                         animationPage3();
                     }, 500);
+
+                    var animation_timer4 = setTimeout(function () {
+                        animationClick();
+                    }, 9000);
                 } else if (clickAble && $columLeft.hasClass('bounceInDown9')) {
                     clickAble = false;
                     fadeOutImg();
@@ -547,6 +554,9 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
         });
 
+        $('#try_form').css('width', document.body.clientWidth);
+        $('#try_form').css('height', document.body.clientHeight);
+
         /***
          * pay_success
          * */
@@ -619,10 +629,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             }
         });
 
-        开发;
+        // 开发
         setTimeout(function () {
             audioDom.pause();
             screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
-        }, 100);
+        }, 800);
     });
 });
