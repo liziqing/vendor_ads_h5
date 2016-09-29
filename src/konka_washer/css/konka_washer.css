@@ -1067,9 +1067,17 @@ body #screen .swiper-wrapper #try_form .try_form_container {
   width: 100%;
   height: 95%;
   margin-top: 7%;
+  position: relative;
+}
+html #screen .swiper-wrapper #try_form .try_form_container .try_form_background,
+body #screen .swiper-wrapper #try_form .try_form_container .try_form_background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
   background: url("../img/try/try_form.png") center center no-repeat;
   background-size: auto 90%;
-  position: relative;
 }
 html #screen .swiper-wrapper #try_form .try_form_container input,
 body #screen .swiper-wrapper #try_form .try_form_container input {

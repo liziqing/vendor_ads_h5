@@ -369,7 +369,7 @@ $(function () {
     });
 
     $("#video .video-button-left").on('click', () => {
-        _smq.push(['custom','监测代码','杰娜铂金同款']);
+        _smq.push(['custom','监测代码','22']);
         mySwiper.slideTo(2);
         setShareInfo(0);
         video.getPlayer().pause();
@@ -387,7 +387,7 @@ $(function () {
     });
 
     $("#video .video-button-right").on('click', () => {
-        _smq.push(['custom','监测代码','杰娜铂金爱语']);
+        _smq.push(['custom','监测代码','33']);
         mySwiper.slideTo(5);
         setShareInfo(2);
         video.getPlayer().pause();
