@@ -1492,6 +1492,27 @@ body #pay_succcess_overlay img {
   width: 100%;
   height: 100%;
 }
+html #pay_succcess_overlay .overlay-btn-container,
+body #pay_succcess_overlay .overlay-btn-container {
+  width: 100%;
+  height: 2rem;
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  text-align: center;
+}
+html #pay_succcess_overlay .overlay-btn-container .overlay-back-btn,
+body #pay_succcess_overlay .overlay-btn-container .overlay-back-btn {
+  color: #fff;
+  border: 1px solid #fff;
+  font-size: 0.7rem;
+  height: 2rem;
+  line-height: normal;
+  width: 5rem;
+  border-radius: 0.2rem;
+  margin: 0 auto;
+  background-color: transparent;
+}
 html #try_complete_overlay,
 body #try_complete_overlay {
   width: 100%;
@@ -1506,4 +1527,25 @@ html #try_complete_overlay img,
 body #try_complete_overlay img {
   width: 100%;
   height: 100%;
+}
+html #try_complete_overlay .overlay-btn-container,
+body #try_complete_overlay .overlay-btn-container {
+  width: 100%;
+  height: 2rem;
+  position: absolute;
+  bottom: 15%;
+  left: 0;
+  text-align: center;
+}
+html #try_complete_overlay .overlay-btn-container .overlay-back-btn,
+body #try_complete_overlay .overlay-btn-container .overlay-back-btn {
+  color: #fff;
+  border: 1px solid #fff;
+  font-size: 0.7rem;
+  height: 2rem;
+  line-height: normal;
+  width: 5rem;
+  border-radius: 0.2rem;
+  margin: 0 auto;
+  background-color: transparent;
 }
