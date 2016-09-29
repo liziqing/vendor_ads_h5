@@ -265,6 +265,10 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         var animation_timer2 = null;
         var animation_timer3 = null;
         var $topImg = $('.top-img-wrapper img');
+        var $gifWord1 = $('.gifword1');
+        var $gifWord2 = $('.gifword2');
+        var $animationIcon = $('.animation-icon');
+        //let $animationIcon = $('.animation-icon');
         var $animation = $('#animation');
         var $firstWords = $('.first-words');
         var $secondWords = $('.second-words');
@@ -321,15 +325,15 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             animationPage1();
             animation_timer2 = setTimeout(function () {
                 animationClick();
-            }, 6000);
+            }, 9000);
 
             animation_timer3 = setTimeout(function () {
                 animationClick();
-            }, 12000);
+            }, 18000);
 
             var animation_timer4 = setTimeout(function () {
                 animationClick();
-            }, 18000);
+            }, 27000);
 
             function animationPage1() {
                 columnMove1();
@@ -602,16 +606,20 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
             });
         });
 
-        wxPay.config({
-            appId: 'wxf19834fcc10552b0',
-            editAddr: false,
-            queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
-            success: pay_success,
-            fail: pay_fail,
-            callback: function callback() {
-                // alert('初始化');
-            }
-        });
+        //
+        //wxPay.config(
+        //    {
+        //        appId: 'wxf19834fcc10552b0',
+        //        editAddr: false,
+        //        queryChargeUrl: 'http://' + env.domain + '/shop/order/query',
+        //        success: pay_success,
+        //        fail: pay_fail,
+        //        callback: function(){
+        //            // alert('初始化');
+        //        }
+        //    }
+        //);
+
 
         //开发
         // setTimeout(() => {
