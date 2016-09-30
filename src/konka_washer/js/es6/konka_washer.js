@@ -66,17 +66,6 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 audioSwitch();
             });
 
-            //初始化infoSwiper
-            let infoSwiper = new Swiper('#info-swiper', {
-                effect: 'fade',
-                fade: {
-                    crossFade: true,
-                },
-                loop: true,
-                nextButton: '#info .swiper-button-next',
-                prevButton: '#info .swiper-button-prev',
-            });
-
 
             //获取订单信息
             let orderDetail = (chargeId) => {
@@ -588,6 +577,17 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
              * */
             campaignDetail();
 
+            //初始化infoSwiper
+            var infoSwiper = new Swiper('#info-swiper', {
+                effect: 'fade',
+                fade: {
+                    crossFade: true,
+                },
+                loop: true,
+                nextButton: '#info .swiper-button-next',
+                prevButton: '#info .swiper-button-prev',
+            });
+
             $('#rules_btn').on('click', () => {
                 modalRules.open();
             });
@@ -602,7 +602,16 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
             });
 
-            $('#main .main-info-btn,.main-clickme-btn').on('click', () => {
+            $('#main .left-info-btn').on('click', () => {
+                infoSwiper.slideTo(1);
+                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.info);
+            });
+            $('#main .center-info-btn').on('click', () => {
+                infoSwiper.slideTo(2);
+                screenSwiper.slideTo(SCREEN_SWIPER_INDEX.info);
+            });
+            $('#main .right-info-btn,.main-clickme-btn').on('click', () => {
+                infoSwiper.slideTo(0);
                 screenSwiper.slideTo(SCREEN_SWIPER_INDEX.info);
             });
 
