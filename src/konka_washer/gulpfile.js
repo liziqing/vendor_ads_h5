@@ -72,6 +72,12 @@ gulp.task('konka_washer_uglify', function(){
         .pipe(gulp.dest('../../dist/konka_washer/js'));
 });
 
+gulp.task('konka_washer_uglify_wx', function(){
+    return gulp.src(['./js/base/util.js'])
+        .pipe(uglify())
+        .pipe(gulp.dest('./js/base/wechat/util_min.js'));
+});
+
 /*-----------------------copy other source------------------------*/
 
 gulp.task('konka_washer_copy_music', function () {
