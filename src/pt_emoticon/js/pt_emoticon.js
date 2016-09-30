@@ -194,6 +194,9 @@ $(function () {
             mySwiper.slideTo(2);
             setShareInfo(3);
         });
+        $("#category .search-btn").on('click', function () {
+            window.location.href = './shop.html';
+        });
 
         $("#category .share-btn").on('click', function () {
             if (!isCategoryShareFading) {
@@ -347,7 +350,7 @@ $(function () {
     });
 
     $("#video .video-button-left").on('click', function () {
-        _smq.push(['custom','监测代码','22']);
+        _smq.push(['custom', '监测代码', '22']);
         mySwiper.slideTo(2);
         setShareInfo(0);
         video.getPlayer().pause();
@@ -365,7 +368,7 @@ $(function () {
     });
 
     $("#video .video-button-right").on('click', function () {
-        _smq.push(['custom','监测代码','33']);
+        _smq.push(['custom', '监测代码', '33']);
         mySwiper.slideTo(5);
         setShareInfo(2);
         video.getPlayer().pause();

@@ -89,6 +89,30 @@ body #screen .swiper-wrapper #main .main-info .main-info-btn {
   top: 30%;
   left: 10%;
 }
+html #screen .swiper-wrapper #main .main-info .main-info-btn .left-info-btn,
+body #screen .swiper-wrapper #main .main-info .main-info-btn .left-info-btn {
+  position: absolute;
+  width: 33.3%;
+  height: 81%;
+  left: 0;
+  top: 0;
+}
+html #screen .swiper-wrapper #main .main-info .main-info-btn .center-info-btn,
+body #screen .swiper-wrapper #main .main-info .main-info-btn .center-info-btn {
+  position: absolute;
+  width: 36.3%;
+  height: 81%;
+  left: 33.3%;
+  top: 0;
+}
+html #screen .swiper-wrapper #main .main-info .main-info-btn .right-info-btn,
+body #screen .swiper-wrapper #main .main-info .main-info-btn .right-info-btn {
+  position: absolute;
+  width: 30.7%;
+  height: 81%;
+  left: 69.6%;
+  top: 0;
+}
 html #screen .swiper-wrapper #main .main-info img,
 body #screen .swiper-wrapper #main .main-info img {
   margin-top: -11%;

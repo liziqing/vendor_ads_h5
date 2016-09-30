@@ -206,6 +206,9 @@ $(function () {
             mySwiper.slideTo(2);
             setShareInfo(3);
         });
+        $("#category .search-btn").on('click', () => {
+            window.location.href='./shop.html';
+        });
 
         $("#category .share-btn").on('click', () => {
             if(!isCategoryShareFading){
