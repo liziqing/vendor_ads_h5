@@ -4,7 +4,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         $(() => {
 
 
-            var randomNum = parseInt(Math.random()*10);
+            var randomNum = parseInt(Math.random()*100);
 
             $('#preload').append('<img src="img/animation/title.gif?r='+randomNum+'" />'+
                 '<img src="img/animation/title_coin.png?r='+randomNum+'" />'+
