@@ -78,7 +78,11 @@ html #screen .swiper-wrapper #main .main-info,
 body #screen .swiper-wrapper #main .main-info {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 65%;
+  text-align: center;
+  margin-top: -7%;
+  background: url("../img/main/main-info.png") center center no-repeat;
+  background-size: auto 100%;
 }
 html #screen .swiper-wrapper #main .main-info .main-info-btn,
 body #screen .swiper-wrapper #main .main-info .main-info-btn {
@@ -92,7 +96,7 @@ body #screen .swiper-wrapper #main .main-info .main-info-btn {
 html #screen .swiper-wrapper #main .main-info .main-info-btn .left-info-btn,
 body #screen .swiper-wrapper #main .main-info .main-info-btn .left-info-btn {
   position: absolute;
-  width: 33.3%;
+  width: 36.3%;
   height: 81%;
   left: 0;
   top: 0;
@@ -100,9 +104,9 @@ body #screen .swiper-wrapper #main .main-info .main-info-btn .left-info-btn {
 html #screen .swiper-wrapper #main .main-info .main-info-btn .center-info-btn,
 body #screen .swiper-wrapper #main .main-info .main-info-btn .center-info-btn {
   position: absolute;
-  width: 36.3%;
+  width: 28%;
   height: 81%;
-  left: 33.3%;
+  left: 36.3%;
   top: 0;
 }
 html #screen .swiper-wrapper #main .main-info .main-info-btn .right-info-btn,
@@ -110,14 +114,13 @@ body #screen .swiper-wrapper #main .main-info .main-info-btn .right-info-btn {
   position: absolute;
   width: 30.7%;
   height: 81%;
-  left: 69.6%;
+  left: 63.6%;
   top: 0;
 }
 html #screen .swiper-wrapper #main .main-info img,
 body #screen .swiper-wrapper #main .main-info img {
-  margin-top: -11%;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 html #screen .swiper-wrapper #main .main-info .main-clickme-btn,
 body #screen .swiper-wrapper #main .main-info .main-clickme-btn {
@@ -125,8 +128,8 @@ body #screen .swiper-wrapper #main .main-info .main-clickme-btn {
   height: 2.3rem;
   display: inline-block;
   position: absolute;
-  top: 28.7%;
-  right: 20.4%;
+  top: 31.5%;
+  right: 21.4%;
   background: url("../img/main/main-clickme.png") center center no-repeat;
   background-size: 100% auto;
 }
@@ -1124,17 +1127,17 @@ body #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .swiper-sli
 html #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .info-green,
 body #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .info-green {
   background: url("../img/info/info-green.png") center 30% no-repeat;
-  background-size: 90% auto;
+  background-size: auto 75%;
 }
 html #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .info-red,
 body #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .info-red {
   background: url("../img/info/info-pink.png") center 30% no-repeat;
-  background-size: 90% auto;
+  background-size: auto 75%;
 }
 html #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .info-yellow,
 body #screen .swiper-wrapper #info .swiper-container .swiper-wrapper .info-yellow {
   background: url("../img/info/info-yellow.png") center 30% no-repeat;
-  background-size: 90% auto;
+  background-size: auto 75%;
 }
 html #screen .swiper-wrapper #info .swiper-button-next,
 body #screen .swiper-wrapper #info .swiper-button-next {

@@ -681,8 +681,7 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
         // 开发
         // setTimeout(() => {
         //     audioDom.pause();
-        //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.try_form);
-        // }, 800)
-        // $('#pay_succcess_overlay').fadeIn();
+        //     screenSwiper.slideTo(SCREEN_SWIPER_INDEX.main);
+        // }, 200)
     });
 });
