@@ -11,13 +11,26 @@
     <title>康佳国庆活动</title>
 
     <script src="./js/vendor/pace/pace.min.js"></script>
-    <link rel="stylesheet" href="./js/vendor/jbox/jBox.css" />
     <!-- build:css css/konka_washer.min.css -->
     <link rel="stylesheet" href="./js/vendor/pace/pace-none.css" />
     <link rel="stylesheet" href="./js/vendor/nomalize/nomalize.css" />
     <link rel="stylesheet" href="./js/vendor/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="./js/vendor/jbox/jBox.css" />
     <link rel="stylesheet" href="./css/konka_washer.css" />
     <!-- endbuild -->
+
+    <!-- build:js js/konka_washer.min.js -->
+    <script src="./js/vendor/wxmoment/wxmoment.min.js"></script>
+    <script src="./js/vendor/wxmoment/OrientationTip.js"></script>
+    <script src="./js/vendor/monitor/monitor.js"></script>
+    <!-- endbuild -->
+
+    <script src="./js/vendor/require/require.js" ></script>
+    <script>
+        requirejs(['js/main.js'], function (main) {
+            requirejs(['konka_washer']);
+        });
+    </script>
 </head>
 <body>
 
@@ -193,18 +206,7 @@
     </div>
 </div>
 
-<!-- build:js js/konka_washer.min.js -->
-<script src="./js/vendor/wxmoment/wxmoment.min.js"></script>
-<script src="./js/vendor/wxmoment/OrientationTip.js"></script>
-<script src="./js/vendor/monitor/monitor.js"></script>
-<!-- endbuild -->
 
-<script src="./js/vendor/require/require.js" ></script>
-<script>
-    requirejs(['js/main.js'], function (main) {
-        requirejs(['konka_washer']);
-    });
-</script>
 
 </body>
 </html>
