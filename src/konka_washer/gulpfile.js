@@ -30,22 +30,22 @@ var copy = require('gulp-copy')
 
 /*-----------------------clean------------------------*/
 
-gulp.task('konka_wahser_clean', function() {
-    return gulp.src('../../dist/konka_wahser')
+gulp.task('konka_washer_clean', function() {
+    return gulp.src('../../dist/konka_washer')
         .pipe(clean({force: true}));
 });
 
 /*-----------------------htmlmin------------------------*/
 
-gulp.task('konka_wahser_htmlmin', function() {
-    return gulp.src('../../dist/konka_wahser/index.html')
+gulp.task('konka_washer_htmlmin', function() {
+    return gulp.src('../../dist/konka_washer/index.html')
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('../../dist/konka_wahser/'));
+        .pipe(gulp.dest('../../dist/konka_washer/'));
 });
 
 /*-----------------------imgmin------------------------*/
 
-gulp.task('konka_wahser_imgmin', function() {
+gulp.task('konka_washer_imgmin', function() {
     return gulp.src('./img/**/*.{jpg,jpeg,png,ico,gif}')
         .pipe(imgmin({
             optimizationLevel: 3,
@@ -53,48 +53,52 @@ gulp.task('konka_wahser_imgmin', function() {
             interlaced: false,
             multipass: false
         }))
-        .pipe(gulp.dest('../../dist/konka_wahser/img'));
+        .pipe(gulp.dest('../../dist/konka_washer/img'));
 });
 
 /*-----------------------cssmin------------------------*/
 
-gulp.task('konka_wahser_cssmin', function(){
-    return gulp.src([ '../../dist/konka_wahser/css/konka_wahser.min.css'])
+gulp.task('konka_washer_cssmin', function(){
+    return gulp.src([ '../../dist/konka_washer/css/konka_washer.min.css'])
         .pipe(cssmin())
-        .pipe(gulp.dest('../../dist/konka_wahser/css'));
+        .pipe(gulp.dest('../../dist/konka_washer/css'));
+});
+
+/*-----------------------uglify------------------------*/
+
+gulp.task('konka_washer_uglify', function(){
+    return gulp.src(['./js/vendor/wxmoment/wxmoment.min.js', './js/vendor/wxmoment/OrientationTip.js', './js/vendor/monitor/monitor.js'])
+        .pipe(uglify())
+        .pipe(gulp.dest('../../dist/konka_washer/js'));
 });
 
 /*-----------------------copy other source------------------------*/
 
-gulp.task('konka_wahser_copy_music', function () {
+gulp.task('konka_washer_copy_music', function () {
     return gulp.src('./music/*')
-        .pipe(copy('../../dist/konka_wahser/'))
+        .pipe(copy('../../dist/konka_washer/'))
 });
 
-gulp.task('konka_wahser_copy_js', function () {
+gulp.task('konka_washer_copy_js', function () {
     return gulp.src('./js/**')
-        .pipe(copy('../../dist/konka_wahser/'))
+        .pipe(copy('../../dist/konka_washer/'))
 });
 
-gulp.task('konka_wahser_copy',
-    gulp.series('konka_wahser_copy_music','konka_wahser_copy_js')
+gulp.task('konka_washer_copy',
+    gulp.series('konka_washer_copy_music','konka_washer_copy_js')
 );
 
-/*-----------------------build------------------------*/
-gulp.task('konka_wahser_build',
-    gulp.series('konka_wahser_clean',
-        gulp.parallel('konka_wahser_copy', 'konka_wahser_imgmin'),
-        'konka_wahser_cssmin',
-        'konka_wahser_htmlmin'
-    )
-);
+/*-----------------------usemin------------------------*/
 
+gulp.task('konka_washer_usemin', function () {
+    return gulp.src('./index.html')
+        .pipe(usemin({
+            js: [uglify()],
 
-
-
-
-
-
+            // in this case css will be only concatenated (like css: ['concat']).
+        }))
+        .pipe(gulp.dest('../../dist/konka_washer/'));
+});
 
 /*-----------------------babel------------------------*/
 gulp.task('konka_washer_babel', function(){
@@ -110,6 +114,25 @@ gulp.task('konka_washer_babel', function(){
 gulp.task('konka_washer_watch', gulp.series('konka_washer_babel', function() {
     gulp.watch('./js/es6/konka_washer.js', gulp.series('konka_washer_babel'));
 }));
+
+
+/*-----------------------build------------------------*/
+gulp.task('konka_washer_build',
+    gulp.series('konka_washer_clean',
+        'konka_washer_babel',
+        gulp.parallel('konka_washer_copy', 'konka_washer_imgmin', 'konka_washer_usemin'),
+        'konka_washer_cssmin',
+        'konka_washer_htmlmin'
+    )
+);
+
+
+
+
+
+
+
+
 
 
 
