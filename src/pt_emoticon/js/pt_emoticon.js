@@ -195,6 +195,7 @@ $(function () {
             setShareInfo(3);
         });
         $("#category .search-btn").on('click', function () {
+            _smq.push(['custom', '监测代码', '零售商查询']);
             window.location.href = './shop.html';
         });
 
