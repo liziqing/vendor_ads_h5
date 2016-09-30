@@ -73,9 +73,9 @@ gulp.task('konka_washer_uglify', function(){
 });
 
 gulp.task('konka_washer_uglify_wx', function(){
-    return gulp.src(['./js/base/util.js'])
+    return gulp.src(['./js/base/require.js'])
         .pipe(uglify())
-        .pipe(gulp.dest('./js/base/wechat/util_min.js'));
+        .pipe(gulp.dest('./js/base/wechat/require_min.js'));
 });
 
 /*-----------------------copy other source------------------------*/
