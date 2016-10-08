@@ -134,8 +134,8 @@ define(['wx', 'base/env', 'base/wechat/wx_pay', 'base/wechat/wx', 'base/util', '
                 'age': $('#pay_overlay .age').val(),
                 'phone': $('#pay_overlay .tel').val(),
                 'address': $('#pay_overlay .address').val(),
-                'gender': $('#pay_overlay .check-radio-sex.active').hasClass('sex-female') ? '女' : '男',
-                'baby': $('#pay_overlay .check-radio-baby.active').hasClass('baby-yes') ? '有' : '无'
+                'gender': parseInt($('#pay_overlay .check-radio-sex.active').attr("data-radio")),
+                'baby': parseInt($('#pay_overlay .check-radio-baby.active').attr("data-radio"))
             };
             var url = 'http://' + env.domain + '/shop/order/create';
 
