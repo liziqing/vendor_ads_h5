@@ -29,8 +29,34 @@
         }
     }
 
+    var queryString = function(query)
+    {
+        var search = window.location.search + '';
+        if (search.charAt(0) != '?')
+        {
+            return undefined;
+        }
+        else {
+            search = search.replace('?', '').split('&');
+            for (var i = 0; i < search.length; i++)
+            {
+                if (search[i].split('=')[0] == query) {
+                    return decodeURI(search[i].split('=')[1]);
+                }
+            }
+            return undefined;
+        }
+    };
+
     if (!isMobile.any()) {
-        window.location.href = './pc/index.html';
+
+        var smtid = queryString('smtid');
+
+        if(typeof smtid != 'undefined')
+        {
+            window.location.href = './pc/index.html?smtid=' + smtid;    
+        }
+        
     }
     </script>
 
