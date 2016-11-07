@@ -69,7 +69,7 @@ $(function () {
 
     var screenWidth = screen.width;
 
-    if (navigator.userAgent.toLowerCase().indexOf('and') > -1 || navigator.userAgent.toLowerCase().indexOf('adr') > -1) {
+    if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1) {
         screenWidth = document.body.clientWidth;
     }
 
@@ -140,7 +140,7 @@ $(function () {
         _smq.push(['custom', '监测代码', '杰娜承诺大片']);
         mySwiper.slideTo(4);
 
-        if (navigator.userAgent.toLowerCase().indexOf('and') > -1 || navigator.userAgent.toLowerCase().indexOf('adr') > -1) {
+        if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1) {
             $('#WxMomentVideo').show();
         }
 
