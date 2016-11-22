@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  font-size: 20px;
+  background-color: #ebebeb;
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html .clearfix:after,
+body .clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+html #container,
+body #container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+html #container .chat-list,
+body #container .chat-list {
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+html #container .chat-list li,
+body #container .chat-list li {
+  margin: 17px 0 18px 0;
+  width: 100%;
+  display: none;
+}
+html #container .chat-list li .invitation-hints,
+body #container .chat-list li .invitation-hints {
+  width: 65%;
+  margin: 0.5rem auto;
+  padding: 0.2rem 1rem;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 0.7rem;
+  background-color: #cecece;
+  color: #fff;
+}
+html #container .chat-list li .invitation-hints span,
+body #container .chat-list li .invitation-hints span {
+  color: #1A84F9;
+  margin-left: 0.5rem;
+}
+html #container .chat-list li .left,
+body #container .chat-list li .left {
+  float: left;
+  margin-left: 0.5rem;
+  display: inline-block;
+}
+html #container .chat-list li .left img,
+body #container .chat-list li .left img {
+  width: 2.1rem;
+  height: 2.1rem;
+}
+html #container .chat-list li .text,
+body #container .chat-list li .text {
+  float: left;
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-left: 1rem;
+  background: white;
+  max-width: 12rem;
+  box-sizing: border-box;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 0.65rem 0.6rem;
+  position: relative;
+}
+html #container .chat-list li .text .arrow,
+body #container .chat-list li .text .arrow {
+  position: absolute;
+  top: 0.65rem;
+  left: -8px;
+}
+html #container .chat-list li .image,
+body #container .chat-list li .image {
+  float: left;
+  margin-left: 1rem;
+  width: 6rem;
+  height: 6rem;
+}
+html #container .chat-list li .image img,
+body #container .chat-list li .image img {
+  width: 100%;
+}
+html #container .chat-list li .yuyin-image,
+body #container .chat-list li .yuyin-image {
+  float: left;
+  margin-left: 1rem;
+  height: 2.1rem;
+  width: 9rem;
+}
+html #container .chat-list li .yuyin-image img,
+body #container .chat-list li .yuyin-image img {
+  width: 100%;
+}
+html #container .chat-list .user-replay,
+body #container .chat-list .user-replay {
+  margin: 17px 0 18px 0;
+  width: 100%;
+}
+html #container .chat-list .user-replay .right,
+body #container .chat-list .user-replay .right {
+  float: right;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+html #container .chat-list .user-replay .right img,
+body #container .chat-list .user-replay .right img {
+  width: 2.1rem;
+  height: 2.1rem;
+}
+html #container .chat-list .user-replay .text,
+body #container .chat-list .user-replay .text {
+  float: right;
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-right: 1rem;
+  background-color: #A0E75A;
+  max-width: 12rem;
+  box-sizing: border-box;
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 0.65rem 0.6rem;
+  position: relative;
+}
+html #container .chat-list .user-replay .text .right-arrow,
+body #container .chat-list .user-replay .text .right-arrow {
+  position: absolute;
+  top: 0.65rem;
+  right: -8px;
+}
+html #container .bottom-bar,
+body #container .bottom-bar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+  width: 100%;
+  min-height: 2.1rem;
+  background: url('../img/bottom-bar.jpg') no-repeat;
+  background-size: 100%;
+}
+html #container .bottom-bar input,
+body #container .bottom-bar input {
+  width: 90%;
+  height: 2.4rem;
+  left: 10%;
+  top: 16px;
+  position: absolute;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 27px;
+  line-height: 2.4rem;
+}

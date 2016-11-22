@@ -56,6 +56,13 @@ gulp.task('pt_christmas_imgmin', function() {
         .pipe(gulp.dest('../../dist/pt_christmas/img'));
 });
 
+/*-----------------------less------------------------*/
+gulp.task('pt_christmas_less', function () {
+    return gulp.src('./css/**/*.less')
+        .pipe(less())
+        .pipe(gulp.dest('./css'));
+});
+
 /*-----------------------cssmin------------------------*/
 
 gulp.task('pt_christmas_cssmin', function(){
@@ -117,7 +124,8 @@ gulp.task('pt_christmas_babel', function(){
 });
 
 /*-----------------------watch------------------------*/
-gulp.task('pt_christmas_watch', gulp.series('pt_christmas_babel', function() {
+gulp.task('pt_christmas_watch', gulp.series('pt_christmas_less','pt_christmas_babel', function() {
+    gulp.watch('./css/pt_christmas.less', gulp.series('pt_christmas_less'));
     gulp.watch('./js/es6/pt_christmas.js', gulp.series('pt_christmas_babel'));
 }));
 
