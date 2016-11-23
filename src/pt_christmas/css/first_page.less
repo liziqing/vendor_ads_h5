@@ -1,0 +1,83 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+html,body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  font-size: 20px;
+  background-color: #ebebeb;
+  margin: 0;
+  padding: 0;
+
+  // 移动端hack
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+  }
+  #container{
+    background: url("../img/WX_bg.jpg");
+    background-size: 100%;
+    width: 100%;
+    height:100%;
+    position: relative;
+
+    .now-time{
+      position: absolute;
+      top:15%;
+      left: 20%;
+      width: 60%;
+      font-size: 2rem;
+      color: #fff;
+      text-align: center;
+      .mouth-and-day{
+        font-size: 1rem;
+        display: inline-block;
+        float: left;
+        text-align: right;
+        width: 50%;
+      }
+      .week{
+        font-size: 1rem;
+        display: inline-block;
+        float: right;
+        text-align: left;
+        width: 45%;
+        padding-left:5%;
+      }
+    }
+
+    .invitation-notification{
+      position: absolute;
+      top:37%;
+      font-size: 0.7rem;
+      color: #000;
+      text-align: left;
+      width: 94%;
+      margin-left: 5.5%;
+    }
+    .footer-bar{
+      position: absolute;
+      bottom:15%;
+      width: 70%;
+      left: 15%;
+      text-align: center;
+      font-size: 1rem;
+      color: #fff;
+
+    }
+  }
+}

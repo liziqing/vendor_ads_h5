@@ -115,7 +115,7 @@ gulp.task('pt_christmas_usemin', function () {
 
 /*-----------------------babel------------------------*/
 gulp.task('pt_christmas_babel', function(){
-    return gulp.src('./js/es6/pt_christmas.js')
+    return gulp.src('./js/es6/*.js')
         .pipe(plumber())
         .pipe(babel({
             presets: ['es2015']
@@ -126,6 +126,7 @@ gulp.task('pt_christmas_babel', function(){
 /*-----------------------watch------------------------*/
 gulp.task('pt_christmas_watch', gulp.series('pt_christmas_less','pt_christmas_babel', function() {
     gulp.watch('./css/pt_christmas.less', gulp.series('pt_christmas_less'));
+    gulp.watch('./css/first_page.less', gulp.series('pt_christmas_less'));
     gulp.watch('./js/es6/pt_christmas.js', gulp.series('pt_christmas_babel'));
 }));
 
