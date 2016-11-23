@@ -13,8 +13,25 @@
     <link rel="stylesheet" href="./css/pt_christmas.css" />
 </head>
 <body>
+<!--第一页滑动解锁-->
+<div id="lock_screen">
+    <audio class="message_audio audio_source" id="message_audio" src="./music/message.mp3"></audio>
+    <audio class="lock_audio audio_source" id="lock_audio" src="./music/lock.mp3"></audio>
+    <div class="now-time">
+        <p class="hour-and-minute"></p>
+        <p class="mouth-and-day"></p>
+        <span class="week"></span>
+    </div>
+    <div class="invitation-notification">
+        <strong class="invitation-desc">“张杰”“谢娜”邀请“微信名”加入了群聊</strong>
+    </div>
+    <!--<div class="footer-bar"> ＞ 滑动来解锁</div>-->
 
+    <div class="swipe_hint original" id="swipe_hint"></div>
+    <div class="hot_area original" id="hot_area"></div>
+</div>
 
+<!--第二页微信对话-->
 <div id="container">
 
     <ul class="chat-list">
@@ -111,7 +128,7 @@
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.gif"></div>
             <div class="text">
-                <p>哈哈， 唱的真好听。</p>
+                <p>哈哈，<div class="expression"><img src="img/clap.png"></div> 唱的真好听。</p>
                 <img src="img/l_triangle.png" class="arrow">
             </div>
         </li>
@@ -131,7 +148,7 @@
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.gif"></div>
             <div class="text">
-                <p>我就算了吧。</p>
+                <p>我就算了吧。<div class="expression"><img src="img/shy.png"></div></p>
                 <img src="img/l_triangle.png" class="arrow">
             </div>
         </li>
@@ -157,9 +174,13 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.gif"></div>
-            <div class="yuyin-image">
-                <img src="" alt="张杰语音">
+            <div class="yuyin-image-13s">
+                <div class="speaker">
+                    <img src="img/audio.gif" alt="张杰语音">
+                </div>
+                <img src="img/l_triangle.png" class="arrow">
             </div>
+            <span class="speaker-time">13"</span>
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.gif"></div>
@@ -171,7 +192,9 @@
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.gif"></div>
             <div class="text">
-                <p>抠鼻表情</p>
+                <div class="expression">
+                    <img src="img/koubi.png">
+                </div>
                 <img src="img/l_triangle.png" class="arrow">
             </div>
         </li>
@@ -191,7 +214,9 @@
         <li class="chat-item clearfix">
             <div class="left"><img src="img/pt-head.png"></div>
             <div class="text">
-                <p>偷笑表情</p>
+                <div class="expression">
+                    <img src="img/touxiao.png">
+                </div>
                 <img src="img/l_triangle.png" class="arrow">
             </div>
         </li>
@@ -223,9 +248,13 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.gif"></div>
-            <div class="yuyin-image">
-                <img src="" alt="张杰语音">
+            <div class="yuyin-image-4s">
+                <div class="speaker">
+                    <img src="img/audio.gif" alt="张杰语音">
+                </div>
+                <img src="img/l_triangle.png" class="arrow">
             </div>
+            <span class="speaker-time">4"</span>
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.gif"></div>
@@ -256,9 +285,13 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.gif"></div>
-            <div class="yuyin-image">
-                <img src="" alt="张杰语音">
+            <div class="yuyin-image-14s">
+                <div class="speaker">
+                    <img src="img/audio.gif" alt="张杰语音">
+                </div>
+                <img src="img/l_triangle.png" class="arrow">
             </div>
+            <span class="speaker-time">14"</span>
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/pt-head.png"></div>
@@ -311,7 +344,12 @@
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.gif"></div>
             <div class="text">
-                <p>表情</p>
+                <div class="expression"><img src="img/shengdan.png"></div>
+                <div class="expression"><img src="img/shengdan.png"></div>
+                <div class="expression"><img src="img/shengdan.png"></div>
+                <div class="expression"><img src="img/gift.png"></div>
+                <div class="expression"><img src="img/gift.png"></div>
+                <div class="expression"><img src="img/gift.png"></div>
                 <img src="img/l_triangle.png" class="arrow">
             </div>
         </li>

@@ -14,7 +14,8 @@ requirejs.config({
             exports: 'hammer'
         },
         'velocity': {
-            exports: 'velocity'
+            exports: 'velocity',
+            deps: ['jquery']
         }
     }
 
