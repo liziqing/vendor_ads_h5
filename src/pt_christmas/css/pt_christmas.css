@@ -40,6 +40,10 @@ body #container .chat-list {
   width: 100%;
   height: 100%;
   overflow: auto;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-bottom: 2.5rem;
 }
 html #container .chat-list li,
 body #container .chat-list li {
