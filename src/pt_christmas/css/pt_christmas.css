@@ -266,8 +266,8 @@ html #container .chat-list li .yuyin-image-4s .speaker,
 body #container .chat-list li .yuyin-image-4s .speaker,
 html #container .chat-list li .yuyin-image-14s .speaker,
 body #container .chat-list li .yuyin-image-14s .speaker {
-  width: 15px;
-  height: 21px;
+  width: 17px;
+  height: 25px;
   float: left;
 }
 html #container .chat-list li .yuyin-image-13s .speaker img,
@@ -341,16 +341,16 @@ body #container .bottom-bar {
   bottom: 0;
   z-index: 9;
   width: 100%;
-  min-height: 2.1rem;
-  background: url('../img/bottom-bar.jpg') no-repeat;
+  min-height: 2.4rem;
+  background: url('../img/bottom_bar.jpg') no-repeat;
   background-size: 100%;
 }
 html #container .bottom-bar input,
 body #container .bottom-bar input {
-  width: 90%;
+  width: 50%;
   height: 2.4rem;
-  left: 10%;
-  top: 16px;
+  left: 15%;
+  top: 0;
   position: absolute;
   border: none;
   outline: none;
