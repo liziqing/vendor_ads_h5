@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "微软雅黑", "Helvetica Neue", Helvetica, sans-serif;
 }
 html,
 body {
@@ -32,45 +33,47 @@ html #lock_screen,
 body #lock_screen {
   width: 100%;
   height: 100%;
-  background: url("../img/lock_screen/lock_screen.jpg") center center no-repeat;
-  background-size: 100% 100%;
+  background: url("../img/lock_screen/lock_screen.jpg") center 0px no-repeat;
+  background-size: 100% auto;
   position: relative;
 }
 html #lock_screen .now-time,
 body #lock_screen .now-time {
   position: absolute;
-  top: 15%;
+  top: 10%;
   left: 20%;
   width: 60%;
-  font-size: 2rem;
+  font-size: 3.5rem;
   color: #fff;
   text-align: center;
+  font-weight: 100;
 }
 html #lock_screen .now-time .mouth-and-day,
 body #lock_screen .now-time .mouth-and-day {
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: inline-block;
   float: left;
   text-align: right;
   width: 50%;
+  font-weight: normal;
 }
 html #lock_screen .now-time .week,
 body #lock_screen .now-time .week {
-  font-size: 1rem;
+  font-size: 0.9rem;
   display: inline-block;
   float: right;
   text-align: left;
   width: 45%;
   padding-left: 5%;
+  font-weight: normal;
 }
 html #lock_screen .invitation-notification,
 body #lock_screen .invitation-notification {
-  background: url("../img/chat-bg.png");
-  background-size: 100% 100%;
+  background: url("../img/chat-bg.png") center 0px no-repeat;
+  background-size: 100% auto;
   height: 5rem;
-  line-height: 5rem;
   position: absolute;
-  top: 31%;
+  top: 33%;
   font-size: 0.7rem;
   color: #000;
   text-align: left;
@@ -80,16 +83,8 @@ body #lock_screen .invitation-notification {
 html #lock_screen .invitation-notification .invitation-desc,
 body #lock_screen .invitation-notification .invitation-desc {
   padding-left: 0.8rem;
-}
-html #lock_screen .footer-bar,
-body #lock_screen .footer-bar {
   position: absolute;
-  bottom: 15%;
-  width: 70%;
-  left: 15%;
-  text-align: center;
-  font-size: 1rem;
-  color: #fff;
+  top: 41%;
 }
 html #lock_screen .audio_source,
 body #lock_screen .audio_source {
@@ -161,19 +156,19 @@ body #container .chat-list li {
 }
 html #container .chat-list li .invitation-hints,
 body #container .chat-list li .invitation-hints {
-  width: 65%;
+  width: 73.75%;
   margin: 0.5rem auto;
-  padding: 0.2rem 1rem;
-  border-radius: 50px;
-  text-align: center;
+  padding: 0.2rem 0.5rem;
+  box-sizing: border-box;
+  border-radius: 8px;
+  text-align: left;
   font-size: 0.7rem;
   background-color: #cecece;
   color: #fff;
-}
-html #container .chat-list li .invitation-hints span,
-body #container .chat-list li .invitation-hints span {
-  color: #1A84F9;
-  margin-left: 0.5rem;
+  /*span{
+            color: #1A84F9;
+            margin-left: 0.5rem;
+          }*/
 }
 html #container .chat-list li .left,
 body #container .chat-list li .left {
@@ -218,7 +213,7 @@ html #container .chat-list li .text .arrow,
 body #container .chat-list li .text .arrow {
   position: absolute;
   top: 0.65rem;
-  left: -8px;
+  left: -15px;
 }
 html #container .chat-list li .image,
 body #container .chat-list li .image {
@@ -258,7 +253,7 @@ html #container .chat-list li .yuyin-image-14s .arrow,
 body #container .chat-list li .yuyin-image-14s .arrow {
   position: absolute;
   top: 0.65rem;
-  left: -8px;
+  left: -15px;
 }
 html #container .chat-list li .yuyin-image-13s .speaker,
 body #container .chat-list li .yuyin-image-13s .speaker,
@@ -332,7 +327,7 @@ html #container .chat-list .user-replay .text .right-arrow,
 body #container .chat-list .user-replay .text .right-arrow {
   position: absolute;
   top: 0.65rem;
-  right: -8px;
+  right: -11px;
 }
 html #container .bottom-bar,
 body #container .bottom-bar {
@@ -341,8 +336,8 @@ body #container .bottom-bar {
   bottom: 0;
   z-index: 9;
   width: 100%;
-  min-height: 2.4rem;
-  background: url('../img/bottom_bar.jpg') no-repeat;
+  height: 95px;
+  background: url('../img/bottom_bar.jpg');
   background-size: 100%;
 }
 html #container .bottom-bar input,

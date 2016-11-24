@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  font-family: "微软雅黑", "Helvetica Neue", Helvetica, sans-serif;
 }
 html,body {
   width: 100%;
@@ -32,42 +33,45 @@ html,body {
   #lock_screen{
     width: 100%;
     height: 100%;
-    background: url("../img/lock_screen/lock_screen.jpg") center center no-repeat;
-    background-size: 100% 100%;
+    background: url("../img/lock_screen/lock_screen.jpg") center 0px no-repeat;
+    background-size: 100% auto;
     position: relative;
 
     .now-time{
       position: absolute;
-      top:15%;
+      top:10%;
       left: 20%;
       width: 60%;
-      font-size: 2rem;
+      font-size: 3.5rem;
       color: #fff;
       text-align: center;
+      font-weight: 100;
       .mouth-and-day{
-        font-size: 1rem;
+        font-size: 0.9rem;
         display: inline-block;
         float: left;
         text-align: right;
         width: 50%;
+        font-weight: normal;
       }
       .week{
-        font-size: 1rem;
+        font-size: 0.9rem;
         display: inline-block;
         float: right;
         text-align: left;
         width: 45%;
         padding-left:5%;
+        font-weight: normal;
       }
     }
 
     .invitation-notification{
-      background: url("../img/chat-bg.png");
-      background-size: 100% 100%;
+      background: url("../img/chat-bg.png")center 0px no-repeat;
+      background-size: 100% auto;
       height:5rem;
-      line-height: 5rem;
+      //line-height: 5rem;
       position: absolute;
-      top:31%;
+      top:33%;
       font-size: 0.7rem;
       color: #000;
       text-align: left;
@@ -75,17 +79,19 @@ html,body {
       left: 2%;
       .invitation-desc{
         padding-left: 0.8rem;
+        position: absolute;
+        top:41%;
       }
     }
-    .footer-bar{
-      position: absolute;
-      bottom:15%;
-      width: 70%;
-      left: 15%;
-      text-align: center;
-      font-size: 1rem;
-      color: #fff;
-    }
+    //.footer-bar{
+    //  position: absolute;
+    //  bottom:15%;
+    //  width: 70%;
+    //  left: 15%;
+    //  text-align: center;
+    //  font-size: 1rem;
+    //  color: #fff;
+    //}
 
     .audio_source{
       display: none;
@@ -153,18 +159,19 @@ html,body {
         width: 100%;
         display: none;
         .invitation-hints{
-          width: 65%;
+          width: 73.75%;
           margin:0.5rem auto;
-          padding: 0.2rem 1rem;
-          border-radius: 50px;
-          text-align: center;
+          padding: 0.2rem 0.5rem;
+          box-sizing: border-box;
+          border-radius: 8px;
+          text-align: left;
           font-size:0.7rem;
           background-color: #cecece;
           color: #fff;
-          span{
+          /*span{
             color: #1A84F9;
             margin-left: 0.5rem;
-          }
+          }*/
         }
         .left{
           float:left;
@@ -201,7 +208,7 @@ html,body {
           .arrow{
             position:absolute;
             top:0.65rem;
-            left:-8px;
+            left:-15px;
           }
         }
         .image{
@@ -229,7 +236,7 @@ html,body {
           .arrow{
             position:absolute;
             top:0.65rem;
-            left:-8px;
+            left:-15px;
           }
           .speaker{
             width: 17px;
@@ -284,7 +291,7 @@ html,body {
           .right-arrow{
             position:absolute;
             top:0.65rem;
-            right:-8px;
+            right:-11px;
           }
         }
       }
@@ -295,8 +302,8 @@ html,body {
       bottom:0;
       z-index:9;
       width:100%;
-      min-height:2.4rem;
-      background:url('../img/bottom_bar.jpg') no-repeat;
+      height: 95px;
+      background:url('../img/bottom_bar.jpg');
       background-size: 100%;
       input{
         width:50%;

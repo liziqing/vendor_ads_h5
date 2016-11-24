@@ -14,29 +14,24 @@ define(['jquery', 'hammer', 'velocity'], function ($, Hammer, Velocity) {
         var day = myDate.getDate();
         var week = myDate.getDay();
         var weekArr = ['日', '一', '二', '三', '四', '五', '六'];
-        //console.log(myDate,hour,minute,mouth,day,week);
-        $('.hour-and-minute').html(zfill(hour) + ':' + zfill(minute));
-        $('.mouth-and-day').html(zfill(mouth) + '月' + zfill(day) + '日');
-        $('.week').html('星期' + weekArr[week]);
-        function zfill(num) {
-            var s = "000000000" + num;
-            return s.substr(s.length - 2);
-        }
-
-        $("#message_audio")[0].play();
-
         var hot = document.getElementById('hot_area');
         var swipe = document.getElementById('swipe_hint');
         var $hot = $(hot);
         var $swipe = $(swipe);
         var manager = new Hammer.Manager(hot);
         var Pan = new Hammer.Pan();
-        manager.add(Pan);
-
         var deltaX = 0;
         var deltaY = 0;
         var swiperDone = false;
 
+        //滑动解锁页时间显示
+        $('.hour-and-minute').html(zfill(hour) + ':' + zfill(minute));
+        $('.mouth-and-day').html(zfill(mouth) + '月' + zfill(day) + '日');
+        $('.week').html('星期' + weekArr[week]);
+
+        //滑动解锁事件
+        manager.add(Pan);
+        $("#message_audio")[0].play();
         manager.on('panmove', function (e) {
             $('#swipe_hint,#hot_area').removeClass('original');
             var dX = deltaX + e.deltaX;
@@ -50,30 +45,39 @@ define(['jquery', 'hammer', 'velocity'], function ($, Hammer, Velocity) {
                 $.Velocity.hook($swipe, 'translateX', '700px');
                 swiperDone = true;
                 $("#lock_audio")[0].play();
-                changeScreen();
             }
         });
         manager.on('panend', function (e) {
             if (!swiperDone) {
                 $("#swipe_hint").addClass("original");
                 $("#hot_area").addClass("original");
+            } else {
+                changeScreen();
             }
         });
 
-        function changeScreen() {
-            $('#lock_screen').fadeOut();
-            $('#container').fadeIn();
+        function zfill(num) {
+            var s = "000000000" + num;
+            return s.substr(s.length - 2);
         }
+
+        //第二页
+
 
         var timer = void 0;
         var animateAble = true;
         var chatIndex = 0;
         var chatLength = $(".chat-list li").length;
 
-        setTimeout(function () {
-            displayChat();
-            timer = setInterval(displayChat, 1000);
-        }, 1000);
+        function changeScreen() {
+            $('#lock_screen').fadeOut();
+            $('#container').fadeIn();
+
+            setTimeout(function () {
+                displayChat();
+                timer = setInterval(displayChat, 1000);
+            }, 1000);
+        }
 
         function displayChat() {
             if (animateAble && chatIndex < chatLength) {
