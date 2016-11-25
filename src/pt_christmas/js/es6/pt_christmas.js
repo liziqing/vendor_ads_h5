@@ -1,10 +1,15 @@
 /**
  * Created by martin on 16/11/21.
  */
-define(['jquery', 'hammer', 'velocity'], function($, Hammer, Velocity) {
+define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'], function(wx,env,baseWx,util,$, Hammer, Velocity) {
         $(() => {
 
-            //第一页
+
+            let head;
+            let nickname;
+            let openid;
+
+
             let myDate=new Date();
             let hour=myDate.getHours();
             let minute=myDate.getMinutes();
@@ -12,6 +17,8 @@ define(['jquery', 'hammer', 'velocity'], function($, Hammer, Velocity) {
             let day=myDate.getDate();
             let week=myDate.getDay();
             let weekArr=['日','一','二','三','四','五','六'];
+
+
             let hot = document.getElementById('hot_area');
             let swipe = document.getElementById('swipe_hint');
             let $hot = $(hot);
@@ -24,20 +31,40 @@ define(['jquery', 'hammer', 'velocity'], function($, Hammer, Velocity) {
 
 
 
+            let timer;
+            let animateAble = true;
+            let chatIndex = 0;
+            let chatLength = $(".chat-list li").length;
 
-            //滑动解锁页时间显示
+
+
+            pullUserInfo();
+
+
+
+            /**
+             第一页
+             */
+
+
+
+            /**
+             滑动解锁页时间显示
+             */
             $('.hour-and-minute').html(zfill(hour)+':'+zfill(minute));
             $('.mouth-and-day').html(zfill(mouth)+'月'+zfill(day)+'日');
             $('.week').html('星期'+weekArr[week]);
 
-            //滑动解锁事件
+            /**
+             滑动解锁事件
+             */
             manager.add(Pan);
             $("#message_audio")[0].play();
             manager.on('panmove', function(e) {
                 $('#swipe_hint,#hot_area').removeClass('original');
                 var dX = deltaX + (e.deltaX);
                 var dY = deltaY + (e.deltaY);
-                console.log(dX);
+                //console.log(dX);
                 if(dX > 0 && dX < 240){
                     $.Velocity.hook($hot, 'translateX', dX + 'px');
                     $.Velocity.hook($swipe, 'translateX', dX + 'px');
@@ -57,7 +84,34 @@ define(['jquery', 'hammer', 'velocity'], function($, Hammer, Velocity) {
                 }
             });
 
+            //获取微信用户名和头像
+            function  pullUserInfo(){
+                if(env.debug == 1)
+                {
+                    head = './img/xiena-head.jpg';//  ？缺少默认头像
 
+                    nickname = 'test';
+
+                    openid = 'o6Njdwyc_Lk1cKeeGuB9Lgo9Bib8';
+
+                    $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“'+nickname+'\”加入了群聊');
+                    $('.user-replay .right img').attr('src',head);
+
+                }else{
+                    baseWx.initUserInfo(env.appid, function(data){
+
+                        head = data.headimgurl;
+
+                        nickname = data.nickname;
+
+                        openid = data.openid;
+
+                        $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“'+nickname+'\”加入了群聊');
+                        $('.user-replay .right img').attr('src',head);
+                    });
+                }
+            }
+            //时间补零
             function zfill(num) {
                 var s = "000000000" + num;
                 return s.substr(s.length-2);
@@ -66,28 +120,100 @@ define(['jquery', 'hammer', 'velocity'], function($, Hammer, Velocity) {
 
 
 
+            /**
+             第二页
+             */
+
+
+            /**
+             视频
+             */
+
+            //视频点击播放
+            $(".zj-video1-btn").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#video1")[0].play();
+                //$("#video1")[0].webkitRequestFullScreen();
+            });
+            $(".xn-vedio1-btn").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#video1")[0].play();
+                //$("#video1")[0].webkitRequestFullScreen();
+            });
+            $(".xn-vedio2-btn").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#video1")[0].play();
+                //$("#video1")[0].webkitRequestFullScreen();
+            });
+            $(".xn-vedio3-btn").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#video1")[0].play();
+                //$("#video1")[0].webkitRequestFullScreen();
+            });
+            $(".zj-video2-btn").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#video1")[0].play();
+                //$("#video1")[0].webkitRequestFullScreen();
+            });
+
+
+            //视频暂停or结束
+            $("#zj-video1").bind("ended", function() {
+                videoEnded();
+            });
+            $("#zj-video1").bind("pause", function() {
+                videoEnded();
+            });
+
+
+            /**
+             语音
+             */
+
+            //点击播放
+            $(".yuyin-image-13s").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#audio13")[0].play();
+            });
+            $(".yuyin-image-4s").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#audio4")[0].play();
+            });
+            $(".yuyin-image-14s").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#audio14")[0].play();
+            });
+
+
+            //语音结束or暂停
+            $("#audio13").bind("ended", function() {
+                videoEnded();
+            });
+            $("#audio13").bind("pause", function() {
+                videoEnded();
+            });
 
 
 
 
 
-            //第二页
-
-
-            let timer;
-            let animateAble = true;
-            let chatIndex = 0;
-            let chatLength = $(".chat-list li").length;
-
+            //第一页解锁后，第二页聊天开始
             function changeScreen(){
                 $('#lock_screen').fadeOut();
                 $('#container').fadeIn();
 
                 setTimeout(() => {
                     displayChat();
-                    timer = setInterval(displayChat,1000);
+                    timer = setInterval(displayChat,3000);
                 },1000);
-
             }
 
 
@@ -104,26 +230,29 @@ define(['jquery', 'hammer', 'velocity'], function($, Hammer, Velocity) {
                     }
                 }
             }
-
             function scrollChat(){
                 var height = $(".chat-list")[0].scrollHeight;
                 $(".chat-list").animate({scrollTop:height},800);
             }
+
+
+
             //视频结束
             function videoEnded(){
                 setTimeout(function(){
                     animateAble = true;
                     displayChat();
-                    timer = setInterval(displayChat,4000);
+                    timer = setInterval(displayChat,3000);
                 },500)
-
             }
 
 
-            $(".yuyin-image").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-            })
+
+
+
+
+
+
 
 
 

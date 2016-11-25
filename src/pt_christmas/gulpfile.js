@@ -126,7 +126,6 @@ gulp.task('pt_christmas_babel', function(){
 /*-----------------------watch------------------------*/
 gulp.task('pt_christmas_watch', gulp.series('pt_christmas_less','pt_christmas_babel', function() {
     gulp.watch('./css/pt_christmas.less', gulp.series('pt_christmas_less'));
-    gulp.watch('./css/first_page.less', gulp.series('pt_christmas_less'));
     gulp.watch('./js/es6/pt_christmas.js', gulp.series('pt_christmas_babel'));
 }));
 
