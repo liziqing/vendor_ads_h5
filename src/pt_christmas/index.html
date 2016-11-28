@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="./css/pt_christmas.css" />
 </head>
 <body>
+<audio class="message_audio audio_source" id="message_audio" src="./music/message.mp3"></audio>
+<audio class="lock_audio audio_source" id="lock_audio" src="./music/lock.mp3"></audio>
+
 <!--第一页滑动解锁-->
 <div id="lock_screen">
-    <audio class="message_audio audio_source" id="message_audio" src="./music/message.mp3"></audio>
-    <audio class="lock_audio audio_source" id="lock_audio" src="./music/lock.mp3"></audio>
     <div class="now-time">
         <p class="hour-and-minute"></p>
         <p class="mouth-and-day"></p>
@@ -41,7 +42,7 @@
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.jpg"></div>
             <div class="text">
-                <p>Hello xxx，你终于来了。</p>
+                <p class="greetings"></p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>

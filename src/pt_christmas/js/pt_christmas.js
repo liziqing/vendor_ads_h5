@@ -86,6 +86,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
                 $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“' + nickname + '\”加入了群聊');
                 $('.user-replay .right img').attr('src', head);
+                $('.greetings').text('Hello ' + nickname + '，你终于来了。');
             } else {
                 baseWx.initUserInfo(env.appid, function (data) {
 
@@ -97,6 +98,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
                     $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“' + nickname + '\”加入了群聊');
                     $('.user-replay .right img').attr('src', head);
+                    $('.greetings').text('Hello ' + nickname + '，你终于来了。');
                 });
             }
         }

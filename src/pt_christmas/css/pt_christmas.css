@@ -147,6 +147,9 @@ body #container .chat-list {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   padding-bottom: 2.5rem;
+  transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
 }
 html #container .chat-list li,
 body #container .chat-list li {
