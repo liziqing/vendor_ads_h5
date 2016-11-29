@@ -153,7 +153,7 @@ body #container .chat-list {
 }
 html #container .chat-list li,
 body #container .chat-list li {
-  margin: 17px 0 18px 0;
+  margin: 19px 0 20px 0;
   width: 100%;
   display: none;
 }
@@ -191,7 +191,7 @@ body #container .chat-list li .text {
   font-size: 0.7rem;
   margin-left: 1rem;
   background: white;
-  max-width: 12rem;
+  max-width: 12.2rem;
   box-sizing: border-box;
   border: 1px solid #e4e4e4;
   border-radius: 8px;
@@ -204,9 +204,10 @@ body #container .chat-list li .text p {
 }
 html #container .chat-list li .text .expression,
 body #container .chat-list li .text .expression {
-  width: 36px;
-  height: 36px;
+  width: 30px;
   display: inline-block;
+  vertical-align: top;
+  padding: 5px 2px 0 2px;
 }
 html #container .chat-list li .text .expression img,
 body #container .chat-list li .text .expression img {
@@ -227,6 +228,17 @@ body #container .chat-list li .image {
 }
 html #container .chat-list li .image img,
 body #container .chat-list li .image img {
+  width: 100%;
+}
+html #container .chat-list li .video,
+body #container .chat-list li .video {
+  float: left;
+  margin-left: 0.9rem;
+  width: 12.2rem;
+  height: 9.17rem;
+}
+html #container .chat-list li .video img,
+body #container .chat-list li .video img {
   width: 100%;
 }
 html #container .chat-list li .yuyin-image-13s,
@@ -264,9 +276,10 @@ html #container .chat-list li .yuyin-image-4s .speaker,
 body #container .chat-list li .yuyin-image-4s .speaker,
 html #container .chat-list li .yuyin-image-14s .speaker,
 body #container .chat-list li .yuyin-image-14s .speaker {
-  width: 17px;
-  height: 25px;
+  width: 21.1px;
+  height: 30.5px;
   float: left;
+  padding-top: 5px;
 }
 html #container .chat-list li .yuyin-image-13s .speaker img,
 body #container .chat-list li .yuyin-image-13s .speaker img,
@@ -319,7 +332,7 @@ body #container .chat-list .user-replay .text {
   font-size: 0.7rem;
   margin-right: 1rem;
   background-color: #A0E75A;
-  max-width: 12rem;
+  max-width: 12.2rem;
   box-sizing: border-box;
   border: 1px solid #e4e4e4;
   border-radius: 8px;

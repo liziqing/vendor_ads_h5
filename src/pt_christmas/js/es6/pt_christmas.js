@@ -96,7 +96,7 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
 
                     $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“'+nickname+'\”加入了群聊');
                     $('.user-replay .right img').attr('src',head);
-                    $('.greetings').text('Hello '+nickname+'，你终于来了。');
+                    $('.greetings').text('Hello @'+nickname+'，你终于来了。');
 
                 }else{
                     baseWx.initUserInfo(env.appid, function(data){
@@ -109,7 +109,7 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
 
                         $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“'+nickname+'\”加入了群聊');
                         $('.user-replay .right img').attr('src',head);
-                        $('.greetings').text('Hello '+nickname+'，你终于来了。');
+                        $('.greetings').text('Hello @'+nickname+'，你终于来了。');
                     });
                 }
             }
@@ -135,8 +135,8 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
             $(".zj-video1-btn").click(function(){
                 animateAble = false;
                 clearInterval(timer);
-                //$("#video1")[0].play();
-                //$("#video1")[0].webkitRequestFullScreen();
+                //$("#zj-video1")[0].play();
+                //$("#zj-video1")[0].webkitRequestFullScreen();
             });
             $(".xn-vedio1-btn").click(function(){
                 animateAble = false;
@@ -150,18 +150,25 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
                 //$("#video1")[0].play();
                 //$("#video1")[0].webkitRequestFullScreen();
             });
-            $(".xn-vedio3-btn").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#video1")[0].play();
-                //$("#video1")[0].webkitRequestFullScreen();
-            });
             $(".zj-video2-btn").click(function(){
                 animateAble = false;
                 clearInterval(timer);
                 //$("#video1")[0].play();
                 //$("#video1")[0].webkitRequestFullScreen();
             });
+            $(".xn-vedio3-btn").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#video1")[0].play();
+                //$("#video1")[0].webkitRequestFullScreen();
+            });
+            $(".zj-video3-btn").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                //$("#video1")[0].play();
+                //$("#video1")[0].webkitRequestFullScreen();
+            });
+
 
 
             //视频暂停or结束
@@ -183,11 +190,11 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
                 clearInterval(timer);
                 //$("#audio13")[0].play();
             });
-            $(".yuyin-image-4s").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#audio4")[0].play();
-            });
+            //$(".yuyin-image-4s").click(function(){
+            //    animateAble = false;
+            //    clearInterval(timer);
+            //    //$("#audio4")[0].play();
+            //});
             $(".yuyin-image-14s").click(function(){
                 animateAble = false;
                 clearInterval(timer);
