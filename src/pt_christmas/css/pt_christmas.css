@@ -201,6 +201,7 @@ body #container .chat-list li .text {
 html #container .chat-list li .text p,
 body #container .chat-list li .text p {
   display: inline-block;
+  line-height: 1.2rem;
 }
 html #container .chat-list li .text .expression,
 body #container .chat-list li .text .expression {
@@ -338,6 +339,7 @@ body #container .chat-list .user-replay .text {
   border-radius: 8px;
   padding: 0.65rem 0.6rem;
   position: relative;
+  line-height: 1.2rem;
 }
 html #container .chat-list .user-replay .text .right-arrow,
 body #container .chat-list .user-replay .text .right-arrow {
