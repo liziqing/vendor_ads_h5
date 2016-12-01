@@ -29,6 +29,19 @@ html,body {
     visibility:hidden;
     clear:both;
   }
+  .audio_source{
+    position: absolute;
+    left: 0;
+    top: -9999px;
+    display: none;
+
+  }
+  .video_source{
+    position: absolute;
+    left: 0;
+    top: -9999px;
+    display: none;
+  }
 
   #lock_screen{
     width: 100%;
@@ -93,9 +106,7 @@ html,body {
     //  color: #fff;
     //}
 
-    .audio_source{
-      display: none;
-    }
+
     .original{
       transform: translate(0px,0px) !important;
       -webkit-transform: translate(0px,0px) !important;

@@ -36,7 +36,7 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
             let chatIndex = 0;
             let chatLength = $(".chat-list li").length;
 
-
+            let endLock = false;
 
             pullUserInfo();
 
@@ -127,93 +127,6 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
              */
 
 
-            /**
-             视频
-             */
-
-            //视频点击播放
-            $(".zj-video1-btn").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#zj-video1")[0].play();
-                //$("#zj-video1")[0].webkitRequestFullScreen();
-            });
-            $(".xn-vedio1-btn").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#video1")[0].play();
-                //$("#video1")[0].webkitRequestFullScreen();
-            });
-            $(".xn-vedio2-btn").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#video1")[0].play();
-                //$("#video1")[0].webkitRequestFullScreen();
-            });
-            $(".zj-video2-btn").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#video1")[0].play();
-                //$("#video1")[0].webkitRequestFullScreen();
-            });
-            $(".xn-vedio3-btn").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#video1")[0].play();
-                //$("#video1")[0].webkitRequestFullScreen();
-            });
-            $(".zj-video3-btn").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#video1")[0].play();
-                //$("#video1")[0].webkitRequestFullScreen();
-            });
-
-
-
-            //视频暂停or结束
-            $("#zj-video1").bind("ended", function() {
-                videoEnded();
-            });
-            $("#zj-video1").bind("pause", function() {
-                videoEnded();
-            });
-
-
-            /**
-             语音
-             */
-
-            //点击播放
-            $(".yuyin-image-13s").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#audio13")[0].play();
-            });
-            //$(".yuyin-image-4s").click(function(){
-            //    animateAble = false;
-            //    clearInterval(timer);
-            //    //$("#audio4")[0].play();
-            //});
-            $(".yuyin-image-14s").click(function(){
-                animateAble = false;
-                clearInterval(timer);
-                //$("#audio14")[0].play();
-            });
-
-
-            //语音结束or暂停
-            $("#audio13").bind("ended", function() {
-                videoEnded();
-            });
-            $("#audio13").bind("pause", function() {
-                videoEnded();
-            });
-
-
-
-
-
             //第一页解锁后，第二页聊天开始
             function changeScreen(){
                 $('#lock_screen').fadeOut();
@@ -248,15 +161,64 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
 
             //视频结束
             function videoEnded(){
-                setTimeout(function(){
-                    animateAble = true;
-                    displayChat();
-                    timer = setInterval(displayChat,3000);
-                },500)
+                if(!endLock){
+                    endLock = true;
+                    setTimeout(function () {
+                        endLock = false;
+                    },500);
+                    setTimeout(function(){
+                        animateAble = true;
+                        displayChat();
+                        timer = setInterval(displayChat,3000);
+                    },500)
+                }
             }
 
 
+            /**
+             视频
+             */
 
+
+            //视频点击播放
+            $(".zj-video1-btn").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                $("#zj-video1")[0].play();
+                $("#zj-video1")[0].webkitRequestFullScreen();
+            });
+
+
+
+
+            //视频暂停or结束
+            $("#zj-video1").bind("ended", function() {
+                videoEnded();
+            });
+            $("#zj-video1").bind("pause", function() {
+                videoEnded();
+            });
+
+
+            /**
+             语音
+             */
+
+                //点击播放
+            $(".yuyin-image-13s").click(function(){
+                animateAble = false;
+                clearInterval(timer);
+                $("#audio13")[0].play();
+            });
+
+
+            //语音结束or暂停
+            $("#audio13").bind("ended", function() {
+                videoEnded();
+            });
+            $("#audio13").bind("pause", function() {
+                videoEnded();
+            });
 
 
 

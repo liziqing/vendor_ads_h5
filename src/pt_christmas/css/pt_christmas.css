@@ -29,6 +29,20 @@ body .clearfix:after {
   visibility: hidden;
   clear: both;
 }
+html .audio_source,
+body .audio_source {
+  position: absolute;
+  left: 0;
+  top: -9999px;
+  display: none;
+}
+html .video_source,
+body .video_source {
+  position: absolute;
+  left: 0;
+  top: -9999px;
+  display: none;
+}
 html #lock_screen,
 body #lock_screen {
   width: 100%;
@@ -85,10 +99,6 @@ body #lock_screen .invitation-notification .invitation-desc {
   padding-left: 0.8rem;
   position: absolute;
   top: 41%;
-}
-html #lock_screen .audio_source,
-body #lock_screen .audio_source {
-  display: none;
 }
 html #lock_screen .original,
 body #lock_screen .original {
