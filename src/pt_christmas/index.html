@@ -9,14 +9,21 @@
     <meta content="telephone=no" name="format-detection">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>张杰谢娜的圣诞专访（4）</title>
-
+    <!-- build:css css/pt_christmas.min.css -->
     <link rel="stylesheet" href="./css/pt_christmas.css" />
+    <!-- endbuild -->
 </head>
 <body>
 <audio class="message_audio audio_source" id="message_audio" src="./music/message.mp3"></audio>
 <audio class="lock_audio audio_source" id="lock_audio" src="./music/lock.mp3"></audio>
 <audio class="audio_source" id="audio13" src="./music/yuyin-13s.wav"></audio>
+<!--<audio class="audio_source" id="audio14" src="./music/yuyin-14s.wav"></audio>-->
 <video class="video_source" id="zj-video1" src="./music/zj-video1.mp4"></video>
+<!--<video class="video_source" id="xn-video1" src="./music/xn-video1.mp4"></video>-->
+<!--<video class="video_source" id="xn-video2" src="./music/xn-video2.mp4"></video>-->
+<!--<video class="video_source" id="zj-video2" src="./music/zj-video2.mp4"></video>-->
+<!--<video class="video_source" id="xn-video3" src="./music/xn-video3.mp4"></video>-->
+<!--<video class="video_source" id="zj-video3" src="./music/zj-video3.mp4"></video>-->
 
 <!--第一页滑动解锁-->
 <div id="lock_screen">
@@ -28,21 +35,18 @@
     <div class="invitation-notification">
         <p class="invitation-desc"></p>
     </div>
-    <!--<div class="footer-bar"> ＞ 滑动来解锁</div>-->
-
     <div class="swipe_hint original" id="swipe_hint"></div>
     <div class="hot_area original" id="hot_area"></div>
 </div>
 
 <!--第二页微信对话-->
 <div id="container">
-
     <ul class="chat-list">
         <li class="chat-item">
             <p class="invitation-hints">“张杰”邀请你加入了群聊，群聊参与的人还有： 谢娜、铂金Pt</p>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="text">
                 <p class="greetings"></p>
                 <img src="img/arrow.png" class="arrow">
@@ -56,14 +60,14 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>你好呀，等你好久了。</p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="image">
                 <img src="./img/haohaisen.gif">
             </div>
@@ -83,14 +87,14 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="text">
                 <p>Ok～！</p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>好啦，我准备好啦。来吧！</p>
                 <img src="img/arrow.png" class="arrow">
@@ -104,20 +108,20 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>@张杰 要好好回答哦！</p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="video zj-video1-btn">
                 <img src="./img/zj-video1.png" alt="张杰视频">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="image">
                 <img src="./img/bangbangda.gif">
             </div>
@@ -130,7 +134,7 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>小明你好捧场哦。</p>
                 <img src="img/arrow.png" class="arrow">
@@ -144,8 +148,8 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
-            <div class="video xn-vedio1-btn">
+            <div class="left"><img src="img/xiena-head.png"></div>
+            <div class="video xn-video1-btn">
                 <img src="img/xn-video1.png" alt="谢娜视频">
             </div>
         </li>
@@ -157,14 +161,14 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>让我酝酿一下！</p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="yuyin-image-13s">
                 <div class="speaker">
                     <img src="img/audio.png" alt="谢娜语音">
@@ -174,7 +178,7 @@
             <span class="speaker-time">13"</span>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="text">
                 <p>哈哈，<span class="expression"><img src="img/expression/clap.png"></span> 真好听。</p>
                 <img src="img/arrow.png" class="arrow">
@@ -183,18 +187,18 @@
         <li class="chat-item clearfix">
             <div class="left"><img src="img/pt_head.png"></div>
             <div class="text">
-                <p>杰哥你也来几句吧，想听现场版<span class="expression"><img src="img/expression/zhongyi.jpg"></span></p>
+                <p>杰哥你也来几句吧~想听现场版<span class="expression"><img src="img/expression/zhongyi.jpg"></span></p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="image">
                 <img src="./img/fuchangfusui.gif">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="text">
                 <p>我就算了吧。<span class="expression"><img src="img/expression/shy.png"></span></p>
                 <img src="img/arrow.png" class="arrow">
@@ -207,16 +211,9 @@
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/pt_head.png"></div>-->
-            <!--<div class="text">-->
-                <!--<p>收到过印象最深的礼物是什么呢？</p>-->
-                <!--<img src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-        <!--</li>-->
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
-            <div class="video xn-vedio2-btn">
+            <div class="left"><img src="img/xiena-head.png"></div>
+            <div class="video xn-video2-btn">
                 <img src="img/xn-video2.png" alt="谢娜视频">
             </div>
         </li>
@@ -228,30 +225,20 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="video zj-video2-btn">
                 <img src="img/zj-video2.png" alt="张杰视频">
             </div>
         </li>
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/zhangjie-head.jpg"></div>-->
-            <!--<div class="yuyin-image-13s">-->
-                <!--<div class="speaker">-->
-                    <!--<img src="img/audio.png" alt="张杰语音">-->
-                <!--</div>-->
-                <!--<img src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-            <!--<span class="speaker-time">13"</span>-->
-        <!--</li>-->
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>我有那么抠门吗？</p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <span class="expression">
                     <img src="img/expression/koubi.png">
@@ -267,7 +254,7 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>嘿嘿，真的吗？
                     <span class="expression"><img src="img/expression/shy.png"></span>
@@ -278,7 +265,7 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="image">
                 <img src="./img/naoshazima.gif">
             </div>
@@ -295,7 +282,7 @@
         <li class="chat-item clearfix">
             <div class="left"><img src="img/pt_head.png"></div>
             <div class="text">
-                <p>@谢娜，想了解一下杰哥送你最浪漫的圣诞礼物是什么？
+                <p>@谢娜，想了解一下，杰哥送你最浪漫的圣诞礼物是什么？
                     <span class="expression"><img src="img/expression/shengdan.png"></span>
                     <span class="expression"><img src="img/expression/tree.jpg"></span>
                     <span class="expression"><img src="img/expression/gift.png"></span>
@@ -304,13 +291,13 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
-            <div class="video xn-vedio3-btn">
+            <div class="left"><img src="img/zhangjie-head.png"></div>
+            <div class="video xn-video3-btn">
                 <img src="img/xn-video3.png" alt="谢娜视频">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="image">
                 <img src="./img/memeda.gif">
             </div>
@@ -323,65 +310,11 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="video zj-video3-btn">
                 <img src="img/zj-video3.png" alt="张杰视频">
             </div>
         </li>
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/zhangjie-head.jpg"></div>-->
-            <!--<div class="yuyin-image-4s">-->
-                <!--<div class="speaker">-->
-                    <!--<img src="img/audio.png" alt="张杰语音">-->
-                <!--</div>-->
-                <!--<img src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-            <!--<span class="speaker-time">4"</span>-->
-        <!--</li>-->
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/xiena-head.jpg"></div>-->
-            <!--<div class="text">-->
-                <!--<p>我想的也是这个，别的都可以放一放。哈哈。</p>-->
-                <!--<img src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/pt_head.png"></div>-->
-            <!--<div class="text">-->
-                <!--<p>哈哈，真是心有灵犀，你们的圣诞愿望一定会成真。</p>-->
-                <!--<img src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/pt_head.png"></div>-->
-            <!--<div class="text">-->
-                <!--<p>@张杰，圣诞节有没有什么特别的愿望？</p>-->
-                <!--<img src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/zhangjie-head.jpg"></div>-->
-            <!--<div class="image zj-video2-btn">-->
-                <!--<img src="" alt="张杰视频">-->
-            <!--</div>-->
-        <!--</li>-->
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/zhangjie-head.jpg"></div>-->
-            <!--<div class="yuyin-image-14s">-->
-                <!--<div class="speaker">-->
-                    <!--<img src="img/audio.png" alt="张杰语音">-->
-                <!--</div>-->
-                <!--<img src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-            <!--<span class="speaker-time">14"</span>-->
-        <!--</li>-->
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/pt_head.png"></div>-->
-            <!--<div class="text">-->
-                <!--<p>纯净铂金，送给长不大的恋人。好浪漫～</p>-->
-                <!--<img src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-        <!--</li>-->
         <li class="chat-item clearfix">
             <div class="left"><img src="img/pt_head.png"></div>
             <div class="text">
@@ -390,14 +323,14 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="text">
                 <p>只要花心思的，她就一定会喜欢的。<span class="expression"><img src="img/expression/love.jpg"></span></p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="yuyin-image-14s">
                 <div class="speaker">
                     <img src="img/audio.png" alt="张杰语音">
@@ -407,7 +340,7 @@
             <span class="speaker-time">14"</span>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="image">
                 <img src="./img/ainiaini.gif">
             </div>
@@ -431,7 +364,7 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="text">
                 <span class="expression">
                     <img src="img/expression/ciya.jpg">
@@ -441,7 +374,7 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>圣诞节快乐～！
                     <span class="expression"><img src="img/expression/shengdan.png"></span>
@@ -455,34 +388,21 @@
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/zhangjie-head.jpg"></div>
+            <div class="left"><img src="img/zhangjie-head.png"></div>
             <div class="text">
                 <p>我们下次再见啦！</p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
         <li class="chat-item clearfix">
-            <div class="left"><img src="img/xiena-head.jpg"></div>
+            <div class="left"><img src="img/xiena-head.png"></div>
             <div class="text">
                 <p>拜拜啦<span class="expression"><img src="img/expression/huishou.jpg"></span>~</p>
                 <img src="img/arrow.png" class="arrow">
             </div>
         </li>
-        <!--<li class="chat-item clearfix">-->
-            <!--<div class="left"><img src="img/xiena-head.jpg"></div>-->
-            <!--<div class="text">-->
-                <!--<span class="expression"><img src="img/shengdan.png"></span>-->
-                <!--<span class="expression"><img src="img/shengdan.png"></span>-->
-                <!--<span class="expression"><img src="img/shengdan.png"></span>-->
-                <!--<span class="expression"><img src="img/gift.png"></span>-->
-                <!--<span class="expression"><img src="img/gift.png"></span>-->
-                <!--<span class="expression"><img src="img/gift.png"></span>-->
-                <!--<span src="img/arrow.png" class="arrow">-->
-            <!--</div>-->
-        <!--</li>-->
     </ul>
     <div class="bottom-bar">
-        <!--<input type="text" id="fake_input">-->
         <input type="text" id="user_input"/>
     </div>
 </div>
