@@ -10,7 +10,7 @@ define(function(require){
 
     var hostUrl = window.location.href;
 
-     env.debug = 1;   /////////////////////////
+     //env.debug = 1;   /////////////////////////
 
     if(hostUrl.indexOf("t1.") > 0){
         env.baseUrl = 'http://t1.h5.qnmami.com/';
