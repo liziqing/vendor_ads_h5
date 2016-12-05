@@ -3,8 +3,7 @@
 /**
  * Created by martin on 16/11/21.
  */
-define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity', 'ptShareConfig'],
-    function (wx, env, baseWx, util, $, Hammer, Velocity, ptShareConfig) {
+define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity', 'ptShareConfig'], function (wx, env, baseWx, util, $, Hammer, Velocity, ptShareConfig) {
 
     $(function () {
 
@@ -45,13 +44,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
             shareDes: 'shareDes'
         };
 
-        $(function () {
-            pullUserInfo();
-
-            // wxInit();
-
-        });
-
+        pullUserInfo();
+        // wxInit();
 
         function wxInit() {
             ptShareConfig.init(function (data) {
@@ -178,6 +172,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //第一页解锁后，第二页聊天开始
         function changeScreen() {
+            $('title').text('张杰谢娜的圣诞专访（4）');
             $('#lock_screen').fadeOut();
             $('#container').fadeIn();
 
@@ -198,7 +193,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 }
             }
         }
-
         function scrollChat() {
             var height = $(".chat-list")[0].scrollHeight;
             $(".chat-list").animate({ scrollTop: height }, 800);
@@ -323,7 +317,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
             animateAble = false;
             clearInterval(timer);
             $("#audio13")[0].play();
-
         });
 
         //语音结束or暂停

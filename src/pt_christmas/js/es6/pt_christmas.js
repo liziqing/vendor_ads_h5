@@ -176,6 +176,7 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity', 
 
             //第一页解锁后，第二页聊天开始
             function changeScreen(){
+                $('title').text('张杰谢娜的圣诞专访（4）');
                 $('#lock_screen').fadeOut();
                 $('#container').fadeIn();
 
