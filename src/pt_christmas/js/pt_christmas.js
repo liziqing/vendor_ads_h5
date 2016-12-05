@@ -80,7 +80,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
         //获取微信用户名和头像
         function pullUserInfo() {
             if (env.debug == 1) {
-                //head = './img/xiena-head.jpg';//  ？缺少默认头像
+                head = './img/user-head-null.png';
 
                 nickname = 'test';
 
@@ -140,6 +140,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 }
             }
         }
+        
         function scrollChat() {
             var height = $(".chat-list")[0].scrollHeight;
             $(".chat-list").animate({ scrollTop: height }, 800);
@@ -264,6 +265,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
             animateAble = false;
             clearInterval(timer);
             $("#audio13")[0].play();
+
         });
 
         //语音结束or暂停
