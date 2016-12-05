@@ -247,10 +247,39 @@ body #container .chat-list li .video {
   margin-left: 0.9rem;
   width: 12.2rem;
   height: 9.17rem;
+  position: relative;
 }
 html #container .chat-list li .video img,
 body #container .chat-list li .video img {
   width: 100%;
+}
+html #container .chat-list li .video .hand,
+body #container .chat-list li .video .hand {
+  width: 90px;
+  height: 106px;
+  position: absolute;
+  top: 48%;
+  left: 48%;
+  background: url("../img/hand.png");
+  background-size: 100% auto;
+  animation: 1s click ease-in-out;
+  -webkit-animation: 1s click ease-in-out;
+  animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 3;
+}
+@keyframes click {
+  0% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 }
 html #container .chat-list li .yuyin-image-13s,
 body #container .chat-list li .yuyin-image-13s,
