@@ -231,36 +231,42 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity', 
             //视频点击播放
             $(".zj-video1-btn").click(function(){
                 animateAble = false;
+                $(this).find('.hand').hide();
                 clearInterval(timer);
                 $("#zj-video1")[0].play();
                 $("#zj-video1")[0].webkitRequestFullScreen();
             });
             $(".xn-video1-btn").click(function(){
                 animateAble = false;
+                $(this).find('.hand').hide();
                 clearInterval(timer);
                 $("#zj-video1")[0].play();
                 $("#zj-video1")[0].webkitRequestFullScreen();
             });
             $(".xn-video2-btn").click(function(){
                 animateAble = false;
+                $(this).find('.hand').hide();
                 clearInterval(timer);
                 $("#zj-video1")[0].play();
                 $("#zj-video1")[0].webkitRequestFullScreen();
             });
             $(".zj-video2-btn").click(function(){
                 animateAble = false;
+                $(this).find('.hand').hide();
                 clearInterval(timer);
                 $("#zj-video1")[0].play();
                 $("#zj-video1")[0].webkitRequestFullScreen();
             });
             $(".xn-video3-btn").click(function(){
                 animateAble = false;
+                $(this).find('.hand').hide();
                 clearInterval(timer);
                 $("#zj-video1")[0].play();
                 $("#zj-video1")[0].webkitRequestFullScreen();
             });
             $(".zj-video3-btn").click(function(){
                 animateAble = false;
+                $(this).find('.hand').hide();
                 clearInterval(timer);
                 $("#zj-video1")[0].play();
                 $("#zj-video1")[0].webkitRequestFullScreen();
