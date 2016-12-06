@@ -240,36 +240,36 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity', 
                 animateAble = false;
                 $(this).find('.hand').hide();
                 clearInterval(timer);
-                $("#zj-video1")[0].play();
-                $("#zj-video1")[0].webkitRequestFullScreen();
+                $("#xn-video1")[0].play();
+                $("#xn-video1")[0].webkitRequestFullScreen();
             });
             $(".xn-video2-btn").click(function(){
                 animateAble = false;
                 $(this).find('.hand').hide();
                 clearInterval(timer);
-                $("#zj-video1")[0].play();
-                $("#zj-video1")[0].webkitRequestFullScreen();
+                $("#xn-video2")[0].play();
+                $("#xn-video2")[0].webkitRequestFullScreen();
             });
             $(".zj-video2-btn").click(function(){
                 animateAble = false;
                 $(this).find('.hand').hide();
                 clearInterval(timer);
-                $("#zj-video1")[0].play();
-                $("#zj-video1")[0].webkitRequestFullScreen();
+                $("#zj-video2")[0].play();
+                $("#zj-video2")[0].webkitRequestFullScreen();
             });
             $(".xn-video3-btn").click(function(){
                 animateAble = false;
                 $(this).find('.hand').hide();
                 clearInterval(timer);
-                $("#zj-video1")[0].play();
-                $("#zj-video1")[0].webkitRequestFullScreen();
+                $("#xn-video3")[0].play();
+                $("#xn-video3")[0].webkitRequestFullScreen();
             });
             $(".zj-video3-btn").click(function(){
                 animateAble = false;
                 $(this).find('.hand').hide();
                 clearInterval(timer);
-                $("#zj-video1")[0].play();
-                $("#zj-video1")[0].webkitRequestFullScreen();
+                $("#zj-video3")[0].play();
+                $("#zj-video3")[0].webkitRequestFullScreen();
             });
 
 
@@ -283,41 +283,41 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity', 
             $("#zj-video1").bind("pause", function() {
                 videoEnded();
             });
-            ////谢娜视频1
-            //$("#xn-video1").bind("ended", function() {
-            //    videoEnded();
-            //});
-            //$("#xn-video1").bind("pause", function() {
-            //    videoEnded();
-            //});
-            ////谢娜视频2
-            //$("#xn-video2").bind("ended", function() {
-            //    videoEnded();
-            //});
-            //$("#xn-video2").bind("pause", function() {
-            //    videoEnded();
-            //});
-            ////张杰视频2
-            //$("#zj-video2").bind("ended", function() {
-            //    videoEnded();
-            //});
-            //$("#zj-video2").bind("pause", function() {
-            //    videoEnded();
-            //});
-            ////谢娜视频3
-            //$("#xn-video3").bind("ended", function() {
-            //    videoEnded();
-            //});
-            //$("#xn-video3").bind("pause", function() {
-            //    videoEnded();
-            //});
-            ////张杰视频3
-            //$("#zj-video3").bind("ended", function() {
-            //    videoEnded();
-            //});
-            //$("#zj-video3").bind("pause", function() {
-            //    videoEnded();
-            //});
+            //谢娜视频1
+            $("#xn-video1").bind("ended", function() {
+                videoEnded();
+            });
+            $("#xn-video1").bind("pause", function() {
+                videoEnded();
+            });
+            //谢娜视频2
+            $("#xn-video2").bind("ended", function() {
+                videoEnded();
+            });
+            $("#xn-video2").bind("pause", function() {
+                videoEnded();
+            });
+            //张杰视频2
+            $("#zj-video2").bind("ended", function() {
+                videoEnded();
+            });
+            $("#zj-video2").bind("pause", function() {
+                videoEnded();
+            });
+            //谢娜视频3
+            $("#xn-video3").bind("ended", function() {
+                videoEnded();
+            });
+            $("#xn-video3").bind("pause", function() {
+                videoEnded();
+            });
+            //张杰视频3
+            $("#zj-video3").bind("ended", function() {
+                videoEnded();
+            });
+            $("#zj-video3").bind("pause", function() {
+                videoEnded();
+            });
 
 
 
