@@ -41,7 +41,7 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
                 success : function(data){
                     if(data.code == 0)
                     {
-                        callUserinfo(data.data, callback);
+                        callUserinfo(alias, data.data, callback);
                     }
                 },
                 error:function(){
