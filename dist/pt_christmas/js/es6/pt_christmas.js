@@ -1,8 +1,8 @@
 /**
  * Created by martin on 16/11/21.
  */
-define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity', 'ptShareConfig'],
-    function(wx,env,baseWx,util,$, Hammer, Velocity, ptShareConfig) {
+define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer'],
+    function(wx,env,baseWx,util,$, Hammer) {
 
         $(() => {
 
