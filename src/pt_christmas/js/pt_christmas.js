@@ -45,13 +45,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer'], function 
         };
 
         pullUserInfo();
-        wxInit();
-
-        function wxInit() {
-            baseWx.initUserInfo(env.appid, 'pt_christmas', function (data) {
-                alert(JSON.stringify(data));
-            });
-        }
 
         /**
          第一页
@@ -108,7 +101,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer'], function 
                 $('.pt-greetings').text(nickname + '，你好~今天有机会和   @张杰 @娜娜 一起聊聊他们的圣诞趣事哦～');
                 $('.xn-greetings').text(nickname + '你好捧场哦。');
             } else {
-                baseWx.initUserInfo(env.appid, function (data) {
+                baseWx.initUserInfo(env.appid, 'pt_christmas', function (data) {
+                    alert(JSON.stringify(data));
 
                     head = data.headimgurl;
 
