@@ -97,8 +97,23 @@ gulp.task('pt_christmas_copy_js', function () {
         .pipe(copy('../../dist/pt_christmas/'))
 });
 
+gulp.task('pt_christmas_copy_img', function () {
+    return gulp.src('./img/**')
+        .pipe(copy('../../dist/pt_christmas/'))
+});
+
+gulp.task('pt_christmas_copy_mp_vertify', function () {
+    return gulp.src('./*.txt')
+        .pipe(copy('../../dist/pt_christmas/'))
+});
+
+gulp.task('pt_christmas_copy_vendor', function () {
+    return gulp.src('../vendor/**')
+        .pipe(copy('../../dist/pt_christmas/'))
+});
+
 gulp.task('pt_christmas_copy',
-    gulp.series('pt_christmas_copy_music','pt_christmas_copy_js')
+    gulp.series('pt_christmas_copy_music','pt_christmas_copy_js', 'pt_christmas_copy_img', 'pt_christmas_copy_mp_vertify', 'pt_christmas_copy_vendor')
 );
 
 /*-----------------------usemin------------------------*/
@@ -136,7 +151,7 @@ gulp.task('pt_christmas_watch', gulp.series('pt_christmas_less','pt_christmas_ba
 gulp.task('pt_christmas_build',
     gulp.series('pt_christmas_clean',
         'pt_christmas_babel',
-        gulp.parallel('pt_christmas_copy', 'pt_christmas_imgmin', 'pt_christmas_usemin'),
+        gulp.parallel('pt_christmas_copy', 'pt_christmas_usemin'),
         'pt_christmas_cssmin',
         'pt_christmas_htmlmin'
     )
