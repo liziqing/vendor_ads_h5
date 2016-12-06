@@ -3,7 +3,7 @@
 /**
  * Created by martin on 16/11/21.
  */
-define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer'], function (wx, env, baseWx, util, $, Hammer) {
+define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'Velocity'], function (wx, env, baseWx, util, $, Hammer, Velocity) {
 
     $(function () {
 
