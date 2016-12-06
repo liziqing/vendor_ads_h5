@@ -18,10 +18,12 @@ define(function(require){
         env.h5domain = 't1.h5.qnmami.com';
         env.debug = 1;
         env.domain = 'api.qnmami.com';
+        env.apidomain = 'api.vendor.qnmami.com';
     }else{
         env.baseUrl = 'http://h5.qnmami.com/';
         env.domain = 'api.qnmami.com';
         env.h5domain = 'h5.qnmami.com';
+        env.apidomain = 'api.vendor.qnmami.com';
     }
 
 

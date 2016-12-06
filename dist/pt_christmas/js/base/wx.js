@@ -8,7 +8,7 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
         var callUserinfo = function(alias, data, callback)
         {
             $.ajax({
-                url: "http://"+env.domain+"/weixin/user-info",
+                url: "http://"+env.apidomain+"/weixin/user-info",
                 type: "get",
                 data: {openid: data.openid, token: data.access_token, alias: alias, format: 'jsonp'},
                 dataType: "jsonp",
@@ -35,7 +35,7 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
             if(code != undefined && code != null) {
                 //进行token的获取
                 util.ajax({
-                    url: "http://" + env.domain + "/weixin/oauth-token-no-session",
+                    url: "http://" + env.apidomain + "/weixin/oauth-token-no-session",
                     type: "get",
                     data: {code: code, alias: alias, format: 'jsonp', is_userinfo: '1'},
                     dataType: "jsonp",
@@ -71,7 +71,7 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
             var code = util.queryString('code');
 
             util.ajax({
-                url: "http://"+env.domain+"/weixin/oauth-token-no-session",
+                url: "http://"+env.apidomain+"/weixin/oauth-token-no-session",
                 type: "get",
                 data: {code: code, alias: alias, format: 'jsonp'},
                 dataType: "jsonp",
@@ -274,7 +274,7 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
     {
         util.ajax({
             type: 'GET',
-            url: 'http://' + env.domain + '/weixin/sig',
+            url: 'http://' + env.apidomain + '/weixin/sig',
             data: {url: encodeURIComponent(window.location.href), alias: alias, format: 'jsonp'},
             dataType: 'jsonp',
             jsonp: 'callback',
