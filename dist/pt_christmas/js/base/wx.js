@@ -5,12 +5,12 @@
 define(['base/env', 'base/util', 'jquery', 'wx'],
     function(env, util, $, wx){
 
-        var callUserinfo = function(data, callback)
+        var callUserinfo = function(alias, data, callback)
         {
             $.ajax({
-                url: "http://"+env.domain+"/weixin/common/userinfo",
+                url: "http://"+env.domain+"/weixin/user-info",
                 type: "get",
-                data: {openid: data.openid, token: data.access_token, format: 'jsonp'},
+                data: {openid: data.openid, token: data.access_token, alias: alias, format: 'jsonp'},
                 dataType: "jsonp",
                 success : function(data){
                     if(data.code == 0)
@@ -24,7 +24,7 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
             });
         };
 
-        var initUserInfo = function(appid, callback)
+        var initUserInfo = function(appid, alias, callback)
         {
             if(env.local == true){
                 return ;
@@ -32,58 +32,52 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
 
             var code = util.queryString('code');
 
-            $.ajax({
-                url: "http://"+env.domain+"/weixin/common/cookie-oauth-token",
+            //进行token的获取
+            util.ajax({
+                url: "http://"+env.domain+"/weixin/oauth-token-no-session",
                 type: "get",
-                data: {format: 'jsonp', is_userinfo: '1'},
+                data: {code: code, alias: alias, format: 'jsonp', is_userinfo: '1'},
                 dataType: "jsonp",
-                success: function(data)
-                {
+                success : function(data){
                     if(data.code == 0)
                     {
-                        if(data.data.access_token == "")
-                        {
-                            if(code != undefined && code != null)
-                            {
-                                //进行token的获取
-                                util.ajax({
-                                    url: "http://"+env.domain+"/weixin/common/oauth-token",
-                                    type: "get",
-                                    data: {code: code, format: 'jsonp', is_userinfo: '1'},
-                                    dataType: "jsonp",
-                                    success : function(data){
-                                        if(data.code == 0)
-                                        {
-                                            callUserinfo(data.data, callback);
-                                        }
-                                    },
-                                    error:function(){
-                                        alert('数据读取失败');
-                                    }
-                                });
-                            }else{
-                                window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
-                                    + appid
-                                    + "&redirect_uri=" + encodeURIComponent(window.location.href)//encodeURIComponent(env.baseUrl + 'html/base/authjump.html?url=' + encodeURIComponent(window.location.href))
-                                    + "&response_type=code"
-                                    + "&scope=snsapi_userinfo"
-                                    + "&state=weiapppay#wechat_redirect";
-                            }
-                        }else{
-                            callUserinfo(data.data, callback);
-                        }
-                    }else{
-                        window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
-                            + appid
-                            + "&redirect_uri=" + encodeURIComponent(window.location.href)//encodeURIComponent(env.baseUrl + 'html/base/authjump.html?url=' + encodeURIComponent(window.location.href))
-                            + "&response_type=code"
-                            + "&scope=snsapi_userinfo"
-                            + "&state=weiapppay#wechat_redirect";
+                        callUserinfo(data.data, callback);
                     }
+                },
+                error:function(){
+                    alert('数据读取失败');
                 }
             });
 
         }
+
+        //获取网页参数中的wid，用接口去取token
+        var initTokenNoSession = function(appid, alias, url, callback)
+        {
+            if(env.local == true){
+                callback();
+                return ;
+            }
+
+            var url = url || window.location.href;
+            var code = util.queryString('code');
+
+            util.ajax({
+                url: "http://"+env.domain+"/weixin/oauth-token-no-session",
+                type: "get",
+                data: {code: code, alias: alias, format: 'jsonp'},
+                dataType: "jsonp",
+                success : function(data){
+                    if(data.code == 0)
+                    {
+                        callback(data.data);
+                    }
+                },
+                error:function(){
+                    alert('数据读取失败');
+                }
+            });
+        };
 
     //获取网页参数中的wid，用接口去取token
     var initToken = function(appid, callback)
@@ -232,7 +226,7 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
         util.ajax({
             url: "http://"+env.domain+"/weixin/common/cookie-oauth-token",
             type: "get",
-            data: {app_id: appId, r:Math.round(Math.random()*100000), format: 'jsonp'},
+            data: {app_id: appid, r:Math.round(Math.random()*100000), format: 'jsonp'},
             dataType: "jsonp",
             success: function(data)
             {
@@ -268,12 +262,12 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
         });
     };
 
-    var initWxJs = function(appid, jsApiList, callback)
+    var initWxJs = function(appid, alias, jsApiList, callback)
     {
         util.ajax({
             type: 'GET',
-            url: 'http://' + env.domain + '/weixin/common/sig',
-            data: {url: encodeURIComponent(window.location.href), format: 'jsonp'},
+            url: 'http://' + env.domain + '/weixin/sig',
+            data: {url: encodeURIComponent(window.location.href), alias: alias, format: 'jsonp'},
             dataType: 'jsonp',
             jsonp: 'callback',
             success: function (data) {
@@ -302,6 +296,7 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
 
     return {
         "initToken": initToken,
+        "initTokenNoSession": initTokenNoSession,
         'goWithAuth': goWithAuth,
         'checkWxOauth': checkWxOauth,
         'initWxJs': initWxJs,
