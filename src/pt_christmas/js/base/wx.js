@@ -32,22 +32,30 @@ define(['base/env', 'base/util', 'jquery', 'wx'],
 
             var code = util.queryString('code');
 
-            //进行token的获取
-            util.ajax({
-                url: "http://"+env.domain+"/weixin/oauth-token-no-session",
-                type: "get",
-                data: {code: code, alias: alias, format: 'jsonp', is_userinfo: '1'},
-                dataType: "jsonp",
-                success : function(data){
-                    if(data.code == 0)
-                    {
-                        callUserinfo(alias, data.data, callback);
+            if(code != undefined && code != null) {
+                //进行token的获取
+                util.ajax({
+                    url: "http://" + env.domain + "/weixin/oauth-token-no-session",
+                    type: "get",
+                    data: {code: code, alias: alias, format: 'jsonp', is_userinfo: '1'},
+                    dataType: "jsonp",
+                    success: function (data) {
+                        if (data.code == 0) {
+                            callUserinfo(alias, data.data, callback);
+                        }
+                    },
+                    error: function () {
+                        alert('数据读取失败');
                     }
-                },
-                error:function(){
-                    alert('数据读取失败');
-                }
-            });
+                });
+            }else{
+                window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="
+                    + appid
+                    + "&redirect_uri=" + encodeURIComponent(window.location.href)//encodeURIComponent(env.baseUrl + 'html/base/authjump.html?url=' + encodeURIComponent(window.location.href))
+                    + "&response_type=code"
+                    + "&scope=snsapi_userinfo"
+                    + "&state=weiapppay#wechat_redirect";
+            }
 
         }
 
