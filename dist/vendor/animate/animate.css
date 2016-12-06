@@ -8,6 +8,25 @@
  * Copyright (c) 2016 Daniel Eden
  */
 
+
+.animated-750 {
+    -webkit-animation-duration: 750ms;
+    animation-duration: 750ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.animated-500 {
+    -webkit-animation-duration: 500ms;
+    animation-duration: 500ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.animated-250 {
+    -webkit-animation-duration: 250ms;
+    animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -1215,7 +1234,7 @@
     animation-name: bounceOutUp;
 }
 
-@-webkit-keyframes fadeIn {
+@-webkit-keyframes fadeInOri {
     from {
         opacity: 0;
     }
@@ -1225,7 +1244,7 @@
     }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInOri {
     from {
         opacity: 0;
     }
@@ -1235,9 +1254,34 @@
     }
 }
 
-.fadeIn {
-    -webkit-animation-name: fadeIn;
-    animation-name: fadeIn;
+.fadeInOri {
+    -webkit-animation-name: fadeInOri;
+    animation-name: fadeInOri;
+}
+
+@-webkit-keyframes fadeInOri70 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.7;
+    }
+}
+
+@keyframes fadeInOri70 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.7;
+    }
+}
+
+.fadeInOri70 {
+    -webkit-animation-name: fadeInOri70;
+    animation-name: fadeInOri70;
 }
 
 @-webkit-keyframes fadeInDown {
@@ -1504,7 +1548,7 @@
     animation-name: fadeInUpBig;
 }
 
-@-webkit-keyframes fadeOut {
+@-webkit-keyframes fadeOutOri {
     from {
         opacity: 1;
     }
@@ -1514,7 +1558,7 @@
     }
 }
 
-@keyframes fadeOut {
+@keyframes fadeOutOri {
     from {
         opacity: 1;
     }
@@ -1524,9 +1568,35 @@
     }
 }
 
-.fadeOut {
-    -webkit-animation-name: fadeOut;
-    animation-name: fadeOut;
+.fadeOutOri {
+    -webkit-animation-name: fadeOutOri;
+    animation-name: fadeOutOri;
+}
+
+
+@-webkit-keyframes fadeOutOri70 {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeOutOri70 {
+    from {
+        opacity: 0.7;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeOutOri70 {
+    -webkit-animation-name: fadeOutOri70;
+    animation-name: fadeOutOri70;
 }
 
 @-webkit-keyframes fadeOutDown {
