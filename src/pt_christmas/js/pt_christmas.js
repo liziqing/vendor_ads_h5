@@ -99,7 +99,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $('.xn-greetings').text(nickname + '你好捧场哦。');
             } else {
                 baseWx.initUserInfo(env.appid, 'pt_christmas', function (data) {
-                    alert(JSON.stringify(data));
 
                     head = data.headimgurl;
 
