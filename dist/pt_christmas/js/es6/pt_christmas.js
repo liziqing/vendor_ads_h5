@@ -99,8 +99,8 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
                     $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“'+nickname+'\”加入了群聊');
                     $('.user-replay .right img').attr('src',head);
                     $('.greetings').text('Hello @'+nickname+'，你终于来了。');
-                    $('.pt-greetings').text(nickname+'，你好~今天有机会和   @张杰 @娜娜 一起聊聊他们的圣诞趣事哦～');
-                    $('.xn-greetings').text(nickname+'你好捧场哦。');
+                    $('.pt-greetings').text('@' + nickname+'，你好~今天有机会和   @张杰 @娜娜 一起聊聊他们的圣诞趣事哦～');
+                    $('.xn-greetings').text('@' + nickname+'你好捧场哦。');
 
                     $('body').show();
                     $("#message_audio")[0].play();
@@ -116,11 +116,51 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
                         $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“'+nickname+'\”加入了群聊');
                         $('.user-replay .right img').attr('src',head);
                         $('.greetings').text('Hello @'+nickname+'，你终于来了。');
-                        $('.pt-greetings').text(nickname+'，你好~今天有机会和   @张杰 @娜娜 一起聊聊他们的圣诞趣事哦～');
-                        $('.xn-greetings').text(nickname+'你好捧场哦。');
+                        $('.pt-greetings').text('@' + nickname+'，你好~今天有机会和   @张杰 @娜娜 一起聊聊他们的圣诞趣事哦～');
+                        $('.xn-greetings').text('@' + nickname+'你好捧场哦。');
 
                         $('body').show();
                         $("#message_audio")[0].play();
+                    });
+
+                    baseWx.initWxJs(env.appid, 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function(){
+                        var shareTimeline = {};
+                        shareTimeline.title = '朋友圈title';
+                        shareTimeline.imgUrl = 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg';
+                        shareTimeline.shareUrl = window.location.href;
+
+                        var shareAppMessage = {};
+                        shareAppMessage.title = '好友title';
+                        shareAppMessage.desc = '好友des';
+                        shareAppMessage.imgUrl = 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg';
+                        shareAppMessage.shareUrl = window.location.href;
+
+                        wx.onMenuShareTimeline({
+                            title: shareTimeline.title, // 分享标题
+                            link: shareTimeline.shareUrl, // 分享链接
+                            imgUrl: shareTimeline.imgUrl, // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+
+                        wx.onMenuShareAppMessage({
+                            title: shareAppMessage.title, // 分享标题
+                            link: shareAppMessage.shareUrl, // 分享链接
+                            desc: shareAppMessage.desc,
+                            imgUrl: shareAppMessage.imgUrl, // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
                     });
                 }
 
