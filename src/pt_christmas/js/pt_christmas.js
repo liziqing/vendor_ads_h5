@@ -124,14 +124,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
                 baseWx.initWxJs(env.appid, 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
                     var shareTimeline = {};
-                    shareTimeline.title = '朋友圈title';
-                    shareTimeline.imgUrl = 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg';
+                    shareTimeline.title = '张杰&谢娜邀你加入群聊...';
+                    shareTimeline.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
                     shareTimeline.shareUrl = window.location.href;
 
                     var shareAppMessage = {};
-                    shareAppMessage.title = '好友title';
-                    shareAppMessage.desc = '好友des';
-                    shareAppMessage.imgUrl = 'http://pt-jn.preciousplatinum.com.cn/img/wechatfeeds/share.jpg';
+                    shareAppMessage.title = '张杰&谢娜邀你加入群聊..';
+                    shareAppMessage.desc = '张杰谢娜的圣诞趣事，你听过吗？';
+                    shareAppMessage.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
                     shareAppMessage.shareUrl = window.location.href;
 
                     wx.onMenuShareTimeline({
