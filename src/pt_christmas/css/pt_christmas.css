@@ -38,6 +38,8 @@ body .audio_source {
 }
 html .video_source,
 body .video_source {
+  width: 0px;
+  height: 0px;
   position: absolute;
   left: 0;
   top: -9999px;
@@ -89,16 +91,17 @@ body #lock_screen .invitation-notification {
   position: absolute;
   top: 33%;
   font-size: 0.7rem;
-  color: #000;
+  color: #333;
   text-align: left;
   width: 96%;
   left: 2%;
 }
 html #lock_screen .invitation-notification .invitation-desc,
 body #lock_screen .invitation-notification .invitation-desc {
-  padding-left: 0.8rem;
+  padding-left: 0.9rem;
   position: absolute;
   top: 41%;
+  font-size: 0.7rem;
 }
 html #lock_screen .original,
 body #lock_screen .original {
@@ -332,7 +335,7 @@ body #container .chat-list li .yuyin-image-14s .speaker img {
 }
 html #container .chat-list li .yuyin-image-13s,
 body #container .chat-list li .yuyin-image-13s {
-  width: 9rem;
+  width: 7rem;
 }
 html #container .chat-list li .yuyin-image-4s,
 body #container .chat-list li .yuyin-image-4s {
@@ -340,7 +343,31 @@ body #container .chat-list li .yuyin-image-4s {
 }
 html #container .chat-list li .yuyin-image-14s,
 body #container .chat-list li .yuyin-image-14s {
-  width: 9.5rem;
+  width: 3rem;
+}
+html #container .chat-list li .yuyin-image-13s .speaker .audio-origin,
+body #container .chat-list li .yuyin-image-13s .speaker .audio-origin,
+html #container .chat-list li .yuyin-image-14s .speaker .audio-origin,
+body #container .chat-list li .yuyin-image-14s .speaker .audio-origin {
+  display: inline-block;
+}
+html #container .chat-list li .yuyin-image-13s .speaker .audio-active,
+body #container .chat-list li .yuyin-image-13s .speaker .audio-active,
+html #container .chat-list li .yuyin-image-14s .speaker .audio-active,
+body #container .chat-list li .yuyin-image-14s .speaker .audio-active {
+  display: none;
+}
+html #container .chat-list li .yuyin-image-13s.active .speaker .audio-origin,
+body #container .chat-list li .yuyin-image-13s.active .speaker .audio-origin,
+html #container .chat-list li .yuyin-image-14s.active .speaker .audio-origin,
+body #container .chat-list li .yuyin-image-14s.active .speaker .audio-origin {
+  display: none;
+}
+html #container .chat-list li .yuyin-image-13s.active .speaker .audio-active,
+body #container .chat-list li .yuyin-image-13s.active .speaker .audio-active,
+html #container .chat-list li .yuyin-image-14s.active .speaker .audio-active,
+body #container .chat-list li .yuyin-image-14s.active .speaker .audio-active {
+  display: inline-block;
 }
 html #container .chat-list li .speaker-time,
 body #container .chat-list li .speaker-time {
@@ -349,6 +376,13 @@ body #container .chat-list li .speaker-time {
   height: 2.1rem;
   line-height: 2.1rem;
   margin-left: 0.3rem;
+}
+html #container .chat-list li .audio-active,
+body #container .chat-list li .audio-active {
+  width: 55px !important;
+  position: relative;
+  top: -12.5px;
+  left: -17px;
 }
 html #container .chat-list .user-replay,
 body #container .chat-list .user-replay {
