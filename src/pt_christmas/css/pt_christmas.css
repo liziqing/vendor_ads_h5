@@ -5,6 +5,8 @@
 }
 html {
   background-color: #ebebeb;
+  background: url("http://minires.hdtmedia.com/uniqlo20160103/img/loading.gif") center center no-repeat;
+  background-size: 150px 200px;
 }
 body {
   display: none;
