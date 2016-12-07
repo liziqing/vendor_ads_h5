@@ -85,6 +85,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //获取微信用户名和头像
         function init() {
+            $('.hour-and-minute').html(zfill(hour) + ':' + zfill(minute));
+            $('.mouth-and-day').html(zfill(mouth) + '月' + zfill(day) + '日');
+            $('.week').html('星期' + weekArr[week]);
+
             if (env.debug == 1 || !util.isWeiXin()) {
                 head = './img/user-head-null.png';
 
@@ -97,6 +101,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $('.greetings').text('Hello @' + nickname + '，你终于来了。');
                 $('.pt-greetings').text(nickname + '，你好~今天有机会和   @张杰 @娜娜 一起聊聊他们的圣诞趣事哦～');
                 $('.xn-greetings').text(nickname + '你好捧场哦。');
+
+                $('body').show();
             } else {
                 baseWx.initUserInfo(env.appid, 'pt_christmas', function (data) {
 
@@ -111,14 +117,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     $('.greetings').text('Hello @' + nickname + '，你终于来了。');
                     $('.pt-greetings').text(nickname + '，你好~今天有机会和   @张杰 @娜娜 一起聊聊他们的圣诞趣事哦～');
                     $('.xn-greetings').text(nickname + '你好捧场哦。');
+
+                    $('body').show();
                 });
             }
-
-            $('.hour-and-minute').html(zfill(hour) + ':' + zfill(minute));
-            $('.mouth-and-day').html(zfill(mouth) + '月' + zfill(day) + '日');
-            $('.week').html('星期' + weekArr[week]);
-
-            $('body').show();
         }
 
         //时间补零
