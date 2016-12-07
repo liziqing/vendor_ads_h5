@@ -332,7 +332,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
         $(".yuyin-image-14s").click(function () {
             animateAble = false;
             clearInterval(timer);
-            $("#audio13")[0].play();
+            $("#audio14")[0].play();
 
             var _this = this;
             $(_this).addClass('active');
