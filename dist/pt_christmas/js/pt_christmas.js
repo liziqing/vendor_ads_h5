@@ -44,7 +44,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
             shareDes: 'shareDes'
         };
 
-        pullUserInfo();
+        init();
 
         /**
          第一页
@@ -53,9 +53,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
         /**
          滑动解锁页时间显示
          */
-        $('.hour-and-minute').html(zfill(hour) + ':' + zfill(minute));
-        $('.mouth-and-day').html(zfill(mouth) + '月' + zfill(day) + '日');
-        $('.week').html('星期' + weekArr[week]);
 
         /**
          滑动解锁事件
@@ -87,7 +84,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
         });
 
         //获取微信用户名和头像
-        function pullUserInfo() {
+        function init() {
             if (env.debug == 1 || !util.isWeiXin()) {
                 head = './img/user-head-null.png';
 
@@ -117,7 +114,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     $('.xn-greetings').text(nickname + '你好捧场哦。');
                 });
             }
+
+            $('.hour-and-minute').html(zfill(hour) + ':' + zfill(minute));
+            $('.mouth-and-day').html(zfill(mouth) + '月' + zfill(day) + '日');
+            $('.week').html('星期' + weekArr[week]);
+
+            $('body').show();
         }
+
         //时间补零
         function zfill(num) {
             var s = "000000000" + num;
@@ -130,7 +134,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //第一页解锁后，第二页聊天开始
         function changeScreen() {
-            $('title').text('张杰谢娜的圣诞专访（4）');
+            // $('title').text('张杰谢娜的圣诞专访（4）');
             $('#lock_screen').fadeOut();
             $('#container').fadeIn();
 
