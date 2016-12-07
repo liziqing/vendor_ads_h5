@@ -87,7 +87,7 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
 
             //获取微信用户名和头像
             function  pullUserInfo(){
-                if(env.debug == 1)
+                if(env.debug == 1 || !util.isWeiXin())
                 {
                     head = './img/user-head-null.png';
 
@@ -291,12 +291,25 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
                 animateAble = false;
                 clearInterval(timer);
                 $("#audio13")[0].play();
+
+                var _this = this;
+                $(_this).addClass('active');
+                setTimeout(function () {
+                    $(_this).removeClass('active');
+                },9000);
             });
+
             //张杰语音14s
             $(".yuyin-image-14s").click(function(){
                 animateAble = false;
                 clearInterval(timer);
                 $("#audio13")[0].play();
+
+                var _this = this;
+                $(_this).addClass('active');
+                setTimeout(function () {
+                    $(_this).removeClass('active');
+                },3000);
             });
 
 

@@ -37,6 +37,8 @@ html,body {
 
   }
   .video_source{
+    width: 0px;
+    height: 0px;
     position: absolute;
     left: 0;
     top: -9999px;
@@ -86,14 +88,15 @@ html,body {
       position: absolute;
       top:33%;
       font-size: 0.7rem;
-      color: #000;
+      color: #333;
       text-align: left;
       width: 96%;
       left: 2%;
       .invitation-desc{
-        padding-left: 0.8rem;
+        padding-left: 0.9rem;
         position: absolute;
         top:41%;
+        font-size: 0.7rem;
       }
     }
     //.footer-bar{
@@ -303,22 +306,62 @@ html,body {
               width: 100%;
             }
           }
+
         }
         .yuyin-image-13s{
-          width: 9rem;
+          width: 7rem;
         }
         .yuyin-image-4s{
           width: 4rem;
         }
         .yuyin-image-14s{
-          width: 9.5rem;
+          width: 3rem;
         }
+
+        .yuyin-image-13s,.yuyin-image-14s{
+
+          .speaker{
+
+            .audio-origin{
+              display: inline-block;
+            }
+
+            .audio-active{
+              display: none;
+            }
+
+          }
+
+        }
+        .yuyin-image-13s.active,.yuyin-image-14s.active{
+
+          .speaker{
+
+            .audio-origin{
+              display: none;
+            }
+
+            .audio-active{
+              display: inline-block;
+            }
+
+          }
+
+        }
+
         .speaker-time{
           font-size: 0.7rem;
           color: #989898;
           height: 2.1rem;
           line-height: 2.1rem;
           margin-left: 0.3rem;
+        }
+
+        .audio-active{
+          width: 55px !important;
+          position: relative;
+          top: -12.5px;
+          left: -17px;
         }
       }
       .user-replay{

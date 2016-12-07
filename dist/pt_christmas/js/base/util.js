@@ -49,6 +49,15 @@ define(['base/env','jquery'], function(env, $){
         }
     };
 
+    util.isWeiXin = function () {
+        var ua = navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     util.ajax = function(params)
     {
         $.ajax(params);
