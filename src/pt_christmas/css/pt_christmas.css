@@ -216,7 +216,7 @@ body #container .chat-list li .text {
   box-sizing: border-box;
   border: 1px solid #e4e4e4;
   border-radius: 8px;
-  padding: 0.65rem 0.6rem;
+  padding: 0.375rem 0.5rem;
   position: relative;
 }
 html #container .chat-list li .text p,
@@ -419,7 +419,7 @@ body #container .chat-list .user-replay .text {
   box-sizing: border-box;
   border: 1px solid #e4e4e4;
   border-radius: 8px;
-  padding: 0.65rem 0.6rem;
+  padding: 0.375rem 0.5rem;
   position: relative;
   line-height: 1.2rem;
 }
