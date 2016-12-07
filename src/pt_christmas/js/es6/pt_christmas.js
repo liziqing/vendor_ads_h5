@@ -127,13 +127,13 @@ define(['wx','base/env', 'base/wx', 'base/util','jquery', 'hammer', 'velocity'],
                         var shareTimeline = {};
                         shareTimeline.title = '张杰&谢娜邀你加入群聊...';
                         shareTimeline.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
-                        shareTimeline.shareUrl = window.location.href;
+                        shareTimeline.shareUrl = 'http://ptxmas.net-show.cn/index.html';
 
                         var shareAppMessage = {};
                         shareAppMessage.title = '张杰&谢娜邀你加入群聊..';
                         shareAppMessage.desc = '张杰谢娜的圣诞趣事，你听过吗？';
                         shareAppMessage.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
-                        shareAppMessage.shareUrl = window.location.href;
+                        shareAppMessage.shareUrl = 'http://ptxmas.net-show.cn/index.html';
 
                         wx.onMenuShareTimeline({
                             title: shareTimeline.title, // 分享标题
