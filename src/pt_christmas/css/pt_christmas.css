@@ -52,6 +52,7 @@ body .video_source {
   left: 0;
   top: -9999px;
   display: none;
+  z-index: -100;
 }
 html #lock_screen,
 body #lock_screen {
