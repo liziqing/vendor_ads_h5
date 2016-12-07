@@ -58,7 +58,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
          滑动解锁事件
          */
         manager.add(Pan);
-        $("#message_audio")[0].play();
         manager.on('panmove', function (e) {
             $('#swipe_hint,#hot_area').removeClass('original');
             var dX = deltaX + e.deltaX;
@@ -103,6 +102,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $('.xn-greetings').text(nickname + '你好捧场哦。');
 
                 $('body').show();
+                $("#message_audio")[0].play();
             } else {
                 baseWx.initUserInfo(env.appid, 'pt_christmas', function (data) {
 
@@ -119,6 +119,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     $('.xn-greetings').text(nickname + '你好捧场哦。');
 
                     $('body').show();
+                    $("#message_audio")[0].play();
                 });
             }
         }
