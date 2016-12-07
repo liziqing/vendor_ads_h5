@@ -349,12 +349,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
             videoEnded();
         });
 
-        //$("#audio14").bind("ended", function() {
-        //    videoEnded();
-        //});
-        //$("#audio14").bind("pause", function() {
-        //    videoEnded();
-        //});
-
+        $("#audio14").bind("ended", function () {
+            videoEnded();
+        });
+        $("#audio14").bind("pause", function () {
+            videoEnded();
+        });
     });
 });
