@@ -112,8 +112,13 @@ gulp.task('pt_christmas_copy_vendor', function () {
         .pipe(copy('../../dist/pt_christmas/'))
 });
 
+gulp.task('pt_christmas_copy_pc_css', function () {
+    return gulp.src('./css/ike/*.css')
+        .pipe(copy('../../dist/pt_christmas/'))
+});
+
 gulp.task('pt_christmas_copy',
-    gulp.series('pt_christmas_copy_music','pt_christmas_copy_js', 'pt_christmas_copy_img', 'pt_christmas_copy_mp_vertify', 'pt_christmas_copy_vendor')
+    gulp.series('pt_christmas_copy_music','pt_christmas_copy_js', 'pt_christmas_copy_img', 'pt_christmas_copy_mp_vertify', 'pt_christmas_copy_vendor', 'pt_christmas_copy_pc_css')
 );
 
 /*-----------------------usemin------------------------*/
@@ -147,6 +152,15 @@ gulp.task('pt_christmas_watch', gulp.series('pt_christmas_less','pt_christmas_ba
     gulp.watch('./js/es6/ending_origin.js', gulp.series('pt_christmas_babel'));
     gulp.watch('./js/es6/ending.js', gulp.series('pt_christmas_babel'));
 }));
+
+/*-----------------------watch PC------------------------*/
+gulp.task('pt_christmas_watch_pc', gulp.series('pt_christmas_copy_pc_css','pt_christmas_usemin', 'pt_christmas_copy_img', function() {
+    gulp.watch('./css/ike/*.css', gulp.series('pt_christmas_copy_pc_css'));
+    gulp.watch('./*.html', gulp.series('pt_christmas_usemin'));
+    gulp.watch('./img/pc_ending/**', gulp.series('pt_christmas_copy_img'));
+    
+}));
+
 
 
 /*-----------------------build------------------------*/
