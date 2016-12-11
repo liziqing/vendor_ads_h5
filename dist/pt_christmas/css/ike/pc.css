@@ -31,7 +31,11 @@ body .wapper{
 	width:462px;
 	height: 261px;
 	margin-left:194px;
+	display:block;
 	float:left;
+}
+#videoPlayer{
+
 }
 #desc{
 	background:url(../../img/pc_ending/word.png) no-repeat scroll;
