@@ -212,7 +212,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
                         setTimeout(function () {
                             window.location.href = './ending_origin.html';
-                        }, 2000)
+                        }, 3000)
                     }
                 }
             }
