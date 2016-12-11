@@ -1,434 +1,452 @@
-*{
-  margin: 0;
-  padding: 0;
-  font-family: "微软雅黑", "Helvetica Neue", Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑", "Helvetica Neue", Helvetica, sans-serif;
 }
-html{
+
+html {
     background-color: #ebebeb;
     background: url("http://minires.hdtmedia.com/uniqlo20160103/img/loading.gif") center center no-repeat;
     background-size: 150px 200px;
 }
-body{
+
+body {
     display: none;
 }
-html,body {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  font-size: 40px;
-  background-color: #ebebeb;
-  margin: 0;
-  padding: 0;
 
-  // 移动端hack
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  cursor: pointer;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-  .clearfix:after {
-    content:".";
-    display:block;
-    height:0;
-    visibility:hidden;
-    clear:both;
-  }
-  .audio_source{
-    position: absolute;
-    left: 0;
-    top: -9999px;
-    display: none;
-
-  }
-  .video_source{
-    width: 0px;
-    height: 0px;
-    position: absolute;
-    left: 0;
-    top: -9999px;
-    display: none;
-    z-index: -100;
-  }
-
-  #lock_screen{
+html, body {
     width: 100%;
     height: 100%;
-    background: url("../img/lock_screen/lock_screen.jpg") center 0px no-repeat;
-    background-size: 100% auto;
-    position: relative;
+    overflow: auto;
+    font-size: 40px;
+    background-color: #ebebeb;
+    margin: 0;
+    padding: 0;
 
-    .now-time{
-      position: absolute;
-      top:10%;
-      left: 20%;
-      width: 60%;
-      font-size: 3.5rem;
-      color: #fff;
-      text-align: center;
-      font-weight: 100;
-      .mouth-and-day{
-        font-size: 0.85rem;
-        display: inline-block;
-        float: left;
-        text-align: right;
-        width: 53%;
-        font-weight: normal;
-      }
-      .week{
-        font-size: 0.85rem;
-        display: inline-block;
-        float: right;
-        text-align: left;
-        width: 42%;
-        padding-left:5%;
-        font-weight: normal;
-      }
+    // 移动端hack
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
     }
-
-    .invitation-notification{
-      background: url("../img/chat-bg.png")center 0px no-repeat;
-      background-size: 100% auto;
-      height:5rem;
-      //line-height: 5rem;
-      position: absolute;
-      top:33%;
-      font-size: 0.7rem;
-      color: #444;
-      text-align: left;
-      width: 96%;
-      left: 2%;
-      .invitation-desc{
-        padding-left: 0.9rem;
+    .audio_source {
         position: absolute;
-        top:41%;
-        font-size: 0.7rem;
-      }
-    }
-    //.footer-bar{
-    //  position: absolute;
-    //  bottom:15%;
-    //  width: 70%;
-    //  left: 15%;
-    //  text-align: center;
-    //  font-size: 1rem;
-    //  color: #fff;
-    //}
-
-
-    .original{
-      transform: translate(0px,0px) !important;
-      -webkit-transform: translate(0px,0px) !important;
-      -moz-transform: translate(0px,0px) !important;
-      transition: all linear 0.3s;
-      -webkit-transition: all linear 0.3s;
-      -moz-transition: all linear 0.3s;
-    }
-    .swipe_hint{
-      position: absolute;
-      left: 219px;
-      bottom: 167px;
-      background: url('../img/lock_screen/swipe-hint.png') center center no-repeat;
-      background-size: 7rem 9.4rem;
-      width: 7rem;
-      height: 1.175rem;
-      animation: swipe steps(8) 0.7s infinite;
-      -webkit-animation: swipe steps(8) 0.7s infinite;
-      -webkit-transition: all linear 0.3s;
-    }
-    .hot_area{
-      position: absolute;
-      left: 69px;
-      bottom: 100px;
-      width: 580px;
-      height: 400px;
-      -webkit-transition: all linear 0.3s;
-    }
-    @keyframes swipe {
-      0% {
-        background-position: 0px 0%;
-      }
-      100% {
-        background-position: 0px -9.4rem;
-      }
-    }
-
-  }
-
-  #container{
-    display: none;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    //padding-bottom: 3rem;
-    .chat-list{
-      list-style: none;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-      box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      padding-bottom: 2.5rem;
-      transition:all 0.5s linear;
-      -webkit-transition:all 0.5s linear;
-      -moz-transition:all 0.5s linear;
-      li{
-        margin:19px 0 20px 0;
-        width: 100%;
+        left: 0;
+        top: -9999px;
         display: none;
-        .invitation-hints{
-          width: 73.75%;
-          margin:0.5rem auto;
-          padding: 0.2rem 0.5rem;
-          box-sizing: border-box;
-          border-radius: 8px;
-          text-align: left;
-          font-size:0.7rem;
-          background-color: #cecece;
-          color: #fff;
-          /*span{
-            color: #1A84F9;
-            margin-left: 0.5rem;
-          }*/
-        }
-        //头像
-        .left{
-          float:left;
-          margin-left:0.5rem;
-          display: inline-block;
-          img{
-            width:2.1rem;
-            height:2.1rem;
-          }
-        }
-        //文字
-        .text{
-          float:left;
-          display: inline-block;
-          font-size: 0.7rem;
-          margin-left:1rem;
-          background:white;
-          max-width:12.2rem;
-          box-sizing:border-box;
-          border:1px solid #e4e4e4;
-          border-radius:8px;
-          padding:0.39rem 0.5rem;
-          position:relative;
-          p{
-            display: inline-block;
-            line-height: 1.2rem;
-          }
-          .expression{
-            width: 30px;
-            display: inline-block;
-            vertical-align: top;
-            padding: 5px 2px 0 2px;
-            img{
-              width: 100%;
-            }
-          }
-          .arrow{
-            position:absolute;
-            top:0.65rem;
-            left:-15px;
-          }
-        }
-        //动态表情
-        .image{
-          float:left;
-          margin-left:1rem;
-          width: 6rem;
-          height: 6rem;
-            img{
-              width: 100%;
-            }
-        }
-        //视频
-        .video{
-          float:left;
-          margin-left:0.9rem;
-          width: 12.2rem;
-          height: 9.17rem;
-          position: relative;
-          img{
-            width: 100%;
-          }
-          .hand{
-            width:90px;
-            height: 106px;
-            position: absolute;
-            top:48%;
-            left: 48%;
-            opacity: 0;
-            background: url("../img/hand.png");
-            background-size: 100% auto;
-            animation:1s click ease-in-out;
-            -webkit-animation:1s click ease-in-out;
-            animation-iteration-count: 3;
-            -webkit-animation-iteration-count: 3;
-          }
-        }
-        @keyframes click {
-          0%{
-            opacity:1;
-            transform: scale(1,1);
-          }
-          50%{
-            opacity: 0;
-            transform: scale(0.5,0.5);
-          }
-          100%{
-            opacity: 1;
-            transform: scale(1,1);
-          }
-        }
-        //语音
-        .yuyin-image-13s,.yuyin-image-4s,.yuyin-image-14s{
-          float:left;
-          margin-left:1rem;
-          height:2.1rem;
-          display: inline-block;
-          font-size: 0.7rem;
-          background:white;
-          max-width:12rem;
-          box-sizing:border-box;
-          border:1px solid #e4e4e4;
-          border-radius:8px;
-          padding:0.5rem 0.6rem;
-          position:relative;
-          .arrow{
-            position:absolute;
-            top:0.65rem;
-            left:-15px;
-          }
-          .speaker{
-            width:21.1px;
-            height: 30.5px;
-            float: left;
-            padding-top: 5px;
-            img{
-              width: 100%;
-            }
-          }
 
-        }
-        .yuyin-image-13s{
-          width: 7rem;
-        }
-        .yuyin-image-4s{
-          width: 4rem;
-        }
-        .yuyin-image-14s{
-          width: 3rem;
-        }
+    }
+    .video_source {
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        left: 0;
+        top: -9999px;
+        display: none;
+        z-index: -100;
+    }
 
-        .yuyin-image-13s,.yuyin-image-14s{
-
-          .speaker{
-
-            .audio-origin{
-              display: inline-block;
-            }
-
-            .audio-active{
-              display: none;
-            }
-
-          }
-
-        }
-        .yuyin-image-13s.active,.yuyin-image-14s.active{
-
-          .speaker{
-
-            .audio-origin{
-              display: none;
-            }
-
-            .audio-active{
-              display: inline-block;
-            }
-
-          }
-
-        }
-
-        .speaker-time{
-          font-size: 0.7rem;
-          color: #989898;
-          height: 2.1rem;
-          line-height: 2.1rem;
-          margin-left: 0.3rem;
-        }
-
-        .audio-active{
-          width: 55px !important;
-          position: relative;
-          top: -12.5px;
-          left: -17px;
-        }
-      }
-      .user-replay{
-        margin:17px 0 18px 0;
+    #lock_screen {
         width: 100%;
-        .right{
-          float:right;
-          margin-right:0.5rem;
-          display: inline-block;
-          img{
-            width:2.1rem;
-            height:2.1rem;
-          }
-        }
-        .text{
-          float:right;
-          display: inline-block;
-          font-size: 0.7rem;
-          margin-right:1rem;
-          background-color: #A0E75A;
-          max-width:12.2rem;
-          box-sizing:border-box;
-          border:1px solid #e4e4e4;
-          border-radius:8px;
-          padding:0.39rem 0.5rem;
-          position:relative;
-          line-height: 1.2rem;
-          .right-arrow{
-            position:absolute;
-            top:0.65rem;
-            right:-11px;
-          }
-        }
-      }
-    }
-    .bottom-bar{
-      position:fixed;
-      left:0;
-      bottom:0;
-      z-index:9;
-      width:100%;
-      height: 95px;
-      background:url('../img/bottom_bar.jpg');
-      background-size: 100%;
-      input{
-        width:60%;
-        height:2.4rem;
-        left:15%;
-        top:0;
-        position:absolute;
-        border:none;
-        outline:none;
-        background:none;
-        font-size:27px;
-        line-height:2.4rem;
-      }
-    }
-  }
+        height: 100%;
+        background: url("../img/lock_screen/lock_screen.jpg") center 0px no-repeat;
+        background-size: 100% auto;
+        position: relative;
 
+        .now-time {
+            position: absolute;
+            top: 2.5%;
+            left: 20%;
+            width: 60%;
+            font-size: 3.5rem;
+            color: #fff;
+            text-align: center;
+            font-weight: 100;
+            .mouth-and-day {
+                font-size: 0.85rem;
+                display: inline-block;
+                float: left;
+                text-align: right;
+                width: 53%;
+                font-weight: normal;
+            }
+            .week {
+                font-size: 0.85rem;
+                display: inline-block;
+                float: right;
+                text-align: left;
+                width: 42%;
+                padding-left: 5%;
+                font-weight: normal;
+            }
+        }
+
+        .invitation-notification {
+            //background: url("../img/chat-bg.png")center 0px no-repeat;
+            //background-size: 100% auto;
+            height: 5rem;
+            //line-height: 5rem;
+            position: absolute;
+            top: 23.6%;
+            font-size: 0.7rem;
+            color: #444;
+            text-align: left;
+            width: 96%;
+            left: 1.7%;
+            .invitation-desc {
+                padding-left: 0.6rem;
+                position: absolute;
+                top: 41%;
+                font-size: 0.7rem;
+            }
+        }
+        //.footer-bar{
+        //  position: absolute;
+        //  bottom:15%;
+        //  width: 70%;
+        //  left: 15%;
+        //  text-align: center;
+        //  font-size: 1rem;
+        //  color: #fff;
+        //}
+
+        .original {
+            transform: translate(0px, 0px) !important;
+            -webkit-transform: translate(0px, 0px) !important;
+            -moz-transform: translate(0px, 0px) !important;
+            transition: all linear 0.3s;
+            -webkit-transition: all linear 0.3s;
+            -moz-transition: all linear 0.3s;
+        }
+        .swipe_hint {
+            position: absolute;
+            left: 219px;
+            bottom: 167px;
+            background: url('../img/lock_screen/swipe-hint.gif') center center no-repeat;
+            background-size: 100% auto;
+            //background-size: 7rem 9.4rem;
+            width: 7rem;
+            height: 1.175rem;
+            //animation: swipe steps(8) 0.7s infinite;
+            //-webkit-animation: swipe steps(8) 0.7s infinite;
+            //-webkit-transition: all linear 0.3s;
+        }
+        .hot_area {
+            position: absolute;
+            left: 69px;
+            bottom: 100px;
+            width: 580px;
+            height: 400px;
+            -webkit-transition: all linear 0.3s;
+        }
+        @keyframes swipe {
+            0% {
+                background-position: 0px 0%;
+            }
+            100% {
+                background-position: 0px -9.4rem;
+            }
+        }
+
+    }
+
+    #container {
+        display: none;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        //padding-bottom: 3rem;
+        .chat-list {
+            list-style: none;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            padding-bottom: 2.5rem;
+            transition: all 0.5s linear;
+            -webkit-transition: all 0.5s linear;
+            -moz-transition: all 0.5s linear;
+            li {
+                margin: 19px 0 20px 0;
+                width: 100%;
+                display: none;
+                .invitation-hints {
+                    width: 73.75%;
+                    margin: 0.5rem auto;
+                    padding: 0.2rem 0.5rem;
+                    box-sizing: border-box;
+                    border-radius: 8px;
+                    text-align: left;
+                    font-size: 0.7rem;
+                    background-color: #cecece;
+                    color: #fff;
+                    /*span{
+                      color: #1A84F9;
+                      margin-left: 0.5rem;
+                    }*/
+                }
+                //头像
+                .left {
+                    float: left;
+                    margin-left: 0.5rem;
+                    display: inline-block;
+                    img {
+                        width: 2.1rem;
+                        height: 2.1rem;
+                    }
+                }
+                //文字
+                .text {
+                    float: left;
+                    display: inline-block;
+                    font-size: 0.7rem;
+                    margin-left: 1rem;
+                    background: white;
+                    max-width: 12.2rem;
+                    box-sizing: border-box;
+                    border: 1px solid #e4e4e4;
+                    border-radius: 8px;
+                    padding: 0.39rem 0.5rem;
+                    position: relative;
+                    p {
+                        display: inline-block;
+                        line-height: 1.2rem;
+                    }
+                    .expression {
+                        width: 30px;
+                        display: inline-block;
+                        vertical-align: top;
+                        padding: 5px 2px 0 2px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .arrow {
+                        position: absolute;
+                        top: 0.65rem;
+                        left: -15px;
+                    }
+                }
+                //动态表情
+                .image {
+                    float: left;
+                    margin-left: 1rem;
+                    width: 6rem;
+                    height: 6rem;
+                    img {
+                        width: 100%;
+                    }
+                }
+                //视频
+                .video {
+                    float: left;
+                    margin-left: 0.9rem;
+                    width: 12.2rem;
+                    height: 9.17rem;
+                    position: relative;
+                    img {
+                        width: 100%;
+                    }
+                    .hand {
+                        width: 90px;
+                        height: 106px;
+                        position: absolute;
+                        top: 48%;
+                        left: 48%;
+                        opacity: 0;
+                        background: url("../img/hand.png");
+                        background-size: 100% auto;
+                        animation: 1s click ease-in-out;
+                        -webkit-animation: 1s click ease-in-out;
+                        animation-iteration-count: 3;
+                        -webkit-animation-iteration-count: 3;
+                    }
+                }
+                .yuyin {
+                    .hand {
+                        width: 90px;
+                        height: 106px;
+                        position: absolute;
+                        top: 20%;
+                        left: 40%;
+                        opacity: 0;
+                        background: url("../img/hand.png");
+                        background-size: 100% auto;
+                        animation: 1s click ease-in-out;
+                        -webkit-animation: 1s click ease-in-out;
+                        animation-iteration-count: 3;
+                        -webkit-animation-iteration-count: 3;
+                    }
+                }
+                @keyframes click {
+                    0% {
+                        opacity: 1;
+                        transform: scale(1, 1);
+                    }
+                    50% {
+                        opacity: 0;
+                        transform: scale(0.5, 0.5);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: scale(1, 1);
+                    }
+                }
+                //语音
+                .yuyin-image-13s, .yuyin-image-4s, .yuyin-image-14s {
+                    float: left;
+                    margin-left: 1rem;
+                    height: 2.1rem;
+                    display: inline-block;
+                    font-size: 0.7rem;
+                    background: white;
+                    max-width: 12rem;
+                    box-sizing: border-box;
+                    border: 1px solid #e4e4e4;
+                    border-radius: 8px;
+                    padding: 0.5rem 0.6rem;
+                    position: relative;
+                    .arrow {
+                        position: absolute;
+                        top: 0.65rem;
+                        left: -15px;
+                    }
+                    .speaker {
+                        width: 21.1px;
+                        height: 30.5px;
+                        float: left;
+                        padding-top: 5px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+
+                }
+                .yuyin-image-13s {
+                    width: 7rem;
+                }
+                .yuyin-image-4s {
+                    width: 4rem;
+                }
+                .yuyin-image-14s {
+                    width: 3rem;
+                }
+
+                .yuyin-image-13s, .yuyin-image-14s {
+
+                    .speaker {
+
+                        .audio-origin {
+                            display: inline-block;
+                        }
+
+                        .audio-active {
+                            display: none;
+                        }
+
+                    }
+
+                }
+                .yuyin-image-13s.active, .yuyin-image-14s.active {
+
+                    .speaker {
+
+                        .audio-origin {
+                            display: none;
+                        }
+
+                        .audio-active {
+                            display: inline-block;
+                        }
+
+                    }
+
+                }
+
+                .speaker-time {
+                    font-size: 0.7rem;
+                    color: #989898;
+                    height: 2.1rem;
+                    line-height: 2.1rem;
+                    margin-left: 0.3rem;
+                }
+
+                .audio-active {
+                    width: 55px !important;
+                    position: relative;
+                    top: -12.5px;
+                    left: -17px;
+                }
+            }
+            .user-replay {
+                margin: 17px 0 18px 0;
+                width: 100%;
+                .right {
+                    float: right;
+                    margin-right: 0.5rem;
+                    display: inline-block;
+                    img {
+                        width: 2.1rem;
+                        height: 2.1rem;
+                    }
+                }
+                .text {
+                    float: right;
+                    display: inline-block;
+                    font-size: 0.7rem;
+                    margin-right: 1rem;
+                    background-color: #A0E75A;
+                    max-width: 12.2rem;
+                    box-sizing: border-box;
+                    border: 1px solid #e4e4e4;
+                    border-radius: 8px;
+                    padding: 0.39rem 0.5rem;
+                    position: relative;
+                    line-height: 1.2rem;
+                    .right-arrow {
+                        position: absolute;
+                        top: 0.65rem;
+                        right: -11px;
+                    }
+                }
+            }
+        }
+        .bottom-bar {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            z-index: 9;
+            width: 100%;
+            height: 95px;
+            background: url('../img/bottom_bar.jpg');
+            background-size: 100%;
+            input {
+                width: 60%;
+                height: 2.4rem;
+                left: 15%;
+                top: 0;
+                position: absolute;
+                border: none;
+                outline: none;
+                background: none;
+                font-size: 27px;
+                line-height: 2.4rem;
+            }
+        }
+    }
 
 }

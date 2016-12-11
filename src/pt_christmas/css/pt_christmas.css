@@ -65,7 +65,7 @@ body #lock_screen {
 html #lock_screen .now-time,
 body #lock_screen .now-time {
   position: absolute;
-  top: 10%;
+  top: 2.5%;
   left: 20%;
   width: 60%;
   font-size: 3.5rem;
@@ -94,20 +94,18 @@ body #lock_screen .now-time .week {
 }
 html #lock_screen .invitation-notification,
 body #lock_screen .invitation-notification {
-  background: url("../img/chat-bg.png") center 0px no-repeat;
-  background-size: 100% auto;
   height: 5rem;
   position: absolute;
-  top: 33%;
+  top: 23.6%;
   font-size: 0.7rem;
   color: #444;
   text-align: left;
   width: 96%;
-  left: 2%;
+  left: 1.7%;
 }
 html #lock_screen .invitation-notification .invitation-desc,
 body #lock_screen .invitation-notification .invitation-desc {
-  padding-left: 0.9rem;
+  padding-left: 0.6rem;
   position: absolute;
   top: 41%;
   font-size: 0.7rem;
@@ -126,13 +124,10 @@ body #lock_screen .swipe_hint {
   position: absolute;
   left: 219px;
   bottom: 167px;
-  background: url('../img/lock_screen/swipe-hint.png') center center no-repeat;
-  background-size: 7rem 9.4rem;
+  background: url('../img/lock_screen/swipe-hint.gif') center center no-repeat;
+  background-size: 100% auto;
   width: 7rem;
   height: 1.175rem;
-  animation: swipe steps(8) 0.7s infinite;
-  -webkit-animation: swipe steps(8) 0.7s infinite;
-  -webkit-transition: all linear 0.3s;
 }
 html #lock_screen .hot_area,
 body #lock_screen .hot_area {
@@ -191,9 +186,9 @@ body #container .chat-list li .invitation-hints {
   background-color: #cecece;
   color: #fff;
   /*span{
-            color: #1A84F9;
-            margin-left: 0.5rem;
-          }*/
+                      color: #1A84F9;
+                      margin-left: 0.5rem;
+                    }*/
 }
 html #container .chat-list li .left,
 body #container .chat-list li .left {
@@ -272,6 +267,21 @@ body #container .chat-list li .video .hand {
   position: absolute;
   top: 48%;
   left: 48%;
+  opacity: 0;
+  background: url("../img/hand.png");
+  background-size: 100% auto;
+  animation: 1s click ease-in-out;
+  -webkit-animation: 1s click ease-in-out;
+  animation-iteration-count: 3;
+  -webkit-animation-iteration-count: 3;
+}
+html #container .chat-list li .yuyin .hand,
+body #container .chat-list li .yuyin .hand {
+  width: 90px;
+  height: 106px;
+  position: absolute;
+  top: 20%;
+  left: 40%;
   opacity: 0;
   background: url("../img/hand.png");
   background-size: 100% auto;

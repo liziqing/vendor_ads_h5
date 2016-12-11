@@ -7,43 +7,48 @@
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
     <meta content="telephone=no" name="format-detection">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
     <title>张杰谢娜的铂金圣诞</title>
-
-    <!-- build:css css/endingPage.min.css -->
-    <link rel="stylesheet" href="./css/endingPage.css" />
+    <!-- build:css css/wbEndingPage.min.css -->
+    <link rel="stylesheet" href="./css/ending.css"/>
     <!-- endbuild -->
 </head>
 <body>
 
-<div class="pt-logo">
-    <img src="img/share-head.jpg">
-</div>
-<div class="desc">
-    <p class="desc-line">浪漫的圣诞节来临</p>
-    <p class="desc-line">国际铂金协会PGI®邀请形象代言人</p>
-    <p class="desc-line">张杰&谢娜</p>
-    <p class="desc-line">聊聊他们的圣诞趣事</p>
-    <p class="desc-line question">想知道谢娜最喜欢张杰哪首歌吗？</p>
-    <p class="desc-line">张杰又究竟许下了什么圣诞愿望？</p>
-    <p class="desc-line">欣赏视频，立即揭晓。</p>
-</div>
-
-<div class="content-wrapper">
-    <div class="video-picture">
-        <img src="img/xn-video3.png">
+<div id="container">
+    <!--上面图片-->
+    <div id="header">
+        <img src="img/weibo/header.jpg"/>
     </div>
-    <p class="video-desc">纯净铂金，送给长不大的恋人</p>
+    <!--视频-->
+    <div id="video-btn">
+        <div id="WxMomentVideo"></div>
+        <img src="img/ending/video-no-btn.png"/>
+    </div>
+    <!--商品-->
+    <div id="commodity">
+        <img src="img/weibo/goods.jpg">
+        <div class="commodity1"></div>
+        <div class="commodity2"></div>
+        <div class="commodity3"></div>
+        <div class="commodity4"></div>
+        <div class="commodity5"></div>
+        <div class="commodity6"></div>
+        <div class="commodity7"></div>
+        <div class="commodity8"></div>
+        <!--关注-->
+        <div class="attention"></div>
+    </div>
 </div>
 
-
-
-
-
-<script src="./js/vendor/require/require.js" ></script>
+<script src="./js/vendor/wxmoment/wxmoment.min.js"></script>
+<script>
+    new WxMoment.OrientationTip();
+</script>
+<script src="./js/vendor/require/require.js"></script>
 <script>
     requirejs(['js/main.js'], function (main) {
-        requirejs(['endingPage']);
+        requirejs(['ending']);
     });
 </script>
 </body>
