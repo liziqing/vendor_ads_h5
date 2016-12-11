@@ -1,0 +1,142 @@
+*{
+	font-family: "Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",arial,sans-serif;
+}
+
+body{
+	background: #fff url("../../img/pc_ending/background.jpg") no-repeat scroll top center;
+}
+
+body .wapper{
+	max-width:100%;
+	width:1200px;
+	margin:0 auto;
+	min-height:1451px;
+}
+
+#logo{
+	margin-top:30px;
+	width:100%;
+
+	height:116px;
+	background:url(../../img/pc_ending/logo.png) no-repeat scroll top center;
+}
+
+#videoAndDesc{
+	width:100%;
+	height:261px;
+	margin-top:35px;
+}
+#videoFrame{
+	background: url(../../img/pc_ending/poster.jpg) no-repeat scroll;
+	width:462px;
+	height: 261px;
+	margin-left:194px;
+	float:left;
+}
+#desc{
+	background:url(../../img/pc_ending/word.png) no-repeat scroll;
+	width:246px;
+	height:193px;
+	float:left;
+	margin-left:80px;
+	margin-top:36px;
+}
+
+#products{
+	width:100%;
+	height:616px;
+	position: relative;
+}
+#products .product{
+	position: absolute;
+}
+
+#products .product a.block{
+	display: block;
+	height:34px;
+}
+#products .product a{
+	color:#606060;
+	font-size:13px;
+	text-decoration: none;
+	background:url("../../img/pc_ending/cart.png") no-repeat scroll center right;
+}
+
+#products .product a p{
+	margin:0;
+	line-height: 18px;
+	text-align:right;
+	padding-right:36px;
+	letter-spacing: 1px;
+}
+
+.product#pdt1{
+	top:73px;
+	left:305px;
+}
+.product#pdt1>a{
+	width:150px;
+}
+
+.product#pdt2{
+	top:82px;
+	right:60px;
+}
+.product#pdt2>a{
+	width:150px;
+}
+
+.product#pdt3{
+	top:231px;
+	left:198px;
+}
+.product#pdt3>a{
+	width:150px;
+}
+
+.product#pdt4{
+	top:148px;
+	left:613px;
+}
+.product#pdt4>a{
+	width:150px;
+}
+
+.product#pdt5{
+	top:306px;
+	left:648px;
+}
+.product#pdt5>a{
+	width:210px;
+}
+
+.product#pdt6{
+	top:430px;
+	left:292px;
+}
+.product#pdt6>a{
+	width:160px;
+}
+
+.product#pdt7{
+	top:453px;
+	right:160px;
+}
+.product#pdt7>a{
+	width:160px;
+}
+
+.product#pdt8{
+	top:567px;
+	right:150px;
+}
+.product#pdt8>a{
+	width:200px;
+}
+
+#follow{
+	margin-top:52px;
+	width:100%;
+	height:94px;
+	text-align:center;
+}
