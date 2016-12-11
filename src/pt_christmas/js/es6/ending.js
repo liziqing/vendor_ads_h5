@@ -41,7 +41,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'],
                 });
                 //关注
                 $('.attention').on('click', function () {
-                    //window.location.href='';
+                    window.location.href = 'http://weibo.com/u/2618614667';
                 });
             },
             setVideo: () => {
@@ -54,7 +54,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'],
                         //播放器在视频载入完毕触发
                     },
                     onplaying: function () {
-
+                        video.getPlayer().enterFullScreen();
                     },
                     onpause: function () {
                         //播放器触发暂停时，目前只针对HTML5播放器有效
@@ -70,12 +70,15 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'],
                     }
                 });
 
-                //let screenWidth = screen.width;
+                // let screenWidth = screen.width;
                 //
-                //if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1) {
-                //    screenWidth = document.body.clientWidth;
-                //}
-                $('#WxMomentVideo').width(750).height(750 * (9 / 16));
+                // if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1) {
+                //     screenWidth = document.body.clientWidth;
+                // }
+                // $('#WxMomentVideo').width(screenWidth * 2).height(screenWidth * (9 / 16) * 2);
+
+                let viewportWidth = 750;
+                $('#WxMomentVideo').width(viewportWidth).height(viewportWidth * (9 / 16));
             }
         }
 

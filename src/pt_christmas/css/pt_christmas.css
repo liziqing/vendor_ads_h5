@@ -59,7 +59,7 @@ body #lock_screen {
   width: 100%;
   height: 100%;
   background: url("../img/lock_screen/lock_screen.jpg") center 0px repeat-y;
-  background-size: 100% auto;
+  background-size: 100% 100%;
   position: relative;
 }
 html #lock_screen .now-time,
@@ -152,6 +152,32 @@ body #container {
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+html #container #all_list,
+body #container #all_list {
+  display: inline-block;
+  width: 100%;
+  height: 1.75rem;
+  line-height: 1.75rem;
+  font-size: 0.7rem;
+  background-color: #fff;
+  color: #18aa48;
+  text-align: center;
+  border-bottom: 1px solid #d3d3d3;
+}
+html #container #all_list i,
+body #container #all_list i {
+  margin-left: 0.1rem;
+  display: inline-block;
+  width: 0.425rem;
+  height: 0.425rem;
+  background: url(../img/arrow-down.png) no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+html #container #all_list ~ .chat-list,
+body #container #all_list ~ .chat-list {
+  padding-bottom: 4.1rem;
 }
 html #container .chat-list,
 body #container .chat-list {

@@ -139,7 +139,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                 oninited: function oninited() {
                     //播放器在视频载入完毕触发
                 },
-                onplaying: function onplaying() {},
+                onplaying: function onplaying() {
+                    video.getPlayer().enterFullScreen();
+                },
                 onpause: function onpause() {
                     //播放器触发暂停时，目前只针对HTML5播放器有效
                 },
@@ -152,12 +154,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                 onfullscreen: function onfullscreen(isfull) {}
             });
 
-            //var screenWidth = screen.width;
+            // let screenWidth = screen.width;
             //
-            //if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1) {
-            //    screenWidth = document.body.clientWidth;
-            //}
-            $('#WxMomentVideo').width(750).height(750 * (9 / 16));
+            // if (navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1) {
+            //     screenWidth = document.body.clientWidth;
+            // }
+            // $('#WxMomentVideo').width(screenWidth * 2).height(screenWidth * (9 / 16) * 2);
+            var viewportWidth = 750;
+            $('#WxMomentVideo').width(viewportWidth).height(viewportWidth * (9 / 16));
         }
     };
 
