@@ -7,24 +7,23 @@
     <meta name="screen-orientation" content="portrait">
     <meta name="x5-orientation" content="portrait">
     <meta content="telephone=no" name="format-detection">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
     <title>张杰谢娜的铂金圣诞</title>
     <!-- build:css css/wbEndingPage.min.css -->
-    <link rel="stylesheet" href="./css/ending.css" />
+    <link rel="stylesheet" href="./css/ending.css"/>
     <!-- endbuild -->
 </head>
 <body>
 
-<video id="zj-xn-video" src=""></video>
-
 <div id="container">
     <!--上面图片-->
     <div id="header">
-        <img src="img/weibo/header.jpg">
+        <img src="img/weibo/header.jpg"/>
     </div>
     <!--视频-->
     <div id="video-btn">
-        <img src="img/weibo/video.png">
+        <div id="WxMomentVideo"></div>
+        <img src="img/ending/video-no-btn.png"/>
     </div>
     <!--商品-->
     <div id="commodity">
@@ -42,8 +41,11 @@
     </div>
 </div>
 
-
-<script src="./js/vendor/require/require.js" ></script>
+<script src="./js/vendor/wxmoment/wxmoment.min.js"></script>
+<script>
+    new WxMoment.OrientationTip();
+</script>
+<script src="./js/vendor/require/require.js"></script>
 <script>
     requirejs(['js/main.js'], function (main) {
         requirejs(['ending']);

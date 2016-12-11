@@ -38,7 +38,7 @@ gulp.task('pt_christmas_clean', function() {
 /*-----------------------htmlmin------------------------*/
 
 gulp.task('pt_christmas_htmlmin', function() {
-    return gulp.src('../../dist/pt_christmas/index.html')
+    return gulp.src('../../dist/pt_christmas/*.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('../../dist/pt_christmas/'));
 });
@@ -119,7 +119,7 @@ gulp.task('pt_christmas_copy',
 /*-----------------------usemin------------------------*/
 
 gulp.task('pt_christmas_usemin', function () {
-    return gulp.src('./index.html')
+    return gulp.src('./*.html')
         .pipe(usemin({
             js: [uglify()],
 
@@ -141,10 +141,10 @@ gulp.task('pt_christmas_babel', function(){
 /*-----------------------watch------------------------*/
 gulp.task('pt_christmas_watch', gulp.series('pt_christmas_less','pt_christmas_babel', function() {
     gulp.watch('./css/pt_christmas.less', gulp.series('pt_christmas_less'));
-    gulp.watch('./css/endingPage.less', gulp.series('pt_christmas_less'));
+    gulp.watch('./css/ending_origin.less', gulp.series('pt_christmas_less'));
     gulp.watch('./css/ending.less', gulp.series('pt_christmas_less'));
     gulp.watch('./js/es6/pt_christmas.js', gulp.series('pt_christmas_babel'));
-    gulp.watch('./js/es6/endingPage.js', gulp.series('pt_christmas_babel'));
+    gulp.watch('./js/es6/ending_origin.js', gulp.series('pt_christmas_babel'));
     gulp.watch('./js/es6/ending.js', gulp.series('pt_christmas_babel'));
 }));
 

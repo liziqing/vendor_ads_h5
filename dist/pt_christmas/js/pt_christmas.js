@@ -44,6 +44,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
             shareDes: 'shareDes'
         };
 
+        var audioIndexArray = [12, 17, 20, 26, 28, 36, 39, 42];
+
         init();
 
         /**
@@ -95,7 +97,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
                 openid = 'o6Njdwyc_Lk1cKeeGuB9Lgo9Bib8';
 
-                $('.invitation-desc').text('\“张杰\”\“谢娜\”邀请\“' + nickname + '\”加入了群聊');
+                $('.invitation-desc').text('\“张杰\”邀请\“' + nickname + '\”加入了群聊');
                 $('.user-replay .right img').attr('src', head);
                 $('.greetings').text('Hello @' + nickname + '，你终于来了。');
                 $('.pt-greetings').text('@' + nickname + '，你好~今天有机会和   @张杰 @娜娜 一起聊聊他们的圣诞趣事哦～');
@@ -182,7 +184,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
             setTimeout(function () {
                 displayChat();
-                timer = setInterval(displayChat, 3000);
+                timer = setInterval(displayChat, 1700);
             }, 1000);
         }
 
@@ -191,12 +193,26 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $(".chat-list li").eq(chatIndex).addClass("active").siblings().removeClass("active");
                 $(".chat-list li").eq(chatIndex).show();
                 scrollChat();
+                $("#wechat_message_audio")[0].play();
                 chatIndex++;
+
+                if ($.inArray(chatIndex, audioIndexArray) >= 0) {
+                    animateAble = false;
+                    setTimeout(function () {
+                        animateAble = true;
+                    }, 2000);
+                }
+
                 if (chatIndex == chatLength) {
                     clearInterval(timer);
+
+                    setTimeout(function () {
+                        window.location.href = './ending_origin.html';
+                    }, 2000);
                 }
             }
         }
+
         function scrollChat() {
             var height = $(".chat-list")[0].scrollHeight;
             $(".chat-list").animate({ scrollTop: height }, 800);
@@ -212,8 +228,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     animateAble = true;
                     displayChat();
-                    timer = setInterval(displayChat, 3000);
-                }, 500);
+                    timer = setInterval(displayChat, 1700);
+                }, 1000);
             }
         }
 
@@ -312,8 +328,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
         /**
          语音
          */
-
-        //点击播放
 
         //谢娜语音13s
         $(".yuyin-image-13s").click(function () {

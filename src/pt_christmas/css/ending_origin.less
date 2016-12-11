@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+html, body {
+    width: 100%;
+    overflow: auto;
+    font-size: 40px;
+    background-color: rgb(233, 244, 250);
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    // 移动端hack
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+    }
+
+    #head {
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        .head-bg {
+            width: 100%;
+            line-height: 0;
+            vertical-align: bottom;
+        }
+
+        .head-content {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            .pt-logo {
+                display: none;
+                width: 85px;
+                height: 85px;
+                margin: 35px auto;
+                text-align: center;
+
+                img.logo {
+                    width: 100%;
+                }
+
+            }
+
+            .desc {
+                width: 100%;
+                text-align: center;
+                font-size: 0.7rem;
+                height: auto;
+
+                p {
+                    display: none;
+                    line-height: 0.85rem;
+                }
+                p:first-child {
+                    margin-top: 2rem;
+                }
+
+                .question {
+                    margin-top: 0.9rem;
+                }
+
+            }
+
+            .animation-branch {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+        }
+
+    }
+
+    #video {
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        .video-bg {
+            width: 100%;
+            line-height: 0;
+            vertical-align: bottom;
+            margin: 0;
+            padding: 0;
+            font-size: 0;
+        }
+
+        .video-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        #WxMomentVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 9999990;
+        }
+
+    }
+
+    #content {
+        width: 100%;
+        height: auto;
+        line-height: 0;
+        vertical-align: bottom;
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        position: relative;
+
+        .content-bg {
+            width: 100%;
+        }
+
+        .content-fe {
+            width: 82%;
+            position: absolute;
+            top: 3%;
+            left: 9%;
+        }
+
+        .content-emoticon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 19%;
+            background: url("../img/ending/emoticon-bg.png") center -30px no-repeat;
+            background-size: 100% auto;
+
+            .content-emoticon-inner {
+                width: 100%;
+                height: 100%;
+                position: relative;
+
+                .emoticon-fe {
+                    width: 100%;
+                    position: absolute;
+                    left: 0;
+                    bottom: 5%;
+                    z-index: 50;
+                }
+
+                .emoticon-center {
+                    width: 220px;
+                    position: absolute;
+                    top: 37%;
+                    left: 34.5%;
+                    z-index: 40;
+                }
+
+                .emoticon-left {
+                    width: 170px;
+                    position: absolute;
+                    top: 64%;
+                    left: 10%;
+                    z-index: 60;
+                }
+
+                .emoticon-right {
+                    width: 170px;
+                    position: absolute;
+                    top: 64%;
+                    right: 10%;
+                    z-index: 60;
+                }
+
+            }
+
+        }
+
+        #emoticon_btn {
+            width: 70%;
+            height: 5%;
+            position: absolute;
+            top: 20%;
+            left: 15%;
+        }
+
+        #item_brn_1 {
+            width: 50%;
+            height: 5%;
+            position: absolute;
+            top: 30%;
+            left: 10%;
+        }
+
+        #item_brn_2 {
+            width: 55%;
+            height: 5%;
+            position: absolute;
+            top: 43%;
+            right: 10%;
+        }
+
+        #item_brn_3 {
+            width: 65%;
+            height: 5%;
+            position: absolute;
+            top: 52%;
+            left: 10%;
+        }
+
+        #item_brn_4 {
+            width: 63%;
+            height: 5%;
+            position: absolute;
+            top: 60%;
+            right: 10%;
+        }
+
+        #focus_btn {
+            width: 60%;
+            height: 5%;
+            position: absolute;
+            bottom: 14%;
+            left: 20%;
+        }
+
+    }
+
+    .end-show {
+        opacity: 0;
+        transition: opacity 1.5s;
+        -moz-transition: opacity 1.5s; /* Firefox 4 */
+        -webkit-transition: opacity 1.5s; /* Safari 和 Chrome */
+        -o-transition: opacity 1.5s; /* Opera */
+    }
+
+    #overlay {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999999;
+        background: url("../img/ending/overlay.png") center center no-repeat;
+        background-size: 100% auto;
+        display: none;
+
+        #close_overlay_btn {
+            width: 50%;
+            height: 10%;
+            position: absolute;
+            top: 79%;
+            left: 25%;
+        }
+
+        .qrcode{
+            width: 62%;
+            height: auto;
+            position: absolute;
+            top: 25%;
+            left: 19%;
+        }
+
+    }
+
+    .animated {
+        -webkit-animation-duration: 1.25s;
+        animation-duration: 1.25s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+
+    @-webkit-keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInLeft {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    .fadeInLeft {
+        -webkit-animation-name: fadeInLeft;
+        animation-name: fadeInLeft;
+    }
+
+    @-webkit-keyframes fadeInRight {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInRight {
+        from {
+            opacity: 0;
+            -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+        }
+
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    .fadeInRight {
+        -webkit-animation-name: fadeInRight;
+        animation-name: fadeInRight;
+    }
+
+}
