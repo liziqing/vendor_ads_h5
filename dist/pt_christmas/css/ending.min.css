@@ -272,9 +272,8 @@ html #overlay .qrcode,
 body #overlay .qrcode {
   width: 62%;
   height: auto;
-  position: absolute;
-  top: 25%;
-  left: 19%;
+  padding-top: 40%;
+  padding-left: 19%;
 }
 html .animated,
 body .animated {

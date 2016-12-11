@@ -179,6 +179,18 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
              */
 
 
+            $('#all_list').on('click', function () {
+                clearInterval(timer);
+                $(".chat-list li").show();
+                $(".chat-list li:last-child").addClass('active');
+
+                $('#all_list').remove();
+                scrollChatEnd();
+                setTimeout(function () {
+                    window.location.href = './ending_origin.html';
+                }, 3000);
+            });
+
             //第一页解锁后，第二页聊天开始
             function changeScreen() {
                 // $('title').text('张杰谢娜的圣诞专访（4）');
@@ -208,18 +220,25 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     }
 
                     if (chatIndex == chatLength) {
+                        $('#all_list').hide();
+
                         clearInterval(timer);
 
                         setTimeout(function () {
                             window.location.href = './ending_origin.html';
-                        }, 3000)
+                        }, 3000);
                     }
                 }
             }
 
             function scrollChat() {
-                var height = $(".chat-list")[0].scrollHeight;
-                $(".chat-list").animate({scrollTop: height}, 800);
+                let height = $(".chat-list")[0].scrollHeight;
+                $(".chat-list").animate({scrollTop: height}, 600);
+            }
+
+            function scrollChatEnd() {
+                let height = $(".chat-list")[0].scrollHeight;
+                $(".chat-list").animate({scrollTop: height}, 300);
             }
 
 
