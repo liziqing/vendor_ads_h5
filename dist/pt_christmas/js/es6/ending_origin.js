@@ -40,12 +40,13 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'],
                     _this.displayLogoBranch();
                     _this.setVideo();
 
-                    setTimeout(function () {
-                        _this.displayText();
-                        _this.timer = setInterval(() => {
-                            _this.displayText();
-                        }, 1500);
-                    }, 1000);
+                    // setTimeout(function () {
+                    //     _this.displayText();
+                    //     _this.timer = setInterval(() => {
+                    //         _this.displayText();
+                    //     }, 1500);
+                    // }, 1000);
+                    _this.displayText();
                 }
             },
             displayLogoBranch: () => {
@@ -56,17 +57,20 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'],
             displayText: function () {
                 let _this = this;
 
-                if (_this.descIndex < _this.descLength) {
-                    $('.desc-line').eq(_this.descIndex).fadeIn();
-                    _this.descIndex++;
-                    if (_this.descIndex === _this.descLength) {
-                        clearInterval(_this.timer);
-                        setTimeout(function () {
-                            _this.showContent();
-                            _this.bindClick();
-                        }, 1500)
-                    }
-                }
+                // if (_this.descIndex < _this.descLength) {
+                //     $('.desc-line').eq(_this.descIndex).fadeIn();
+                //     _this.descIndex++;
+                //     if (_this.descIndex === _this.descLength) {
+                //         clearInterval(_this.timer);
+                //         setTimeout(function () {
+                //             _this.showContent();
+                //             _this.bindClick();
+                //         }, 1500)
+                //     }
+                // }
+                $('.desc-line').fadeIn();
+                _this.showContent();
+                _this.bindClick();
             },
             displaySnow: function () {
                 let _this = this;
