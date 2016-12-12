@@ -92,16 +92,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'], function (wx, env, 
 
     //执行函数
     $(function () {
-
-        if (util.isWeiXin()) {
-            var smtid = util.queryString('smtid');
-            if (typeof smtid != 'undefined') {
-                window.location.href = './index.html?smtid=' + smtid;
-            } else {
-                window.location.href = './index.html';
-            }
-        }
-
         app.init();
     });
 });
