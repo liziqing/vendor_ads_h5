@@ -17,17 +17,48 @@
         #overlay .qrcode{
             padding-top:49% !important;
         }
-        #overlayWechat{
+        #overlayEmoji,#overlayWechat{
             width: 100%;
             height: 100%;
             position: fixed;
             top: 0;
             left: 0;
             z-index: 9999999;
-            background: url(../img/ending_tencent/overlay-wechat.png) center center no-repeat;
-            background-size: 100% auto;
+            /*background: url(../img/ending_tencent/overlay-wechat.png) center center no-repeat;*/
+            /*background-size: 100% auto;*/
+            background-color:rgba(0,0,0,.8);
             display: none;
         }
+
+        .emojiWapper{
+            position:absolute;
+            width:418px;
+            height:808px;
+            top:50%;
+            left:50%;
+            margin-left:-209px;
+            margin-top:-404px;
+        }
+
+        .qrcodeEmoji{
+            width:418px;
+            height:622px;
+        }
+        .emojiWapper #close_overlay_btn,.wechatWapper #close_overlayWechat_btn{
+            margin-top:114px;
+            text-align: center; 
+        }
+
+        .wechatWapper{
+            position:absolute;
+            width:416px;
+            height:760px;
+            top:50%;
+            left:50%;
+            margin-top:-380px;
+            margin-left:-208px;
+        }
+
 
         #overlayWechat .qrcode{
                 width: 62%;
@@ -36,13 +67,6 @@
                 padding-left: 19%;
         }
         
-        #close_overlayWechat_btn{
-            width: 50%;
-            height: 10%;
-            position: absolute;
-            top: 79%;
-            left: 25%;
-        }
     
     </style>
     <script>
@@ -167,15 +191,28 @@
 </section>
 
 <!-- overlay for emoji -->
-<section id="overlay" style="background-image:url('img/ending_tencent/overlay-emoji.png') !important;">
-    <img class="qrcode" src="./img/ending_tencent/qrcode-tencent.png"/>
-    <span id="close_overlay_btn"></span>
+<section id="overlayEmoji">
+    <div class="emojiWapper">
+        <div class="qrcodeEmoji">
+            <img src="img/ending_tencent/emoji-qrcode.png" alt="">
+        </div>
+        <div id="close_overlay_btn">
+            <img src="img/ending_tencent/okbtn.png" alt="">
+        </div>
+        
+    </div>
 </section>
 
 <!-- overlay for Wechat -->
 <section id="overlayWechat">
-    <img class="qrcode" src="./img/ending_tencent/qrcode-tencent.png"/>
-    <span id="close_overlayWechat_btn"></span>
+    <div class="wechatWapper">
+        <div class="qrcodeWechat">
+            <img src="img/ending_tencent/wechat-qrcode.png" alt="">
+        </div>
+        <div id="close_overlayWechat_btn">
+            <img src="img/ending_tencent/okbtn.png" alt="">
+        </div>
+    </div>
 </section>
 
 <script>!(function(a,b,c,d,e,f){var g="",h=a.sessionStorage,i="__admaster_ta_param__",j="tmDataLayer"!==d?"&dl="+d:"";
