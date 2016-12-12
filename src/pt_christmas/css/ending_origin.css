@@ -149,7 +149,7 @@ body #content .content-emoticon {
   left: 0;
   width: 100%;
   height: 19%;
-  background: url("../img/ending/emoticon-bg.png") center -30px no-repeat;
+  background: url("../img/ending/emoticon-bg-no-snow.png") center 160px no-repeat;
   background-size: 100% auto;
 }
 html #content .content-emoticon .content-emoticon-inner,
@@ -257,7 +257,7 @@ body #overlay {
   top: 0;
   left: 0;
   z-index: 9999999;
-  background: url("../img/ending/overlay.png") center center no-repeat;
+  background: url("../img/ending/overlay-new.png") center center no-repeat;
   background-size: 100% auto;
   display: none;
 }
