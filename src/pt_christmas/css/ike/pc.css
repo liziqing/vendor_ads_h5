@@ -33,6 +33,10 @@ body .wapper{
 	margin-left:194px;
 	display:block;
 	float:left;
+	cursor:pointer;
+}
+#videoFrame.noPointer{
+	cursor:default !important;
 }
 #videoPlayer{
 
