@@ -92,7 +92,19 @@
                 <div id="videoFrame">
                     
                 </div>
-                <div id="desc"></div>
+                <div id="desc">
+                    <p>
+                        浪漫的圣诞节来临，<br>
+                        国际铂金协会PGI<u>&#174;</u>邀请形象代言人<br>
+                        张杰 & 谢娜，<br>
+                        聊聊他们的圣诞趣事。 
+                    </p>
+                    <p>
+                        想知道谢娜最喜欢张杰哪首歌吗？<br>
+                        张杰今年的圣诞愿望是什么？<br>
+                        欣赏视频，立即揭晓。
+                    </p>
+                </div>
             </div>
             <div id="products">
                 <div class="product" id="pdt1">
@@ -154,8 +166,11 @@
             </div>
 
             <div id="follow">
+                <p>
+                    关注国际铂金协会PGI<u>&#174;</u>官方微博，了解更多
+                </p>
                 <a id="followBtn" href="http://weibo.com/u/2618614667" target="_blank">
-                    <img src="img/pc_ending/follow.png" alt="">
+                    关注「铂金Pt」
                 </a>
             </div>
         </div>
@@ -173,29 +188,23 @@ m.async=!0,n.parentNode.insertBefore(m,n)})(window,document,"script","tmDataLaye
         <script>    
             $(document).ready(function(){
 
+                var _video = new tvp.VideoInfo();
+                _video.setVid("i0354kbskea"); 
+                var _player = new tvp.Player();
                 
-                
-                $('#videoFrame').on("click",function(){
-                    var _video = new tvp.VideoInfo();
-                    _video.setVid("i0354kbskea"); 
-                    var _player = new tvp.Player();
+               setTimeout(function () {
                     _player.create({
                         width:462,
                         height:261,
                         video:_video,
                         modId:"videoFrame",
                         playerType:'html5',
-                        autoplay:false
+                        autoplay:true
                     });
-                   setTimeout(function () {
-                        _player.play();
-                    }, 3000);
-                   $(this).addClass('noPointer');
                     _smq.push(['custom','Ending页面','点击“观看视频”']);
-                    $(this).off("click");
-
-
-                });
+                }, 3000);
+            
+                
 
                 $('#pdtLink1').on('click',function(){_smq.push(['custom','Ending页面','点击”女王猫铂金吊坠购买“']);});
                 $('#pdtLink2').on('click',function(){_smq.push(['custom','Ending页面','点击”心连心吊坠购买“']);});
