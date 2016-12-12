@@ -134,3 +134,10 @@ body #zj-xn-video {
   bottom: 10.5%;
   left: 32%;
 }
+#container #footer {
+  width: 100%;
+  position: relative;
+}
+#container #footer img {
+  width: 100%;
+}
