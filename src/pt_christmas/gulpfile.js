@@ -158,6 +158,7 @@ gulp.task('pt_christmas_watch_pc', gulp.series('pt_christmas_copy_pc_css','pt_ch
     gulp.watch('./css/ike/*.css', gulp.series('pt_christmas_copy_pc_css'));
     gulp.watch('./*.html', gulp.series('pt_christmas_usemin'));
     gulp.watch('./img/pc_ending/**', gulp.series('pt_christmas_copy_img'));
+    gulp.watch('./js/ending_tx.js', gulp.series('pt_christmas_copy_js'));
     
 }));
 
