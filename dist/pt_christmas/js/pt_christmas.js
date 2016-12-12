@@ -46,7 +46,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         var audioIndexArray = [12, 17, 20, 26, 28, 36, 39, 42];
 
-        if (!util.isWeiXin()) {}
+        if (!util.isWeiXin()) {
+            var smtid = util.queryString('smtid');
+            if (typeof smtid != 'undefined') {
+                window.location.href = './ending.html?smtid=' + smtid;
+            } else {
+                window.location.href = './ending.html';
+            }
+        }
 
         init();
 
