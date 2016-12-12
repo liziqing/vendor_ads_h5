@@ -76,13 +76,13 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
         bindClick: function bindClick() {
             $('#emoticon_btn').on('click', function () {
                 _smq.push(['custom','Ending页面','点击”下载表情包“']);
-                $('#overlay').fadeToggle();
+                $('#overlayEmoji').fadeToggle();
             });
             $('#close_overlay_btn').on('click', function () {
                 _smq.push(['custom','Ending页面','（浮层） 点击”我知道了“']);
-                $('#overlay').fadeToggle();
+                $('#overlayEmoji').fadeToggle();
             });
-            document.querySelector('#overlay').addEventListener('touchmove', function (e) {
+            document.querySelector('#overlayEmoji').addEventListener('touchmove', function (e) {
                 e.preventDefault();
             }, false);
             $('#item_brn_1').on('click', function () {
