@@ -95,18 +95,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'],
 
         //执行函数
         $(() => {
-
-            if(util.isWeiXin())
-            {
-                let smtid = util.queryString('smtid');
-                if(typeof smtid != 'undefined')
-                {
-                    window.location.href = './index.html?smtid=' + smtid;
-                }else{
-                    window.location.href = './index.html';
-                }
-            }
-
             app.init();
         });
 

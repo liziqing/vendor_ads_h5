@@ -50,6 +50,15 @@
             }
         };
 
+        var isWeixin = function () {
+            var ua = navigator.userAgent.toLowerCase();
+            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+                return true;
+            } else {
+                return false;
+            }
+        };
+
         if (!isMobile.any()) {
 
             var smtid = queryString('smtid');
@@ -61,6 +70,13 @@
                 window.location.href = './ending_pc.html';
             }
 
+        }else if(isWeixin()){
+            var smtid = util.queryString('smtid');
+            if (typeof smtid != 'undefined') {
+                window.location.href = './index.html?smtid=' + smtid;
+            } else {
+                window.location.href = './index.html';
+            }
         }
     </script>
 </head>
