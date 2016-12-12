@@ -60,7 +60,7 @@ html, body {
     #lock_screen {
         width: 100%;
         height: 100%;
-        background: url("../img/lock_screen/lock_screen.jpg") center 0px repeat-y;
+        background: url("../img/lock_screen/lock_screen.jpg") center 0px no-repeat;
         background-size: 100% 100%;
         position: relative;
 
@@ -93,8 +93,8 @@ html, body {
         }
 
         .invitation-notification {
-            //background: url("../img/chat-bg.png")center 0px no-repeat;
-            //background-size: 100% auto;
+            background: url("../img/chat-bg.png")center 0px no-repeat;
+            background-size: 100% auto;
             height: 5rem;
             //line-height: 5rem;
             position: absolute;
@@ -105,7 +105,7 @@ html, body {
             width: 96%;
             left: 1.7%;
             .invitation-desc {
-                padding-left: 0.6rem;
+                padding-left: 1rem;
                 position: absolute;
                 top: 41%;
                 font-size: 0.7rem;
@@ -131,20 +131,20 @@ html, body {
         }
         .swipe_hint {
             position: absolute;
-            left: 219px;
-            bottom: 167px;
+            left: 210.5px;
+            bottom: 140px;
             background: url('../img/lock_screen/swipe-hint.gif') center center no-repeat;
             background-size: 100% auto;
             //background-size: 7rem 9.4rem;
-            width: 7rem;
-            height: 1.175rem;
+            width: 329px;
+            height: 92px;
             //animation: swipe steps(8) 0.7s infinite;
             //-webkit-animation: swipe steps(8) 0.7s infinite;
             //-webkit-transition: all linear 0.3s;
         }
         .hot_area {
             position: absolute;
-            left: 69px;
+            left: 85px;
             bottom: 100px;
             width: 580px;
             height: 400px;
@@ -334,7 +334,7 @@ html, body {
                     }
                 }
                 //语音
-                .yuyin-image-13s, .yuyin-image-4s, .yuyin-image-14s {
+                .yuyin {
                     float: left;
                     margin-left: 1rem;
                     height: 2.1rem;
@@ -364,16 +364,31 @@ html, body {
 
                 }
                 .yuyin-image-13s {
-                    width: 7rem;
-                }
-                .yuyin-image-4s {
-                    width: 4rem;
+                    width: 6rem;
                 }
                 .yuyin-image-14s {
                     width: 3rem;
                 }
+                .shortout_01 {
+                    width: 8rem;
+                }
+                .shortout_02 {
+                    width: 6rem;
+                }
+                .shortout_03 {
+                    width: 11rem;
+                }
+                .shortout_04 {
+                    width: 10rem;
+                }
+                .shortout_05 {
+                    width: 11rem;
+                }
+                .shortout_06 {
+                    width: 5rem;
+                }
 
-                .yuyin-image-13s, .yuyin-image-14s {
+                .yuyin {
 
                     .speaker {
 
@@ -388,7 +403,7 @@ html, body {
                     }
 
                 }
-                .yuyin-image-13s.active, .yuyin-image-14s.active {
+                .yuyin.active {
 
                     .speaker {
 

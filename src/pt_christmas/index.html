@@ -108,14 +108,24 @@
 <audio class="wechat_message_audio audio_source" id="wechat_message_audio" src="./music/ding.mp3" ></audio>
 <audio class="message_audio audio_source" id="message_audio" src="./music/message.mp3"></audio>
 <audio class="lock_audio audio_source" id="lock_audio" src="./music/lock.mp3"></audio>
-<audio class="audio_source" id="audio13" src="http://ptxmas.net-show.cn/music/yuyin-13s.mp3"></audio>
-<audio class="audio_source" id="audio14" src="http://ptxmas.net-show.cn/music/yuyin-14s.mp3"></audio>
-<video class="video_source" id="zj-video1" src="http://ptxmas.net-show.cn/music/zj-video1.mp4"></video>
-<video class="video_source" id="xn-video1" src="http://ptxmas.net-show.cn/music/xn-video1.mp4"></video>
-<video class="video_source" id="xn-video2" src="http://ptxmas.net-show.cn/music/xn-video2.mp4"></video>
-<video class="video_source" id="zj-video2" src="http://ptxmas.net-show.cn/music/zj-video2.mp4"></video>
-<video class="video_source" id="xn-video3" src="http://ptxmas.net-show.cn/music/xn-video3.mp4"></video>
-<video class="video_source" id="zj-video3" src="http://ptxmas.net-show.cn/music/zj-video3.mp4"></video>
+<section id="audio_sources">
+    <audio class="audio_source" id="audio13" src="http://ptxmas.net-show.cn/music/yuyin-13s.mp3"></audio>
+    <audio class="audio_source" id="audio14" src="http://ptxmas.net-show.cn/music/yuyin-14s.mp3"></audio>
+    <audio class="audio_source" id="shortout_01" src="http://ptxmas.net-show.cn/music/shortout_01.mp3"></audio>
+    <audio class="audio_source" id="shortout_02" src="http://ptxmas.net-show.cn/music/shortout_02.mp3"></audio>
+    <audio class="audio_source" id="shortout_03" src="http://ptxmas.net-show.cn/music/shortout_03.mp3"></audio>
+    <audio class="audio_source" id="shortout_04" src="http://ptxmas.net-show.cn/music/shortout_04.mp3"></audio>
+    <audio class="audio_source" id="shortout_05" src="http://ptxmas.net-show.cn/music/shortout_05.mp3"></audio>
+    <audio class="audio_source" id="shortout_06" src="http://ptxmas.net-show.cn/music/shortout_06.mp3"></audio>
+</section>
+
+<!--<video class="video_source" id="zj-video1" src="http://ptxmas.net-show.cn/music/zj-video1.mp4"></video>-->
+<!--<video class="video_source" id="xn-video1" src="http://ptxmas.net-show.cn/music/xn-video1.mp4"></video>-->
+<!--<video class="video_source" id="xn-video2" src="http://ptxmas.net-show.cn/music/xn-video2.mp4"></video>-->
+<!--<video class="video_source" id="zj-video2" src="http://ptxmas.net-show.cn/music/zj-video2.mp4"></video>-->
+<!--<video class="video_source" id="xn-video3" src="http://ptxmas.net-show.cn/music/xn-video3.mp4"></video>-->
+<!--<video class="video_source" id="zj-video3" src="http://ptxmas.net-show.cn/music/zj-video3.mp4"></video>-->
+
 
 <!--第一页滑动解锁-->
 <div id="lock_screen">
@@ -209,10 +219,19 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.png"></div>
-            <div class="video zj-video1-btn">
-                <img src="./img/zj-video1.png" alt="张杰视频">
-                <span class="hand"></span>
+            <!--<div class="video zj-video1-btn">-->
+                <!--<img src="./img/zj-video1.png" alt="张杰视频">-->
+                <!--&lt;!&ndash;<span class="hand"></span>&ndash;&gt;-->
+            <!--</div>-->
+            <div class="yuyin shortout_01 origin">
+                <div class="speaker">
+                    <img class="audio-origin" src="img/audio.png" />
+                    <img class="audio-active" src="img/audio.gif" />
+                    <!--<span class="hand"></span>-->
+                </div>
+                <img src="img/arrow.png" class="arrow">
             </div>
+            <span class="speaker-time">14"</span>
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.png"></div>
@@ -243,10 +262,19 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.png"></div>
-            <div class="video xn-video1-btn">
-                <img src="img/xn-video1.png" alt="谢娜视频">
-                <span class="hand"></span>
+            <!--<div class="video xn-video1-btn">-->
+                <!--<img src="img/xn-video1.png" alt="谢娜视频">-->
+                <!--&lt;!&ndash;<span class="hand"></span>&ndash;&gt;-->
+            <!--</div>-->
+            <div class="yuyin shortout_02 origin">
+                <div class="speaker">
+                    <img class="audio-origin" src="img/audio.png" />
+                    <img class="audio-active" src="img/audio.gif" />
+                    <!--<span class="hand"></span>-->
+                </div>
+                <img src="img/arrow.png" class="arrow">
             </div>
+            <span class="speaker-time">9"</span>
         </li>
         <li class="chat-item clearfix user-replay">
             <div class="right"><img src=""></div>
@@ -264,11 +292,11 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.png"></div>
-            <div class="yuyin yuyin-image-13s">
+            <div class="yuyin yuyin-image-13s origin">
                 <div class="speaker">
                     <img class="audio-origin" src="img/audio.png" alt="谢娜语音" />
                     <img class="audio-active" src="img/audio.gif" alt="谢娜语音" />
-                    <span class="hand"></span>
+                    <!--<span class="hand"></span>-->
                 </div>
                 <img src="img/arrow.png" class="arrow">
             </div>
@@ -310,10 +338,19 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.png"></div>
-            <div class="video xn-video2-btn">
-                <img src="img/xn-video2.png" alt="谢娜视频">
-                <span class="hand"></span>
+            <!--<div class="video xn-video2-btn">-->
+                <!--<img src="img/xn-video2.png" alt="谢娜视频">-->
+                <!--&lt;!&ndash;<span class="hand"></span>&ndash;&gt;-->
+            <!--</div>-->
+            <div class="yuyin shortout_03 origin">
+                <div class="speaker">
+                    <img class="audio-origin" src="img/audio.png" />
+                    <img class="audio-active" src="img/audio.gif" />
+                    <!--<span class="hand"></span>-->
+                </div>
+                <img src="img/arrow.png" class="arrow">
             </div>
+            <span class="speaker-time">19"</span>
         </li>
         <li class="chat-item clearfix user-replay">
             <div class="right"><img src=""></div>
@@ -324,10 +361,19 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.png"></div>
-            <div class="video zj-video2-btn">
-                <img src="img/zj-video2.png" alt="张杰视频">
-                <span class="hand"></span>
+            <!--<div class="video zj-video2-btn">-->
+                <!--<img src="img/zj-video2.png" alt="张杰视频">-->
+                <!--&lt;!&ndash;<span class="hand"></span>&ndash;&gt;-->
+            <!--</div>-->
+            <div class="yuyin shortout_04 origin">
+                <div class="speaker">
+                    <img class="audio-origin" src="img/audio.png" />
+                    <img class="audio-active" src="img/audio.gif" />
+                    <!--<span class="hand"></span>-->
+                </div>
+                <img src="img/arrow.png" class="arrow">
             </div>
+            <span class="speaker-time">16"</span>
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.png"></div>
@@ -391,10 +437,19 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/xiena-head.png"></div>
-            <div class="video xn-video3-btn">
-                <img src="img/xn-video3.png" alt="谢娜视频">
-                <span class="hand"></span>
+            <!--<div class="video xn-video3-btn">-->
+                <!--<img src="img/xn-video3.png" alt="谢娜视频">-->
+                <!--&lt;!&ndash;<span class="hand"></span>&ndash;&gt;-->
+            <!--</div>-->
+            <div class="yuyin shortout_05 origin">
+                <div class="speaker">
+                    <img class="audio-origin" src="img/audio.png" />
+                    <img class="audio-active" src="img/audio.gif" />
+                    <!--<span class="hand"></span>-->
+                </div>
+                <img src="img/arrow.png" class="arrow">
             </div>
+            <span class="speaker-time">18"</span>
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.png"></div>
@@ -411,10 +466,19 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.png"></div>
-            <div class="video zj-video3-btn">
-                <img src="img/zj-video3.png" alt="张杰视频">
-                <span class="hand"></span>
+            <!--<div class="video zj-video3-btn">-->
+                <!--<img src="img/zj-video3.png" alt="张杰视频">-->
+                <!--&lt;!&ndash;<span class="hand"></span>&ndash;&gt;-->
+            <!--</div>-->
+            <div class="yuyin shortout_06 origin">
+                <div class="speaker">
+                    <img class="audio-origin" src="img/audio.png" />
+                    <img class="audio-active" src="img/audio.gif" />
+                    <!--<span class="hand"></span>-->
+                </div>
+                <img src="img/arrow.png" class="arrow">
             </div>
+            <span class="speaker-time">7"</span>
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/pt_head.png"></div>
@@ -432,11 +496,11 @@
         </li>
         <li class="chat-item clearfix">
             <div class="left"><img src="img/zhangjie-head.png"></div>
-            <div class="yuyin yuyin-image-14s">
+            <div class="yuyin yuyin-image-14s origin">
                 <div class="speaker">
                     <img class="audio-origin" src="img/audio.png" alt="张杰语音" />
                     <img class="audio-active" src="img/audio.gif" alt="张杰语音" />
-                    <span class="hand"></span>
+                    <!--<span class="hand"></span>-->
                 </div>
                 <img src="img/arrow.png" class="arrow">
             </div>

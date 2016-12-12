@@ -6,6 +6,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         $(() => {
 
+            let debug = env.debug;
+
             let head;
             let nickname;
             let openid;
@@ -45,6 +47,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
             let audioIndexArray = [12, 17, 20, 26, 28, 36, 39, 42];
 
+            let audioIdArray = ['audio13', 'audio14', 'shortout_01', 'shortout_02', 'shortout_03', 'shortout_04', 'shortout_05', 'shortout_06'];
+
+            let playingAudio = false;
 
             init();
 
@@ -91,7 +96,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $('.mouth-and-day').html(zfill(mouth) + '月' + zfill(day) + '日');
                 $('.week').html('星期' + weekArr[week]);
 
-                if (env.debug == 1 || !util.isWeiXin()) {
+                if (debug == 1 || !util.isWeiXin()) {
                     head = './img/user-head-null.png';
 
                     nickname = 'test';
@@ -198,10 +203,16 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $('#lock_screen').fadeOut();
                 $('#container').fadeIn();
 
-                setTimeout(() => {
-                    displayChat();
-                    timer = setInterval(displayChat, 1700);
-                }, 1000);
+                if(debug){
+                    animateAble = false;
+                    chatIndex = chatLength;
+                    displayAllChat();
+                }else{
+                    setTimeout(() => {
+                        displayChat();
+                        timer = setInterval(displayChat, 1700);
+                    }, 1000);
+                }
             }
 
 
@@ -237,6 +248,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $(".chat-list").animate({scrollTop: height}, 600);
             }
 
+            function displayAllChat() {
+                clearInterval(timer);
+                $(".chat-list li").show();
+                $(".chat-list li:last-child").addClass('active');
+
+                scrollChatEnd();
+            }
+
             function scrollChatEnd() {
                 let height = $(".chat-list")[0].scrollHeight;
                 $(".chat-list").animate({scrollTop: height}, 300);
@@ -265,124 +284,235 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
 
             //视频点击播放
-            $(".zj-video1-btn").click(function () {
-                animateAble = false;
-                $(this).find('.hand').hide();
-                clearInterval(timer);
-                $("#zj-video1")[0].play();
-                $("#zj-video1")[0].webkitRequestFullScreen();
-            });
-            $(".xn-video1-btn").click(function () {
-                animateAble = false;
-                $(this).find('.hand').hide();
-                clearInterval(timer);
-                $("#xn-video1")[0].play();
-                $("#xn-video1")[0].webkitRequestFullScreen();
-            });
-            $(".xn-video2-btn").click(function () {
-                animateAble = false;
-                $(this).find('.hand').hide();
-                clearInterval(timer);
-                $("#xn-video2")[0].play();
-                $("#xn-video2")[0].webkitRequestFullScreen();
-            });
-            $(".zj-video2-btn").click(function () {
-                animateAble = false;
-                $(this).find('.hand').hide();
-                clearInterval(timer);
-                $("#zj-video2")[0].play();
-                $("#zj-video2")[0].webkitRequestFullScreen();
-            });
-            $(".xn-video3-btn").click(function () {
-                animateAble = false;
-                $(this).find('.hand').hide();
-                clearInterval(timer);
-                $("#xn-video3")[0].play();
-                $("#xn-video3")[0].webkitRequestFullScreen();
-            });
-            $(".zj-video3-btn").click(function () {
-                animateAble = false;
-                $(this).find('.hand').hide();
-                clearInterval(timer);
-                $("#zj-video3")[0].play();
-                $("#zj-video3")[0].webkitRequestFullScreen();
-            });
+            // $(".zj-video1-btn").click(function () {
+            //     animateAble = false;
+            //     $(this).find('.hand').hide();
+            //     clearInterval(timer);
+            //     $("#zj-video1")[0].play();
+            //     $("#zj-video1")[0].webkitRequestFullScreen();
+            // });
+            // $(".xn-video1-btn").click(function () {
+            //     animateAble = false;
+            //     $(this).find('.hand').hide();
+            //     clearInterval(timer);
+            //     $("#xn-video1")[0].play();
+            //     $("#xn-video1")[0].webkitRequestFullScreen();
+            // });
+            // $(".xn-video2-btn").click(function () {
+            //     animateAble = false;
+            //     $(this).find('.hand').hide();
+            //     clearInterval(timer);
+            //     $("#xn-video2")[0].play();
+            //     $("#xn-video2")[0].webkitRequestFullScreen();
+            // });
+            // $(".zj-video2-btn").click(function () {
+            //     animateAble = false;
+            //     $(this).find('.hand').hide();
+            //     clearInterval(timer);
+            //     $("#zj-video2")[0].play();
+            //     $("#zj-video2")[0].webkitRequestFullScreen();
+            // });
+            // $(".xn-video3-btn").click(function () {
+            //     animateAble = false;
+            //     $(this).find('.hand').hide();
+            //     clearInterval(timer);
+            //     $("#xn-video3")[0].play();
+            //     $("#xn-video3")[0].webkitRequestFullScreen();
+            // });
+            // $(".zj-video3-btn").click(function () {
+            //     animateAble = false;
+            //     $(this).find('.hand').hide();
+            //     clearInterval(timer);
+            //     $("#zj-video3")[0].play();
+            //     $("#zj-video3")[0].webkitRequestFullScreen();
+            // });
 
 
             //视频暂停or结束
             //张杰视频1
-            $("#zj-video1").bind("ended", function () {
-                videoEnded();
-            });
-            $("#zj-video1").bind("pause", function () {
-                videoEnded();
-            });
-            //谢娜视频1
-            $("#xn-video1").bind("ended", function () {
-                videoEnded();
-            });
-            $("#xn-video1").bind("pause", function () {
-                videoEnded();
-            });
-            //谢娜视频2
-            $("#xn-video2").bind("ended", function () {
-                videoEnded();
-            });
-            $("#xn-video2").bind("pause", function () {
-                videoEnded();
-            });
-            //张杰视频2
-            $("#zj-video2").bind("ended", function () {
-                videoEnded();
-            });
-            $("#zj-video2").bind("pause", function () {
-                videoEnded();
-            });
-            //谢娜视频3
-            $("#xn-video3").bind("ended", function () {
-                videoEnded();
-            });
-            $("#xn-video3").bind("pause", function () {
-                videoEnded();
-            });
-            //张杰视频3
-            $("#zj-video3").bind("ended", function () {
-                videoEnded();
-            });
-            $("#zj-video3").bind("pause", function () {
-                videoEnded();
-            });
+            // $("#zj-video1").bind("ended", function () {
+            //     videoEnded();
+            // });
+            // $("#zj-video1").bind("pause", function () {
+            //     videoEnded();
+            // });
+            // //谢娜视频1
+            // $("#xn-video1").bind("ended", function () {
+            //     videoEnded();
+            // });
+            // $("#xn-video1").bind("pause", function () {
+            //     videoEnded();
+            // });
+            // //谢娜视频2
+            // $("#xn-video2").bind("ended", function () {
+            //     videoEnded();
+            // });
+            // $("#xn-video2").bind("pause", function () {
+            //     videoEnded();
+            // });
+            // //张杰视频2
+            // $("#zj-video2").bind("ended", function () {
+            //     videoEnded();
+            // });
+            // $("#zj-video2").bind("pause", function () {
+            //     videoEnded();
+            // });
+            // //谢娜视频3
+            // $("#xn-video3").bind("ended", function () {
+            //     videoEnded();
+            // });
+            // $("#xn-video3").bind("pause", function () {
+            //     videoEnded();
+            // });
+            // //张杰视频3
+            // $("#zj-video3").bind("ended", function () {
+            //     videoEnded();
+            // });
+            // $("#zj-video3").bind("pause", function () {
+            //     videoEnded();
+            // });
 
 
             /**
              语音
              */
 
-            //谢娜语音13s
+            //谢娜语音 9s
             $(".yuyin-image-13s").click(function () {
-                animateAble = false;
-                clearInterval(timer);
-                $("#audio13")[0].play();
+                if(!playingAudio){
+                    playingAudio = true;
+                    animateAble = false;
+                    clearInterval(timer);
+                    $("#audio13")[0].play();
 
-                var _this = this;
-                $(_this).addClass('active');
-                setTimeout(function () {
-                    $(_this).removeClass('active');
-                }, 9000);
+                    var _this = this;
+                    $(_this).addClass('active');
+                    setTimeout(function () {
+                        $(_this).removeClass('active');
+                        playingAudio = false;
+                    }, 9000);
+                }
             });
 
-            //张杰语音14s
+            //张杰语音 3s
             $(".yuyin-image-14s").click(function () {
-                animateAble = false;
-                clearInterval(timer);
-                $("#audio14")[0].play();
+                if(!playingAudio) {
+                    playingAudio = true;
+                    animateAble = false;
+                    clearInterval(timer);
+                    $("#audio14")[0].play();
 
-                var _this = this;
-                $(_this).addClass('active');
-                setTimeout(function () {
-                    $(_this).removeClass('active');
-                }, 3000);
+                    var _this = this;
+                    $(_this).addClass('active');
+                    setTimeout(function () {
+                        $(_this).removeClass('active');
+                        playingAudio = false;
+                    }, 3000);
+                }
             });
+
+            //shortout_01 14s
+            $(".shortout_01").click(function () {
+                if(!playingAudio) {
+                    playingAudio = true;
+                    animateAble = false;
+                    clearInterval(timer);
+                    $("#shortout_01")[0].play();
+
+                    var _this = this;
+                    $(_this).addClass('active');
+                    setTimeout(function () {
+                        $(_this).removeClass('active');
+                        playingAudio = false;
+                    }, 14000);
+                }
+            });
+
+            //shortout_02 9s
+            $(".shortout_02").click(function () {
+                if(!playingAudio) {
+                    playingAudio = true;
+                    animateAble = false;
+                    clearInterval(timer);
+                    $("#shortout_02")[0].play();
+
+                    var _this = this;
+                    $(_this).addClass('active');
+                    setTimeout(function () {
+                        $(_this).removeClass('active');
+                        playingAudio = false;
+                    }, 9000);
+                }
+            });
+
+            //shortout_03 19s
+            $(".shortout_03").click(function () {
+                if(!playingAudio) {
+                    playingAudio = true;
+                    animateAble = false;
+                    clearInterval(timer);
+                    $("#shortout_03")[0].play();
+
+                    var _this = this;
+                    $(_this).addClass('active');
+                    setTimeout(function () {
+                        $(_this).removeClass('active');
+                        playingAudio = false;
+                    }, 19000);
+                }
+            });
+
+            //shortout_04 16s
+            $(".shortout_04").click(function () {
+                if(!playingAudio) {
+                    playingAudio = true;
+                    animateAble = false;
+                    clearInterval(timer);
+                    $("#shortout_04")[0].play();
+
+                    var _this = this;
+                    $(_this).addClass('active');
+                    setTimeout(function () {
+                        $(_this).removeClass('active');
+                        playingAudio = false;
+                    }, 16000);
+                }
+            });
+
+            //shortout_05 18s
+            $(".shortout_05").click(function () {
+                if(!playingAudio) {
+                    playingAudio = true;
+                    animateAble = false;
+                    clearInterval(timer);
+                    $("#shortout_05")[0].play();
+
+                    var _this = this;
+                    $(_this).addClass('active');
+                    setTimeout(function () {
+                        $(_this).removeClass('active');
+                        playingAudio = false;
+                    }, 18000);
+                }
+            });
+
+            //shortout_06 7s
+            $(".shortout_06").click(function () {
+                if(!playingAudio) {
+                    playingAudio = true;
+                    animateAble = false;
+                    clearInterval(timer);
+                    $("#shortout_06")[0].play();
+
+                    var _this = this;
+                    $(_this).addClass('active');
+                    setTimeout(function () {
+                        $(_this).removeClass('active');
+                        playingAudio = false;
+                    }, 7000);
+                }
+            });
+
 
 
             //语音结束or暂停
