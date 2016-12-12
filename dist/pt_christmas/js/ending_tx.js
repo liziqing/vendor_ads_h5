@@ -24,7 +24,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                 _this.setVideo();
                 _this.bindClick();
             } else {
-                _this.displaySnow(); //客户提供飘雪插件，内存泄漏，开发时如果须关闭debug模式请注释
+                // _this.displaySnow(); //客户提供飘雪插件，内存泄漏，开发时如果须关闭debug模式请注释
                 _this.displayLogoBranch();
                 $('.desc-line').show();
                 $('.end-show').css('opacity', 1);
@@ -103,8 +103,12 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             });
             $('#focus_btn').on('click', function () {
                 _smq.push(['custom','Ending页面','点击“关注铂金PT官方微信"']);
-                window.location.href = 'http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MjM0NjIzMw==#wechat_redirect';
+                // window.location.href = 'http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MjM0NjIzMw==#wechat_redirect';
+                $('#overlayWechat').fadeToggle();
             });
+            $('#close_overlayWechat_btn').on('click', function(){
+                $('#overlayWechat').fadeToggle();
+            })
         },
         
         setVideo: function setVideo() {

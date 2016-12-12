@@ -13,6 +13,36 @@
     <!-- build:css css/ending.min.css -->
     <link rel="stylesheet" href="./css/ending_origin.css"/>
     <!-- endbuild -->
+
+    <style>
+        #overlayWechat{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999999;
+            background: url(../img/ending_tencent/overlay-wechat.png) center center no-repeat;
+            background-size: 100% auto;
+            display: none;
+        }
+
+        #overlayWechat .qrcode{
+                width: 62%;
+                height: auto;
+                padding-top: 40%;
+                padding-left: 19%;
+        }
+        
+        #close_overlayWechat_btn{
+            width: 50%;
+            height: 10%;
+            position: absolute;
+            top: 79%;
+            left: 25%;
+        }
+    
+    </style>
     <script>
         var isMobile = {
             Android: function () {
@@ -134,10 +164,16 @@
     <span id="focus_btn"></span>
 </section>
 
-<!-- overlay -->
-<section id="overlay" style="background-image:url('img/ending/overlay-tencent.png') !important;">
-    <img class="qrcode" src="./img/ending/qrcode.jpg"/>
+<!-- overlay for emoji -->
+<section id="overlay" style="background-image:url('img/ending_tencent/overlay-emoji.png') !important;">
+    <img class="qrcode" src="./img/ending_tencent/qrcode-tencent.png"/>
     <span id="close_overlay_btn"></span>
+</section>
+
+<!-- overlay for Wechat -->
+<section id="overlayWechat">
+    <img class="qrcode" src="./img/ending_tencent/qrcode-tencent.png"/>
+    <span id="close_overlayWechat_btn"></span>
 </section>
 
 <script>!(function(a,b,c,d,e,f){var g="",h=a.sessionStorage,i="__admaster_ta_param__",j="tmDataLayer"!==d?"&dl="+d:"";
