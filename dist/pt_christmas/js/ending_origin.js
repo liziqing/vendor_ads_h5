@@ -140,7 +140,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
         },
         setVideo: function setVideo() {
             var video = new WxMoment.Video({
-                vid: "p0021ehy1js",
+                vid: "l0354cy8ava",
                 pic: "./img/ending/video-no-btn.png", //设置视频默认缩略图
                 isHtml5ControlAlwaysShow: true,
                 autoplay: false,
