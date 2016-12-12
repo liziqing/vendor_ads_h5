@@ -12,6 +12,55 @@
     <!-- build:css css/wbEndingPage.min.css -->
     <link rel="stylesheet" href="./css/ending.css"/>
     <!-- endbuild -->
+    <script>
+        var isMobile = {
+            Android: function () {
+                return navigator.userAgent.indexOf('Android') > -1 || navigator.userAgent.indexOf('Adr') > -1 ? true : false;
+            },
+            BlackBerry: function () {
+                return navigator.userAgent.match(/BlackBerry/i) ? true : false;
+            },
+            iOS: function () {
+                return navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) ? true : false;
+            },
+            Windows: function () {
+                return navigator.userAgent.match(/IEMobile/i) ? true : false;
+            },
+            any: function () {
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+            }
+        }
+
+        var queryString = function(query)
+        {
+            var search = window.location.search + '';
+            if (search.charAt(0) != '?')
+            {
+                return undefined;
+            }
+            else {
+                search = search.replace('?', '').split('&');
+                for (var i = 0; i < search.length; i++)
+                {
+                    if (search[i].split('=')[0] == query) {
+                        return decodeURI(search[i].split('=')[1]);
+                    }
+                }
+                return undefined;
+            }
+        };
+
+        if (!isMobile.any()) {
+
+            var smtid = queryString('smtid');
+
+            if(typeof smtid != 'undefined')
+            {
+                window.location.href = './ending_pc.html?smtid=' + smtid;
+            }
+
+        }
+    </script>
 </head>
 <body>
 
