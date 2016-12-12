@@ -26,14 +26,16 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             } else {
                 _this.displaySnow(); //客户提供飘雪插件，内存泄漏，开发时如果须关闭debug模式请注释
                 _this.displayLogoBranch();
+                $('.desc-line').show();
+                $('.end-show').css('opacity', 1);
                 _this.setVideo();
-
-                setTimeout(function () {
-                    _this.displayText();
-                    _this.timer = setInterval(function () {
-                        _this.displayText();
-                    }, 1500);
-                }, 1000);
+                _this.bindClick();
+                // setTimeout(function () {
+                //     _this.displayText();
+                //     _this.timer = setInterval(function () {
+                //         _this.displayText();
+                //     }, 1500);
+                // }, 1000);
             }
         },
         displayLogoBranch: function displayLogoBranch() {
