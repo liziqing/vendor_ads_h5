@@ -45,6 +45,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
             let audioIndexArray = [12, 17, 20, 26, 28, 36, 39, 42];
 
+            if(!util.isWeiXin())
+            {
+
+            }
+
             init();
 
             /**
