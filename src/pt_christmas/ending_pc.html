@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>纯净铂金 送给长不大的恋人</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,7 +67,7 @@
                 <div class="product" id="pdt6">
                     <a id="pdtLink6" href="https://detail.tmall.com/item.htm?id=542618521966" target="_blank" class="block">
                         <p>樱花铂金吊坠</p>
-                        <p>参考零售价 ¥1547.70</p>
+                        <p>参考零售价 ¥1548</p>
                     </a>
                 </div>
 
@@ -110,16 +110,25 @@ m.async=!0,n.parentNode.insertBefore(m,n)})(window,document,"script","tmDataLaye
                 
                 
                 $('#videoFrame').on("click",function(){
-                   $(this).createTVP({
-                        video:{vid:'b00219kw5ce'},
+                    var _video = new tvp.VideoInfo();
+                    _video.setVid("b00219kw5ce");
+                    var _player = new tvp.Player();
+                    _player.create({
                         width:462,
                         height:261,
+                        video:_video,
+                        modId:"videoFrame",
                         playerType:'html5',
-                        autoplay:1
-                    }); 
+                        autoplay:false
+                    });
+                   setTimeout(function () {
+                        _player.play();
+                    }, 3000);
                    $(this).addClass('noPointer');
                     _smq.push(['custom','Ending页面','点击“观看视频”']);
                     $(this).off("click");
+
+
                 });
 
                 $('#pdtLink1').on('click',function(){_smq.push(['custom','Ending页面','点击”女王猫铂金吊坠购买“']);});
