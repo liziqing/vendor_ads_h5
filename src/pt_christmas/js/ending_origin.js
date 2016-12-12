@@ -90,15 +90,19 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                 e.preventDefault();
             }, false);
             $('#item_brn_1').on('click', function () {
+                _smq.push(['custom', 'Ending页面', '点击”女王猫铂金吊坠购买“']);
                 window.location.href = 'http://item.jd.com/1513953554.html';
             });
             $('#item_brn_2').on('click', function () {
+                _smq.push(['custom', 'Ending页面', '点击”心连心吊坠购买“']);
                 window.location.href = 'https://item.jd.com/11016136369.html';
             });
             $('#item_brn_3').on('click', function () {
+                _smq.push(['custom', 'Ending页面', '点击“爱的礼物系列风吟铂金套链购买“']);
                 window.location.href = 'https://item.jd.com/11062182787.html';
             });
             $('#item_brn_4').on('click', function () {
+                _smq.push(['custom', 'Ending页面', '点击“BLINK系列晴彩铂金吊坠购买"']);
                 window.location.href = 'http://item.jd.com/4189806.html';
             });
             $('#focus_btn').on('click', function () {
