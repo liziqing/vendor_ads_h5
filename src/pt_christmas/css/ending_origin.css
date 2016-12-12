@@ -86,6 +86,7 @@ body #head .head-content .animation-branch {
   position: absolute;
   top: 0;
   left: 0;
+  opacity: 0;
 }
 html #video,
 body #video {
