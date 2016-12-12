@@ -176,7 +176,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'],
                 // }
                 // $('#WxMomentVideo').width(screenWidth * 2).height(screenWidth * (9 / 16) * 2);
                 let viewportWidth = 750;
-                $('#WxMomentVideo').width(viewportWidth).height(viewportWidth * (9 / 16));
+                $('#WxMomentVideo').width(viewportWidth).height(parseInt(viewportWidth * (9 / 16) - 1));
 
             }
         }
