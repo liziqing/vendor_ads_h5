@@ -73,7 +73,7 @@
 
         }else if(isWeixin())
         {
-            var smtid = util.queryString('smtid');
+            var smtid = queryString('smtid');
             if (typeof smtid != 'undefined') {
                 window.location.href = './index.html?smtid=' + smtid;
             } else {
