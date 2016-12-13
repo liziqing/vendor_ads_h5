@@ -109,6 +109,7 @@ body #video .video-img {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 9999999;
 }
 html #video #WxMomentVideo,
 body #video #WxMomentVideo {

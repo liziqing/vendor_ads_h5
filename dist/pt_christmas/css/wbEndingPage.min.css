@@ -51,7 +51,8 @@ body #zj-xn-video {
 }
 #container #video-btn {
   position: relative;
-  width: 100%;
+  width: 750px;
+  height: 421.875px;
 }
 #container #video-btn #WxMomentVideo {
   position: absolute;
@@ -60,8 +61,13 @@ body #zj-xn-video {
   width: 100%;
   height: 100%;
 }
-#container #video-btn img {
+#container #video-btn img.video-fe {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  z-index: 9999;
 }
 #container #commodity {
   width: 100%;

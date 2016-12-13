@@ -71,7 +71,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $.Velocity.hook($hot, 'translateX', '700px');
                 $.Velocity.hook($swipe, 'translateX', '700px');
                 swiperDone = true;
-                $("#lock_audio")[0].play();
             }
         });
         manager.on('panend', function (e) {
@@ -81,6 +80,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
             } else {
                 changeScreen();
             }
+        });
+
+        $('#swipe_hint,#hot_area').on('touchend', function () {
+            $("#lock_audio")[0].play();
         });
 
         //获取微信用户名和头像
@@ -103,7 +106,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $('.xn-greetings').text('@' + nickname + '你好捧场哦。');
 
                 $('body').show();
-                $("#message_audio")[0].play();
+                // $("#message_audio")[0].play();
+
+                baseWx.initWxJs(env.appid, 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+                    $("#message_audio")[0].play();
+                });
             } else {
                 baseWx.initUserInfo(env.appid, 'pt_christmas', function (data) {
 
@@ -120,10 +127,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     $('.xn-greetings').text('@' + nickname + '你好捧场哦。');
 
                     $('body').show();
-                    $("#message_audio")[0].play();
                 });
 
                 baseWx.initWxJs(env.appid, 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+                    $("#message_audio")[0].play();
+
                     var shareTimeline = {};
                     shareTimeline.title = '张杰&谢娜邀你加入群聊...';
                     shareTimeline.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
@@ -175,21 +183,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
          第二页
          */
 
-        // $('#all_list').on('click', function () {
-        //     clearInterval(timer);
-        //     $(".chat-list li").show();
-        //     $(".chat-list li:last-child").addClass('active');
-        //
-        //     $('#all_list').remove();
-        //     scrollChatEnd();
-        //     setTimeout(function () {
-        //         window.location.href = './ending_origin.html';
-        //     }, 3000);
-        // });
-
         //第一页解锁后，第二页聊天开始
         function changeScreen() {
-            // $('title').text('张杰谢娜的圣诞专访（4）');
+
             $('#lock_screen').fadeOut();
             $('#container').fadeIn();
 
@@ -211,38 +207,30 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         function displayChat() {
             if (animateAble && chatIndex < chatLength) {
-                (function () {
-                    var $this = $(".chat-list li").eq(chatIndex);
-                    $(".chat-list li").eq(chatIndex).addClass("active").siblings().removeClass("active");
-                    $(".chat-list li").eq(chatIndex).show();
-                    scrollChat();
-                    chatIndex++;
+                var $this = $(".chat-list li").eq(chatIndex);
+                $(".chat-list li").eq(chatIndex).addClass("active").siblings().removeClass("active");
+                $(".chat-list li").eq(chatIndex).show();
+                scrollChat();
+                chatIndex++;
 
-                    var audioSourceIndex = $.inArray(chatIndex, audioIndexArray);
-                    if (audioSourceIndex >= 0) {
-                        animateAble = false;
-                        playingAudio = true;
-                        $('#' + audioIdArray[audioSourceIndex])[0].play();
+                var audioSourceIndex = $.inArray(chatIndex, audioIndexArray);
+                if (audioSourceIndex >= 0) {
+                    animateAble = false;
 
-                        $this.find('.yuyin').addClass('active');
+                    // setTimeout(function () {
+                    //     animateAble = true;
+                    // }, 2000);
+                }
 
-                        setTimeout(function () {
-                            $this.find('.yuyin').removeClass('active');
-                            animateAble = true;
-                            playingAudio = false;
-                        }, audioTimeArray[audioSourceIndex] * 1000);
-                    }
+                if (chatIndex == chatLength) {
+                    $('#all_list').hide();
 
-                    if (chatIndex == chatLength) {
-                        $('#all_list').hide();
+                    clearInterval(timer);
 
-                        clearInterval(timer);
-
-                        setTimeout(function () {
-                            window.location.href = './ending_origin.html';
-                        }, 3000);
-                    }
-                })();
+                    setTimeout(function () {
+                        window.location.href = './ending_origin.html';
+                    }, 3000);
+                }
             }
         }
 
@@ -425,6 +413,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     videoEnded();
                 }, 7000);
             }
+        });
+
+        $('.yuyin').on('click', function () {
+            $(this).removeClass('origin');
         });
     });
 });
