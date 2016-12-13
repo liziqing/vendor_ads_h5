@@ -133,12 +133,12 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     $("#message_audio")[0].play();
 
                     var shareTimeline = {};
-                    shareTimeline.title = '张杰&谢娜邀你加入群聊...';
+                    shareTimeline.title = '张杰&谢娜邀请你加入群聊...';
                     shareTimeline.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
                     shareTimeline.shareUrl = 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h';
 
                     var shareAppMessage = {};
-                    shareAppMessage.title = '张杰&谢娜邀你加入群聊..';
+                    shareAppMessage.title = '张杰&谢娜邀请你加入群聊..';
                     shareAppMessage.desc = '张杰谢娜的圣诞趣事，你听过吗？';
                     shareAppMessage.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
                     shareAppMessage.shareUrl = 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h';
