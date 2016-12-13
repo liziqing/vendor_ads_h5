@@ -55,7 +55,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'],
             },
             setVideo: () => {
                 let video = new WxMoment.Video({
-                    vid: "w0354kp0bjt",
+                    vid: "w0022h54lxi",
                     pic: "./img/weibo/video-no-btn.png", //设置视频默认缩略图
                     isHtml5ControlAlwaysShow: true,
                     autoplay: false,

@@ -56,14 +56,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
         init();
 
         /**
-         第一页
-         */
-
-        /**
-         滑动解锁页时间显示
-         */
-
-        /**
          滑动解锁事件
          */
         manager.add(Pan);
@@ -135,13 +127,13 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     var shareTimeline = {};
                     shareTimeline.title = '张杰&谢娜邀你加入群聊...';
                     shareTimeline.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
-                    shareTimeline.shareUrl = 'http://ptxmas.net-show.cn/index.html';
+                    shareTimeline.shareUrl = 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h';
 
                     var shareAppMessage = {};
                     shareAppMessage.title = '张杰&谢娜邀你加入群聊..';
                     shareAppMessage.desc = '张杰谢娜的圣诞趣事，你听过吗？';
                     shareAppMessage.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
-                    shareAppMessage.shareUrl = 'http://ptxmas.net-show.cn/index.html';
+                    shareAppMessage.shareUrl = 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h';
 
                     wx.onMenuShareTimeline({
                         title: shareTimeline.title, // 分享标题
@@ -183,17 +175,17 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
          第二页
          */
 
-        $('#all_list').on('click', function () {
-            clearInterval(timer);
-            $(".chat-list li").show();
-            $(".chat-list li:last-child").addClass('active');
-
-            $('#all_list').remove();
-            scrollChatEnd();
-            setTimeout(function () {
-                window.location.href = './ending_origin.html';
-            }, 3000);
-        });
+        // $('#all_list').on('click', function () {
+        //     clearInterval(timer);
+        //     $(".chat-list li").show();
+        //     $(".chat-list li:last-child").addClass('active');
+        //
+        //     $('#all_list').remove();
+        //     scrollChatEnd();
+        //     setTimeout(function () {
+        //         window.location.href = './ending_origin.html';
+        //     }, 3000);
+        // });
 
         //第一页解锁后，第二页聊天开始
         function changeScreen() {
@@ -286,100 +278,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 }, 1000);
             }
         }
-
-        /**
-         视频
-         */
-
-        //视频点击播放
-        // $(".zj-video1-btn").click(function () {
-        //     animateAble = false;
-        //     $(this).find('.hand').hide();
-        //     clearInterval(timer);
-        //     $("#zj-video1")[0].play();
-        //     $("#zj-video1")[0].webkitRequestFullScreen();
-        // });
-        // $(".xn-video1-btn").click(function () {
-        //     animateAble = false;
-        //     $(this).find('.hand').hide();
-        //     clearInterval(timer);
-        //     $("#xn-video1")[0].play();
-        //     $("#xn-video1")[0].webkitRequestFullScreen();
-        // });
-        // $(".xn-video2-btn").click(function () {
-        //     animateAble = false;
-        //     $(this).find('.hand').hide();
-        //     clearInterval(timer);
-        //     $("#xn-video2")[0].play();
-        //     $("#xn-video2")[0].webkitRequestFullScreen();
-        // });
-        // $(".zj-video2-btn").click(function () {
-        //     animateAble = false;
-        //     $(this).find('.hand').hide();
-        //     clearInterval(timer);
-        //     $("#zj-video2")[0].play();
-        //     $("#zj-video2")[0].webkitRequestFullScreen();
-        // });
-        // $(".xn-video3-btn").click(function () {
-        //     animateAble = false;
-        //     $(this).find('.hand').hide();
-        //     clearInterval(timer);
-        //     $("#xn-video3")[0].play();
-        //     $("#xn-video3")[0].webkitRequestFullScreen();
-        // });
-        // $(".zj-video3-btn").click(function () {
-        //     animateAble = false;
-        //     $(this).find('.hand').hide();
-        //     clearInterval(timer);
-        //     $("#zj-video3")[0].play();
-        //     $("#zj-video3")[0].webkitRequestFullScreen();
-        // });
-
-
-        //视频暂停or结束
-        //张杰视频1
-        // $("#zj-video1").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#zj-video1").bind("pause", function () {
-        //     videoEnded();
-        // });
-        // //谢娜视频1
-        // $("#xn-video1").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#xn-video1").bind("pause", function () {
-        //     videoEnded();
-        // });
-        // //谢娜视频2
-        // $("#xn-video2").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#xn-video2").bind("pause", function () {
-        //     videoEnded();
-        // });
-        // //张杰视频2
-        // $("#zj-video2").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#zj-video2").bind("pause", function () {
-        //     videoEnded();
-        // });
-        // //谢娜视频3
-        // $("#xn-video3").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#xn-video3").bind("pause", function () {
-        //     videoEnded();
-        // });
-        // //张杰视频3
-        // $("#zj-video3").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#zj-video3").bind("pause", function () {
-        //     videoEnded();
-        // });
-
 
         /**
          语音
@@ -528,63 +426,5 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 }, 7000);
             }
         });
-
-        //语音结束or暂停
-        // $("#audio13").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#audio13").bind("pause", function () {
-        //     videoEnded();
-        // });
-        //
-        // $("#audio14").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#audio14").bind("pause", function () {
-        //     videoEnded();
-        // });
-        //
-        // $("#shortout_01").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#shortout_01").bind("pause", function () {
-        //     videoEnded();
-        // });
-        //
-        // $("#shortout_02").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#shortout_02").bind("pause", function () {
-        //     videoEnded();
-        // });
-        //
-        // $("#shortout_03").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#shortout_03").bind("pause", function () {
-        //     videoEnded();
-        // });
-        //
-        // $("#shortout_04").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#shortout_04").bind("pause", function () {
-        //     videoEnded();
-        // });
-        //
-        // $("#shortout_05").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#shortout_05").bind("pause", function () {
-        //     videoEnded();
-        // });
-        //
-        // $("#shortout_06").bind("ended", function () {
-        //     videoEnded();
-        // });
-        // $("#shortout_06").bind("pause", function () {
-        //     videoEnded();
-        // });
-
     });
 });
