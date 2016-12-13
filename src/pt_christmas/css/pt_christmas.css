@@ -412,6 +412,21 @@ html #container .chat-list li .yuyin.active .speaker .audio-active,
 body #container .chat-list li .yuyin.active .speaker .audio-active {
   display: inline-block;
 }
+html #container .chat-list li .yuyin .red-circle,
+body #container .chat-list li .yuyin .red-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: #e84f50;
+  position: absolute;
+  top: 1px;
+  right: -28px;
+  display: none;
+}
+html #container .chat-list li .yuyin.origin .red-circle,
+body #container .chat-list li .yuyin.origin .red-circle {
+  display: inline-block;
+}
 html #container .chat-list li .speaker-time,
 body #container .chat-list li .speaker-time {
   font-size: 0.7rem;

@@ -11,6 +11,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'],
             descIndex: 0,
             descLength: $('.desc-line').length,
             timer: undefined,
+            video: undefined,
             snowImgArr: [
                 './img/ending/snow/03.png',  //插件仅支持单图设置
             ],
@@ -87,7 +88,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'],
             showContent: () => {
                 $('.end-show').css('opacity', 1);
             },
-            bindClick: () => {
+            bindClick: function() {
+                let _this = this;
                 $('#emoticon_btn, #close_overlay_btn').on('click', () => {
                     $('#overlay').fadeToggle();
                 });
@@ -112,6 +114,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'],
                 });
                 $('#focus_btn').on('click', () => {
                     window.location.href = 'http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MjM0NjIzMw==#wechat_redirect';
+                });
+                $('.video-fe').on('click', function () {
+                    $(this).hide();
+                    _this.video.getPlayer().play();
                 });
             },
             setShare: function () {
@@ -143,17 +149,17 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'],
                     });
                 }
             },
-            setVideo: () => {
-                let video = new WxMoment.Video({
-                    vid: "l0354cy8ava",
+            setVideo: function() {
+                this.video = new WxMoment.Video({
+                    vid: "c0022gqiekv",
                     pic: "./img/ending/video-no-btn.png", //设置视频默认缩略图
-                    isHtml5ControlAlwaysShow: true,
+                    isHtml5ControlAlwaysShow: false,
                     autoplay: false,
                     oninited: function () {
                         //播放器在视频载入完毕触发
                     },
                     onplaying: function () {
-                        video.getPlayer().enterFullScreen();
+
                     },
                     onpause: function () {
                         //播放器触发暂停时，目前只针对HTML5播放器有效

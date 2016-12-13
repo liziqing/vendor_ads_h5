@@ -7,13 +7,15 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'],
 
         let app = {
             debug: env.debug,   //开发模式
+            video: undefined,
             init: function () {
                 let _this = this;
 
                 _this.setVideo();
                 _this.bindClick();
             },
-            bindClick: () => {
+            bindClick: function() {
+                let _this = this;
                 //商品跳转链接
                 $('.commodity1').on('click', function () {
                     _smq.push(['custom','Ending页面','点击”女王猫铂金吊坠购买“']);
@@ -52,18 +54,22 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'],
                     _smq.push(['custom','Ending页面','点击“关注Pt铂金官方微博"']);
                     window.location.href = 'http://weibo.com/u/2618614667';
                 });
+                $('.video-fe').on('click', function () {
+                    $(this).hide();
+                    _this.video.getPlayer().play();
+                });
             },
-            setVideo: () => {
-                let video = new WxMoment.Video({
+            setVideo: function() {
+                this.video = new WxMoment.Video({
                     vid: "w0022h54lxi",
                     pic: "./img/weibo/video-no-btn.png", //设置视频默认缩略图
-                    isHtml5ControlAlwaysShow: true,
+                    isHtml5ControlAlwaysShow: false,
                     autoplay: false,
                     oninited: function () {
                         //播放器在视频载入完毕触发
                     },
                     onplaying: function () {
-                        video.getPlayer().enterFullScreen();
+                        // video.getPlayer().enterFullScreen();
                         _smq.push(['custom','Ending页面','点击“观看视频”']);
                     },
                     onpause: function () {

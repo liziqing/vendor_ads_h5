@@ -12,6 +12,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
         descIndex: 0,
         descLength: $('.desc-line').length,
         timer: undefined,
+        video: undefined,
         snowImgArr: ['./img/ending/snow/03.png'],
         shareTimeline: {
             title: '张杰&谢娜邀你加入群聊...',
@@ -87,6 +88,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             $('.end-show').css('opacity', 1);
         },
         bindClick: function bindClick() {
+            var _this = this;
             $('#emoticon_btn, #close_overlay_btn').on('click', function () {
                 $('#overlay').fadeToggle();
             });
@@ -111,6 +113,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             });
             $('#focus_btn').on('click', function () {
                 window.location.href = 'http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MjM0NjIzMw==#wechat_redirect';
+            });
+            $('.video-fe').on('click', function () {
+                $(this).hide();
+                _this.video.getPlayer().play();
             });
         },
         setShare: function setShare() {
@@ -139,17 +145,15 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             }
         },
         setVideo: function setVideo() {
-            var video = new WxMoment.Video({
-                vid: "l0354cy8ava",
+            this.video = new WxMoment.Video({
+                vid: "c0022gqiekv",
                 pic: "./img/ending/video-no-btn.png", //设置视频默认缩略图
-                isHtml5ControlAlwaysShow: true,
+                isHtml5ControlAlwaysShow: false,
                 autoplay: false,
                 oninited: function oninited() {
                     //播放器在视频载入完毕触发
                 },
-                onplaying: function onplaying() {
-                    video.getPlayer().enterFullScreen();
-                },
+                onplaying: function onplaying() {},
                 onpause: function onpause() {
                     //播放器触发暂停时，目前只针对HTML5播放器有效
                 },
