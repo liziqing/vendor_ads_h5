@@ -15,12 +15,12 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
         video: undefined,
         snowImgArr: ['./img/ending/snow/03.png'],
         shareTimeline: {
-            title: '张杰&谢娜邀你加入群聊...',
+            title: '张杰&谢娜邀请你加入群聊...',
             imgUrl: 'http://ptxmas.net-show.cn/img/share.jpg',
             shareUrl: 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h'
         },
         shareAppMessage: {
-            title: '张杰&谢娜邀你加入群聊..',
+            title: '张杰&谢娜邀请你加入群聊..',
             desc: '张杰谢娜的圣诞趣事，你听过吗？',
             imgUrl: 'http://ptxmas.net-show.cn/img/share.jpg',
             shareUrl: 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h'
