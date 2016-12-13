@@ -89,7 +89,12 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
         },
         bindClick: function bindClick() {
             var _this = this;
-            $('#emoticon_btn, #close_overlay_btn').on('click', function () {
+            $('#emoticon_btn').on('click', function () {
+                _smq.push(['custom', 'Ending页面', '点击”下载表情包“']);
+                $('#overlay').fadeToggle();
+            });
+            $('#close_overlay_btn').on('click', function () {
+                _smq.push(['custom', 'Ending页面', '面（浮层） 点击”我知道了“']);
                 $('#overlay').fadeToggle();
             });
             document.querySelector('#overlay').addEventListener('touchmove', function (e) {
@@ -112,9 +117,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                 window.location.href = 'http://item.jd.com/4189806.html';
             });
             $('#focus_btn').on('click', function () {
+                _smq.push(['custom', 'Ending页面', '点击“关注铂金PT官方微信""']);
                 window.location.href = 'http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MjM0NjIzMw==#wechat_redirect';
             });
             $('.video-fe').on('click', function () {
+                _smq.push(['custom', 'Ending页面', '点击“观看视频”']);
                 $(this).hide();
                 _this.video.getPlayer().play();
             });
@@ -128,7 +135,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                         title: _this.shareTimeline.title,
                         link: _this.shareTimeline.shareUrl,
                         imgUrl: _this.shareTimeline.imgUrl,
-                        success: function success() {},
+                        success: function success() {
+                            _smq.push(['custom', '分享', '分享至朋友圈']);
+                        },
                         cancel: function cancel() {}
                     });
                     wx.onMenuShareAppMessage({
@@ -138,7 +147,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                         imgUrl: _this.shareAppMessage.imgUrl,
                         type: '',
                         dataUrl: '',
-                        success: function success() {},
+                        success: function success() {
+                            _smq.push(['custom', '分享', '分享给好友']);
+                        },
                         cancel: function cancel() {}
                     });
                 });
