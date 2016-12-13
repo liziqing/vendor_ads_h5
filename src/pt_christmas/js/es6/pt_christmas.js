@@ -233,6 +233,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     let audioSourceIndex = $.inArray(chatIndex, audioIndexArray);
                     if (audioSourceIndex >= 0) {
                         animateAble = false;
+                        playingAudio = true;
                         $('#' + audioIdArray[audioSourceIndex])[0].play();
 
                         $this.find('.yuyin').addClass('active');
@@ -240,6 +241,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                         setTimeout(function () {
                             $this.find('.yuyin').removeClass('active');
                             animateAble = true;
+                            playingAudio = false;
                         }, audioTimeArray[audioSourceIndex] * 1000);
                     }
 
