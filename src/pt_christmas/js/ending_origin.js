@@ -16,13 +16,13 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
         shareTimeline: {
             title: '张杰&谢娜邀你加入群聊...',
             imgUrl: 'http://ptxmas.net-show.cn/img/share.jpg',
-            shareUrl: 'http://ptxmas.net-show.cn/index.html'
+            shareUrl: 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h'
         },
         shareAppMessage: {
             title: '张杰&谢娜邀你加入群聊..',
             desc: '张杰谢娜的圣诞趣事，你听过吗？',
             imgUrl: 'http://ptxmas.net-show.cn/img/share.jpg',
-            shareUrl: 'http://ptxmas.net-show.cn/index.html'
+            shareUrl: 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h'
         },
         init: function init() {
             var _this = this;
@@ -169,7 +169,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             // }
             // $('#WxMomentVideo').width(screenWidth * 2).height(screenWidth * (9 / 16) * 2);
             var viewportWidth = 750;
-            $('#WxMomentVideo').width(viewportWidth).height(viewportWidth * (9 / 16));
+            $('#WxMomentVideo').width(viewportWidth).height(parseInt(viewportWidth * (9 / 16) - 1));
         }
     };
 

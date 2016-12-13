@@ -55,7 +55,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'], function (wx, env, 
         },
         setVideo: function setVideo() {
             var video = new WxMoment.Video({
-                vid: "w0354kp0bjt",
+                vid: "w0022h54lxi",
                 pic: "./img/weibo/video-no-btn.png", //设置视频默认缩略图
                 isHtml5ControlAlwaysShow: true,
                 autoplay: false,
@@ -86,7 +86,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'], function (wx, env, 
             // $('#WxMomentVideo').width(screenWidth * 2).height(screenWidth * (9 / 16) * 2);
 
             var viewportWidth = 750;
-            $('#WxMomentVideo').width(viewportWidth).height(viewportWidth * (9 / 16));
+            $('#WxMomentVideo').width(viewportWidth).height(parseInt(viewportWidth * (9 / 16) - 1));
         }
     };
 

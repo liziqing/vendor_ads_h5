@@ -46,21 +46,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
             };
 
             let audioIndexArray = [12, 17, 20, 26, 28, 36, 39, 42];
+            let audioTimeArray = [14, 9, 9, 19, 16, 18, 7, 3];
 
-            let audioIdArray = ['audio13', 'audio14', 'shortout_01', 'shortout_02', 'shortout_03', 'shortout_04', 'shortout_05', 'shortout_06'];
+            let audioIdArray = ['shortout_01', 'shortout_02', 'audio13', 'shortout_03', 'shortout_04', 'shortout_05', 'shortout_06', 'audio14'];
+
 
             let playingAudio = false;
 
             init();
-
-            /**
-             第一页
-             */
-
-            /**
-             滑动解锁页时间显示
-             */
-
 
             /**
              滑动解锁事件
@@ -134,13 +127,13 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                         var shareTimeline = {};
                         shareTimeline.title = '张杰&谢娜邀你加入群聊...';
                         shareTimeline.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
-                        shareTimeline.shareUrl = 'http://ptxmas.net-show.cn/index.html';
+                        shareTimeline.shareUrl = 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h';
 
                         var shareAppMessage = {};
                         shareAppMessage.title = '张杰&谢娜邀你加入群聊..';
                         shareAppMessage.desc = '张杰谢娜的圣诞趣事，你听过吗？';
                         shareAppMessage.imgUrl = 'http://ptxmas.net-show.cn/img/share.jpg';
-                        shareAppMessage.shareUrl = 'http://ptxmas.net-show.cn/index.html';
+                        shareAppMessage.shareUrl = 'http://clickc.admaster.com.cn/c/a79677,b1456056,c2,i0,m101,8a2,8b2,h';
 
                         wx.onMenuShareTimeline({
                             title: shareTimeline.title, // 分享标题
@@ -185,17 +178,17 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
              */
 
 
-            $('#all_list').on('click', function () {
-                clearInterval(timer);
-                $(".chat-list li").show();
-                $(".chat-list li:last-child").addClass('active');
-
-                $('#all_list').remove();
-                scrollChatEnd();
-                setTimeout(function () {
-                    window.location.href = './ending_origin.html';
-                }, 3000);
-            });
+            // $('#all_list').on('click', function () {
+            //     clearInterval(timer);
+            //     $(".chat-list li").show();
+            //     $(".chat-list li:last-child").addClass('active');
+            //
+            //     $('#all_list').remove();
+            //     scrollChatEnd();
+            //     setTimeout(function () {
+            //         window.location.href = './ending_origin.html';
+            //     }, 3000);
+            // });
 
             //第一页解锁后，第二页聊天开始
             function changeScreen() {
@@ -203,7 +196,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 $('#lock_screen').fadeOut();
                 $('#container').fadeIn();
 
-                if(debug){
+                if (debug) {
                     // animateAble = false;
                     // chatIndex = chatLength;
                     // displayAllChat();
@@ -211,7 +204,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                         displayChat();
                         timer = setInterval(displayChat, 1700);
                     }, 1000);
-                }else{
+                } else {
                     setTimeout(() => {
                         displayChat();
                         timer = setInterval(displayChat, 1700);
@@ -222,17 +215,25 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
             function displayChat() {
                 if (animateAble && (chatIndex < chatLength)) {
+                    let $this = $(".chat-list li").eq(chatIndex);
                     $(".chat-list li").eq(chatIndex).addClass("active").siblings().removeClass("active");
                     $(".chat-list li").eq(chatIndex).show();
                     scrollChat();
-                    $("#wechat_message_audio")[0].play();
                     chatIndex++;
 
-                    if($.inArray(chatIndex, audioIndexArray) >= 0){
+                    let audioSourceIndex = $.inArray(chatIndex, audioIndexArray);
+                    if (audioSourceIndex >= 0) {
                         animateAble = false;
+                        playingAudio = true;
+                        $('#' + audioIdArray[audioSourceIndex])[0].play();
+
+                        $this.find('.yuyin').addClass('active');
+
                         setTimeout(function () {
+                            $this.find('.yuyin').removeClass('active');
                             animateAble = true;
-                        },2000)
+                            playingAudio = false;
+                        }, audioTimeArray[audioSourceIndex] * 1000);
                     }
 
                     if (chatIndex == chatLength) {
@@ -281,109 +282,13 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 }
             }
 
-
-            /**
-             视频
-             */
-
-
-            //视频点击播放
-            // $(".zj-video1-btn").click(function () {
-            //     animateAble = false;
-            //     $(this).find('.hand').hide();
-            //     clearInterval(timer);
-            //     $("#zj-video1")[0].play();
-            //     $("#zj-video1")[0].webkitRequestFullScreen();
-            // });
-            // $(".xn-video1-btn").click(function () {
-            //     animateAble = false;
-            //     $(this).find('.hand').hide();
-            //     clearInterval(timer);
-            //     $("#xn-video1")[0].play();
-            //     $("#xn-video1")[0].webkitRequestFullScreen();
-            // });
-            // $(".xn-video2-btn").click(function () {
-            //     animateAble = false;
-            //     $(this).find('.hand').hide();
-            //     clearInterval(timer);
-            //     $("#xn-video2")[0].play();
-            //     $("#xn-video2")[0].webkitRequestFullScreen();
-            // });
-            // $(".zj-video2-btn").click(function () {
-            //     animateAble = false;
-            //     $(this).find('.hand').hide();
-            //     clearInterval(timer);
-            //     $("#zj-video2")[0].play();
-            //     $("#zj-video2")[0].webkitRequestFullScreen();
-            // });
-            // $(".xn-video3-btn").click(function () {
-            //     animateAble = false;
-            //     $(this).find('.hand').hide();
-            //     clearInterval(timer);
-            //     $("#xn-video3")[0].play();
-            //     $("#xn-video3")[0].webkitRequestFullScreen();
-            // });
-            // $(".zj-video3-btn").click(function () {
-            //     animateAble = false;
-            //     $(this).find('.hand').hide();
-            //     clearInterval(timer);
-            //     $("#zj-video3")[0].play();
-            //     $("#zj-video3")[0].webkitRequestFullScreen();
-            // });
-
-
-            //视频暂停or结束
-            //张杰视频1
-            // $("#zj-video1").bind("ended", function () {
-            //     videoEnded();
-            // });
-            // $("#zj-video1").bind("pause", function () {
-            //     videoEnded();
-            // });
-            // //谢娜视频1
-            // $("#xn-video1").bind("ended", function () {
-            //     videoEnded();
-            // });
-            // $("#xn-video1").bind("pause", function () {
-            //     videoEnded();
-            // });
-            // //谢娜视频2
-            // $("#xn-video2").bind("ended", function () {
-            //     videoEnded();
-            // });
-            // $("#xn-video2").bind("pause", function () {
-            //     videoEnded();
-            // });
-            // //张杰视频2
-            // $("#zj-video2").bind("ended", function () {
-            //     videoEnded();
-            // });
-            // $("#zj-video2").bind("pause", function () {
-            //     videoEnded();
-            // });
-            // //谢娜视频3
-            // $("#xn-video3").bind("ended", function () {
-            //     videoEnded();
-            // });
-            // $("#xn-video3").bind("pause", function () {
-            //     videoEnded();
-            // });
-            // //张杰视频3
-            // $("#zj-video3").bind("ended", function () {
-            //     videoEnded();
-            // });
-            // $("#zj-video3").bind("pause", function () {
-            //     videoEnded();
-            // });
-
-
             /**
              语音
              */
 
             //谢娜语音 9s
             $(".yuyin-image-13s").click(function () {
-                if(!playingAudio){
+                if (!playingAudio) {
                     playingAudio = true;
                     animateAble = false;
                     clearInterval(timer);
@@ -394,13 +299,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     setTimeout(function () {
                         $(_this).removeClass('active');
                         playingAudio = false;
+                        videoEnded();
                     }, 9000);
                 }
             });
 
             //张杰语音 3s
             $(".yuyin-image-14s").click(function () {
-                if(!playingAudio) {
+                if (!playingAudio) {
                     playingAudio = true;
                     animateAble = false;
                     clearInterval(timer);
@@ -411,13 +317,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     setTimeout(function () {
                         $(_this).removeClass('active');
                         playingAudio = false;
+                        videoEnded();
                     }, 3000);
                 }
             });
 
             //shortout_01 14s
             $(".shortout_01").click(function () {
-                if(!playingAudio) {
+                if (!playingAudio) {
                     playingAudio = true;
                     animateAble = false;
                     clearInterval(timer);
@@ -428,13 +335,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     setTimeout(function () {
                         $(_this).removeClass('active');
                         playingAudio = false;
+                        videoEnded();
                     }, 14000);
                 }
             });
 
             //shortout_02 9s
             $(".shortout_02").click(function () {
-                if(!playingAudio) {
+                if (!playingAudio) {
                     playingAudio = true;
                     animateAble = false;
                     clearInterval(timer);
@@ -445,13 +353,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     setTimeout(function () {
                         $(_this).removeClass('active');
                         playingAudio = false;
+                        videoEnded();
                     }, 9000);
                 }
             });
 
             //shortout_03 19s
             $(".shortout_03").click(function () {
-                if(!playingAudio) {
+                if (!playingAudio) {
                     playingAudio = true;
                     animateAble = false;
                     clearInterval(timer);
@@ -462,13 +371,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     setTimeout(function () {
                         $(_this).removeClass('active');
                         playingAudio = false;
+                        videoEnded();
                     }, 19000);
                 }
             });
 
             //shortout_04 16s
             $(".shortout_04").click(function () {
-                if(!playingAudio) {
+                if (!playingAudio) {
                     playingAudio = true;
                     animateAble = false;
                     clearInterval(timer);
@@ -479,13 +389,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     setTimeout(function () {
                         $(_this).removeClass('active');
                         playingAudio = false;
+                        videoEnded();
                     }, 16000);
                 }
             });
 
             //shortout_05 18s
             $(".shortout_05").click(function () {
-                if(!playingAudio) {
+                if (!playingAudio) {
                     playingAudio = true;
                     animateAble = false;
                     clearInterval(timer);
@@ -496,13 +407,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     setTimeout(function () {
                         $(_this).removeClass('active');
                         playingAudio = false;
+                        videoEnded();
                     }, 18000);
                 }
             });
 
             //shortout_06 7s
             $(".shortout_06").click(function () {
-                if(!playingAudio) {
+                if (!playingAudio) {
                     playingAudio = true;
                     animateAble = false;
                     clearInterval(timer);
@@ -513,67 +425,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                     setTimeout(function () {
                         $(_this).removeClass('active');
                         playingAudio = false;
+                        videoEnded();
                     }, 7000);
                 }
-            });
-
-
-
-            //语音结束or暂停
-            $("#audio13").bind("ended", function () {
-                videoEnded();
-            });
-            $("#audio13").bind("pause", function () {
-                videoEnded();
-            });
-
-            $("#audio14").bind("ended", function () {
-                videoEnded();
-            });
-            $("#audio14").bind("pause", function () {
-                videoEnded();
-            });
-
-            $("#shortout_01").bind("ended", function () {
-                videoEnded();
-            });
-            $("#shortout_01").bind("pause", function () {
-                videoEnded();
-            });
-
-            $("#shortout_02").bind("ended", function () {
-                videoEnded();
-            });
-            $("#shortout_02").bind("pause", function () {
-                videoEnded();
-            });
-
-            $("#shortout_03").bind("ended", function () {
-                videoEnded();
-            });
-            $("#shortout_03").bind("pause", function () {
-                videoEnded();
-            });
-
-            $("#shortout_04").bind("ended", function () {
-                videoEnded();
-            });
-            $("#shortout_04").bind("pause", function () {
-                videoEnded();
-            });
-
-            $("#shortout_05").bind("ended", function () {
-                videoEnded();
-            });
-            $("#shortout_05").bind("pause", function () {
-                videoEnded();
-            });
-
-            $("#shortout_06").bind("ended", function () {
-                videoEnded();
-            });
-            $("#shortout_06").bind("pause", function () {
-                videoEnded();
             });
 
 
