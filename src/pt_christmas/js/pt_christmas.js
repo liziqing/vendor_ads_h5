@@ -185,6 +185,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //第一页解锁后，第二页聊天开始
         function changeScreen() {
+            _smq.push(['custom', '锁屏页面', '点击“划动解锁”']);
 
             $('#lock_screen').fadeOut();
             $('#container').fadeIn();
@@ -273,6 +274,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //谢娜语音 9s
         $(".yuyin-image-13s").click(function () {
+            _smq.push(['custom', '群聊页面', '点击“收听语音3”']);
             if (!playingAudio) {
                 playingAudio = true;
                 animateAble = false;
@@ -291,6 +293,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //张杰语音 3s
         $(".yuyin-image-14s").click(function () {
+            _smq.push(['custom', '群聊页面', '点击“收听语音8”']);
             if (!playingAudio) {
                 playingAudio = true;
                 animateAble = false;
@@ -309,6 +312,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //shortout_01 14s
         $(".shortout_01").click(function () {
+            _smq.push(['custom', '群聊页面', '点击“收听语音1”']);
             if (!playingAudio) {
                 playingAudio = true;
                 animateAble = false;
@@ -327,6 +331,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //shortout_02 9s
         $(".shortout_02").click(function () {
+            _smq.push(['custom', '群聊页面', '点击“收听语音2”']);
             if (!playingAudio) {
                 playingAudio = true;
                 animateAble = false;
@@ -345,6 +350,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //shortout_03 19s
         $(".shortout_03").click(function () {
+            _smq.push(['custom', '群聊页面', '点击“收听语音4”']);
             if (!playingAudio) {
                 playingAudio = true;
                 animateAble = false;
@@ -363,6 +369,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //shortout_04 16s
         $(".shortout_04").click(function () {
+            _smq.push(['custom', '群聊页面', '点击“收听语音5”']);
             if (!playingAudio) {
                 playingAudio = true;
                 animateAble = false;
@@ -381,6 +388,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //shortout_05 18s
         $(".shortout_05").click(function () {
+            _smq.push(['custom', '群聊页面', '点击“收听语音6”']);
             if (!playingAudio) {
                 playingAudio = true;
                 animateAble = false;
@@ -399,6 +407,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         //shortout_06 7s
         $(".shortout_06").click(function () {
+            _smq.push(['custom', '群聊页面', '点击“收听语音7”']);
             if (!playingAudio) {
                 playingAudio = true;
                 animateAble = false;
