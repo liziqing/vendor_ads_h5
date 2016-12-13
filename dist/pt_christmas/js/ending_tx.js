@@ -12,6 +12,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
         descIndex: 0,
         descLength: $('.desc-line').length,
         timer: undefined,
+        video: undefined,
         snowImgArr: ['./img/ending/snow/03.png'],
         
         init: function init() {
@@ -74,6 +75,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             $('.end-show').css('opacity', 1);
         },
         bindClick: function bindClick() {
+            var _this = this;
             $('#emoticon_btn').on('click', function () {
                 _smq.push(['custom','Ending页面','点击”下载表情包“']);
                 $('#overlayEmoji').fadeToggle();
@@ -108,14 +110,19 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             });
             $('#close_overlayWechat_btn').on('click', function(){
                 $('#overlayWechat').fadeToggle();
-            })
+            });
+            $('.video-fe').on('click', function () {
+                $(this).hide();
+                _this.video.getPlayer().play();
+            });
+
         },
         
         setVideo: function setVideo() {
-            var video = new WxMoment.Video({
+            this.video = new WxMoment.Video({
                 vid: "z0022whnfwa",
                 pic: "./img/ending/video-no-btn.png", //设置视频默认缩略图
-                isHtml5ControlAlwaysShow: true,
+                isHtml5ControlAlwaysShow: false,
                 autoplay: false,
                 oninited: function oninited() {
                     //播放器在视频载入完毕触发
