@@ -47,8 +47,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
         };
 
         var audioIndexArray = [12, 17, 20, 26, 28, 36, 39, 42];
+        var audioTimeArray = [14, 9, 9, 19, 16, 18, 7, 3];
 
-        var audioIdArray = ['audio13', 'audio14', 'shortout_01', 'shortout_02', 'shortout_03', 'shortout_04', 'shortout_05', 'shortout_06'];
+        var audioIdArray = ['shortout_01', 'shortout_02', 'audio13', 'shortout_03', 'shortout_04', 'shortout_05', 'shortout_06', 'audio14'];
 
         var playingAudio = false;
 
@@ -218,28 +219,36 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
 
         function displayChat() {
             if (animateAble && chatIndex < chatLength) {
-                $(".chat-list li").eq(chatIndex).addClass("active").siblings().removeClass("active");
-                $(".chat-list li").eq(chatIndex).show();
-                scrollChat();
-                $("#wechat_message_audio")[0].play();
-                chatIndex++;
+                (function () {
+                    var $this = $(".chat-list li").eq(chatIndex);
+                    $(".chat-list li").eq(chatIndex).addClass("active").siblings().removeClass("active");
+                    $(".chat-list li").eq(chatIndex).show();
+                    scrollChat();
+                    chatIndex++;
 
-                if ($.inArray(chatIndex, audioIndexArray) >= 0) {
-                    animateAble = false;
-                    setTimeout(function () {
-                        animateAble = true;
-                    }, 2000);
-                }
+                    var audioSourceIndex = $.inArray(chatIndex, audioIndexArray);
+                    if (audioSourceIndex >= 0) {
+                        animateAble = false;
+                        $('#' + audioIdArray[audioSourceIndex])[0].play();
 
-                if (chatIndex == chatLength) {
-                    $('#all_list').hide();
+                        $this.find('.yuyin').addClass('active');
 
-                    clearInterval(timer);
+                        setTimeout(function () {
+                            $this.find('.yuyin').removeClass('active');
+                            animateAble = true;
+                        }, audioTimeArray[audioSourceIndex] * 1000);
+                    }
 
-                    setTimeout(function () {
-                        window.location.href = './ending_origin.html';
-                    }, 3000);
-                }
+                    if (chatIndex == chatLength) {
+                        $('#all_list').hide();
+
+                        clearInterval(timer);
+
+                        setTimeout(function () {
+                            window.location.href = './ending_origin.html';
+                        }, 3000);
+                    }
+                })();
             }
         }
 
@@ -387,6 +396,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     $(_this).removeClass('active');
                     playingAudio = false;
+                    videoEnded();
                 }, 9000);
             }
         });
@@ -404,6 +414,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     $(_this).removeClass('active');
                     playingAudio = false;
+                    videoEnded();
                 }, 3000);
             }
         });
@@ -421,6 +432,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     $(_this).removeClass('active');
                     playingAudio = false;
+                    videoEnded();
                 }, 14000);
             }
         });
@@ -438,6 +450,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     $(_this).removeClass('active');
                     playingAudio = false;
+                    videoEnded();
                 }, 9000);
             }
         });
@@ -455,6 +468,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     $(_this).removeClass('active');
                     playingAudio = false;
+                    videoEnded();
                 }, 19000);
             }
         });
@@ -472,6 +486,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     $(_this).removeClass('active');
                     playingAudio = false;
+                    videoEnded();
                 }, 16000);
             }
         });
@@ -489,6 +504,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     $(_this).removeClass('active');
                     playingAudio = false;
+                    videoEnded();
                 }, 18000);
             }
         });
@@ -506,65 +522,67 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'hammer', 'velocity'
                 setTimeout(function () {
                     $(_this).removeClass('active');
                     playingAudio = false;
+                    videoEnded();
                 }, 7000);
             }
         });
 
         //语音结束or暂停
-        $("#audio13").bind("ended", function () {
-            videoEnded();
-        });
-        $("#audio13").bind("pause", function () {
-            videoEnded();
-        });
+        // $("#audio13").bind("ended", function () {
+        //     videoEnded();
+        // });
+        // $("#audio13").bind("pause", function () {
+        //     videoEnded();
+        // });
+        //
+        // $("#audio14").bind("ended", function () {
+        //     videoEnded();
+        // });
+        // $("#audio14").bind("pause", function () {
+        //     videoEnded();
+        // });
+        //
+        // $("#shortout_01").bind("ended", function () {
+        //     videoEnded();
+        // });
+        // $("#shortout_01").bind("pause", function () {
+        //     videoEnded();
+        // });
+        //
+        // $("#shortout_02").bind("ended", function () {
+        //     videoEnded();
+        // });
+        // $("#shortout_02").bind("pause", function () {
+        //     videoEnded();
+        // });
+        //
+        // $("#shortout_03").bind("ended", function () {
+        //     videoEnded();
+        // });
+        // $("#shortout_03").bind("pause", function () {
+        //     videoEnded();
+        // });
+        //
+        // $("#shortout_04").bind("ended", function () {
+        //     videoEnded();
+        // });
+        // $("#shortout_04").bind("pause", function () {
+        //     videoEnded();
+        // });
+        //
+        // $("#shortout_05").bind("ended", function () {
+        //     videoEnded();
+        // });
+        // $("#shortout_05").bind("pause", function () {
+        //     videoEnded();
+        // });
+        //
+        // $("#shortout_06").bind("ended", function () {
+        //     videoEnded();
+        // });
+        // $("#shortout_06").bind("pause", function () {
+        //     videoEnded();
+        // });
 
-        $("#audio14").bind("ended", function () {
-            videoEnded();
-        });
-        $("#audio14").bind("pause", function () {
-            videoEnded();
-        });
-
-        $("#shortout_01").bind("ended", function () {
-            videoEnded();
-        });
-        $("#shortout_01").bind("pause", function () {
-            videoEnded();
-        });
-
-        $("#shortout_02").bind("ended", function () {
-            videoEnded();
-        });
-        $("#shortout_02").bind("pause", function () {
-            videoEnded();
-        });
-
-        $("#shortout_03").bind("ended", function () {
-            videoEnded();
-        });
-        $("#shortout_03").bind("pause", function () {
-            videoEnded();
-        });
-
-        $("#shortout_04").bind("ended", function () {
-            videoEnded();
-        });
-        $("#shortout_04").bind("pause", function () {
-            videoEnded();
-        });
-
-        $("#shortout_05").bind("ended", function () {
-            videoEnded();
-        });
-        $("#shortout_05").bind("pause", function () {
-            videoEnded();
-        });
-
-        $("#shortout_06").bind("ended", function () {
-            videoEnded();
-        });
-        $("#shortout_06").bind("pause", function () {
-            videoEnded();
-        });
     });
 });
