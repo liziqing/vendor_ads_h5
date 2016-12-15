@@ -28,7 +28,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                 _this.displaySnow(); //客户提供飘雪插件，内存泄漏，开发时如果须关闭debug模式请注释
                 _this.displayLogoBranch();
                 $('.desc-line').show();
-                $('.end-show').css('opacity', 1);
+                $('.end-show').css('opacity', 1); 
                 _this.setVideo();
                 _this.bindClick();
                 // setTimeout(function () {
@@ -103,15 +103,15 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                 _smq.push(['custom','Ending页面','点击“ BLINK系列晴彩铂金吊坠购买“']);
                 window.location.href = 'http://item.jd.com/4189806.html';
             });
-            $('#item_brn_5').on('click', () => {
+            $('#item_brn_5').on('click', function () {
                 _smq.push(['custom', 'Ending页面', '点击“星轨铂金吊坠购买"']);
                 window.location.href = 'http://wq.jd.com/item/view?sku=11020562199';
             });
-            $('#item_brn_6').on('click', () => {
+            $('#item_brn_6').on('click', function () {
                 _smq.push(['custom', 'Ending页面', '点击“满天星铂金吊坠购买"']);
                 window.location.href = 'http://item.jd.com/10345673349.html';
             });
-            $('#item_brn_7').on('click', () => {
+            $('#item_brn_7').on('click', function () {
                 _smq.push(['custom', 'Ending页面', '点击“圣诞鹿铂金吊坠购买"']);
                 window.location.href = 'http://item.jd.com/11045261395.html';
             });
