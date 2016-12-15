@@ -103,6 +103,18 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
                 _smq.push(['custom','Ending页面','点击“ BLINK系列晴彩铂金吊坠购买“']);
                 window.location.href = 'http://item.jd.com/4189806.html';
             });
+            $('#item_brn_5').on('click', () => {
+                _smq.push(['custom', 'Ending页面', '点击“星轨铂金吊坠购买"']);
+                window.location.href = 'http://wq.jd.com/item/view?sku=11020562199';
+            });
+            $('#item_brn_6').on('click', () => {
+                _smq.push(['custom', 'Ending页面', '点击“满天星铂金吊坠购买"']);
+                window.location.href = 'http://item.jd.com/10345673349.html';
+            });
+            $('#item_brn_7').on('click', () => {
+                _smq.push(['custom', 'Ending页面', '点击“圣诞鹿铂金吊坠购买"']);
+                window.location.href = 'http://item.jd.com/11045261395.html';
+            });
             $('#focus_btn').on('click', function () {
                 _smq.push(['custom','Ending页面','点击“关注铂金PT官方微信"']);
                 // window.location.href = 'http://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MjM5MjM0NjIzMw==#wechat_redirect';
