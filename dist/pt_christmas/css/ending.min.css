@@ -138,10 +138,10 @@ body #content .content-bg {
 }
 html #content .content-fe,
 body #content .content-fe {
-  width: 82%;
+  width: 92%;
   position: absolute;
-  top: 3%;
-  left: 9%;
+  top: 1%;
+  left: 2%;
 }
 html #content .content-emoticon,
 body #content .content-emoticon {
@@ -150,7 +150,7 @@ body #content .content-emoticon {
   left: 0;
   width: 100%;
   height: 19%;
-  background: url("../img/ending/emoticon-bg-no-snow.png") center 160px no-repeat;
+  background: url(../img/ending/emoticon-bg-no-snow.png) center 110px no-repeat;
   background-size: 100% auto;
 }
 html #content .content-emoticon .content-emoticon-inner,
@@ -164,14 +164,14 @@ body #content .content-emoticon .content-emoticon-inner .emoticon-fe {
   width: 100%;
   position: absolute;
   left: 0;
-  bottom: 5%;
+  bottom: 36%;
   z-index: 50;
 }
 html #content .content-emoticon .content-emoticon-inner .emoticon-center,
 body #content .content-emoticon .content-emoticon-inner .emoticon-center {
   width: 220px;
   position: absolute;
-  top: 37%;
+  top: 21%;
   left: 34.5%;
   z-index: 40;
 }
@@ -179,7 +179,7 @@ html #content .content-emoticon .content-emoticon-inner .emoticon-left,
 body #content .content-emoticon .content-emoticon-inner .emoticon-left {
   width: 170px;
   position: absolute;
-  top: 64%;
+  top: 40%;
   left: 10%;
   z-index: 60;
 }
@@ -187,7 +187,7 @@ html #content .content-emoticon .content-emoticon-inner .emoticon-right,
 body #content .content-emoticon .content-emoticon-inner .emoticon-right {
   width: 170px;
   position: absolute;
-  top: 64%;
+  top: 40%;
   right: 10%;
   z-index: 60;
 }
@@ -196,47 +196,71 @@ body #content #emoticon_btn {
   width: 70%;
   height: 5%;
   position: absolute;
-  top: 20%;
+  top: 14%;
   left: 15%;
 }
 html #content #item_brn_1,
 body #content #item_brn_1 {
   width: 50%;
-  height: 5%;
+  height: 6%;
   position: absolute;
-  top: 30%;
-  left: 10%;
+  top: 21%;
+  left: 11%;
 }
 html #content #item_brn_2,
 body #content #item_brn_2 {
   width: 55%;
-  height: 5%;
+  height: 7%;
   position: absolute;
-  top: 43%;
+  top: 30%;
   right: 10%;
 }
 html #content #item_brn_3,
 body #content #item_brn_3 {
   width: 65%;
-  height: 5%;
+  height: 6%;
   position: absolute;
-  top: 52%;
+  top: 38%;
   left: 10%;
 }
 html #content #item_brn_4,
 body #content #item_brn_4 {
   width: 63%;
-  height: 5%;
+  height: 7%;
   position: absolute;
-  top: 60%;
+  top: 45%;
   right: 10%;
+}
+html #content #item_brn_5,
+body #content #item_brn_5 {
+  width: 63%;
+  height: 7%;
+  position: absolute;
+  top: 58%;
+  right: 17%;
+}
+html #content #item_brn_6,
+body #content #item_brn_6 {
+  width: 63%;
+  height: 7%;
+  position: absolute;
+  top: 68%;
+  left: 9%;
+}
+html #content #item_brn_7,
+body #content #item_brn_7 {
+  width: 53%;
+  height: 7%;
+  position: absolute;
+  top: 77%;
+  right: 5%;
 }
 html #content #focus_btn,
 body #content #focus_btn {
   width: 60%;
   height: 5%;
   position: absolute;
-  bottom: 14%;
+  bottom: 8%;
   left: 20%;
 }
 html .end-show,

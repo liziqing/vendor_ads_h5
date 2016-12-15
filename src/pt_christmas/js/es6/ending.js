@@ -49,6 +49,18 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'],
                     _smq.push(['custom','Ending页面','点击“BLINK系列晴彩铂金吊坠购买"']);
                     window.location.href = 'https://detail.tmall.com/item.htm?spm=a1z10.3-b-s.w4011-14768600827.141.GGBeTh&id=528076652144&rn=da0fcb7c5161ac69742059aeb91970bf&abbucket=3';
                 });
+                $('.commodity9').on('click', function () {
+                    _smq.push(['custom','Ending页面','点击“星轨铂金吊坠购买"']);
+                    window.location.href = 'https://detail.m.tmall.com/item.htm?id=527688718483';
+                }); 
+                $('.commodity10').on('click', function () {
+                    _smq.push(['custom','Ending页面','点击“满天星铂金吊坠购买"']);
+                    window.location.href = 'https://detail.tmall.com/item.htm?spm=a1z10.3-b-s.w4011-14647296421.58.IzeGCQ&id=12205199554&rn=37e4531ca61bd0b4b960c3c1b9a81152&abbucket=14&skuId=3135533758292';
+                });
+                $('.commodity11').on('click', function () {
+                    _smq.push(['custom','Ending页面','点击“圣诞鹿铂金吊坠购买"']);
+                    window.location.href = 'https://detail.tmall.com/item.htm?%20id=542794109917&skuId=3427735878305';
+                }); 
                 //关注
                 $('.attention').on('click', function () {
                     _smq.push(['custom','Ending页面','点击“关注Pt铂金官方微博"']);

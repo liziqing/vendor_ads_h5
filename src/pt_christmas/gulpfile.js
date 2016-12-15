@@ -71,6 +71,22 @@ gulp.task('pt_christmas_cssmin', function(){
         .pipe(gulp.dest('../../dist/pt_christmas/css'));
 });
 
+gulp.task('pt_christmas_wx_lessmin', function(){
+    return gulp.src('./css/ending_origin.less')
+        .pipe(less())
+        .pipe(cssmin())
+        .pipe(rename('ending.min.css'))
+        .pipe(gulp.dest('../../dist/pt_christmas/css/'));
+});
+
+gulp.task('pt_christmas_wb_lessmin', function(){
+    return gulp.src('./css/ending.less')
+        .pipe(less())
+        .pipe(cssmin())
+        .pipe(rename('wbEndingPage.min.css'))
+        .pipe(gulp.dest('../../dist/pt_christmas/css/'));
+});
+
 /*-----------------------uglify------------------------*/
 
 gulp.task('pt_christmas_uglify', function(){
@@ -146,7 +162,7 @@ gulp.task('pt_christmas_babel', function(){
 /*-----------------------watch------------------------*/
 gulp.task('pt_christmas_watch', gulp.series('pt_christmas_less','pt_christmas_babel', function() {
     gulp.watch('./css/pt_christmas.less', gulp.series('pt_christmas_less'));
-    gulp.watch('./css/ending_origin.less', gulp.series('pt_christmas_less'));
+    gulp.watch('./css/ending_origin.less', gulp.series('pt_christmas_wx_lessmin'));
     gulp.watch('./css/ending.less', gulp.series('pt_christmas_less'));
     gulp.watch('./js/es6/pt_christmas.js', gulp.series('pt_christmas_babel'));
     gulp.watch('./js/es6/ending_origin.js', gulp.series('pt_christmas_babel'));
@@ -163,12 +179,22 @@ gulp.task('pt_christmas_watch_pc', gulp.series('pt_christmas_copy_pc_css','pt_ch
 }));
 
 
+/*-----------------------watch Weibo------------------------*/
+gulp.task('pt_christmas_watch_wb', gulp.series('pt_christmas_copy_pc_css','pt_christmas_usemin', 'pt_christmas_copy_img', function() {
+    gulp.watch('./css/ending.less', gulp.series('pt_christmas_wb_lessmin'));
+    gulp.watch('./ending.html', gulp.series('pt_christmas_usemin'));
+    gulp.watch('./js/es6/ending.js', gulp.series('pt_christmas_babel'));
+    
+}));
+
+
 
 /*-----------------------build------------------------*/
 gulp.task('pt_christmas_build',
     gulp.series('pt_christmas_clean',
         'pt_christmas_babel',
         gulp.parallel('pt_christmas_copy', 'pt_christmas_usemin'),
+        'pt_christmas_wb_lessmin',
         'pt_christmas_cssmin',
         'pt_christmas_htmlmin'
     )
