@@ -89,7 +89,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'snowfall'], functio
             }, false);
             $('#item_brn_1').on('click', function () {
                 _smq.push(['custom','Ending页面','点击”女王猫铂金吊坠购买“']);
-                window.location.href = 'http://item.jd.com/1513953554.html';
+                window.location.href = 'https://item.jd.com/1535360709.html';
             });
             $('#item_brn_2').on('click', function () {
                 _smq.push(['custom','Ending页面','点击”心连心吊坠购买“']);
