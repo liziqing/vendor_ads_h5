@@ -119,7 +119,7 @@ gulp.task('ksf_greentea_watch', gulp.series('ksf_greentea_babel', function() {
 gulp.task('ksf_greentea_build',
     gulp.series('ksf_greentea_clean',
         gulp.parallel('ksf_greentea_copy', 'ksf_greentea_imgmin', 'ksf_greentea_usemin'),
-        'ksf_greentea_cssmin',
+        'ksf_greentea_cssmin', 'ksf_greentea_uglify',
         'ksf_greentea_htmlmin'
     )
 );

@@ -9,7 +9,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         console.log(localStorage);
         if (localStorage.mobile) {
             mobile = localStorage.mobile;
-            window.location.href = "#page3"
+            // window.location.href = "#page3"
         }
 
 

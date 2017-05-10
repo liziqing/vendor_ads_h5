@@ -217,13 +217,16 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             if ($('#fullname').val().trim()) {
                 if (util.isMobile($('#telephone').val().trim())) {
                     $.ajax({
-                        type: 'POST',
+                        type: 'GET',
                         url: 'http://' + env.apidomain + '/kangshifu/up-user-info',
                         data: {
                             name: $('#fullname').val().trim(),
-                            mobile: $('#telephone').val().trim()
+                            mobile: $('#telephone').val().trim(),
+                            random: Math.random(),
+                            format: 'jsonp'
                         },
-                        dataType: 'json',
+                        dataType: 'jsonp',
+                        jsonp: 'callback',
                         success: function (data) {
                             console.log(localStorage);
                             $('.mask').hide();
