@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>活力时刻拍摄</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/swiper.css">
+    <link rel="stylesheet" href="./css/album.css">
+</head>
+<body>
+<div class="main">
+    <img src="./img/slogan-album.png" class="slogan">
+
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!--<div class="swiper-slide">-->
+                <!--<img src="./img/video.png" class="photo">-->
+            <!--</div>-->
+            <!--<div class="swiper-slide">-->
+                <!--<img src="./img/bg.png" class="photo">-->
+            <!--</div>-->
+        </div>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <div class="btn share-btn">分 享</div>
+    <p>&nbsp;</p>
+    <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返回首页</div>
+</div>
+<div class="weui_mask none">
+    <img src="./img/share.png" class="share-img">
+    <p>客官您今天美呆<br>分享给您的朋友看看呗~</p>
+</div>
+
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = (clientWidth / 7.5) + 'px';
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script src="./js/vendor/require/require.js"></script>
+<script>
+    requirejs(['js/main.js'], function (main) {
+        requirejs(['album']);
+    });
+</script>
+</body>
+</html>

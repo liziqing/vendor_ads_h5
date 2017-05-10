@@ -1,0 +1,73 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  background: url("../img/bg.png");
+  background-size: 100% 100%;
+}
+.main {
+  padding-top: 0.6rem;
+}
+.slogan {
+  width: 6.74rem;
+  margin: 0 auto;
+  display: block;
+}
+.swiper-container {
+  width: 5.88rem;
+  height: 4.64rem;
+  margin: 0.38rem auto;
+  background: #000;
+}
+.swiper-button-prev {
+  width: 0.56rem;
+  height: 0.53rem;
+  background: url("../img/left.png");
+  background-size: 100% 100%;
+  left: 0.1rem;
+}
+.swiper-button-next {
+  width: 0.56rem;
+  height: 0.53rem;
+  background: url("../img/right.png");
+  background-size: 100% 100%;
+  right: 0.1rem;
+}
+.btn {
+  width: 2.85rem;
+  height: .99rem;
+  margin: 0 auto;
+  line-height: .99rem;
+  background: url("../img/btn_yellow.png");
+  background-size: 100% 100%;
+  color: #864214;
+  font-size: 16px;
+  text-align: center;
+}
+.photo {
+  width: auto;
+  height: auto;
+  max-width: 5.88rem;
+  max-height: 4.64rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.weui_mask img {
+  width: 1.95rem;
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+}
+.weui_mask p {
+  position: absolute;
+  top: 3rem;
+  right: 1.5rem;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
