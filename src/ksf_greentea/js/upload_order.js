@@ -153,17 +153,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             });
         }
 
-        function getMobileNo() {
-            if (localStorage.mobile) {
-                mobile = localStorage.mobile;
-            } else {
-                var tel = $('#telephone').val().trim();
-                localStorage.setItem("mobile", tel);
-                mobile = tel;
-            }
-            return mobile;
-        }
-
         $('.share-btn').click(function () {
             $('.weui_mask').fadeIn();
             $.ajax({

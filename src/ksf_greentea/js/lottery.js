@@ -86,7 +86,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                     lottery.speed = 40;
                 }
                 ;
-                console.log(lottery.times + '^^^^^^' + lottery.speed + '^^^^^^^' + lottery.prize);
+                // console.log(lottery.times + '^^^^^^' + lottery.speed + '^^^^^^^' + lottery.prize);
                 lottery.timer = setTimeout(roll, lottery.speed);
             }
             return false;
@@ -213,7 +213,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             });
         }
 
-        $('#submit').unbind().click(function () {
+        $('#submit').click(function () {
             if ($('#fullname').val().trim()) {
                 if (util.isMobile($('#telephone').val().trim())) {
                     $.ajax({
