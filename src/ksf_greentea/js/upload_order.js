@@ -136,14 +136,17 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
          */
         function upload(type, tel, imgUrl) {
             $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url: 'http://' + env.apidomain + '/kangshifu/image-up',
                 data: {
                     type: type,
                     mobile: tel,
                     url: imgUrl,
+                    random: Math.random(),
+                    format: 'jsonp'
                 },
-                dataType: 'json',
+                dataType: 'jsonp',
+                jsonp: 'callback',
                 success: function (data) {
                     console.log(localStorage);
                 },
