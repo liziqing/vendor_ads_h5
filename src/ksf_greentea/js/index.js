@@ -36,10 +36,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                     $.fn.fullpage.setAllowScrolling(true);
                 }
             },
-            onLeave (index, nextIndex, direction) {
+            onLeave: function(index, nextIndex, direction) {
                 if(index == 3 && direction =='up'){
                     return false;
-
                 }
             },
         });
