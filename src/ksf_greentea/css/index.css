@@ -208,6 +208,26 @@ body {
   top: 1.5rem;
   left: 0.5rem;
 }
+.actor-img-content {
+  width: 0.3rem;
+  position: absolute;
+}
+.actor-img-content-72 {
+  top: 22.5vh;
+  left: 3.4rem;
+}
+.actor-img-content-36 {
+  top: 64vh;
+  left: 2.8rem;
+}
+.actor-img-content-0 {
+  top: 26vh;
+  right: 2.1rem;
+}
+.actor-img-content-none {
+  top: -100000px;
+  left: -100000px;
+}
 .fourth-screen {
   background: url("../img/bg_bottle_bottom.png");
   background-size: 100% 100%;
