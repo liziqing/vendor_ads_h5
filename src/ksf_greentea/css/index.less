@@ -17,7 +17,7 @@ body {
   .loading-box {
     width: 6.6rem;
     position: absolute;
-    top: 6rem;
+    top: 7rem;
     left: 50%;
     transform: translateX(-50%) rotate(30deg);
     -webkit-transform: translateX(-50%) rotate(30deg);
@@ -49,15 +49,22 @@ body {
     text-align: right;
     font-weight: normal;
     position: absolute;
-    top: 7.9rem;
+    top: 8.9rem;
     right: 0.6rem;
     font-size: 16px;
+  }
+
+  .bottle {
+    width: 2.63rem;
+    position: absolute;
+    top: 2rem;
+    left: 2.6rem;
   }
 
   .bottle-cap {
     width: 1.21rem;
     position: absolute;
-    top: 5.3rem;
+    top: 6.3rem;
     right: 1rem;
   }
 }
@@ -70,17 +77,15 @@ body {
 }
 
 .first-screen {
-  background: url("../img/bg_gray.png");
+  background: url("../img/bg_gray_old.png");
   background-size: 100% 100%;
   position: relative;
 
   .slogan {
     width: 5.59rem;
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
+    margin: 0 auto;
+    display: block;
+    padding-top: 2rem;
   }
 
   .btn-box {
@@ -122,10 +127,10 @@ body {
 
   h2 {
     color: #FFF;
-    font-size: 24px;
-    padding: 0.75rem 0 0.5rem;
+    font-size: 16px;
+    padding: 1.6rem 0 0.3rem;
     font-weight: normal;
-    letter-spacing: 2px;
+    //letter-spacing: 2px;
   }
 
   .choose-box {
@@ -151,7 +156,7 @@ body {
   }
 
   .choose-cartoon-box {
-    margin-top: 0.9rem;
+    margin-top: 0.3rem;
 
     .avatar-lyf-cartoon {
       width: 2.31rem;
@@ -183,30 +188,6 @@ body {
   text-align: center;
   position: relative;
 
-  .top-box {
-    .score {
-      width: 3.26rem;
-      height: .82rem;
-      margin: 0.4rem 0 0 0.3rem;
-      background: url("../img/score_bar.png");
-      background-size: 100% 100%;
-      line-height: .82rem;
-      font-size: 12px;
-      color: #FFF;
-      text-align: left;
-      text-indent: 0.9rem;
-    }
-
-    .rule {
-      width: 70px;
-      margin: 0.5rem 0.4rem 0 0;
-      font-size: 16px;
-      color: #844114;
-      border-bottom: 0.04rem solid #844114;
-      line-height: 0.6rem;
-    }
-  }
-
   .btns {
     color: #864214;
     font-size: 16px;
@@ -219,18 +200,8 @@ body {
     line-height: 0.9rem;
     background: url("../img/btn_2.png");
     background-size: 100% 100%;
-    top: 33vh;
+    top: 35vh;
     right: 0.14rem;
-  }
-
-  .watch {
-    width: 2.03rem;
-    height: 1.37rem;
-    line-height: 0.9rem;
-    background: url("../img/btn_1.png");
-    background-size: 100% 100%;
-    top: 80vh;
-    right: 0;
   }
 
   .lottery {
@@ -239,9 +210,40 @@ body {
     line-height: 0.9rem;
     background: url("../img/btn_3.png");
     background-size: 100% 100%;
-    top: 70vh;
+    top: 75vh;
     left: 0.3rem;
   }
+}
+
+.top-box {
+  .score {
+    width: 3.26rem;
+    height: .82rem;
+    margin: 0.4rem 0 0 0.3rem;
+    background: url("../img/score_bar.png");
+    background-size: 100% 100%;
+    line-height: .82rem;
+    font-size: 12px;
+    color: #FFF;
+    text-align: left;
+    text-indent: 0.9rem;
+  }
+
+  .rule {
+    width: 70px;
+    margin: 0.5rem 0.4rem 0 0;
+    font-size: 16px;
+    color: #844114;
+    border-bottom: 0.04rem solid #844114;
+    line-height: 0.6rem;
+  }
+}
+
+.actor-img-top {
+  width: 0.6rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 0.5rem;
 }
 
 .fourth-screen {
@@ -250,17 +252,30 @@ body {
   text-align: center;
   position: relative;
 
-  .exchange {
-    width: 2.44rem;
-    height: 1.18rem;
-    line-height: 0.9rem;
-    background: url("../img/btn_2.png");
-    background-size: 100% 100%;
+  .btns {
     color: #864214;
     font-size: 16px;
     position: absolute;
-    top: 64vh;
-    left: 3.3rem;
+  }
+
+  .exchange {
+    width: 2.45rem;
+    height: 1.17rem;
+    line-height: 0.9rem;
+    background: url("../img/btn_3.png");
+    background-size: 100% 100%;
+    top: 46vh;
+    left: 1.3rem;
+  }
+
+  .watch {
+    width: 2.46rem;
+    height: 1.37rem;
+    line-height: 0.9rem;
+    background: url("../img/btn_1.png");
+    background-size: 100% 100%;
+    top: 32vh;
+    right: 0.1rem;
   }
 }
 
@@ -285,11 +300,15 @@ body {
     text-align: center;
   }
 
+  .rule-box {
+    margin: 0.5rem 0;
+    height: 5.2rem;
+    overflow-y: scroll;
+  }
+
   p {
-    margin: 4vh 0;
     color: #25925f;
     font-size: 12px;
-    height: 43vh;
     line-height: 0.4rem;
     overflow: scroll;
   }

@@ -106,8 +106,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                         $('.tel-mask').fadeIn();
                     } else {
                         upload(2, mobile, imgUrl);
-                        $('.mask').hide();
-                        $('.share-mask').fadeIn();
                     }
 
                 },
@@ -124,8 +122,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             if (util.isMobile(tel)) {
                 localStorage.setItem("mobile", tel);
                 upload(2, tel, imgUrl);
-                $('.mask').hide();
-                $('.share-mask').fadeIn();
             }
         });
 
@@ -150,6 +146,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                 jsonp: 'callback',
                 success: function (data) {
                     console.log(localStorage);
+                    $('.mask').hide();
+                    $('.share-mask').fadeIn();
                 },
                 error: function (data) {
                     console.log("ajaxFailure")

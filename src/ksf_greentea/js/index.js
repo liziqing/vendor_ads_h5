@@ -3,32 +3,93 @@
  */
 define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCatch', 'fullpage'], function (wx, env, baseWx, util, $, swiper) {
 
+    // 预加载图片
+    // $.imgLoadCatch({
+    //     deep: 'all',
+    //     step: function(percent) {
+    //         // console.log(percent + '%');
+    //         $('.loading-bar-active').css('width', percent + '%');
+    //         $('.percent-num').text(percent + '%');
+    //     },
+    //     finish: function() {
+    //         console.log('全部图片加载完成!');
+    //         $('.loading-screen').fadeOut();
+    //     }
+    // });
+
+    (function () {
+        // 获取进度条 div
+        var $progress = $('.loading-bar-active');
+
+        // 初始进度，1%
+        var progress = 1;
+
+        // 生成随机数
+        var random = function(min, max){
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        };
+
+        // 跑进度
+        var onprogress = function () {
+            // 随机时间
+            var timeout = random(10, 30);
+
+            setTimeout(function () {
+                // 如果页面加载完毕，则直接进度到 100%
+                if(window.loaded){
+                    $progress.css('width', '100%');
+                    $('.percent-num').text('100%');
+                    return;
+                }
+
+                // 随机进度
+                progress += random(1, 5);
+
+                // 随机进度不能超过 98%，以免页面还没加载完毕，进度已经 100% 了
+                if(progress > 98){
+                    progress = 98;
+                }
+
+                $progress.css('width', progress + '%');
+                $('.percent-num').text(progress + '%');
+                onprogress();
+            }, timeout);
+        };
+
+        // 开始跑进度
+        onprogress();
+
+    })();
+
     $(function () {
+        window.loaded = true;
+        $('.loading-screen').fadeOut();
         var mobile = "";
+        var score = 0;
 
         console.log(localStorage);
         if (localStorage.mobile) {
             mobile = localStorage.mobile;
-            // window.location.href = "#page3"
+            // window.location.href = "#page3";
+        }
+
+        if (localStorage.actor) {
+            window.location.href = "#page3";
+            if (localStorage.actor == 1) {
+                $('.actor-img').show().attr('src', './img/lyf_cartoon.png')
+            } else if (localStorage.actor == 2) {
+                $('.actor-img').show().attr('src', './img/wl_cartoon.png')
+            } else {
+                $('.actor-img').hide();
+            }
+        } else {
+            $('.actor-img').hide();
         }
 
 
-        // 预加载图片
-        $.imgLoadCatch({
-            deep: 'all',
-            step: function(percent) {
-                // console.log(percent + '%');
-                $('.loading-bar-active').css('width', percent + '%');
-                $('.percent-num').text(percent + '%');
-            },
-            finish: function() {
-                console.log('全部图片加载完成!');
-                $('.loading-screen').fadeOut();
-            }
-        });
-
+        // fullpage初始化，其中1、2页不可滑动，3、4页可互相滑动
         $('#main').fullpage({
-            anchors: ['', '', 'page3', 'page4'],
+            anchors: ['', '', 'page3', ''],
             afterLoad: function(anchorLink, index){
                 if(index == 3){
                     $.fn.fullpage.setAllowScrolling(true);
@@ -46,8 +107,20 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         $.fn.fullpage.setAllowScrolling(false);
 
 
-        $('.start-btn, .avatar, .avatar-lyf-cartoon, .avatar-wl-cartoon').click(function () {
+        $('.start-btn').click(function () {
             $.fn.fullpage.moveSectionDown();
+        });
+
+        $('.avatar-lyf, .avatar-lyf-cartoon').click(function () {
+            $.fn.fullpage.moveSectionDown();
+            localStorage.setItem("actor", 1);
+            $('.actor-img').show().attr('src', './img/lyf_cartoon.png')
+        });
+
+        $('.avatar-wl, .avatar-wl-cartoon').click(function () {
+            $.fn.fullpage.moveSectionDown();
+            localStorage.setItem("actor", 2);
+            $('.actor-img').show().attr('src', './img/wl_cartoon.png')
         });
 
         $('.rule-btn').click(function () {
@@ -76,7 +149,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                 jsonp: 'callback',
                 success: function (data) {
                     if (data.code == 0) {
-                        $('#score').text(data.data.value);
+                        score = data.data.value;
+                        $('.score-num').text(score);
                     }
                 },
                 error: function (data) {
@@ -91,7 +165,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         var shareData = {
             shareTitle: '康师傅绿茶',
             shareUrl: window.location.href,
-            shareImg: 'http://kangjiaguoqing.qnmami.com/img/share.jpeg',
+            shareImg: 'http://kangshifu.qnmami.com/img/logo.png',
             shareDes: '康师傅绿茶！'
         };
 

@@ -16,9 +16,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         var prize = 3;
         var prizeIndex = 0;
-        var prizeFirstArr = [1, 5];
-        var prizeSecondArr = [2, 6];
-        var prizeThirdArr = [0, 3, 4, 7];
+        var prizeFirstArr = [1, 5]; // 一等奖位置
+        var prizeSecondArr = [2, 6]; // 二等奖位置
+        var prizeThirdArr = [0, 3, 4, 7]; // 三等奖位置
+        var prizeFourthArr = []; // 四等奖位置
         var click = false;
         var lottery = {
             index: 0,	//当前转动到哪个位置
@@ -92,6 +93,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             return false;
         }
 
+
+        // 开始抽奖
         lottery.init('lottery');
         $("#lottery a").click(function () {
             if (click) {
@@ -111,6 +114,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                             if (data.code == 0) {
                                 getScore();
                                 prize = parseInt(data.data.result);
+                                console.log("奖项："+prize);
                                 switch (prize) {
                                     case 1:
                                         prizeIndex = prizeFirstArr[Math.floor(Math.random()*prizeFirstArr.length)];
@@ -120,6 +124,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                                         break;
                                     case 3:
                                         prizeIndex = prizeThirdArr[Math.floor(Math.random()*prizeThirdArr.length)];
+                                        break;
+                                    case 4:
+                                        prizeIndex = prizeFourthArr[Math.floor(Math.random()*prizeFourthArr.length)];
                                         break;
                                 }
                                 lottery.speed = 100;
@@ -138,8 +145,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
             }
         });
-
-
 
         // 获取活力值
         function getScore() {
@@ -167,19 +172,23 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         // 根据奖品id获取奖品信息
         function getPrize(prize) {
             var prizeStr = "";
-            switch (prize) {
-                case 1:
-                    prizeStr = "获得6.24李易峰&吴磊双人见面会入场券一张";
-                    break;
-                case 2:
-                    prizeStr = "获得6.10李易峰健康活力走入场券一张";
-                    break;
-                case 3:
-                    prizeStr = "获得6.24磊峰合体见面会入场券";
-                    break;
+            if (prize == 4) {
+                $('.tel-mask').html("<h3>很遗憾</h3>\n<div class=\"telephone-box\">\n    <div class=\"prize-box\">\n        <p>这次没有抽中哦，请再接再厉！</p>\n        <p>购买后晒单可以继续抽奖</p>\n        <div class=\"btn buy-btn\" onclick=\"window.location.href=\'http://m.jd.com\'\">电商购买</div>\n    </div>\n</div>\n\n<div class=\"btn return-btn\" onclick=\"window.location.href=\'./lottery.html\'\">返 回</div>")
+            } else {
+                switch (prize) {
+                    case 1:
+                        prizeStr = "获得6.24李易峰&吴磊双人见面会入场券一张";
+                        break;
+                    case 2:
+                        prizeStr = "获得6.10李易峰健康活力走入场券一张";
+                        break;
+                    case 3:
+                        prizeStr = "获得6.24磊峰合体见面会入场券";
+                        break;
+                }
+                $('#prizeText').text(prizeStr);
+                $('#prizeImg').attr('src', './img/prize_' + prize + '.png');
             }
-            $('#prizeText').text(prizeStr);
-            $('#prizeImg').attr('src', './img/prize_' + prize + '.png');
         }
 
         // 获取我的奖品
