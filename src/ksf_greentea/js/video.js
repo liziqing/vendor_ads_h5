@@ -18,6 +18,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             $(this).hide();
         });
 
+        // 检测播放暂停
         video.addEventListener('timeupdate', function (e) {
             if (video.paused) {
                 util.alerty("已暂停");
@@ -29,6 +30,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         // 播放结束时触发
         video.addEventListener('ended', function (e) {
             util.alerty("已播放完成，恭喜获得12活力值");
+            $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',
                 url: 'http://' + env.apidomain + '/kangshifu/have-watch?mobile=' + mobile,

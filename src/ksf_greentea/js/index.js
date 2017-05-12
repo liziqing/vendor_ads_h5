@@ -66,15 +66,15 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         $('.loading-screen').fadeOut();
         var mobile = "";
         var score = 0;
+        var isPlay = false;
+        var actorAudio = new Audio();
 
         console.log(localStorage);
         if (localStorage.mobile) {
             mobile = localStorage.mobile;
-            // window.location.href = "#page3";
         }
-
         if (localStorage.actor) {
-            window.location.href = "#page3";
+            window.location.href = "#page3"; // 如果已选过角色 直接跳转page3
             if (localStorage.actor == 1) {
                 $('.actor-img').show().attr('src', './img/lyf_cartoon.png')
             } else if (localStorage.actor == 2) {
@@ -107,22 +107,36 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         $.fn.fullpage.setAllowScrolling(false);
 
 
+        // page1 开始button
         $('.start-btn').click(function () {
             $.fn.fullpage.moveSectionDown();
         });
 
+        // page2 李易峰
         $('.avatar-lyf, .avatar-lyf-cartoon').click(function () {
             $.fn.fullpage.moveSectionDown();
             localStorage.setItem("actor", 1);
+            if(!isPlay) {
+                actorAudio.setAttribute('src', './media/lyf.mp3');
+                actorAudio.play(); //播放
+                isPlay = true;
+            }
             $('.actor-img').show().attr('src', './img/lyf_cartoon.png')
         });
 
+        // page2 吴磊
         $('.avatar-wl, .avatar-wl-cartoon').click(function () {
             $.fn.fullpage.moveSectionDown();
             localStorage.setItem("actor", 2);
+            if(!isPlay) {
+                actorAudio.setAttribute('src', './media/wl.mp3');
+                actorAudio.play(); //播放
+                isPlay = true;
+            }
             $('.actor-img').show().attr('src', './img/wl_cartoon.png')
         });
 
+        // 活动规则button
         $('.rule-btn').click(function () {
             $('.mask').hide();
             $('.weui_mask').fadeIn();
@@ -151,6 +165,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                     if (data.code == 0) {
                         score = data.data.value;
                         $('.score-num').text(score);
+                        setActorPosition();
                     }
                 },
                 error: function (data) {
@@ -159,9 +174,22 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             });
         }
 
-        /***
-         * 分享
-         * */
+        // 根据活力值改变人物位置
+        function setActorPosition() {
+            if (score >= 0 && score < 36) {
+                $('.fourth-screen .actor-img-content').addClass('actor-img-content-0');
+                $('.third-screen .actor-img-content').addClass('actor-img-content-none');
+            } else if (score >= 36 && score < 72) {
+                $('.third-screen .actor-img-content').addClass('actor-img-content-36');
+                $('.fourth-screen .actor-img-content').addClass('actor-img-content-none');
+            } else if (score >= 72) {
+                $('.third-screen .actor-img-content').addClass('actor-img-content-72');
+                $('.fourth-screen .actor-img-content').addClass('actor-img-content-none');
+
+            }
+        }
+
+        // 微信分享
         var shareData = {
             shareTitle: '康师傅绿茶',
             shareUrl: window.location.href,

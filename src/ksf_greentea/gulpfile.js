@@ -83,8 +83,13 @@ gulp.task('ksf_greentea_copy_css', function () {
         .pipe(copy('../../dist/ksf_greentea/'))
 });
 
+gulp.task('ksf_greentea_copy_media', function () {
+    return gulp.src('./media/*')
+        .pipe(copy('../../dist/ksf_greentea/'))
+});
+
 gulp.task('ksf_greentea_copy',
-    gulp.series('ksf_greentea_copy_js', 'ksf_greentea_copy_css')
+    gulp.series('ksf_greentea_copy_js', 'ksf_greentea_copy_css', 'ksf_greentea_copy_media')
 );
 
 /*-----------------------usemin------------------------*/
