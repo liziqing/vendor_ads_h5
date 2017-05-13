@@ -60,6 +60,14 @@ body {
   top: 6.3rem;
   right: 1rem;
 }
+.loading-screen .logo-bottom {
+  width: 3.97rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+}
 .logo {
   width: 1.62rem;
   position: absolute;
@@ -72,10 +80,33 @@ body {
   position: relative;
 }
 .first-screen .slogan {
-  width: 5.59rem;
+  width: 3.6rem;
   margin: 0 auto;
   display: block;
-  padding-top: 2rem;
+  padding-top: 1rem;
+}
+.first-screen .text {
+  width: 3.44rem;
+  margin: 0 auto;
+  display: block;
+}
+.first-screen .prize-all {
+  width: 6.13rem;
+  margin: 0 auto;
+  display: block;
+  padding-top: 0.2rem;
+}
+.first-screen .home-lyf {
+  position: absolute;
+  width: 2rem;
+  top: 7rem;
+  left: 0.2rem;
+}
+.first-screen .home-wl {
+  position: absolute;
+  width: 1.9rem;
+  top: 7rem;
+  right: 0.2rem;
 }
 .first-screen .btn-box {
   position: absolute;
@@ -136,7 +167,7 @@ body {
   margin-top: 0.3rem;
 }
 .second-screen .choose-cartoon-box .avatar-lyf-cartoon {
-  width: 2.31rem;
+  width: 2.72rem;
 }
 .second-screen .choose-cartoon-box .avatar-wl-cartoon {
   width: 2.52rem;
@@ -170,7 +201,7 @@ body {
   line-height: 0.9rem;
   background: url("../img/btn_2.png");
   background-size: 100% 100%;
-  top: 35vh;
+  top: 34vh;
   right: 0.14rem;
 }
 .third-screen .lottery {
@@ -179,13 +210,13 @@ body {
   line-height: 0.9rem;
   background: url("../img/btn_3.png");
   background-size: 100% 100%;
-  top: 75vh;
+  top: 74vh;
   left: 0.3rem;
 }
 .top-box .score {
   width: 3.26rem;
   height: .82rem;
-  margin: 0.4rem 0 0 0.3rem;
+  margin: 0.4rem 0 0 2rem;
   background: url("../img/score_bar.png");
   background-size: 100% 100%;
   line-height: .82rem;
@@ -203,9 +234,9 @@ body {
   line-height: 0.6rem;
 }
 .actor-img-top {
-  width: 0.6rem;
+  width: 0.8rem;
   position: absolute;
-  top: 1.5rem;
+  top: 2rem;
   left: 0.5rem;
 }
 .actor-img-content {
@@ -221,12 +252,18 @@ body {
   left: 2.8rem;
 }
 .actor-img-content-0 {
-  top: 26vh;
+  top: 18vh;
   right: 2.1rem;
 }
 .actor-img-content-none {
   top: -100000px;
   left: -100000px;
+}
+.voice {
+  width: 0.7rem;
+  position: absolute;
+  top: 2rem;
+  left: 1.4rem;
 }
 .fourth-screen {
   background: url("../img/bg_bottle_bottom.png");
@@ -245,7 +282,7 @@ body {
   line-height: 0.9rem;
   background: url("../img/btn_3.png");
   background-size: 100% 100%;
-  top: 46vh;
+  top: 39vh;
   left: 1.3rem;
 }
 .fourth-screen .watch {
@@ -254,7 +291,7 @@ body {
   line-height: 0.9rem;
   background: url("../img/btn_1.png");
   background-size: 100% 100%;
-  top: 32vh;
+  top: 23vh;
   right: 0.1rem;
 }
 .rule-mask {
