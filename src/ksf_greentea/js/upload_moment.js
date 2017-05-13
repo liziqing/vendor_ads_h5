@@ -10,6 +10,17 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         if (localStorage.mobile) {
             mobile = localStorage.mobile;
         }
+        if (localStorage.actor) {
+            if (localStorage.actor == 1) {
+                $('.actor').show().attr('src', './img/lyf_cover.png');
+            } else if (localStorage.actor == 2) {
+                $('.actor').show().attr('src', './img/wl_cover.png');
+            } else {
+                $('.actor').hide();
+            }
+        } else {
+            $('.actor').hide();
+        }
 
 
         var $key = $('#key');  // file name    eg: the file is image.jpg,but $key='a.jpg', you will upload the file named 'a.jpg'
@@ -60,6 +71,12 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             $('.mask').hide();
             $('.upload-mask').show();
             setImagePreview();
+            setTimeout(function(){
+                $('.preview-box-cover').css({
+                    'width': $('#preview-box').css('width'),
+                    'height': $('#preview-box').css('height')
+                });
+            }, 100);
             // $uploadedResult.html('');
         });
 

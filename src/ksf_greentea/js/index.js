@@ -74,18 +74,21 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             mobile = localStorage.mobile;
         }
         if (localStorage.actor) {
-            window.location.href = "#page3"; // 如果已选过角色 直接跳转page3
+            // window.location.href = "#page3"; // 如果已选过角色 直接跳转page3
             if (localStorage.actor == 1) {
-                $('.actor-img').show().attr('src', './img/lyf_cartoon.png')
+                $('.actor-img').show().attr('src', './img/lyf_cartoon.png');
+                $('.voice').show();
             } else if (localStorage.actor == 2) {
-                $('.actor-img').show().attr('src', './img/wl_cartoon.png')
+                $('.actor-img').show().attr('src', './img/wl_cartoon.png');
+                $('.voice').show();
             } else {
                 $('.actor-img').hide();
+                $('.voice').hide();
             }
         } else {
             $('.actor-img').hide();
+            $('.voice').hide();
         }
-
 
         // fullpage初始化，其中1、2页不可滑动，3、4页可互相滑动
         $('#main').fullpage({
@@ -116,24 +119,40 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         $('.avatar-lyf, .avatar-lyf-cartoon').click(function () {
             $.fn.fullpage.moveSectionDown();
             localStorage.setItem("actor", 1);
-            if(!isPlay) {
-                actorAudio.setAttribute('src', './media/lyf.mp3');
-                actorAudio.play(); //播放
-                isPlay = true;
-            }
-            $('.actor-img').show().attr('src', './img/lyf_cartoon.png')
+            $('.actor-img').show().attr('src', './img/lyf_cartoon.png');
+            $('.voice').show();
         });
 
         // page2 吴磊
         $('.avatar-wl, .avatar-wl-cartoon').click(function () {
             $.fn.fullpage.moveSectionDown();
             localStorage.setItem("actor", 2);
-            if(!isPlay) {
-                actorAudio.setAttribute('src', './media/wl.mp3');
-                actorAudio.play(); //播放
-                isPlay = true;
+            $('.actor-img').show().attr('src', './img/wl_cartoon.png');
+            $('.voice').show();
+        });
+
+        $('.voice').click(function () {
+            switch (localStorage.actor) {
+                case "1":
+                    if(!isPlay) {
+                        actorAudio.setAttribute('src', './media/lyf.mp3');
+                        actorAudio.play(); //播放
+                        isPlay = true;
+                        actorAudio.addEventListener('ended', function () {
+                            isPlay = false;
+                        });
+                    }
+                case "2":
+                    if(!isPlay) {
+                        actorAudio.setAttribute('src', './media/wl.mp3');
+                        actorAudio.play(); //播放
+                        isPlay = true;
+                        actorAudio.addEventListener('ended', function () {
+                            isPlay = false;
+                        });
+                    }
             }
-            $('.actor-img').show().attr('src', './img/wl_cartoon.png')
+
         });
 
         // 活动规则button
@@ -149,6 +168,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         });
 
         getScore();
+        // setActorPosition();
 
         // 获取活力值
         function getScore() {

@@ -10,8 +10,8 @@ body {
   padding-top: 0.4rem;
 }
 .slogan {
-  width: 2.75rem;
-  margin: 0 auto;
+  width: 3.75rem;
+  margin: 0 auto -0.4rem;
   display: block;
 }
 .swiper-container {

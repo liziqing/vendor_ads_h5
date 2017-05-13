@@ -16,10 +16,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         var prize = 3;
         var prizeIndex = 0;
-        var prizeFirstArr = [1, 5]; // 一等奖位置
-        var prizeSecondArr = [2, 6]; // 二等奖位置
-        var prizeThirdArr = [0, 3, 4, 7]; // 三等奖位置
-        var prizeFourthArr = []; // 四等奖位置
+        var prizeFirstArr = [6]; // 一等奖位置
+        var prizeSecondArr = [2]; // 二等奖位置
+        var prizeThirdArr = [0, 4]; // 三等奖位置
+        var prizeFourthArr = [1, 3, 5, 7]; // 四等奖位置
         var click = false;
         var lottery = {
             index: 0,	//当前转动到哪个位置
@@ -68,7 +68,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                 lottery.times = 0;
                 click = false;
                 getPrize(prize);
-                $('.tel-mask').fadeIn(2500);
+                setTimeout(function () {
+                    $('.tel-mask').fadeIn();
+                }, 1000)
             } else {
                 if (lottery.times < lottery.cycle) {
                     lottery.speed -= 10;

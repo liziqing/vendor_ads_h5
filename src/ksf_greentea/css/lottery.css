@@ -12,7 +12,7 @@ body {
 .main .score {
   width: 3.26rem;
   height: .82rem;
-  margin: 0 0 0 0.3rem;
+  margin: 0 0 0 2rem;
   background: url("../img/score_bar.png");
   background-size: 100% 100%;
   line-height: .82rem;
@@ -20,6 +20,12 @@ body {
   color: #FFF;
   text-align: left;
   text-indent: 0.9rem;
+}
+.main .buy {
+  width: 0.99rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
 }
 .main .lottery-box {
   width: 6.97rem;
@@ -39,21 +45,24 @@ body {
   font-size: 24px;
   color: #333;
 }
-.main .lottery-box .lottery-unit-0,
+.main .lottery-box .lottery-unit-1,
 .main .lottery-box .lottery-unit-3,
-.main .lottery-box .lottery-unit-4,
+.main .lottery-box .lottery-unit-5,
 .main .lottery-box .lottery-unit-7 {
+  background-image: url("../img/lottery_4.png");
+  background-size: 100% 100%;
+}
+.main .lottery-box .lottery-unit-0,
+.main .lottery-box .lottery-unit-4 {
   background-image: url("../img/lottery_3.png");
   background-size: 100% 100%;
 }
-.main .lottery-box .lottery-unit-1,
-.main .lottery-box .lottery-unit-5 {
-  background-image: url("../img/lottery_1.png");
+.main .lottery-box .lottery-unit-2 {
+  background-image: url("../img/lottery_2.png");
   background-size: 100% 100%;
 }
-.main .lottery-box .lottery-unit-2,
 .main .lottery-box .lottery-unit-6 {
-  background-image: url("../img/lottery_2.png");
+  background-image: url("../img/lottery_1.png");
   background-size: 100% 100%;
 }
 .main .lottery-box table td {
@@ -99,7 +108,7 @@ body {
   display: inline-block;
 }
 .tel-mask {
-  width: 6.25rem;
+  width: 6.97rem;
   height: 9.33rem;
   background: url("../img/bg_share_green.png");
   background-size: 100% 100%;
@@ -160,7 +169,7 @@ body {
   margin-top: 1.4rem;
 }
 .share-mask {
-  width: 6.25rem;
+  width: 6.97rem;
   height: 9.33rem;
   background: url("../img/bg_share_green.png");
   background-size: 100% 100%;
@@ -203,7 +212,7 @@ body {
   text-align: center;
 }
 .prize-mask {
-  width: 6.25rem;
+  width: 6.97rem;
   height: 9.33rem;
   background: url("../img/bg_share_green.png");
   background-size: 100% 100%;
