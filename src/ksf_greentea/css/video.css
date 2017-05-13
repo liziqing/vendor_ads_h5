@@ -57,11 +57,19 @@ body {
   font-size: 16px;
   text-align: center;
 }
-.weui_mask img {
+.weui_mask .share-img {
   width: 0.85rem;
   position: absolute;
   top: 0.2rem;
   right: 0.2rem;
+}
+.weui_mask .bottle-img {
+  width: 2.63rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 .weui_mask p {
   position: absolute;
