@@ -218,6 +218,8 @@ body {
   position: absolute;
   top: -0.7rem;
   left: 0rem;
+  animation-duration: 4s !important;
+  -webkit-animation-duration: 4s !important;
 }
 .top-box .score {
   width: 3.26rem;
