@@ -21,7 +21,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         // 检测播放暂停
         video.addEventListener('timeupdate', function (e) {
             if (video.paused) {
-                util.alerty("已暂停");
+                // util.alerty("已暂停");
                 $('#play').show();
             }
             // console.log(video.currentTime) // 当前播放的进度
