@@ -9,12 +9,13 @@ body {
 .title {
   width: 6.02rem;
   height: 1.73rem;
+  line-height: 1.73rem;
   margin: 0 1.7rem 0.2rem;
   background: url("../img/title.png");
   background-size: 100% 100%;
   text-align: center;
   color: #723211;
-  padding: 0.5rem 0;
+  padding: 0.1rem 0;
   box-sizing: border-box;
   font-size: 14px;
 }
