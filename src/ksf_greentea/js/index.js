@@ -96,6 +96,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         // fullpage初始化，其中1、2页不可滑动，3、4页可互相滑动
         $('#main').fullpage({
             anchors: ['', '', 'page3', ''],
+            animateAnchor: false,
             afterLoad: function(anchorLink, index){
                 if(index == 3){
                     $.fn.fullpage.setAllowScrolling(true);
@@ -125,6 +126,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             $('.actor-img').show().attr('src', './img/lyf_cartoon.png');
             $('.voice').show();
             $('.logo-72').hide();
+            if(!isPlay) {
+                actorAudio.setAttribute('src', './media/lyf.mp3');
+                actorAudio.play(); //播放
+                isPlay = true;
+                actorAudio.addEventListener('ended', function () {
+                    isPlay = false;
+                });
+            }
         });
 
         // page2 吴磊
@@ -134,6 +143,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             $('.actor-img').show().attr('src', './img/wl_cartoon.png');
             $('.voice').show();
             $('.logo-72').show();
+            if(!isPlay) {
+                actorAudio.setAttribute('src', './media/wl.mp3');
+                actorAudio.play(); //播放
+                isPlay = true;
+                actorAudio.addEventListener('ended', function () {
+                    isPlay = false;
+                });
+            }
         });
 
         $('.voice').click(function () {
