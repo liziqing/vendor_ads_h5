@@ -170,7 +170,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                 success: function (data) {
                     console.log(localStorage);
                     $('.mask').hide();
-                    $('.share-mask').fadeIn();
+                    if (data.data.code == 2) {
+                        $('.repeat-mask').fadeIn();
+                    } else {
+                        $('.share-mask').fadeIn();
+                    }
                 },
                 error: function (data) {
                     console.log("ajaxFailure")
