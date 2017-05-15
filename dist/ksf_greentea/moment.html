@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>活力时刻</title>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="apple-touch-fullscreen" content="yes"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <script type="text/javascript">
-        if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>活力时刻</title><meta name="apple-mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-touch-fullscreen" content="yes"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><script type="text/javascript">if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
             var version = parseFloat(RegExp.$1);
             if (version > 2.3) {
                 var phoneScale = parseInt(window.screen.width) / 640;
@@ -20,48 +8,7 @@
             }
         } else {
             document.write('<meta name="viewport" content="width=640, user-scalable=no">');
-        }
-    </script>
-
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/upload_moment.css">
-    <link href="./css/style.css" rel="stylesheet">
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/easeljs-0.8.2.min.js"></script>
-    <script type="text/javascript" src="js/hammer.min.js"></script>
-    <script type="text/javascript" src="js/common.js"></script>
-    <script type="text/javascript" src="js/load-image.min.js"></script>
-
-</head>
-<body>
-<div class="page" data-wid="" data="">
-    <div class="title" style="line-height: normal; padding: 0.5rem 0;">
-        上传照片可获得20活力值<br>分享多得4活力值
-    </div>
-    <section id="step3">
-        <div class="box-b">
-            <div id="active"></div>
-            <canvas id="canvas" width="500" height="608"></canvas>
-        </div>
-
-        <!--<div class="take-a-picture" id="photo">-->
-            <!--<input type="file" class="picinput" tabindex="-1"/>-->
-        <!--</div>-->
-
-        <div class="btns">
-            <label class="btn " id="photo" form="picInput"><input type="file" id="picInput" class="picinput none" tabindex="-1"/>选择照片</label>
-            <div id="upload" class="btn  submit">就是你了</div>
-        </div>
-
-    </section>
-
-
-    <div class="cache_image" style="position:absolute;top:0;left:0;display:none;"></div>
-</div>
-
-<script>
-    (function (doc, win) {
+        }</script><link rel="stylesheet" href="./css/common.css"><link rel="stylesheet" href="./css/upload_moment.css"><link href="./css/style.css" rel="stylesheet"><script type="text/javascript" src="js/jquery-1.7.2.min.js"></script><script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/easeljs-0.8.2.min.js"></script><script type="text/javascript" src="js/hammer.min.js"></script><script type="text/javascript" src="js/common.js"></script><script type="text/javascript" src="js/load-image.min.js"></script></head><body><div class="page" data-wid="" data=""><div class="title" style="line-height: normal; padding: 0.5rem 0">上传照片可获得20活力值<br>分享多得4活力值</div><section id="step3"><div class="box-b"><div id="active"></div><canvas id="canvas" width="500" height="608"></canvas></div><!--<div class="take-a-picture" id="photo">--><!--<input type="file" class="picinput" tabindex="-1"/>--><!--</div>--><div class="btns"><label class="btn" id="photo" form="picInput"><input type="file" id="picInput" class="picinput none" tabindex="-1">选择照片</label><div id="upload" class="btn submit">就是你了</div></div></section><div class="cache_image" style="position:absolute;top:0;left:0;display:none"></div></div><script>(function (doc, win) {
         var docEl = doc.documentElement,
             resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
             recalc = function () {
@@ -73,11 +20,7 @@
         if (!doc.addEventListener) return;
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
-    })(document, window);
-</script>
-<script>
-
-    $(function () {
+    })(document, window);</script><script>$(function () {
 
         //监听重新获取图片按钮事件
         $(".picinput").each(function () {
@@ -300,15 +243,6 @@
                 }
             }
         });
-    }
-
-
-</script>
-<script src="./js/vendor/require/require.js"></script>
-<script>
-    requirejs(['js/main.js'], function (main) {
+    }</script><script src="./js/vendor/require/require.js"></script><script>requirejs(['js/main.js'], function (main) {
         requirejs(['upload_moment']);
-    });
-</script>
-</body>
-</html>
+    });</script></body></html>
