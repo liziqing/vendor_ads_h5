@@ -96,7 +96,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         // fullpage初始化，其中1、2页不可滑动，3、4页可互相滑动
         $('#main').fullpage({
             anchors: ['', '', 'page3', ''],
-            animateAnchor: false,
+            // animateAnchor: false,
             afterLoad: function(anchorLink, index){
                 if(index == 3){
                     $.fn.fullpage.setAllowScrolling(true);
@@ -265,7 +265,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             shareDes: '康师傅绿茶！'
         };
 
-        baseWx.initWxJs('wx8e56a8ebb0688ab9', 'ksf_greentea', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+        baseWx.initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
             wx.onMenuShareTimeline({
                 title: shareData.shareTitle, // 分享标题
                 link: shareData.shareUrl, // 分享链接

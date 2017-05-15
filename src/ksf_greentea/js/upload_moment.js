@@ -26,10 +26,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         var $key = $('#key');  // file name    eg: the file is image.jpg,but $key='a.jpg', you will upload the file named 'a.jpg'
         var $userfile = $('#userfile');  // the file you selected
-        // // upload info
-        // var $selectedFile = $('.selected-file');
-        // var $progress = $(".progress");
-        // var $uploadedResult = $('.uploaded-result');
         var imgUrl = "";
         var domain = "http://vendor-ads.cdnqiniu02.qnmami.com/";
 
