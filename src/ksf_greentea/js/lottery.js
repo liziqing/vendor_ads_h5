@@ -121,18 +121,22 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                                     case 1:
                                         prizeIndex = prizeFirstArr[Math.floor(Math.random()*prizeFirstArr.length)];
                                         shareData.shareDes = '开心，我有李易峰610（李易峰吴磊624）的门票一张！你也来试试吧～';
+                                        share();
                                         break;
                                     case 2:
                                         prizeIndex = prizeSecondArr[Math.floor(Math.random()*prizeSecondArr.length)];
                                         shareData.shareDes = '开心，我有李易峰610（李易峰吴磊624）的门票一张！你也来试试吧～';
+                                        share();
                                         break;
                                     case 3:
                                         prizeIndex = prizeThirdArr[Math.floor(Math.random()*prizeThirdArr.length)];
                                         shareData.shareDes = '开心，我有李易峰吴磊6·24见面会爱奇艺特殊角度观看劵了！你也来试试吧～';
+                                        share();
                                         break;
                                     case 4:
                                         prizeIndex = prizeFourthArr[Math.floor(Math.random()*prizeFourthArr.length)];
                                         shareData.shareDes = '给我活力，好想要李易峰x吴磊生日会门票><一回生二回熟，下次一定活力满满有好运！！';
+                                        share();
                                         break;
                                 }
                                 lottery.speed = 100;
@@ -294,34 +298,36 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             shareDes: '给我活力，好想要李易峰x吴磊生日会门票><一回生二回熟，下次一定活力满满有好运！！'
         };
 
-        baseWx.initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
-            wx.onMenuShareTimeline({
-                title: shareData.shareTitle, // 分享标题
-                link: shareData.shareUrl, // 分享链接
-                imgUrl: shareData.shareImg,
-                success: function success() {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function cancel() {
-                    // 用户取消分享后执行的回调函数
-                }
-            });
+        function share() {
+            baseWx.initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+                wx.onMenuShareTimeline({
+                    title: shareData.shareTitle, // 分享标题
+                    link: shareData.shareUrl, // 分享链接
+                    imgUrl: shareData.shareImg,
+                    success: function success() {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function cancel() {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
 
-            wx.onMenuShareAppMessage({
-                title: shareData.shareTitle, // 分享标题
-                link: shareData.shareUrl,
-                desc: shareData.shareDes,
-                imgUrl: shareData.shareImg,
-                type: '', // 分享类型,music、video或link，不填默认为link
-                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                success: function success() {
-                    // 用户确认分享后执行的回调函数
-                },
-                cancel: function cancel() {
-                    // 用户取消分享后执行的回调函数
-                }
+                wx.onMenuShareAppMessage({
+                    title: shareData.shareTitle, // 分享标题
+                    link: shareData.shareUrl,
+                    desc: shareData.shareDes,
+                    imgUrl: shareData.shareImg,
+                    type: '', // 分享类型,music、video或link，不填默认为link
+                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                    success: function success() {
+                        // 用户确认分享后执行的回调函数
+                    },
+                    cancel: function cancel() {
+                        // 用户取消分享后执行的回调函数
+                    }
+                });
             });
-        });
+        }
 
     });
 });

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>哺乐多</title>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <script type="text/javascript">
+        if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                var phoneScale = parseInt(window.screen.width) / 640;
+                document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+        }
+    </script>
+
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/upload_moment.css">
+    <link href="./css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/easeljs-0.8.2.min.js"></script>
+    <script type="text/javascript" src="js/hammer.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/load-image.min.js"></script>
+
+</head>
+<body>
+<div class="page" data-wid="" data="">
+    <div class="title" style="line-height: normal; padding: 0.5rem 0;">
+        上传照片可获得20活力值<br>分享多得4活力值
+    </div>
+    <section id="step3">
+        <div class="box-b">
+            <div id="active"></div>
+            <canvas id="canvas" width="500" height="608"></canvas>
+        </div>
+
+        <!--<div class="take-a-picture" id="photo">-->
+            <!--<input type="file" class="picinput" tabindex="-1"/>-->
+        <!--</div>-->
+
+        <div class="btns">
+            <label class="btn " id="photo" form="picInput"><input type="file" id="picInput" class="picinput none" tabindex="-1"/>选择照片</label>
+            <div id="upload" class="btn  submit">就是你了</div>
+        </div>
+
+    </section>
+
+
+    <div class="cache_image" style="position:absolute;top:0;left:0;display:none;"></div>
+</div>
+
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = (clientWidth / 7.5) + 'px';
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script>
+
+    $(function () {
+
+        //监听重新获取图片按钮事件
+        $(".picinput").each(function () {
+            $(this).get(0).onchange = function (e) {
+                fileChange(e);
+            }
+        });
+
+        $(".submit").bind(Fuse.Event.START, function () {
+            if (element == null) {
+                alert("请先上传照片");
+                return false;
+            }
+
+            onPost(function () {
+            });
+
+            return false;
+        });
+
+    });
+
+    //向canvas增加一个图像,当name为'tag'时，这个element才可以移动
+    function addTag(path, _x, _y, _name) {
+        addImage(path, function (image) {
+            var tag = new createjs.Bitmap(image);
+            tag.name = _name;
+            // tag.x = randRange(60,452-image.width-60);
+            // tag.y = randRange(60,566-image.height-100);
+            tag.x = _x;
+            tag.y = _y;
+            container.addChild(tag);
+            stage.update();
+        });
+    }
+
+    //初始化canvas和Hammer，Hammer控制手势
+    var cWidth = 500, cHeight = 608, imgWidth = 0, imgHeight = 0;
+    var dx = 0, dy = 0, offx = 0, offy = 0;
+    var scale = 1, lastDist = 0;
+    var canvas, stage, container, element = null;
+    var angle = 0;
+    var i_x = 0, i_y = 0, i_rotation = 0, i_scale = 1;
+    var ispost = false;
+
+    $(function () {
+        $(window).load(function () {
+            stageStart();
+        });
+    });
+
+    function stageStart() {
+
+        canvas = document.getElementById("canvas");
+        stage = new createjs.Stage(canvas);
+        var shape = new createjs.Shape();
+        shape.graphics.beginFill("#5d5d5d").drawRect(0, 0, cWidth, cHeight);
+        stage.addChild(shape);
+        container = new createjs.Container();
+        stage.addChild(container);
+
+        var manager = new Hammer.Manager($('#active')[0]);
+        manager.add(new Hammer.Pinch());
+        manager.add(new Hammer.Rotate());
+        manager.add(new Hammer.Pan());
+        manager.add(new Hammer.Tap());
+
+        $('#active').bind(Fuse.Event.START, function (e) {
+            e.preventDefault();
+        });
+
+        manager.on('pinchstart panstart', function (e) {
+            if (!element) return;
+            i_x = element.x;
+            i_y = element.y;
+            i_rotation = element.rotation;
+            i_scale = element.scaleX;
+        });
+
+        manager.on('pinchmove panmove', function (e) {
+            if (!element) return;
+            if (element.name == "photo") {
+                element.x = i_x + e.deltaX;
+                element.y = i_y + e.deltaY;
+
+            } else {
+                var x = i_x + e.deltaX;
+                var y = i_y + e.deltaY;
+                if (x > cWidth - 60) {
+                    x = cWidth - 60;
+                }
+                if (y > cHeight - 60) {
+                    y = cHeight - 60;
+                }
+                if (x < 0) {
+                    x = 0;
+                }
+                if (y < 0) {
+                    y = 0;
+                }
+                element.x = x;
+                element.y = y;
+                element.rotation = i_rotation + e.rotation;
+            }
+            element.scaleX = element.scaleY = i_scale + (e.scale - 1);
+
+            stage.update();
+        });
+
+        manager.on('tap', function (e) {
+            if (element == null) {
+                return false;
+            }
+            var x = e.changedPointers[0].clientX,
+                y = e.changedPointers[0].clientY;
+
+            element = container.getObjectUnderPoint(x - 91, y - 243, 0);
+
+            if (!element || element.name == 'logo') element = container.getChildByName('photo');
+            // if(element.parent.name=="tag"){
+            // 	element = element.parent;
+            // }
+
+        });
+
+    }
+
+
+    function fileChange(e) {
+        var file = e.target.files[0];
+        loadImage.parseMetaData(file, function (data) {
+            var options = {maxWidth: 566, maxHeight: 566, crop: false, cover: true, canvas: true};
+            if (data.exif) {
+                options.orientation = data.exif.get('Orientation');
+            }
+            loadImage(
+                file,
+                function (img) {
+                    $(".cache_image").html("");
+                    $(".cache_image").get(0).appendChild(img);
+                    step2($(".cache_image canvas").get(0).toDataURL());
+                },
+                options
+            );
+        });
+    }
+
+
+    //获取上传文件后
+    function step2(url) {
+
+        container.removeAllChildren();
+        scale = Math.ceil(410 / 640 * 10) / 10;
+
+        container.removeAllChildren();
+        element = null;
+        addImage(url, function (image) {
+            element = new createjs.Bitmap(image);
+            element.name = "photo";
+            container.addChild(element);
+            stage.update();
+
+            //添加固定图例
+            addTag('img/lvcha.png', 18, 18, 'logo');
+            addTag('img/solgan.png', 11, 546, 'logo');
+            if (localStorage.actor == 1) {
+                addTag('img/leilei.png', 312, 16, 'tag');
+            } else if (localStorage.actor == 2) {
+                addTag('img/angle_ff.png', 312, 16, 'tag');
+            }
+        });
+
+//        $("#photo").hide();
+
+
+    }
+
+    function addImage(path, ab, param) {
+        var img = new Image();
+        img.onload = function () {
+            if (ab) {
+                ab(img, param);
+            }
+        };
+        img.src = path;
+    }
+
+    var isupload = false;
+    //提交
+    function onPost() {
+
+        if (isupload) {
+            return false;
+        }
+        isupload = true;
+        var jpg, b64;
+
+        var canvas = document.getElementById("canvas");
+
+        if (navigator.userAgent.match(/Android/i)) {
+            var encoder = new JPEGEncoder();
+            var context = canvas.getContext("2d");
+            jpg = encoder.encode(context.getImageData(0, 0, canvas.width, canvas.height), 80);
+        } else {
+            jpg = canvas.toDataURL('image/jpeg');
+        }
+
+        b64 = jpg.substring(23);
+        console.log(b64);
+        $.ajax({
+            dataType: "json",
+            type: 'post',
+            url: 'save_image.php',
+            data: {image: b64},
+            success: function (item) {
+                if (item.result == "OK") {
+                    isupload = false;
+                    $(".page").attr("data-wid", item.wid);
+                    $(".page").attr("data", "/upload/" + item.path);
+                }
+            }
+        });
+    }
+
+
+</script>
+<script src="./js/vendor/require/require.js"></script>
+<script>
+    requirejs(['js/main.js'], function (main) {
+        requirejs(['upload_moment']);
+    });
+</script>
+</body>
+</html>

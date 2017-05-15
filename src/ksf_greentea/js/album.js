@@ -24,10 +24,15 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         if (mobileParam) {
             getImageList(mobileParam);
+            $('body').css({'background': 'url("../img/bg_album.png")','background-size': '100% 100%'});
+            $('.slogan, .swiper-button-prev, .swiper-button-next, .share-btn').hide();
+            $('.swiper-container').css('margin', '3rem auto 1.3rem');
+            $('.return-btn').text("我也要参加");
         } else {
             getImageList(mobile);
         }
 
+        var shareNum = !mobile ? mobileParam : mobile;
 
         // 获取图片列表
         function getImageList(mobile) {
@@ -82,8 +87,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         var shareData = {
             shareTitle: '【康师傅绿茶健康活力派】',
-            shareUrl: 'http://kangshifu.qnmami.com',
-            shareImg: 'http://kangshifu.qnmami.com/album.html?m=' + !mobile ? mobileParam : mobile,
+            shareUrl: 'http://kangshifu.qnmami.com/album.html?m=' + shareNum,
+            shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
             shareDes: '就想分你一点我的活力美照，拉帮结派晒活力～'
         };
 

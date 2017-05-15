@@ -1,0 +1,2 @@
+var Fuse = Fuse || {};
+Fuse.Event = ('ontouchstart' in window) ? { START: 'touchstart', MOVE: 'touchmove', END: 'touchend',MOVE_END:'webkitAnimationEnd animationend'} : { START: 'mousedown', MOVE: 'mousemove', END: 'mouseup' };
