@@ -175,7 +175,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         function getPrize(prize) {
             var prizeStr = "";
             if (prize == 4) {
-                $('.tel-mask').html("<h3>很遗憾</h3>\n<div class=\"telephone-box\">\n    <div class=\"prize-box\">\n        <p>这次没有抽中哦，请再接再厉！</p>\n        <p>购买后晒单可以继续抽奖</p>\n        <div class=\"btn buy-btn\" onclick=\"window.location.href=\'http://m.jd.com\'\">电商购买</div>\n    </div>\n</div>\n\n<div class=\"btn return-btn\" onclick=\"window.location.href=\'./lottery.html\'\">返 回</div>")
+                $('.tel-mask').html("<h3>很遗憾</h3>\n<div class=\"telephone-box\">\n    <div class=\"prize-box\">\n        <p>这次没有抽中哦，请再接再厉！</p>\n        <p>购买后晒单可以继续抽奖</p>\n        <div class=\"btn buy-btn\" onclick=\"window.location.href=\'https://mall.jd.com/qr/v.html?type=js&Id=1000010461&src=qr&resourceType=jdapp_share&resourceValue=Wxfriends&utm_source=iosapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=Wxfriends\'\">电商购买</div>\n    </div>\n</div>\n\n<div class=\"btn return-btn\" onclick=\"window.location.href=\'./lottery.html\'\">返 回</div>")
             } else {
                 switch (prize) {
                     case 1:
