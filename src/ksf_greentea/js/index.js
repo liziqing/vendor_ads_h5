@@ -1,7 +1,7 @@
 /**
  * Created by Jenson on 2017/5/4.
  */
-define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCatch', 'fullpage', 'iscroll'], function (wx, env, baseWx, util, $, swiper) {
+define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCatch', 'fullpage', 'jScrollPane'], function (wx, env, baseWx, util, $, swiper) {
 
     // 预加载图片
     // $.imgLoadCatch({
@@ -94,6 +94,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             $('.voice').hide();
             $('.logo-72').hide();
         }
+
+        $('.scroll-pane').jScrollPane({
+            showArrows: false,
+            verticalGutter: -16
+        });
 
         // fullpage初始化，其中1、2页不可滑动，3、4页可互相滑动
         $('#main').fullpage({

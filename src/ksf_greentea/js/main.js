@@ -7,6 +7,7 @@ requirejs.config({
         'jbox': 'vendor/jbox/jBox.min',
         'imgLoadCatch': 'vendor/imgLoadCatch/jQuery.imgLoadCatch.min',
         'fullpage': 'vendor/fullpage/jquery.fullPage.min',
+        'jScrollPane': 'vendor/jScrollPane/jquery.jscrollpane.min',
         'iscroll': 'base/iscroll',
         // 'ptShareConfig': 'vendor/base/wxJsSdkConfig',
     },
@@ -33,6 +34,10 @@ requirejs.config({
         'iscroll': {
             deps: ['jquery'],
             exports: 'iscroll'
+        },
+        'jScrollPane': {
+            deps: ['jquery'],
+            exports: 'jScrollPane'
         },
         // 'ptShareConfig': {
         //     deps: ['jquery'],
