@@ -78,9 +78,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             if (localStorage.actor == 1) {
                 $('.actor-img').show().attr('src', './img/lyf_cartoon.png');
                 $('.voice').show();
+                $('.logo-72').hide();
             } else if (localStorage.actor == 2) {
                 $('.actor-img').show().attr('src', './img/wl_cartoon.png');
                 $('.voice').show();
+                $('.logo-72').show();
             } else {
                 $('.actor-img').hide();
                 $('.voice').hide();
@@ -88,6 +90,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         } else {
             $('.actor-img').hide();
             $('.voice').hide();
+            $('.logo-72').hide();
         }
 
         // fullpage初始化，其中1、2页不可滑动，3、4页可互相滑动
@@ -121,6 +124,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             localStorage.setItem("actor", 1);
             $('.actor-img').show().attr('src', './img/lyf_cartoon.png');
             $('.voice').show();
+            $('.logo-72').hide();
         });
 
         // page2 吴磊
@@ -129,6 +133,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             localStorage.setItem("actor", 2);
             $('.actor-img').show().attr('src', './img/wl_cartoon.png');
             $('.voice').show();
+            $('.logo-72').show();
         });
 
         $('.voice').click(function () {

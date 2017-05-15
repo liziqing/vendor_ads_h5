@@ -223,6 +223,25 @@ body {
   text-align: center;
   position: relative;
 
+  .arrow-top {
+    width: 100%;
+    height: 100%;
+    background: url("../img/arrow_top.png");
+    background-size: 100% 100%;
+    position: absolute;
+    top: -6vh;
+    left: 0;
+    //animation-duration: 4s !important;
+    //-webkit-animation-duration: 4s !important;
+  }
+
+  .logo-72 {
+    width: 1.57rem;
+    position: absolute;
+    top: 1.2rem;
+    right: 0.4rem;
+  }
+
   .btns {
     color: #864214;
     font-size: 16px;
@@ -245,7 +264,7 @@ body {
     line-height: 0.9rem;
     background: url("../img/btn_3.png");
     background-size: 100% 100%;
-    top: 74vh;
+    top: 70vh;
     left: 0.3rem;
   }
 }
@@ -256,10 +275,10 @@ body {
   background: url("../img/cloud.png");
   background-size: 100% 100%;
   position: absolute;
-  top: -0.7rem;
-  left: 0rem;
-  animation-duration: 4s !important;
-  -webkit-animation-duration: 4s !important;
+  top: -6vh;
+  left: 0;
+  animation-duration: 6s !important;
+  -webkit-animation-duration: 6s !important;
 }
 
 .top-box {
@@ -299,6 +318,8 @@ body {
 .actor-img-content {
   width: 0.3rem;
   position: absolute;
+  animation-duration: 5s !important;
+  -webkit-animation-duration: 5s !important;
 }
 
 .actor-img-content-72 {
@@ -307,8 +328,8 @@ body {
 }
 
 .actor-img-content-36 {
-   top: 64vh;
-   left: 2.8rem;
+  top: 64vh;
+  left: 2.8rem;
 }
 
 .actor-img-content-0 {
@@ -326,6 +347,26 @@ body {
   position: absolute;
   top: 2rem;
   left: 1.4rem;
+  -webkit-animation: rotate 3.82s linear infinite;
+  animation: rotate 3.82s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 .fourth-screen {
@@ -333,6 +374,18 @@ body {
   background-size: 100% 100%;
   text-align: center;
   position: relative;
+
+  .arrow-bottom {
+    width: 100%;
+    height: 100%;
+    background: url("../img/arrow_bottom.png");
+    background-size: 100% 100%;
+    position: absolute;
+    top: -6vh;
+    left: 0;
+    //animation-duration: 4s !important;
+    //-webkit-animation-duration: 4s !important;
+  }
 
   .btns {
     color: #864214;
@@ -356,7 +409,7 @@ body {
     line-height: 0.9rem;
     background: url("../img/btn_1.png");
     background-size: 100% 100%;
-    top: 23vh;
+    top: 25vh;
     right: 0.1rem;
   }
 }
