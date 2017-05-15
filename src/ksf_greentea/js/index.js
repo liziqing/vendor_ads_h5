@@ -261,7 +261,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         var shareData = {
             shareTitle: '康师傅绿茶！',
             shareUrl: window.location.href,
-            shareImg: 'http://kangshifu.qnmami.com/img/logo.png',
+            shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
             shareDes: '康师傅绿茶！'
         };
 

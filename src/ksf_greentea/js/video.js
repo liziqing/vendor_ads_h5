@@ -30,6 +30,28 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         // 播放结束时触发
         video.addEventListener('ended', function (e) {
             util.alerty("已播放完成，恭喜获得12活力值");
+            console.log(localStorage);
+            if (!mobile) {
+                $('.mask').hide();
+                $('.tel-mask').fadeIn();
+            } else {
+                haveWatch(mobile);
+                $('.mask').hide();
+                $('.weui_mask').fadeIn();
+            }
+        });
+
+        $('#submit').click(function () {
+            var mobile = $('#telephone').val().trim();
+            if (util.isMobile(mobile)) {
+                localStorage.setItem("mobile", mobile);
+                haveWatch(mobile);
+                $('.mask').hide();
+                $('.weui_mask').fadeIn();
+            }
+        });
+
+        function haveWatch(mobile) {
             $.ajax({
                 type: 'GET',
                 url: 'http://' + env.apidomain + '/kangshifu/have-watch?mobile=' + mobile,
@@ -40,30 +62,13 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 success: function (data) {
-                    console.log(localStorage);
-                    if (!mobile) {
-                        $('.mask').hide();
-                        $('.tel-mask').fadeIn();
-                    } else {
-                        $('.mask').hide();
-                        $('.weui_mask').fadeIn();
-                    }
 
                 },
                 error: function (data) {
                     console.log("ajaxFailure")
                 }
             });
-        });
-
-        $('#submit').click(function () {
-            var tel = $('#telephone').val().trim();
-            if (util.isMobile(tel)) {
-                localStorage.setItem("mobile", tel);
-                $('.mask').hide();
-                $('.weui_mask').fadeIn();
-            }
-        });
+        }
 
         $('.share-btn').click(function () {
             $('.weui_mask').fadeIn();
@@ -91,5 +96,40 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             $(this).fadeOut();
         });
 
+        var shareData = {
+            shareTitle: '康师傅绿茶！',
+            shareUrl: window.location.href,
+            shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
+            shareDes: '康师傅绿茶！'
+        };
+
+        baseWx.initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+            wx.onMenuShareTimeline({
+                title: shareData.shareTitle, // 分享标题
+                link: shareData.shareUrl, // 分享链接
+                imgUrl: shareData.shareImg,
+                success: function success() {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function cancel() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+
+            wx.onMenuShareAppMessage({
+                title: shareData.shareTitle, // 分享标题
+                link: shareData.shareUrl,
+                desc: shareData.shareDes,
+                imgUrl: shareData.shareImg,
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function success() {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function cancel() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        });
     });
 });
