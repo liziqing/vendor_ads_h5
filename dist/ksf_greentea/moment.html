@@ -21,7 +21,7 @@
         win.addEventListener(resizeEvt, recalc, false);
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);</script><script>$(function () {
-
+        getToken();
         //监听重新获取图片按钮事件
         $(".picinput").each(function () {
             $(this).get(0).onchange = function (e) {
@@ -229,18 +229,51 @@
         }
 
         b64 = jpg.substring(23);
-        console.log(b64);
+        var pic = b64;
+        var url = "http://upload.qiniu.com/putb64/20264"; //非华东空间需要根据注意事项 1 修改上传域名
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange=function(){
+            if (xhr.readyState==4){
+//                document.getElementById("myDiv").innerHTML=xhr.responseText;
+            }
+        }
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/octet-stream");
+        xhr.setRequestHeader("Authorization", token);
+        xhr.send(pic);
+
+//        $.ajax({
+//            dataType: "json",
+//            type: 'post',
+//            url: 'save_image.php',
+//            data: {image: b64},
+//            success: function (item) {
+//                if (item.result == "OK") {
+//                    isupload = false;
+//                    $(".page").attr("data-wid", item.wid);
+//                    $(".page").attr("data", "/upload/" + item.path);
+//                }
+//            }
+//        });
+    }
+    var token;
+    var getToken = function () {
         $.ajax({
-            dataType: "json",
-            type: 'post',
-            url: 'save_image.php',
-            data: {image: b64},
-            success: function (item) {
-                if (item.result == "OK") {
-                    isupload = false;
-                    $(".page").attr("data-wid", item.wid);
-                    $(".page").attr("data", "/upload/" + item.path);
+            type: 'GET',
+            url: 'http://api.vendor.qnmami.com/kangshifu/qn-token',
+            data: {
+                random: Math.random(),
+                format: 'jsonp'
+            },
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success: function (data) {
+                if (data.code == 0) {
+                    token =  data.data.token;
                 }
+            },
+            error: function (data) {
+                console.log("ajaxFailure")
             }
         });
     }</script><script src="./js/vendor/require/require.js"></script><script>requirejs(['js/main.js'], function (main) {
