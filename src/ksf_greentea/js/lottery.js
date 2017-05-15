@@ -120,15 +120,19 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                                 switch (prize) {
                                     case 1:
                                         prizeIndex = prizeFirstArr[Math.floor(Math.random()*prizeFirstArr.length)];
+                                        shareData.shareDes = '开心，我有李易峰610（李易峰吴磊624）的门票一张！你也来试试吧～';
                                         break;
                                     case 2:
                                         prizeIndex = prizeSecondArr[Math.floor(Math.random()*prizeSecondArr.length)];
+                                        shareData.shareDes = '开心，我有李易峰610（李易峰吴磊624）的门票一张！你也来试试吧～';
                                         break;
                                     case 3:
                                         prizeIndex = prizeThirdArr[Math.floor(Math.random()*prizeThirdArr.length)];
+                                        shareData.shareDes = '开心，我有李易峰吴磊6·24见面会爱奇艺特殊角度观看劵了！你也来试试吧～';
                                         break;
                                     case 4:
                                         prizeIndex = prizeFourthArr[Math.floor(Math.random()*prizeFourthArr.length)];
+                                        shareData.shareDes = '给我活力，好想要李易峰x吴磊生日会门票><一回生二回熟，下次一定活力满满有好运！！';
                                         break;
                                 }
                                 lottery.speed = 100;
@@ -284,10 +288,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         });
 
         var shareData = {
-            shareTitle: '康师傅绿茶！',
+            shareTitle: '【康师傅绿茶健康活力派】',
             shareUrl: 'http://kangshifu.qnmami.com',
             shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
-            shareDes: '康师傅绿茶！'
+            shareDes: '给我活力，好想要李易峰x吴磊生日会门票><一回生二回熟，下次一定活力满满有好运！！'
         };
 
         baseWx.initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {

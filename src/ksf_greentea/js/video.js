@@ -97,10 +97,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         });
 
         var shareData = {
-            shareTitle: '康师傅绿茶！',
+            shareTitle: '【康师傅绿茶健康活力派】',
             shareUrl: 'http://kangshifu.qnmami.com',
             shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
-            shareDes: '康师傅绿茶！'
+            shareDes: '李易峰x吴磊最新TVC，健（la）康（bang）活（jie）力（pai）看这里！'
         };
 
         baseWx.initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {

@@ -177,10 +177,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         });
 
         var shareData = {
-            shareTitle: '康师傅绿茶！',
+            shareTitle: '【康师傅绿茶健康活力派】',
             shareUrl: 'http://kangshifu.qnmami.com',
             shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
-            shareDes: '康师傅绿茶！'
+            shareDes: '可以见峰峰和吴磊咯！赶紧一起京东下单一箱康师傅绿茶，有机会得到李易峰x吴磊见面会门票！'
         };
 
         baseWx.initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {

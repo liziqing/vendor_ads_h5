@@ -7,6 +7,7 @@ requirejs.config({
         'jbox': 'vendor/jbox/jBox.min',
         'imgLoadCatch': 'vendor/imgLoadCatch/jQuery.imgLoadCatch.min',
         'fullpage': 'vendor/fullpage/jquery.fullPage.min',
+        'iscroll': 'base/iscroll',
         // 'ptShareConfig': 'vendor/base/wxJsSdkConfig',
     },
     shim: {
@@ -28,6 +29,10 @@ requirejs.config({
         'fullpage': {
             deps: ['jquery'],
             exports: 'fullpage'
+        },
+        'iscroll': {
+            deps: ['jquery'],
+            exports: 'iscroll'
         },
         // 'ptShareConfig': {
         //     deps: ['jquery'],

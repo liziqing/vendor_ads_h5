@@ -81,10 +81,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         });
 
         var shareData = {
-            shareTitle: '康师傅绿茶！',
+            shareTitle: '【康师傅绿茶健康活力派】',
             shareUrl: 'http://kangshifu.qnmami.com',
-            shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
-            shareDes: '康师傅绿茶！'
+            shareImg: 'http://kangshifu.qnmami.com/album.html?m=' + !mobile ? mobileParam : mobile,
+            shareDes: '就想分你一点我的活力美照，拉帮结派晒活力～'
         };
 
         baseWx.initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {

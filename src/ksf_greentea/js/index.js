@@ -1,7 +1,7 @@
 /**
  * Created by Jenson on 2017/5/4.
  */
-define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCatch', 'fullpage'], function (wx, env, baseWx, util, $, swiper) {
+define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCatch', 'fullpage', 'iscroll'], function (wx, env, baseWx, util, $, swiper) {
 
     // 预加载图片
     // $.imgLoadCatch({
@@ -63,7 +63,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
 
     $(function () {
         window.loaded = true;
-        $('.loading-screen').fadeOut();
+        setTimeout(function () {
+            $('.loading-screen').fadeOut();
+        }, 1000);
         var mobile = "";
         var score = 0;
         var isPlay = false;
