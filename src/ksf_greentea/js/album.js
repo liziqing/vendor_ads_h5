@@ -5,6 +5,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
     $(function () {
         var mobile = "";
+        var mobileParam = util.queryString('m');
 
         console.log(localStorage);
         if (localStorage.mobile) {
@@ -21,10 +22,15 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             loop: true
         });
 
-        getImageList();
+        if (mobileParam) {
+            getImageList(mobileParam);
+        } else {
+            getImageList(mobile);
+        }
+
 
         // 获取图片列表
-        function getImageList() {
+        function getImageList(mobile) {
             $.ajax({
                 type: 'GET',
                 url: 'http://' + env.apidomain + '/kangshifu/image-list?type=1&mobile=' + mobile,
