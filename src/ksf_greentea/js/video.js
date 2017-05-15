@@ -30,7 +30,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         // 播放结束时触发
         video.addEventListener('ended', function (e) {
             util.alerty("已播放完成，恭喜获得12活力值");
-            $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',
                 url: 'http://' + env.apidomain + '/kangshifu/have-watch?mobile=' + mobile,
@@ -41,9 +40,15 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 success: function (data) {
-                    if (data.code == 0) {
-
+                    console.log(localStorage);
+                    if (!mobile) {
+                        $('.mask').hide();
+                        $('.tel-mask').fadeIn();
+                    } else {
+                        $('.mask').hide();
+                        $('.weui_mask').fadeIn();
                     }
+
                 },
                 error: function (data) {
                     console.log("ajaxFailure")
@@ -51,6 +56,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             });
         });
 
+        $('#submit').click(function () {
+            var tel = $('#telephone').val().trim();
+            if (util.isMobile(tel)) {
+                localStorage.setItem("mobile", tel);
+                $('.mask').hide();
+                $('.weui_mask').fadeIn();
+            }
+        });
 
         $('.share-btn').click(function () {
             $('.weui_mask').fadeIn();
