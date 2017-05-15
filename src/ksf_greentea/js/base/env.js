@@ -4,7 +4,7 @@
 define(function(require){
 
     //var wx = require('base/wx');
-    var appid = 'wx9a8bd58d910b0460';
+    var appid = 'wx8e56a8ebb0688ab9';
 
     var env = Object();
 

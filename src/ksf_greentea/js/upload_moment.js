@@ -5,6 +5,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
     $(function () {
         var mobile = "";
+        var isAlbumAccess = true;
 
         console.log(localStorage);
         if (localStorage.mobile) {
@@ -34,6 +35,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         getToken();
         getImageWallList();
+        getImageList();
 
         // 获取token
         function getToken() {
@@ -142,6 +144,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             }
         });
 
+        $('#myUp').click(function () {
+            if (isAlbumAccess) {
+                window.location.href= "./album.html";
+            } else {
+                util.alerty("您还没有上传照片，先去拍一张吧！");
+            }
+        });
+
         /**
          *
          * @param type: 1订单 2照片
@@ -172,6 +182,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             });
         }
 
+
+        // 获取照片墙列表
         function getImageWallList() {
             $.ajax({
                 type: 'GET',
@@ -186,6 +198,31 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                     if (data.code == 0) {
                         for (var i = 0; i < data.data.list.length; i++) {
                             $('#wall').append('<img src="' + data.data.list[i] + '">');
+                        }
+                    }
+                },
+                error: function (data) {
+                    console.log("ajaxFailure")
+                }
+            });
+        }
+
+        // 获取用户照片列表
+        function getImageList() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://' + env.apidomain + '/kangshifu/image-list?type=1&mobile=' + mobile,
+                data: {
+                    random: Math.random(),
+                    format: 'jsonp'
+                },
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success: function (data) {
+                    if (data.code == 0) {
+                        if (data.data.list.length == 0) {
+                            isAlbumAccess = false;
+                            return;
                         }
                     }
                 },

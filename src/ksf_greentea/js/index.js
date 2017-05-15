@@ -130,8 +130,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                 actorAudio.setAttribute('src', './media/lyf.mp3');
                 actorAudio.play(); //播放
                 isPlay = true;
+                checkPlay();
                 actorAudio.addEventListener('ended', function () {
                     isPlay = false;
+                    checkPlay();
                 });
             }
         });
@@ -147,32 +149,48 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                 actorAudio.setAttribute('src', './media/wl.mp3');
                 actorAudio.play(); //播放
                 isPlay = true;
+                $('.voice').addClass('play');
                 actorAudio.addEventListener('ended', function () {
                     isPlay = false;
+                    $('.voice').removeClass('play');
                 });
             }
         });
 
         $('.voice').click(function () {
-            switch (localStorage.actor) {
+           switch (localStorage.actor) {
                 case "1":
                     if(!isPlay) {
+                        $('.voice').addClass('play');
                         actorAudio.setAttribute('src', './media/lyf.mp3');
                         actorAudio.play(); //播放
                         isPlay = true;
                         actorAudio.addEventListener('ended', function () {
                             isPlay = false;
+                            $('.voice').removeClass('play');
                         });
+                    } else {
+                        $('.voice').removeClass('play');
+                        actorAudio.pause();
+                        isPlay = false;
                     }
+                    break;
                 case "2":
                     if(!isPlay) {
+                        $('.voice').addClass('play');
                         actorAudio.setAttribute('src', './media/wl.mp3');
                         actorAudio.play(); //播放
                         isPlay = true;
                         actorAudio.addEventListener('ended', function () {
                             isPlay = false;
+                            $('.voice').removeClass('play');
                         });
+                    } else {
+                        $('.voice').removeClass('play');
+                        actorAudio.pause();
+                        isPlay = false;
                     }
+                    break;
             }
 
         });
@@ -231,6 +249,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             }
         }
 
+        function checkPlay() {
+            if (isPlay) {
+                $('.voice').addClass('play');
+            } else {
+                $('.voice').removeClass('play');
+            }
+        }
+
         // 微信分享
         var shareData = {
             shareTitle: '康师傅绿茶',
@@ -239,7 +265,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             shareDes: '康师傅绿茶！'
         };
 
-        baseWx.initWxJs('wxf19834fcc10552b0', 'ksf_greentea', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+        baseWx.initWxJs('wx8e56a8ebb0688ab9', 'ksf_greentea', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
             wx.onMenuShareTimeline({
                 title: shareData.shareTitle, // 分享标题
                 link: shareData.shareUrl, // 分享链接

@@ -12,7 +12,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             mobile = localStorage.mobile;
         }
 
-
+        // 初始化swiper
         var swiper = new Swiper('.swiper-container', {
             grabCursor: true,
             nextButton: '.swiper-button-next',

@@ -297,6 +297,8 @@ body {
   position: absolute;
   top: 2rem;
   left: 1.4rem;
+}
+.play {
   -webkit-animation: rotate 3.82s linear infinite;
   animation: rotate 3.82s linear infinite;
 }
