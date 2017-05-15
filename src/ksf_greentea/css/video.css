@@ -46,6 +46,12 @@ body {
   background: url("../img/video.png");
   background-size: 100% 100%;
 }
+.logo-bottom {
+  width: 3.3rem;
+  position: absolute;
+  bottom: 0.2rem;
+  right: 0.2rem;
+}
 .btn {
   width: 2.85rem;
   height: .99rem;

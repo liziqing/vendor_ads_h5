@@ -175,20 +175,20 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         function getPrize(prize) {
             var prizeStr = "";
             if (prize == 4) {
-                $('.tel-mask').html("<h3>很遗憾</h3>\n<div class=\"telephone-box\">\n    <div class=\"prize-box\">\n        <p>这次没有抽中哦，请再接再厉！</p>\n        <p>购买后晒单可以继续抽奖</p>\n        <div class=\"btn buy-btn\" onclick=\"window.location.href=\'https://mall.jd.com/qr/v.html?type=js&Id=1000010461&src=qr&resourceType=jdapp_share&resourceValue=Wxfriends&utm_source=iosapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=Wxfriends\'\">电商购买</div>\n    </div>\n</div>\n\n<div class=\"btn return-btn\" onclick=\"window.location.href=\'./lottery.html\'\">返 回</div>")
+                $('.tel-mask').html("<h3>再次续活力</h3>\n<div class=\"telephone-box\">\n    <div class=\"prize-box\">\n        <p>再接再厉！好运就来</p>\n        <div><div class=\"btn buy-btn\" onclick=\"window.location.href=\'https://mall.jd.com/qr/v.html?type=js&Id=1000010461&src=qr&resourceType=jdapp_share&resourceValue=Wxfriends&utm_source=iosapp&utm_medium=appshare&utm_campaign=t_335139774&utm_term=Wxfriends\'\">电商购买</div></div>\n        <div class=\"btn share-btn\"  style=\"width: 2.2rem;\">分 享</div> <div class=\"btn return-btn\" onclick=\"window.location.href=\'./lottery.html\'\" style=\"width: 2.2rem;\">返 回</div>\n    </div>\n</div>\n<img src=\"./img/twins.png\" class=\"twins\">\n\n")
             } else {
                 switch (prize) {
                     case 1:
-                        prizeStr = "获得6.24李易峰&吴磊双人见面会入场券一张";
+                        prizeStr = "请输入您的手机号<br>以确保您的入场券顺利到达~";
                         break;
                     case 2:
-                        prizeStr = "获得6.10李易峰健康活力走入场券一张";
+                        prizeStr = "请输入您的手机号<br>以确保您的入场券顺利到达~";
                         break;
                     case 3:
-                        prizeStr = "获得6.24磊峰合体见面会入场券";
+                        prizeStr = "请输入您的手机号<br>以确保您当天观看顺利登入";
                         break;
                 }
-                $('#prizeText').text(prizeStr);
+                $('#prizeText').html(prizeStr);
                 $('#prizeImg').attr('src', './img/prize_' + prize + '.png');
             }
         }
