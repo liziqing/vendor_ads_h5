@@ -18,6 +18,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         var domain = "http://vendor-ads.cdnqiniu02.qnmami.com/";
 
         getToken();
+        checkVerify();
 
         // 获取token
         function getToken() {
@@ -143,6 +144,29 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                     console.log(localStorage);
                     $('.mask').hide();
                     $('.share-mask').fadeIn();
+                },
+                error: function (data) {
+                    console.log("ajaxFailure")
+                }
+            });
+        }
+
+        function checkVerify() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://' + env.apidomain + '/kangshifu/verify-status',
+                data: {
+                    mobile: mobile,
+                    random: Math.random(),
+                    format: 'jsonp'
+                },
+                dataType: 'jsonp',
+                jsonp: 'callback',
+                success: function (data) {
+                    if (data.data.image) {
+                        $('.mask').hide();
+                        $('.verify-success').fadeIn();
+                    }
                 },
                 error: function (data) {
                     console.log("ajaxFailure")
