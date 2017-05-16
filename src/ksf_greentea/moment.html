@@ -32,10 +32,11 @@
     <script type="text/javascript" src="js/hammer.min.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <script type="text/javascript" src="js/load-image.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 
 </head>
 <body>
-<div class="page" data-wid="" data="">
+<div class="page mask" data-wid="" data="">
     <div class="title" style="line-height: normal; padding: 0.5rem 0;">
         上传照片可获得20活力值<br>分享多得4活力值
     </div>
@@ -60,6 +61,57 @@
     <div class="cache_image" style="position:absolute;top:0;left:0;display:none;"></div>
 </div>
 
+<div class="tel-mask mask none">
+    <h3>上传成功</h3>
+    <div class="telephone-box">
+        <div class="score-img">获得20活力值</div>
+        <input type="tel" id="telephone" maxlength="11" placeholder="输入手机号">
+        <p>输入手机号记录您的活力值<br>满72活力值即可抽取峰峰磊磊见面会门票</p>
+        <!--<img src="./img/score_img.png" class="score-img">-->
+    </div>
+
+    <div class="btn submit-btn" id="submit">确 定</div>
+    <p>&nbsp;</p>
+    <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
+</div>
+
+<div class="share-mask mask none">
+    <h3>恭喜您</h3>
+    <div class="telephone-box">
+        <div class="score-img">获得20活力值</div>
+        <p>垒满72活力值即可<br>抽取峰峰磊磊见面会门票</p>
+    </div>
+
+    <div class="btn share-btn">拉帮结派</div>
+    <p>&nbsp;</p>
+    <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
+</div>
+
+<div class="weui_mask none">
+    <img src="./img/share.png" class="share-img">
+    <img src="./img/bottle.png" class="bottle-img">
+    <p>客官您今天美呆<br>分享给您的朋友看看呗~</p>
+</div>
+
+<div class="share-success-mask mask none">
+    <h3>恭喜您</h3>
+    <div class="telephone-box">
+        <p>分享成功！</p>
+        <div class="score-img">获得4活力值</div>
+        <p>垒满72活力值<br>即可抽取峰峰磊磊见面会门票</p>
+        <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
+    </div>
+    <img src="./img/twins.png" class="twins">
+</div>
+
+<div class="repeat-mask mask none">
+    <p>您已获取了今天的活力值，<br>不可以太贪心哦~</p>
+    <p>&nbsp;</p>
+    <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
+    <p>&nbsp;</p>
+    <div class="btn share-btn">拉帮结派</div>
+</div>
+
 <script>
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -77,8 +129,15 @@
 </script>
 <script>
 
+    var mobile = "";
+    console.log(localStorage);
+    if (localStorage.mobile) {
+        mobile = localStorage.mobile;
+    }
     $(function () {
         getToken();
+
+
         //监听重新获取图片按钮事件
         $(".picinput").each(function () {
             $(this).get(0).onchange = function (e) {
@@ -265,6 +324,10 @@
         img.src = path;
     }
 
+
+    var imgUrl = "";
+    var domain = "http://vendor-ads.cdnqiniu02.qnmami.com/";
+
     var isupload = false;
     //提交
     function onPost() {
@@ -287,16 +350,27 @@
 
         b64 = jpg.substring(23);
         var pic = b64;
-        var url = "http://upload.qiniu.com/putb64/20264"; //非华东空间需要根据注意事项 1 修改上传域名
+        var url = "http://upload.qiniu.com/putb64/-1"; //非华东空间需要根据注意事项 1 修改上传域名
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange=function(){
             if (xhr.readyState==4){
 //                document.getElementById("myDiv").innerHTML=xhr.responseText;
+                if (xhr.status==200) {// 200 = OK
+                    imgUrl = domain + JSON.parse(xhr.response).key;
+                    console.log(imgUrl);
+                    console.log(mobile);
+                    if (!mobile) {
+                        $('.mask').hide();
+                        $('.tel-mask').fadeIn();
+                    } else {
+                        upload(2, mobile, imgUrl);
+                    }
+                }
             }
         }
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/octet-stream");
-        xhr.setRequestHeader("Authorization", token);
+        xhr.setRequestHeader("Authorization", "UpToken "+token);
         xhr.send(pic);
 
 //        $.ajax({
@@ -335,6 +409,134 @@
         });
     }
 
+    $('#submit').click(function () {
+        var tel = $('#telephone').val().trim();
+        if (util.isMobile(tel)) {
+            localStorage.setItem("mobile", tel);
+            upload(2, tel, imgUrl);
+        }
+    });
+
+    function upload(type, tel, imgUrl) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://api.vendor.qnmami.com/kangshifu/image-up',
+            data: {
+                type: type,
+                mobile: tel,
+                url: imgUrl,
+                random: Math.random(),
+                format: 'jsonp'
+            },
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success: function (data) {
+                console.log(localStorage);
+                $('.mask').hide();
+                if (data.data.code == 2) {
+                    $('.repeat-mask').fadeIn();
+                } else {
+                    $('.share-mask').fadeIn();
+                }
+            },
+            error: function (data) {
+                console.log("ajaxFailure")
+            }
+        });
+    }
+
+    $('.share-btn').click(function () {
+        $('.weui_mask').fadeIn();
+        $.ajax({
+            type: 'GET',
+            url: 'http://api.vendor.qnmami.com/kangshifu/have-share?mobile=' + mobile,
+            data: {
+                random: Math.random(),
+                format: 'jsonp'
+            },
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success: function (data) {
+                if (data.code == 0) {
+
+                }
+            },
+            error: function (data) {
+                console.log("ajaxFailure")
+            }
+        });
+    });
+
+    $('.weui_mask').click(function () {
+        $(this).fadeOut();
+    });
+
+    var shareData = {
+        shareTitle: '【康师傅绿茶健康活力派】',
+        shareUrl: 'http://kangshifu.qnmami.com',
+        shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
+        shareDes: '就想分你一点我的活力美照，拉帮结派晒活力～'
+    };
+
+    var initWxJs = function(appid, alias, jsApiList, callback) {
+        $.ajax({
+            type: 'GET',
+            url: 'http://api.vendor.qnmami.com//weixin/ksf-sig',
+            data: {url: encodeURIComponent(window.location.href), format: 'jsonp'},
+            dataType: 'jsonp',
+            jsonp: 'callback',
+            success: function (data) {
+                var timestamp = data.data.timestamp;
+                var nonceStr = data.data.nonceStr;
+                var signature = data.data.signature;
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: appid, // 必填，公众号的唯一标识
+                    timestamp: timestamp, // 必填，生成签名的时间戳
+                    nonceStr: nonceStr, // 必填，生成签名的随机串
+                    signature: signature,// 必填，签名，见附录1
+                    jsApiList: jsApiList // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+
+                wx.ready(function () {
+                    //alert("wx.ready()")
+                    if(typeof callback != 'undefined')
+                    {
+                        callback();
+                    }
+                });
+            }
+        });
+    };
+
+    initWxJs('wx8e56a8ebb0688ab9', 'pt_christmas', ['onMenuShareTimeline', 'onMenuShareAppMessage'], function () {
+        wx.onMenuShareTimeline({
+            title: shareData.shareTitle, // 分享标题
+            link: shareData.shareUrl, // 分享链接
+            imgUrl: shareData.shareImg,
+            success: function success() {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function cancel() {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+
+        wx.onMenuShareAppMessage({
+            title: shareData.shareTitle, // 分享标题
+            link: shareData.shareUrl,
+            desc: shareData.shareDes,
+            imgUrl: shareData.shareImg,
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function success() {
+                // 用户确认分享后执行的回调函数
+            },
+            cancel: function cancel() {
+                // 用户取消分享后执行的回调函数
+            }
+        });
+    });
 
 </script>
 <script src="./js/vendor/require/require.js"></script>

@@ -149,3 +149,22 @@ section {
 .btn {
     font-size: 24px;
 }
+
+.mask p {
+    font-size: 20px !important;
+}
+
+.score-img {
+    font-size: 26px !important;
+}
+
+.telephone-box input {
+    width: 200px !important;
+    height: 46px !important;
+    font-size: 26px !important;
+}
+
+.weui_mask p {
+    font-size: 22px;
+}
+
