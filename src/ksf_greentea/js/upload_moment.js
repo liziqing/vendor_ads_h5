@@ -140,6 +140,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             }
         });
 
+        $('#submit2').click(function () {
+            var tel = $('#telephone').val().trim();
+            if (util.isMobile(tel)) {
+                localStorage.setItem("mobile", tel);
+                upload(2, tel, imgUrl2);
+            }
+        });
+
         $('#myUp').click(function () {
             if (isAlbumAccess) {
                 window.location.href= "./album.html";
