@@ -25,7 +25,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         var progress = 1;
 
         // 生成随机数
-        var random = function(min, max){
+        var random = function (min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         };
 
@@ -36,7 +36,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
 
             setTimeout(function () {
                 // 如果页面加载完毕，则直接进度到 100%
-                if(window.loaded){
+                if (window.loaded) {
                     $progress.css('width', '100%');
                     $('.percent-num').text('100%');
                     return;
@@ -46,7 +46,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                 progress += random(1, 5);
 
                 // 随机进度不能超过 98%，以免页面还没加载完毕，进度已经 100% 了
-                if(progress > 98){
+                if (progress > 98) {
                     progress = 98;
                 }
 
@@ -70,6 +70,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         var score = 0;
         var isPlay = false;
         var actorAudio = new Audio();
+        var bgm = document.getElementById('bgMusic');
+        audioAutoPlay(bgm);
 
         console.log(localStorage);
         if (localStorage.mobile) {
@@ -104,16 +106,16 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         $('#main').fullpage({
             anchors: ['', '', 'page3', ''],
             // animateAnchor: false,
-            afterLoad: function(anchorLink, index){
-                if(index == 3){
+            afterLoad: function (anchorLink, index) {
+                if (index == 3) {
                     $.fn.fullpage.setAllowScrolling(true);
                 }
-                if(index == 4){
+                if (index == 4) {
                     $.fn.fullpage.setAllowScrolling(true);
                 }
             },
-            onLeave: function(index, nextIndex, direction) {
-                if(index == 3 && direction =='up'){
+            onLeave: function (index, nextIndex, direction) {
+                if (index == 3 && direction == 'up') {
                     return false;
                 }
             },
@@ -133,7 +135,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             $('.actor-img').show().attr('src', './img/lyf_cartoon.png');
             $('.voice').show();
             $('.logo-72').hide();
-            if(!isPlay) {
+            if (!isPlay) {
                 actorAudio.setAttribute('src', './media/lyf.mp3');
                 actorAudio.play(); //播放
                 isPlay = true;
@@ -152,7 +154,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
             $('.actor-img').show().attr('src', './img/wl_cartoon.png');
             $('.voice').show();
             $('.logo-72').show();
-            if(!isPlay) {
+            if (!isPlay) {
                 actorAudio.setAttribute('src', './media/wl.mp3');
                 actorAudio.play(); //播放
                 isPlay = true;
@@ -165,9 +167,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         });
 
         $('.voice').click(function () {
-           switch (localStorage.actor) {
+            switch (localStorage.actor) {
                 case "1":
-                    if(!isPlay) {
+                    if (!isPlay) {
                         $('.voice').addClass('play');
                         actorAudio.setAttribute('src', './media/lyf.mp3');
                         actorAudio.play(); //播放
@@ -183,7 +185,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                     }
                     break;
                 case "2":
-                    if(!isPlay) {
+                    if (!isPlay) {
                         $('.voice').addClass('play');
                         actorAudio.setAttribute('src', './media/wl.mp3');
                         actorAudio.play(); //播放
@@ -263,6 +265,31 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                 $('.voice').removeClass('play');
             }
         }
+
+        /*
+            背景音乐相关
+         */
+        // 设置自动播放。微信中可自动播放，Safari中触发touch事件后播放
+        function audioAutoPlay(audio) {
+            audio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                audio.play();
+            }, false);
+            document.addEventListener('touchstart', function () {
+                audio.play();
+            }, false);
+            audio.volume = 0.2; // 手机无效，只能通过音量按键设置音量
+        }
+
+        $(".bgm-btn").click(function () {
+            if (bgm.paused) {
+                bgm.play();
+                $(".bgm-btn").removeClass("pause").addClass("play");
+            } else {
+                bgm.pause();
+                $(".bgm-btn").removeClass("play").addClass("pause");
+            }
+        });
 
         // 微信分享
         var shareData = {
