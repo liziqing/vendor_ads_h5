@@ -33,7 +33,7 @@ requirejs.config({
         },
         'iscroll': {
             deps: ['jquery'],
-            exports: 'iscroll'
+            exports: 'IScroll'
         },
         'jScrollPane': {
             deps: ['jquery'],

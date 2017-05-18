@@ -70,8 +70,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         var score = 0;
         var isPlay = false;
         var actorAudio = new Audio();
-        var bgm = document.getElementById('bgMusic');
-        audioAutoPlay(bgm);
+        // var bgm = document.getElementById('bgMusic');
+        // audioAutoPlay(bgm);
 
         console.log(localStorage);
         if (localStorage.mobile) {
