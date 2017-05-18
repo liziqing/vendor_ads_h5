@@ -73,6 +73,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         // var bgm = document.getElementById('bgMusic');
         // audioAutoPlay(bgm);
 
+        if (window.innerWidth > 768) {
+            $('.pc-mask').show();
+        }
+
         console.log(localStorage);
         if (localStorage.mobile) {
             mobile = localStorage.mobile;

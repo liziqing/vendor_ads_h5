@@ -220,7 +220,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                         checkPrize(arr, "3");
                         function checkPrize(arr, elem) {
                             if (arr.indexOf(elem) != -1) {
-                                $('#prizeList').append('<img src="./img/prize_' + elem + '.png">');
+                                $('#prizeList').append('<img src="./img/prize_' + elem + '.png" class="prize'+ elem +'">');
                             }
                         }
 
@@ -289,6 +289,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         $('.weui_mask').click(function () {
             $(this).fadeOut();
+        });
+
+        $(document).on('click', '.prize3', function () {
+            // window.location.href = "http://jd.com";
         });
 
         var shareData = {
