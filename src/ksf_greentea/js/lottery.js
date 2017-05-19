@@ -265,7 +265,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             $('.prize-mask').fadeIn();
         });
 
-        $('.share-btn').click(function () {
+        $(document).on('click', '.share-btn', function () {
             $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',
