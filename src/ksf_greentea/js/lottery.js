@@ -183,7 +183,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         function getPrize(prize) {
             var prizeStr = "";
             if (prize == 4) {
-                $('.tel-mask').html("<h3>再次续活力</h3>\n<div class=\"telephone-box\">\n    <div class=\"prize-box\">\n        <p>再接再厉！好运就来</p>\n        <div><div class=\"btn buy-btn\" onclick=\"window.location.href=\'https://item.m.jd.com/product/2798826.html\'\">电商购买</div></div>\n        <div class=\"btn share-btn\"  style=\"width: 2.2rem;\">拉帮结派</div> <div class=\"btn return-btn\" onclick=\"window.location.href=\'./lottery.html\'\" style=\"width: 2.2rem;\">返 回</div>\n    </div>\n</div>\n<img src=\"./img/twins.png\" class=\"twins\">\n\n")
+                $('.tel-mask').html("<h3>再次续活力</h3>\n<div class=\"telephone-box\">\n    <div class=\"prize-box\">\n        <p>再接再厉！好运就来</p>\n        <div><div class=\"btn buy-btn\" onclick=\"window.location.href=\'https://item.m.jd.com/product/1636609.html\'\">电商购买</div></div>\n        <div class=\"btn share-btn\"  style=\"width: 2.2rem;\">拉帮结派</div> <div class=\"btn return-btn\" onclick=\"window.location.href=\'./lottery.html\'\" style=\"width: 2.2rem;\">返 回</div>\n    </div>\n</div>\n<img src=\"./img/twins.png\" class=\"twins\">\n\n")
             } else {
                 switch (prize) {
                     case 1:
@@ -265,7 +265,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             $('.prize-mask').fadeIn();
         });
 
-        $('.share-btn').click(function () {
+        $(document).on('click', '.share-btn', function () {
             $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',
