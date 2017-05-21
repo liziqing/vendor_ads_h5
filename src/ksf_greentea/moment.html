@@ -10,18 +10,14 @@
     <meta name="format-detection" content="telephone=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-    <script type="text/javascript">
-        if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
-            var version = parseFloat(RegExp.$1);
-            if (version > 2.3) {
-                var phoneScale = parseInt(window.screen.width) / 640;
-                document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
-            } else {
-                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
-            }
-        } else {
-            document.write('<meta name="viewport" content="width=640, user-scalable=no">');
-        }
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?4ca46944c566f5f2bb31f0afd51b41b3";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
     </script>
 
     <link rel="stylesheet" href="./css/common.css">
@@ -61,8 +57,8 @@
         <!--</div>-->
 
         <div class="btns">
-            <label class="btn " id="photo" form="picInput"><input type="file" id="picInput" class="picinput none" tabindex="-1"/>选择照片</label>
-            <div id="upload" class="btn  submit">就是你了</div>
+            <label class="btn " id="photo" form="picInput" onclick="_hmt.push(['_trackEvent', 'choose-photo-btn', 'click']);"><input type="file" id="picInput" class="picinput none" tabindex="-1"/>选择照片</label>
+            <div id="upload" class="btn  submit" onclick="_hmt.push(['_trackEvent', 'confirm-photo-btn', 'click']);">就是你了</div>
         </div>
 
     </section>

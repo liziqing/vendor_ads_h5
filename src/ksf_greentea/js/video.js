@@ -14,6 +14,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         var video = document.getElementById("video");
 
         $('#play').click(function () {
+            _hmt.push(['_trackEvent', 'play-btn', 'click']);
             video.play();
             $(this).hide();
         });
@@ -42,6 +43,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         });
 
         $('#submit').click(function () {
+            _hmt.push(['_trackEvent', 'confirm-mobile-btn', 'click']);
             var mobile = $('#telephone').val().trim();
             if (util.isMobile(mobile)) {
                 localStorage.setItem("mobile", mobile);
@@ -71,6 +73,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         }
 
         $('.share-btn').click(function () {
+            _hmt.push(['_trackEvent', 'share-btn', 'click']);
             $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',

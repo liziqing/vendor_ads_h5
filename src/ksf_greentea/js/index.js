@@ -129,11 +129,13 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
 
         // page1 开始button
         $('.start-btn').click(function () {
+            _hmt.push(['_trackEvent', 'start-btn', 'click']);
             $.fn.fullpage.moveSectionDown();
         });
 
         // page2 李易峰
         $('.avatar-lyf, .avatar-lyf-cartoon').click(function () {
+            _hmt.push(['_trackEvent', 'lyf-btn', 'click']);
             $.fn.fullpage.moveSectionDown();
             localStorage.setItem("actor", 1);
             $('.actor-img').show().attr('src', './img/lyf_cartoon.png');
@@ -153,6 +155,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
 
         // page2 吴磊
         $('.avatar-wl, .avatar-wl-cartoon').click(function () {
+            _hmt.push(['_trackEvent', 'wl-btn', 'click']);
             $.fn.fullpage.moveSectionDown();
             localStorage.setItem("actor", 2);
             $('.actor-img').show().attr('src', './img/wl_cartoon.png');
@@ -171,6 +174,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         });
 
         $('.voice').click(function () {
+            _hmt.push(['_trackEvent', 'music-btn', 'click']);
             switch (localStorage.actor) {
                 case "1":
                     if (!isPlay) {
@@ -210,12 +214,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
 
         // 活动规则button
         $('.rule-btn').click(function () {
+            _hmt.push(['_trackEvent', 'rule-btn', 'click']);
             $('.mask').hide();
             $('.weui_mask').fadeIn();
             $('.rule-mask').fadeIn();
         });
 
         $('.close-btn').click(function () {
+            _hmt.push(['_trackEvent', 'rule-confirm-btn', 'click']);
             $('.weui_mask').fadeOut();
             $('.mask').fadeIn();
         });

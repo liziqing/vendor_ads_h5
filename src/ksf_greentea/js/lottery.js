@@ -99,6 +99,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         // 开始抽奖
         lottery.init('lottery');
         $("#lottery a").click(function () {
+            _hmt.push(['_trackEvent', 'lottery-start-btn', 'click']);
             if (click) {
                 return false;
             } else {
@@ -233,6 +234,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         }
 
         $('#submit').click(function () {
+            _hmt.push(['_trackEvent', 'confirm-mobile-btn', 'click']);
             if ($('#fullname').val().trim()) {
                 if (util.isMobile($('#telephone').val().trim())) {
                     $.ajax({
@@ -262,10 +264,12 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         });
 
         $('.prize-btn').click(function () {
+            _hmt.push(['_trackEvent', 'prize-btn', 'click']);
             $('.prize-mask').fadeIn();
         });
 
         $(document).on('click', '.share-btn', function () {
+            _hmt.push(['_trackEvent', 'share-btn', 'click']);
             $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',

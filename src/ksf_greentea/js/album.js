@@ -60,6 +60,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         }
 
         $('.share-btn').click(function () {
+            _hmt.push(['_trackEvent', 'share-btn', 'click']);
             $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',

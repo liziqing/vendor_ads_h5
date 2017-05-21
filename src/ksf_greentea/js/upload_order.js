@@ -53,6 +53,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         }
 
         $("#userfile").change(function () {  // you can ues 'onchange' here to upload automatically after select a file
+            _hmt.push(['_trackEvent', 'choose-order-btn', 'click']);
             $('.mask').hide();
             $('.upload-mask').show();
             setImagePreview();
@@ -60,6 +61,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         });
 
         $('#upload').click(function () {
+            _hmt.push(['_trackEvent', 'upload-order-btn', 'click']);
             var selectedFile = $userfile.val();
             if (selectedFile) {
                 // randomly generate the final file name
@@ -114,6 +116,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         });
 
         $('#submit').click(function () {
+            _hmt.push(['_trackEvent', 'confirm-mobile-btn', 'click']);
             var tel = $('#telephone').val().trim();
             localStorage.setItem("mobile", tel);
             if (util.isMobile(tel)) {
@@ -175,6 +178,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         }
 
         $('.share-btn').click(function () {
+            _hmt.push(['_trackEvent', 'share-btn', 'click']);
             $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',

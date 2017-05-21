@@ -141,6 +141,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         });
 
         $('#submit2').click(function () {
+            _hmt.push(['_trackEvent', 'confirm-mobile-btn', 'click']);
             var tel = $('#telephone').val().trim();
             if (util.isMobile(tel)) {
                 localStorage.setItem("mobile", tel);
@@ -149,6 +150,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         });
 
         $('#myUp').click(function () {
+            _hmt.push(['_trackEvent', 'my-upload-btn', 'click']);
             if (isAlbumAccess) {
                 window.location.href= "./album.html";
             } else {
@@ -241,6 +243,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         }
 
         $('.share-btn').click(function () {
+            _hmt.push(['_trackEvent', 'share-btn', 'click']);
             $('.weui_mask').fadeIn();
             $.ajax({
                 type: 'GET',

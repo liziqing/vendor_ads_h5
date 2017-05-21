@@ -13,14 +13,13 @@
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/upload_order.css">
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','http://kangshifu.qnmami.com/js/analytics.js','ga');
-
-        ga('create', 'UA-99618188-1', 'auto');
-        ga('send', 'pageview');
-
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?4ca46944c566f5f2bb31f0afd51b41b3";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
     </script>
 </head>
 <body>
@@ -38,7 +37,7 @@
     <p>（截图需同时出现您下单的整箱绿茶产品及其订单号）</p>
     <label for="userfile" class="btn choose-btn">上传订单截图</label>
     <p>截图通过审核<br>即可获得特殊直播观看兑换码</p>
-    <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
+    <div class="btn return-btn" onclick="_hmt.push(['_trackEvent', 'back-btn', 'click']);window.location.href='./index.html#page3'">返 回</div>
 </div>
 
 <div class="upload-mask mask none">
@@ -62,7 +61,7 @@
 
     <div class="btn submit-btn" id="submit">确 定</div>
     <p>&nbsp;</p>
-    <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
+    <div class="btn return-btn" onclick="_hmt.push(['_trackEvent', 'back-btn', 'click']);window.location.href='./index.html#page3'">返 回</div>
 </div>
 
 <div class="share-mask mask none">
@@ -76,7 +75,7 @@
         <p>成功即可抽取峰峰磊磊见面会门票</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
-        <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
+        <div class="btn return-btn" onclick="_hmt.push(['_trackEvent', 'back-btn', 'click']);window.location.href='./index.html#page3'">返 回</div>
     </div>
 
     <!--<div class="btn share-btn">拉帮结派</div>-->
@@ -97,7 +96,7 @@
         <p>分享成功！</p>
         <div class="score-img">获得4活力值</div>
         <p>垒满72活力值<br>即可抽取峰峰磊磊见面会门票</p>
-        <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
+        <div class="btn return-btn" onclick="_hmt.push(['_trackEvent', 'back-btn', 'click']);window.location.href='./index.html#page3'">返 回</div>
     </div>
     <img src="./img/twins.png" class="twins">
 </div>
