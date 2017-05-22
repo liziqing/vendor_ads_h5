@@ -11,6 +11,19 @@
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <script>
+        if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                var phoneScale = parseInt(window.screen.width) / 640;
+                document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+            } else {
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no">');
+        }
+    </script>
+    <script>
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
@@ -105,20 +118,6 @@
     <div class="btn return-btn" onclick="window.location.href='./index.html#page3'">返 回</div>
     <p>&nbsp;</p>
     <div class="btn share-btn">拉帮结派</div>
-</div>
-
-<div class="loading-mask none" style="
-  position: fixed;
-  z-index: 10000;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  padding-top: 100px;
-">
-    <div style="width: 100px; margin: 30px auto; "><img src="./img/loading.gif"></div>
-    <h2 style="color: #FFF; text-align: center">上传中…</h2>
 </div>
 
 <script>
