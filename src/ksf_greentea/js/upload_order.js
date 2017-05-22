@@ -85,7 +85,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
                             // console.log(e);
                             if (e.lengthComputable) {
                                 var percent = e.loaded / e.total * 100;
+                                $('.loading-mask').show();
                                 // $progress.html('上传：' + e.loaded + "/" + e.total + " bytes. " + percent.toFixed(2) + "%");
+                                if (e.loaded == e.total ) {
+                                    $('.loading-mask').hide();
+                                }
                             }
                         }, false);
                     }
