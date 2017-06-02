@@ -21,6 +21,15 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+    <script>
+        (function(a, e, f, g, b, c, d) {a.ClickiTrackerName = b;
+            a[b] = a[b] || function() {(a[b].queue = a[b].queue || []).push(arguments)};
+            a[b].start = +new Date; c = e.createElement(f); d = e.getElementsByTagName(f)[0];
+            c.async = 1; c.src = g; d.parentNode.insertBefore(c, d)
+        })(window, document, 'script', ('https:' == document.location.protocol ? 'https://stm-collect' : 'http://stm-cdn') + '.cn.miaozhen.com/clicki.min.js', 'stm_clicki');
+        stm_clicki('create', 'dc-1196', 'auto');
+        stm_clicki('send', 'pageview');
+    </script>
 </head>
 <body>
 <img src="./img/buy.png" class="buy" onclick="_hmt.push(['_trackEvent', 'buy-btn', 'click']);window.location.href='https://item.m.jd.com/product/1636609.html'">
@@ -37,7 +46,7 @@
     <p>（截图需同时出现您下单的整箱绿茶产品及其订单号）</p>
     <label for="userfile" class="btn choose-btn">上传订单截图</label>
     <p>截图通过审核<br>即可获得特殊直播观看兑换码</p>
-    <div class="btn return-btn" onclick="_hmt.push(['_trackEvent', 'back-btn', 'click']);window.location.href='./index.html#page3'">返 回</div>
+    <div class="btn return-btn" onclick="_hmt.push(['_trackEvent', 'back-btn', 'click']);stm_clicki('send', 'event', '返回', 'click');window.location.href='./index.html#page3'">返 回</div>
 </div>
 
 <div class="upload-mask mask none">

@@ -54,6 +54,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
 
         $("#userfile").change(function () {  // you can ues 'onchange' here to upload automatically after select a file
             _hmt.push(['_trackEvent', 'choose-order-btn', 'click']);
+            stm_clicki('send', 'event', '上传订单截图', 'click');
             $('.mask').hide();
             $('.upload-mask').show();
             setImagePreview();

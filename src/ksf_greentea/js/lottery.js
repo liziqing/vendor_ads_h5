@@ -100,6 +100,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         lottery.init('lottery');
         $("#lottery a").click(function () {
             _hmt.push(['_trackEvent', 'lottery-start-btn', 'click']);
+            stm_clicki('send', 'event', '开始抽奖', 'click');
             if (click) {
                 return false;
             } else {

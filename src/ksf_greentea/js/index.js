@@ -130,6 +130,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper', 'imgLoadCa
         // page1 开始button
         $('.start-btn').click(function () {
             _hmt.push(['_trackEvent', 'start-btn', 'click']);
+            stm_clicki('send', 'event', '开始游戏', 'click');
             $.fn.fullpage.moveSectionDown();
         });
 

@@ -21,6 +21,15 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+    <script>
+        (function(a, e, f, g, b, c, d) {a.ClickiTrackerName = b;
+            a[b] = a[b] || function() {(a[b].queue = a[b].queue || []).push(arguments)};
+            a[b].start = +new Date; c = e.createElement(f); d = e.getElementsByTagName(f)[0];
+            c.async = 1; c.src = g; d.parentNode.insertBefore(c, d)
+        })(window, document, 'script', ('https:' == document.location.protocol ? 'https://stm-collect' : 'http://stm-cdn') + '.cn.miaozhen.com/clicki.min.js', 'stm_clicki');
+        stm_clicki('create', 'dc-1196', 'auto');
+        stm_clicki('send', 'pageview');
+    </script>
 </head>
 <body>
 <form id="upform" method="post" enctype="multipart/form-data" style="display: none;">
@@ -42,7 +51,7 @@
 
     <div class="btns">
         <div class="btn" id="myUp">我的上传</div>
-        <div class="btn" onclick="_hmt.push(['_trackEvent', 'snap-btn', 'click']);window.location.href='./moment.html'">来拍一张</div>
+        <div class="btn" onclick="_hmt.push(['_trackEvent', 'snap-btn', 'click']);stm_clicki('send', 'event', '来拍一张', 'click');window.location.href='./moment.html'">来拍一张</div>
         <!--<label for="userfile" class="btn choose-btn">再拍一张</label>-->
     </div>
 </div>

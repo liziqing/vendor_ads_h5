@@ -15,6 +15,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         $('#play').click(function () {
             _hmt.push(['_trackEvent', 'play-btn', 'click']);
+            stm_clicki('send', 'event', '播放', 'click');
             video.play();
             $(this).hide();
         });

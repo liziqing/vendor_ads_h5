@@ -151,6 +151,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         $('#myUp').click(function () {
             _hmt.push(['_trackEvent', 'my-upload-btn', 'click']);
+            stm_clicki('send', 'event', '我的上传', 'click');
             if (isAlbumAccess) {
                 window.location.href= "./album.html";
             } else {

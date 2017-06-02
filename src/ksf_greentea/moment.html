@@ -32,6 +32,15 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+    <script>
+        (function(a, e, f, g, b, c, d) {a.ClickiTrackerName = b;
+            a[b] = a[b] || function() {(a[b].queue = a[b].queue || []).push(arguments)};
+            a[b].start = +new Date; c = e.createElement(f); d = e.getElementsByTagName(f)[0];
+            c.async = 1; c.src = g; d.parentNode.insertBefore(c, d)
+        })(window, document, 'script', ('https:' == document.location.protocol ? 'https://stm-collect' : 'http://stm-cdn') + '.cn.miaozhen.com/clicki.min.js', 'stm_clicki');
+        stm_clicki('create', 'dc-1196', 'auto');
+        stm_clicki('send', 'pageview');
+    </script>
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/upload_moment.css">
     <link href="./css/style.css" rel="stylesheet">
@@ -59,8 +68,8 @@
         <!--</div>-->
 
         <div class="btns">
-            <label class="btn " id="photo" form="picInput" onclick="_hmt.push(['_trackEvent', 'choose-photo-btn', 'click']);"><input type="file" id="picInput" class="picinput none" tabindex="-1"/>选择照片</label>
-            <div id="upload" class="btn  submit" onclick="_hmt.push(['_trackEvent', 'confirm-photo-btn', 'click']);">就是你了</div>
+            <label class="btn " id="photo" form="picInput" onclick="_hmt.push(['_trackEvent', 'choose-photo-btn', 'click']);stm_clicki('send', 'event', '选择照片', 'click');"><input type="file" id="picInput" class="picinput none" tabindex="-1"/>选择照片</label>
+            <div id="upload" class="btn  submit">就是你了</div>
         </div>
 
     </section>
@@ -163,7 +172,8 @@
                 alert("请先上传照片");
                 return false;
             }
-
+            _hmt.push(['_trackEvent', 'confirm-photo-btn', 'click']);
+            stm_clicki('send', 'event', '就是你了', 'click');
             onPost(function () {
             });
 

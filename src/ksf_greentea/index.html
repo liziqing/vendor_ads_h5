@@ -23,6 +23,15 @@
             s.parentNode.insertBefore(hm, s);
         })();
     </script>
+    <script>
+        (function(a, e, f, g, b, c, d) {a.ClickiTrackerName = b;
+            a[b] = a[b] || function() {(a[b].queue = a[b].queue || []).push(arguments)};
+            a[b].start = +new Date; c = e.createElement(f); d = e.getElementsByTagName(f)[0];
+            c.async = 1; c.src = g; d.parentNode.insertBefore(c, d)
+        })(window, document, 'script', ('https:' == document.location.protocol ? 'https://stm-collect' : 'http://stm-cdn') + '.cn.miaozhen.com/clicki.min.js', 'stm_clicki');
+        stm_clicki('create', 'dc-1196', 'auto');
+        stm_clicki('send', 'pageview');
+    </script>
 </head>
 <body>
 <div class="loading-screen">
@@ -79,8 +88,8 @@
         <img src="./img/lyf_cartoon.png" class="actor-img actor-img-top">
         <img src="./img/voice.png" class="voice">
         <img src="./img/lyf_cartoon.png" class="actor-img actor-img-content animated bounce infinite">
-        <a onclick="_hmt.push(['_trackEvent', 'lottery-btn', 'click']);" href="/lottery.html"><div class="moment btns" >活力抽大奖</div></a>
-        <div class="lottery btns" onclick="_hmt.push(['_trackEvent', 'moment-btn', 'click']);window.location.href='./upload_moment.html'">拍照赢活力值</div>
+        <a onclick="_hmt.push(['_trackEvent', 'lottery-btn', 'click']);stm_clicki('send', 'event', '活力抽大奖', 'click');" href="/lottery.html"><div class="moment btns" >活力抽大奖</div></a>
+        <div class="lottery btns" onclick="_hmt.push(['_trackEvent', 'moment-btn', 'click']);stm_clicki('send', 'event', '拍照赢活力值', 'click');window.location.href='./upload_moment.html'">拍照赢活力值</div>
     </div>
     <div class="section fourth-screen">
         <div class="arrow-bottom animated bounce infinite"></div>
@@ -91,8 +100,8 @@
         <img src="./img/lyf_cartoon.png" class="actor-img actor-img-top">
         <img src="./img/voice.png" class="voice">
         <img src="./img/lyf_cartoon.png" class="actor-img actor-img-content animated bounce infinite">
-        <div class="watch btns" onclick="_hmt.push(['_trackEvent', 'tvc-btn', 'click']);window.location.href='./video.html'">看TVC赢活力</div>
-        <div class="exchange btns" onclick="_hmt.push(['_trackEvent', 'exchange-btn', 'click']);window.location.href='./upload_order.html'">晒单赢活力</div>
+        <div class="watch btns" onclick="_hmt.push(['_trackEvent', 'tvc-btn', 'click']);stm_clicki('send', 'event', '看TVC赢活力', 'click');window.location.href='./video.html'">看TVC赢活力</div>
+        <div class="exchange btns" onclick="_hmt.push(['_trackEvent', 'exchange-btn', 'click']);stm_clicki('send', 'event', '晒单赢活力', 'click');window.location.href='./upload_order.html'">晒单赢活力</div>
     </div>
 </div>
 
