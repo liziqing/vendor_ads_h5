@@ -13,6 +13,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         $('#telephone').val(mobile);
         getScore();
         getMyPrize();
+        share();
 
         var prize = 3;
         var prizeIndex = 0;
@@ -140,6 +141,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                                         shareData.shareDes = '给我活力，好想要李易峰x吴磊生日会门票><一回生二回熟，下次一定活力满满有好运！！';
                                         share();
                                         break;
+                                    default:
+                                        prizeIndex = prizeFourthArr[Math.floor(Math.random()*prizeFourthArr.length)];
+                                        shareData.shareDes = '给我活力，好想要李易峰x吴磊生日会门票><一回生二回熟，下次一定活力满满有好运！！';
+                                        share();
+                                        break;
                                 }
                                 lottery.speed = 100;
                                 roll();
@@ -184,7 +190,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         // 根据奖品id获取奖品信息
         function getPrize(prize) {
             var prizeStr = "";
-            if (prize == 4) {
+            if (prize == 4 || prize == 0) {
                 $('.tel-mask').html("<h3>再次续活力</h3>\n<div class=\"telephone-box\">\n    <div class=\"prize-box\">\n        <p>再接再厉！好运就来</p>\n        <div><div class=\"btn buy-btn\" onclick=\"window.location.href=\'https://item.m.jd.com/product/1636609.html\'\">电商购买</div></div>\n        <div class=\"btn share-btn\"  style=\"width: 2.2rem;\">拉帮结派</div> <div class=\"btn return-btn\" onclick=\"window.location.href=\'./lottery.html\'\" style=\"width: 2.2rem;\">返 回</div>\n    </div>\n</div>\n<img src=\"./img/twins.png\" class=\"twins\">\n\n")
             } else {
                 switch (prize) {
