@@ -327,13 +327,14 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         // 验证
         $('#verify').click(function () {
             var tel = $('#telephone3').val().trim();
+            var code = $('#code').val().trim();
             if (util.isMobile(tel)) {
                 $.ajax({
                     type: 'GET',
                     url: 'http://' + env.apidomain + '/kangshifu/verify-code',
                     data: {
                         mobile: tel,
-                        code: $('#code').val().trim(),
+                        code: code,
                         random: Math.random(),
                         format: 'jsonp'
                     },
