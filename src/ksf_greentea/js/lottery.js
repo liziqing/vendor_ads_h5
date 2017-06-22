@@ -11,6 +11,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             mobile = localStorage.mobile;
         }
         $('#telephone').val(mobile);
+        $('#telephone3').val(mobile);
         getScore();
         getMyPrize();
         share();
@@ -270,9 +271,87 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             }
         });
 
+        // 若没有登录验证手机号登录
+        $('#submit2').click(function () {
+            var tel = $('#telephone2').val().trim();
+            if (util.isMobile(tel)) {
+                localStorage.setItem('mobile', tel);
+                console.log(localStorage);
+                mobile = tel;
+                $('#telephone3').val(mobile);
+                getMyPrize();
+                $('.mask').hide();
+                $('.prize-mask').fadeIn();
+            }
+        });
+
+        // 点击我的奖品
         $('.prize-btn').click(function () {
             _hmt.push(['_trackEvent', 'prize-btn', 'click']);
-            $('.prize-mask').fadeIn();
+            if (!mobile) {
+                $('.check-mask').fadeIn();
+            } else {
+                $('.prize-mask').fadeIn();
+            }
+        });
+
+        // 发送验证码
+        $('#send').click(function () {
+            var tel = $('#telephone3').val().trim();
+            if (util.isMobile(tel)) {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://' + env.apidomain + '/kangshifu/mobile-code',
+                    data: {
+                        mobile: tel,
+                        random: Math.random(),
+                        format: 'jsonp'
+                    },
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    success: function (data) {
+                        if (data.code == 0) {
+                            $('#send').addClass('disable');
+                            util.alerty("发送成功");
+                        } else {
+                            util.alerty(data.message);
+                        }
+                    },
+                    error: function (data) {
+                        console.log("ajaxFailure")
+                    }
+                });
+            }
+        });
+
+        // 验证
+        $('#verify').click(function () {
+            var tel = $('#telephone3').val().trim();
+            if (util.isMobile(tel)) {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://' + env.apidomain + '/kangshifu/verify-code',
+                    data: {
+                        mobile: tel,
+                        code: $('#code').val().trim(),
+                        random: Math.random(),
+                        format: 'jsonp'
+                    },
+                    dataType: 'jsonp',
+                    jsonp: 'callback',
+                    success: function (data) {
+                        if (data.code == 0) {
+                            $('.mask').hide();
+                            $('.watch-mask').fadeIn();
+                        } else {
+                            util.alerty(data.message);
+                        }
+                    },
+                    error: function (data) {
+                        console.log("ajaxFailure")
+                    }
+                });
+            }
         });
 
         $(document).on('click', '.share-btn', function () {
@@ -303,7 +382,9 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
         });
 
         $(document).on('click', '.prize3', function () {
-            // window.location.href = "http://jd.com";
+            $('.mask').hide();
+            $('.iqiyi-mask').fadeIn();
+            // window.location.href = "http://www.iqiyi.com/marketing/ksflc2017.html";
         });
 
         var shareData = {
