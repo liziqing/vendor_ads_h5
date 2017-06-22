@@ -232,6 +232,10 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
                                 $('#prizeList').append('<img src="./img/prize_' + elem + '.png" class="prize'+ elem +'">');
                             }
                         }
+                        $('.prize3').click(function () {
+                            $('.mask').hide();
+                            $('.iqiyi-mask').fadeIn();
+                        });
 
                     }
                 },
@@ -382,11 +386,11 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             $(this).fadeOut();
         });
 
-        $(document).on('click', '.prize3', function () {
-            $('.mask').hide();
-            $('.iqiyi-mask').fadeIn();
-            // window.location.href = "http://www.iqiyi.com/marketing/ksflc2017.html";
-        });
+        // $(document).on('click', '.prize3', function () {
+        //     $('.mask').hide();
+        //     $('.iqiyi-mask').fadeIn();
+        //     // window.location.href = "http://www.iqiyi.com/marketing/ksflc2017.html";
+        // });
 
         var shareData = {
             shareTitle: '【康师傅绿茶健康活力派】',
