@@ -301,6 +301,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         // 发送验证码
         $('#send').click(function () {
+            _hmt.push(['_trackEvent', 'send-btn', 'click']);
             var tel = $('#telephone3').val().trim();
             if (util.isMobile(tel)) {
                 $.ajax({
@@ -330,6 +331,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
 
         // 验证
         $('#verify').click(function () {
+            _hmt.push(['_trackEvent', 'verify-btn', 'click']);
             var tel = $('#telephone3').val().trim();
             var code = $('#code').val().trim();
             if (util.isMobile(tel)) {
