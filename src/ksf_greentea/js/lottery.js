@@ -398,7 +398,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'swiper'], function 
             shareTitle: '【康师傅绿茶健康活力派】',
             shareUrl: 'http://kangshifu.qnmami.com',
             shareImg: 'http://kangshifu.qnmami.com/img/slogan.png',
-            shareDes: '给我活力，好想要李易峰x吴磊生日会门票><一回生二回熟，下次一定活力满满有好运！！'
+            shareDes: '给我活力，晒绿茶整箱JD单，领取李易峰X吴磊深圳见过面会专属视角特权，赶紧一起看绿动健康走'
         };
 
         function share() {
