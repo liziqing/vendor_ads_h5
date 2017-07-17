@@ -134,6 +134,7 @@ body {
   background: transparent;
   border: none;
   overflow: hidden;
+  text-indent: 0.5rem;
 }
 .page3 .confirm-btn {
   width: 1.97rem;
