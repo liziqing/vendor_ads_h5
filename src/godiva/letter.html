@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>GODIVA</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/animate.css">
+</head>
+<body>
+<section class="page3">
+    <textarea rows="9" id="letter"></textarea>
+    <div class="btn confirm-btn" id="confirm">确定</div>
+    <div class="btn write-btn none" onclick="window.location.href='index.html'">书写心意</div>
+    <div class="title" id="title">为你传心意</div>
+    <div class="buy-wrapper">
+        <img src="./img/buy.png" class="buy animated flash infinite">
+        <img src="./img/product.png" class="product">
+    </div>
+</section>
+
+<section class="page4 none">
+    <div class="btn buy-btn" onclick="window.location.href='http://m.godiva.cn/'">前往购买</div>
+    <div class="btn back-btn">返回</div>
+</section>
+
+<div class="info-box none">
+    <h3>信息填写</h3>
+    <input type="text" id="fullname" maxlength="20" placeholder="姓名">
+    <input type="tel" id="telephone" maxlength="11" placeholder="电话">
+    <div class="checkbox-wrapper"><input type="checkbox" id="isShare"> <label for="isShare">是否愿意小歌分享您的故事</label>
+    </div>
+    <div class="submit-btn" id="submit">提交</div>
+    <div class="info-box-close">&times;</div>
+</div>
+
+<div class="weui_mask none">
+    <img src="./img/share.png" class="share">
+</div>
+
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                docEl.style.fontSize = (clientWidth / 7.5) + 'px';
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<script src="//cdn.bootcss.com/inobounce/0.1.4/inobounce.min.js"></script>
+<script src="./js/vendor/require/require.js"></script>
+<script>
+    requirejs(['js/main.js'], function (main) {
+        requirejs(['letter']);
+    });
+</script>
+</body>
+</html>

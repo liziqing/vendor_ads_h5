@@ -56,7 +56,27 @@ body {
 }
 .page1 .bird {
   width: 3rem;
-  margin-left: -0.7rem;
+  position: absolute;
+  top: 48vh;
+  left: 2rem;
+}
+.page1 .click {
+  width: 1.36rem;
+  position: absolute;
+  top: 64vh;
+  left: 5rem;
+}
+.page1 .rule {
+  border-bottom: 2px solid #5c3b31;
+  display: inline-block;
+  margin-bottom: 0.4rem;
+  padding-bottom: 2px;
+  font-size: 0.3rem;
+  color: #5c3b31;
+  position: absolute;
+  top: 72vh;
+  left: 3.2rem;
+  letter-spacing: 2px;
 }
 .page1 .wrapper {
   width: 100%;
@@ -100,53 +120,81 @@ body {
   height: 100%;
   background: url("../img/bg_end.png");
   background-size: 100% 100%;
+  position: relative;
 }
 .page2 .next-btn {
-  width: 100%;
-  height: 20vh;
   position: absolute;
-  bottom: 0;
+  bottom: 12vh;
   left: 0;
+  right: 0;
+  margin: auto;
 }
 .page3 {
   width: 100%;
   height: 100%;
   background: url("../img/bg_letter.png");
   background-size: 100% 100%;
-}
-.page3 .letter {
-  width: 5rem;
-  height: 8.132118451rem;
-  padding: 1.4rem 0.8rem;
-  background: url("../img/letter.png");
-  background-size: 100% 100%;
-  margin: auto;
+  position: relative;
+  padding: 20.5vh 1.6rem;
   box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
 }
 .page3 textarea {
   width: 100%;
-  line-height: 0.74rem;
+  line-height: 4.4vh;
   background: transparent;
   border: none;
   overflow: hidden;
-  text-indent: 0.5rem;
 }
-.page3 .confirm-btn {
-  width: 1.97rem;
+.page3 .confirm-btn,
+.page3 .write-btn {
+  margin: 0.6rem auto;
+}
+.page3 .title {
   position: absolute;
-  bottom: 8vh;
-  margin: auto;
+  top: 4vh;
   left: 0;
   right: 0;
+  font-size: 0.35rem;
+  text-align: center;
+  letter-spacing: 2px;
+  color: #5c3b31;
+}
+.page3 .buy-wrapper {
+  position: absolute;
+  bottom: 20vh;
+  right: 0.5rem;
+}
+.page3 .buy-wrapper .buy {
+  width: 1.1rem;
+}
+.page3 .buy-wrapper .product {
+  width: 1.61rem;
+}
+.page4 {
+  width: 100%;
+  height: 100%;
+  background: url("../img/bg_product.png");
+  background-size: 100% 100%;
+  position: relative;
+}
+.page4 .buy-btn {
+  position: absolute;
+  bottom: 14vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.page4 .back-btn {
+  position: absolute;
+  bottom: 9vh;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 .info-box {
   width: 4rem;
   height: 5rem;
+  background: #735138;
   color: #FFF;
   text-align: center;
   position: absolute;
@@ -155,6 +203,7 @@ body {
   left: 0;
   bottom: 0;
   margin: auto;
+  padding: 1rem 0.6rem;
 }
 .info-box h3 {
   font-size: 0.4rem;
@@ -166,10 +215,11 @@ body {
 .info-box input[type="tel"],
 .info-box input[type="text"] {
   width: 100%;
-  height: 0.4rem;
+  height: 20px;
   margin: 0.4rem 0;
   text-align: center;
   display: block;
+  background: #f2eeec;
   border: none;
   border-radius: 0;
 }
@@ -180,12 +230,49 @@ body {
   vertical-align: middle;
 }
 .info-box .submit-btn {
-  width: 1.66rem;
-  height: 0.41rem;
-  line-height: 0.41rem;
-  color: #949494;
+  width: 1.84rem;
+  height: 0.45rem;
+  line-height: 0.45rem;
+  color: #5c3b31;
   margin: 0.8rem auto 0;
   background: #FFF;
+  border-radius: 0.1rem;
+  font-size: 0.24rem;
+}
+.info-box .info-box-close {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  font-size: 0.5rem;
+}
+.rule-mask {
+  width: 100%;
+  height: 100%;
+  background: url("../img/bg_rule.png");
+  background-size: 100% 100%;
+  padding: 25vh 1rem 13vh;
+  box-sizing: border-box;
+  color: #5c3b31;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+}
+.rule-mask .rule-close {
+  position: absolute;
+  top: 11vh;
+  right: 1rem;
+  font-size: 0.5rem;
+}
+.btn {
+  width: 1.84rem;
+  height: 0.45rem;
+  background: url("../img/btn.png");
+  background-size: 100% 100%;
+  color: #f9f8f6;
+  line-height: 0.45rem;
+  font-size: 0.24rem;
+  text-align: center;
 }
 .share {
   width: 2.86rem;

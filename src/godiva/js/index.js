@@ -5,7 +5,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'], function (wx, env, 
     var basePath = "";
     var loader = new WxMoment.Loader();
     //声明资源文件列表
-    var fileList = ['img/logo.png', 'img/mute.png', 'img/play.png', 'img/bg.png', 'img/bg_end.png', 'img/bg_letter.png', 'img/letter.png', 'img/submit.png', 'img/share.png', 'img/bird.gif'];
+    var fileList = ['img/logo.png', 'img/mute.png', 'img/play.png', 'img/bg.png', 'img/bg_end.png', 'img/bg_rule.png',  'img/btn.png', 'img/click.png', 'img/bird.gif', 'img/rules.png'];
     for (var i = 0; i < fileList.length; i++) {
         loader.addImage(basePath + fileList[i]);
     }
@@ -18,7 +18,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'], function (wx, env, 
     });
     //加载完成
     loader.addCompletionListener(function () {
-        setTimeout(function () { $('.loading-screen').fadeOut(); }, 500);
+        setTimeout(function () { $('.loading-screen').fadeOut(); $('#play').addClass('animated bounceInLeft'); }, 500);
     });
     //启动加载
     loader.start();
@@ -32,8 +32,7 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'], function (wx, env, 
     $(function () {
         var video = document.getElementById("video");
         var $play = $('#play');
-        var $confirm = $('#confirm');
-        var $submit = $('#submit');
+        var $rule = $('#rule');
         new WxMoment.OrientationTip();
 
         // 播放视频
@@ -49,22 +48,25 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery'], function (wx, env, 
             showNext($('.page1'));
         });
 
+        // 打开规则
+        $rule.click(function () {
+            $('.rule-mask').fadeIn();
+        });
+
+        // 关闭规则
+        $('.rule-close').click(function () {
+            $('.rule-mask').fadeOut();
+        });
+
+
         $('.mute').click(function () {
             util.alerty("mute");
             video.volume = 0;
         });
 
         $('.next-btn').click(function () {
-            showNext($('.page2'));
+            window.location.href = "letter.html";
         });
 
-        $confirm.click(function () {
-            $('.weui_mask').show();
-        });
-
-        $submit.click(function () {
-            $('.info-box').hide();
-            $('.share').show();
-        });
     });
 });
