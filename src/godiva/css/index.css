@@ -130,19 +130,28 @@ body {
   box-sizing: border-box;
 }
 .page3 textarea {
-  width: 100%;
+  width: 4.2rem;
   line-height: 4.4vh;
   background: transparent;
   border: none;
   overflow: hidden;
+  position: absolute;
+  top: 20.5%;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 .page3 .confirm-btn,
 .page3 .write-btn {
-  margin: 0.6rem auto;
+  position: absolute;
+  top: 65.5%;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 .page3 .title {
   position: absolute;
-  top: 4vh;
+  top: 4%;
   left: 0;
   right: 0;
   font-size: 0.35rem;

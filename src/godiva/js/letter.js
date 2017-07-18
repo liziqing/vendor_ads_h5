@@ -3,6 +3,13 @@
  */
 define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'inobounce'], function (wx, env, baseWx, util, $) {
     $(function () {
+        var HEIGHT = $('body').height();
+        // 修复安卓弹出输入法时页面高度压缩导致变形
+        $(window).resize(function() {
+            $('body').height(HEIGHT);
+            $('#letter').css('line-height', HEIGHT/100*4.4 + 'px');
+        });
+
         var letterId = util.queryString('letterid');
         var $confirm = $('#confirm');
         var $submit = $('#submit');
