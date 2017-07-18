@@ -53,12 +53,12 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'inobounce'], functi
             if (util.isMobile(tel)) {
                 // TODO: 添加网络请求
 
-                $('.weui_mask').show();
+                $('.share-mask').show();
             }
         });
 
-        $('.weui_mask').click(function () {
-            $(this).hide();
+        $('.share-mask').click(function () {
+            window.location.href = "index.html";
         });
 
         $('.product').click(function () {
