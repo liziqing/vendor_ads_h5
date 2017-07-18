@@ -18,7 +18,7 @@ body {
   background: #e1e2e3;
 }
 .loading-screen .loading-box {
-  width: 3.5rem;
+  width: 4.2rem;
   height: 3rem;
   position: absolute;
   top: 0;
@@ -35,11 +35,11 @@ body {
 .loading-screen .loading-box .loading-bar-active {
   width: 0;
   height: 0.02rem;
-  background: #848484;
+  background: #532c22;
 }
 .loading-screen .loading-box .percent-num {
   font-family: "Constantia";
-  color: #808080;
+  color: #532c22;
   text-align: right;
   margin: 0.17rem 0.2rem;
 }
@@ -140,24 +140,27 @@ body {
   left: 0;
   right: 0;
   margin: auto;
+  font-size: 0.36rem;
+  color: #4a251d;
 }
 .page3 input[type="text"] {
-  height: 20px;
   text-align: left;
   background: transparent;
   border: none;
   border-radius: 0;
+  font-size: 0.36rem;
+  color: #4a251d;
 }
 .page3 .letter-to {
   width: 4rem;
   position: absolute;
-  top: 21%;
+  top: 20.6%;
   left: 2.2rem;
 }
 .page3 .letter-from {
   width: 1.7rem;
   position: absolute;
-  top: 60%;
+  top: 59.6%;
   left: 4.65rem;
 }
 .page3 .confirm-btn,
