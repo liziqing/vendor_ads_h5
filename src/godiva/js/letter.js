@@ -22,13 +22,26 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'inobounce'], functi
             $('.confirm-btn').hide();
             $('.write-btn').show();
             $('#letter').attr('readonly', 'readonly');
+            $('#to').attr('readonly', 'readonly');
+            $('#from').attr('readonly', 'readonly');
         }
 
         // 确定按钮点击事件
         $confirm.click(function () {
             var letter = $('#letter').val().trim();
+            var to = $('#to').val().trim();
+            var from = $('#from').val().trim();
             if (!letter) {
                 util.alerty('信的内容不能为空');
+                return;
+            }
+            if (!to) {
+                util.alerty('请填写收信人');
+                return;
+            }
+
+            if (!from) {
+                util.alerty('请填写寄信人');
                 return;
             }
             $('.info-box').fadeIn();
@@ -44,6 +57,8 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'inobounce'], functi
             var letter = $('#letter').val().trim();
             var name = $('#fullname').val().trim();
             var tel = $('#telephone').val().trim();
+            var to = $('#to').val().trim();
+            var from = $('#from').val().trim();
 
             if (!name) {
                 util.alerty('姓名不能为空');
@@ -55,10 +70,6 @@ define(['wx', 'base/env', 'base/wx', 'base/util', 'jquery', 'inobounce'], functi
 
                 $('.share-mask').show();
             }
-        });
-
-        $('.share-mask').click(function () {
-            window.location.href = "index.html";
         });
 
         $('.product').click(function () {

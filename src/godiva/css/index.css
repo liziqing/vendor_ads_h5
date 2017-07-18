@@ -136,10 +136,29 @@ body {
   border: none;
   overflow: hidden;
   position: absolute;
-  top: 20.5%;
+  top: 25%;
   left: 0;
   right: 0;
   margin: auto;
+}
+.page3 input[type="text"] {
+  height: 20px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+.page3 .letter-to {
+  width: 4rem;
+  position: absolute;
+  top: 21%;
+  left: 2.2rem;
+}
+.page3 .letter-from {
+  width: 1.7rem;
+  position: absolute;
+  top: 60%;
+  left: 4.65rem;
 }
 .page3 .confirm-btn,
 .page3 .write-btn {
@@ -291,4 +310,13 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+}
+.share-mask p {
+  text-align: center;
+  font-size: 0.3rem;
+  color: #FFF;
+  margin: 45vh 0 15vh;
+}
+.share-mask .finish-btn {
+  height: 0.5rem;
 }
