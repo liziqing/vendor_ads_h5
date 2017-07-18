@@ -23,7 +23,7 @@
         <img src="./img/logo.png" class="loading-logo">
     </div>
 </section>
-
+<img class="mute" src="./img/play.png">
 <section class="page1">
     <div id="play" class="bird"><img src="./img/bird.gif"></div>
     <img src="./img/click.png" class="click animated flash infinite">
@@ -32,14 +32,11 @@
         <video class="video" id="video" x5-video-player-type="h5" x-webkit-airplay="true" preload="auto"
                webkit-playsinline="true" playsinline src="./media/video.mp4"
                width="100%" height="100%"></video>
-        <!--<div class="mute">-->
-            <!--<img src="./img/play.png">-->
-        <!--</div>-->
     </div>
 </section>
 
 <section class="page2 none">
-    <div class="btn next-btn">书写心意</div>
+    <div class="btn next-btn" onclick="window.location.href = 'letter.html'">书写心意</div>
 </section>
 
 <section class="rule-mask none">
@@ -47,6 +44,7 @@
     <div style="overflow: scroll;height: 100%;"><img src="./img/rules.png"></div>
 </section>
 
+<audio id="audio" autoplay preload loop="loop" src="./media/bgm.mp3"></audio>
 <script>
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -62,8 +60,8 @@
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
 </script>
+<script src="./js/sha1.js"></script>
 <script src="//wximg.qq.com/wxp/libs/wxmoment/0.0.4/wxmoment.min.js"></script>
-<script src="//cdn.bootcss.com/inobounce/0.1.4/inobounce.min.js"></script>
 <script src="./js/vendor/require/require.js"></script>
 <script>
     requirejs(['js/main.js'], function (main) {

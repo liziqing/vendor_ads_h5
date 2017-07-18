@@ -84,21 +84,12 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 6;
 }
 .page1 .wrapper .video {
   width: 100%;
   height: 100%;
   object-fit: fill;
-}
-.page1 .mute {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 0.3rem;
-  right: 0.3rem;
-  z-index: 6;
-  color: #FFF;
 }
 .page1 .continue {
   width: 2rem;
@@ -263,6 +254,15 @@ body {
   top: 11vh;
   right: 1rem;
   font-size: 0.5rem;
+}
+.mute {
+  width: 0.5rem;
+  height: 0.5rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  z-index: 7;
+  color: #FFF;
 }
 .btn {
   width: 1.84rem;

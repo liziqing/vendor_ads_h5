@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./css/animate.css">
 </head>
 <body>
+<img class="mute" src="./img/play.png">
 <section class="page3">
     <textarea rows="9" id="letter"></textarea>
     <div class="btn confirm-btn" id="confirm">确定</div>
@@ -43,7 +44,7 @@
 <div class="weui_mask none">
     <img src="./img/share.png" class="share">
 </div>
-
+<audio id="audio" autoplay preload loop="loop" src="./media/bgm.mp3"></audio>
 <script>
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -59,7 +60,7 @@
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
 </script>
-<script src="//cdn.bootcss.com/inobounce/0.1.4/inobounce.min.js"></script>
+<script src="./js/sha1.js"></script>
 <script src="./js/vendor/require/require.js"></script>
 <script>
     requirejs(['js/main.js'], function (main) {
