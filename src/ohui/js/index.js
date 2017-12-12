@@ -11,17 +11,17 @@ $(function () {
         navigationPosition: 'right',
         onLeave: function (index, nextIndex, direction) {
             if (nextIndex === 5) {
-                $('.scroll-img img').animate({marginTop: '-870px'}, 5000);
+                $('.scroll-img img').animate({marginTop: '-870px'}, 11000);
             } else {
                 $('.scroll-img img').css('margin-top', '0');
             }
 
             if (nextIndex === 9) {
-                $('.img9-1').fadeOut(3000);
+                $('.img9-1').fadeOut(6000);
                 $('.arrow').hide();
                 timer = setTimeout(function () {
                     $('.img9-2').fadeIn(2000);
-                }, 3000);
+                }, 6000);
             } else {
                 clearTimeout(timer);
                 $('.img9-1').show(400);
@@ -114,7 +114,7 @@ $(function () {
                 wx.onMenuShareTimeline({
                     title: '欧蕙20年 为你带来惊喜改变', //分享标题
                     link: window.location.href, //分享链接
-                    imgUrl: 'http://h5.vendor.qnmami.com/ohui/img/share.png', //分享图标
+                    imgUrl: 'http://h5.vendor.qnmami.com/ohui/img/share.jpg', //分享图标
                     success: function () {
                         //用户确认分享后执行的回调函数
 
@@ -130,7 +130,7 @@ $(function () {
                     title: '欧蕙20年 为你带来惊喜改变', //分享标题
                     desc: '开启植物邂逅科学的护肤之旅', //分享描述
                     link: window.location.href, //分享链接
-                    imgUrl: 'http://h5.vendor.qnmami.com/ohui/img/share.png', //分享图标
+                    imgUrl: 'http://h5.vendor.qnmami.com/ohui/img/share.jpg', //分享图标
                     type: '', //分享类型,music、video或link，不填默认为link
                     dataUrl: '', //如果type是music或video，则要提供数据链接，默认为空
                     success: function () {
