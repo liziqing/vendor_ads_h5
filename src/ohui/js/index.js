@@ -7,7 +7,7 @@ $(function () {
     $('#fullpage').fullpage({
         verticalCentered: true,
         css3: true,
-        navigation: true,
+        navigation: false,
         navigationPosition: 'right',
         onLeave: function (index, nextIndex, direction) {
             if (nextIndex === 5) {
