@@ -76,7 +76,7 @@ $(function () {
     // 微信分享
     $.ajax({
         type: 'GET',
-        url: 'http://api.vendor.qnmami.com/weixin/ksf-sig',
+        url: 'http://api.vendor.qnmami.com/weixin/sig?alias=ohui',
         data: {
             url: encodeURIComponent(window.location.href),
             format: 'jsonp'
@@ -90,7 +90,7 @@ $(function () {
 
             wx.config({
                 debug: false,
-                appId: 'wx8e56a8ebb0688ab9',
+                appId: 'wxc9e38adf6b9814cd',
                 timestamp: timestamp,
                 nonceStr: nonceStr,
                 signature: signature,
