@@ -76,7 +76,7 @@ $(function () {
     // 微信分享
     $.ajax({
         type: 'GET',
-        url: 'http://api.vendor.qnmami.com/weixin/sig?alias=ohui',
+        url: 'http://api.net-show.cn/weixin/sig?alias=ohui',
         data: {
             url: encodeURIComponent(window.location.href),
             format: 'jsonp'
@@ -90,7 +90,7 @@ $(function () {
 
             wx.config({
                 debug: false,
-                appId: 'wxc9e38adf6b9814cd',
+                appId: 'wx7065e65fe41e4ea0',
                 timestamp: timestamp,
                 nonceStr: nonceStr,
                 signature: signature,
