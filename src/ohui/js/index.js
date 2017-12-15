@@ -90,7 +90,7 @@ $(function () {
 
             wx.config({
                 debug: false,
-                appId: 'wx7065e65fe41e4ea0',
+                appId: 'wxc9e38adf6b9814cd',
                 timestamp: timestamp,
                 nonceStr: nonceStr,
                 signature: signature,
