@@ -122,7 +122,7 @@ gulp.task('godiva_watch', gulp.series('godiva_babel', function() {
 
 /*-----------------------build------------------------*/
 gulp.task('godiva_build',
-    gulp.series('godiva_clean',
+    gulp.series(
         gulp.parallel('godiva_copy', 'godiva_imgmin', 'godiva_usemin'),
         'godiva_cssmin', 'godiva_uglify',
         'godiva_htmlmin'
