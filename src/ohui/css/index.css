@@ -38,13 +38,18 @@ main {
     margin-top: 0;
 }
 
-.section6 {
-    background: url("../img/6_bg.png");
-    background-size: 100% 100%;
+.img6-1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .img6 {
-    margin-top: 670px;
+    /*margin-top: 670px;*/
+    margin-top: 89%;
     animation-duration: 4s;
 }
 
