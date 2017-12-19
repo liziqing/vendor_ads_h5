@@ -1,7 +1,7 @@
 $(function () {
-    var bgm = document.getElementById('audio'); // 背景音乐
+    // var bgm = document.getElementById('audio'); // 背景音乐
     var timer;
-    audioAutoPlay(bgm);
+    // audioAutoPlay(bgm);
 
 
     $('#fullpage').fullpage({
